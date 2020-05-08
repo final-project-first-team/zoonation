@@ -5,7 +5,7 @@ import Paper from "@material-ui/core/Paper";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
-  root: {
+  base: {
     flexGrow: 1,
     height: "100%",
   },
@@ -32,15 +32,14 @@ const useStyles = makeStyles((theme) => ({
     lineHeight: "44px",
     textAlign: "right",
     padding: "30px",
-    backgroundColor: "transparent",
+    backgroundColor: "yellow",
     alignSelf: "flex-end",
   },
   flexing: {
-    // display: 'flex',
-    // flexDirection: 'column',
-    // justifyContent: 'space-between',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
     minHeight: "100%",
-    backgroundColor: "'yellow",
   },
 }));
 
@@ -49,7 +48,7 @@ export default function Body() {
 
   return (
     <div className="background-image">
-      <div className={classes.root}>
+      <div className={classes.base}>
         <div className={classes.flexing}>
           <Grid container>
             <Grid item xs={12}>
@@ -63,6 +62,7 @@ export default function Body() {
 
           <Grid container>
             <Grid item xs={6}>
+          {/* Ganti codingan yg ini kak */}
               <Paper elevation={0} className={classes.text2}>
                 Meet and Feed
                 <br />
@@ -71,6 +71,8 @@ export default function Body() {
                 From Your Screen.
               </Paper>
             </Grid>
+
+
             <Grid item xs={6}>
               <Paper elevation={0} className={classes.text2}>
                 Meet and Feed
