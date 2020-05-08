@@ -1,0 +1,30 @@
+/* BODY */
+.background-image {
+    background: url(./homepage.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.8;
+    height: 100vh;
+}
+
+.text-1 {
+font-family: Fredoka One;
+font-style: normal;
+font-weight: normal;
+font-size: 28px;
+line-height: 44px;
+text-align: right;
+}
+
+.text-2 {
+    height: 200px;
+    background-color: blue;
+}
+
+
+/* FOOTER */
+ion-icon {
+    color: #6C5434;
+}
+
