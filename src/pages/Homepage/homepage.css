@@ -1,6 +1,6 @@
 /* BODY */
 .background-image {
-    background: url(./homepage.jpg);
+    background: url(../../assets/media/homepage.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
