@@ -4,6 +4,7 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuIcon from "@material-ui/icons/Menu";
 import Divider from "@material-ui/core/Divider";
+import { makeStyles } from "@material-ui/core/styles";
 
 export default function SimpleMenu() {
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -15,6 +16,33 @@ export default function SimpleMenu() {
     const handleClose = () => {
         setAnchorEl(null);
     };
+
+    const useStyles = makeStyles((theme) => ({
+        root: {
+          flexGrow: 1,
+        },
+        menuButton: {
+          marginRight: theme.spacing(2),
+          color: "#6C5434",
+        },
+        title: {
+          flexGrow: 1,
+          fontFamily: "Damion, cursive",
+          color: "#6C5434",
+        },
+        zoonations: {
+          flexGrow: 1,
+          fontFamily: "Montserrat Subrayada, sans-serif",
+          color: "#6C5434",
+        },
+        fredokaFont: {
+          flexGrow: 1,
+          fontFamily: "Fredoka One, cursive",
+          color: "#6C5434",
+        },
+      }));
+
+      const classes = useStyles();
 
     return (
         <div>
@@ -28,13 +56,13 @@ export default function SimpleMenu() {
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
             >
-                <MenuItem onClick={handleClose}>Become a Member</MenuItem>
-                <MenuItem onClick={handleClose}>Sign In</MenuItem>
+                <MenuItem className={classes.fredokaFont} onClick={handleClose}>Become a Member</MenuItem>
+                <MenuItem className={classes.fredokaFont} onClick={handleClose}>Sign In</MenuItem>
                 <Divider />
-                <MenuItem onClick={handleClose}>Zoos and Conservation</MenuItem>
-                <MenuItem onClick={handleClose}>Our Animals</MenuItem>
-                <MenuItem onClick={handleClose}>Animals News</MenuItem>
-                <MenuItem onClick={handleClose}>About Us</MenuItem>
+                <MenuItem className={classes.title} onClick={handleClose}>Zoos and Conservation</MenuItem>
+                <MenuItem className={classes.title} onClick={handleClose}>Our Animals</MenuItem>
+                <MenuItem className={classes.title} onClick={handleClose}>Animals News</MenuItem>
+                <MenuItem className={classes.title} onClick={handleClose}>About Us</MenuItem>
             </Menu>
         </div>
     );
