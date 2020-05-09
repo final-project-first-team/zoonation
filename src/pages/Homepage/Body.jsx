@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
     lineHeight: "44px",
     textAlign: "right",
     padding: "30px",
-    backgroundColor: "red",
+    backgroundColor: "transparent",
   },
   text2: {
     fontFamily: "Fredoka One",
@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
     lineHeight: "44px",
     textAlign: "right",
     padding: "30px",
-    backgroundColor: "yellow",
+    backgroundColor: "transparent",
     alignSelf: "flex-end",
   },
   flexing: {
