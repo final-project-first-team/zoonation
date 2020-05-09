@@ -1,14 +1,14 @@
 import React from "react";
 
 import AppBar from "../Components/AppBar";
-import BodyAdoptionInfo from "./BodyAdoptionInfo";
+import BodyRedeemPoints from "./BodyRedeemPoints"
 import Footer from "../Components/Footer";
 
-export default function AdoptionInfo() {
+export default function RedeemPoints() {
   return (
     <>
       <AppBar /> 
-      <BodyAdoptionInfo />
+      <BodyRedeemPoints />
       <Footer />
     </>
   );
