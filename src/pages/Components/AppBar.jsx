@@ -8,6 +8,7 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import Link from '@material-ui/core/Link';
 
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -48,22 +49,22 @@ export default function ButtonAppBar() {
           </Typography>
           <Typography variant="h6" className={classes.title}>
             <Link color="inherit" href="#">
-            Zoos and Conservations
+              Zoos and Conservations
             </Link>
           </Typography>
           <Typography variant="h6" className={classes.title}>
             <Link color="inherit" href="#">
-            Our Animals
+              Our Animals
             </Link>
           </Typography>
           <Typography variant="h6" className={classes.title}>
             <Link color="inherit" href="#">
-            Animals News
+              Animals News
             </Link>
           </Typography>
           <Typography variant="h6" className={classes.title}>
             <Link color="inherit" href="#">
-            About Us
+              About Us
             </Link>
           </Typography>
           <Button color="inherit" className={classes.fredokaFont}>Become A Member</Button>
