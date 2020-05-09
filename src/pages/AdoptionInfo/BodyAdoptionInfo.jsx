@@ -120,61 +120,23 @@ export default function BodyProfileInfo() {
                     </div>
                 </Grid>
 
-                
                 <Grid item lg={7} md={7} xs={12} style={{margin: '25px'}} >
                     <Container maxWidth="sm">
-                            <Typography variant="h5"
-                                style={{fontFamily: 'Fredoka One, cursive',
-                                textAlign: 'left'}}>
-                                Profile Info
-                            </Typography>
-                        <form>
-                        <TextField id="filled-basic" 
-                            label="Full Name" 
-                            variant="filled"
-                            fullWidth
-                            disabled
-                            className={classes.margin} />
-
-                        <TextField id="filled-basic" 
-                            label="Email" 
-                            variant="filled"
-                            fullWidth
-                            disabled
-                            className={classes.margin} />
-
-                        <TextField id="filled-basic" 
-                            label="Password" 
-                            variant="filled"
-                            fullWidth
-                            disabled
-                            className={classes.margin} />
-                        </form>
-
-                        <Button variant="contained"
-                            style={{fontFamily: 'Fredoka One, cursive',
-                                background: '#D0C89E'}}
-                                className={classes.margin}>
-                            Edit Data
-                        </Button>
-
                         <Typography variant="h5"
-                                style={{fontFamily: 'Fredoka One, cursive',
+                            style={{fontFamily: 'Fredoka One, cursive',
+                            textAlign: 'left'}}>
+                            Adoption Info
+                        </Typography>
+                    <form>
+                    <div style={{fontFamily: 'Fredoka One, cursive',
+                                background: '#D0C89E',
                                 textAlign: 'left'}}>
-                                Feeding History
-                            </Typography>
-                        <div style={{fontFamily: 'Fredoka One, cursive',
-                                textAlign: 'left'}}>
-                            <ul>
-                                <li>One</li>
-                                <li>Two</li>
-                                <li>Three</li>
-                            </ul>
-                        </div>
+                        <p>Here's your animals doing. They're happy and healthy because of you!</p>
+                    </div>
+                    </form>
+
                     </Container>
                 </Grid>
-    
-            </div>     
+            </div>
         )
     }
-    
