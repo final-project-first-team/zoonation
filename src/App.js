@@ -8,6 +8,8 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Homepage from './pages/Homepage';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
+// import ProfileInfo from "./pages/Profile"
+import PrivateRoute from './assets/helper/PrivateRoute';
 
 function App() {
 	return (
@@ -17,6 +19,7 @@ function App() {
 					<Route exact path="/" component={Homepage} />
 					<Route path="/sign-in" component={SignIn} />
 					<Route path="/sign-up" component={SignUp} />
+					{/* <PrivateRoute path ="/profile" component={ProfileInfo} /> */}
 				</Switch>
 			</Router>
 		</div>
