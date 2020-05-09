@@ -1,5 +1,5 @@
-import React, { Fragment } from "react";
-// import CSS from './homepage.css';
+import React, { /* Fragment */ } from "react";
+import './homepage.css';
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import { makeStyles } from "@material-ui/core/styles";

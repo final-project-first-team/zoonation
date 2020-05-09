@@ -19,30 +19,23 @@ export default function SimpleMenu() {
 
     const useStyles = makeStyles((theme) => ({
         root: {
-          flexGrow: 1,
-        },
-        menuButton: {
-          marginRight: theme.spacing(2),
-          color: "#6C5434",
+            flexGrow: 1,
         },
         title: {
-          flexGrow: 1,
-          fontFamily: "Damion, cursive",
-          color: "#6C5434",
-        },
-        zoonations: {
-          flexGrow: 1,
-          fontFamily: "Montserrat Subrayada, sans-serif",
-          color: "#6C5434",
+            flexGrow: 1,
+            fontFamily: "Damion, cursive",
+            color: "#6C5434",
+            backgroundColor: '#60B6D1',
         },
         fredokaFont: {
-          flexGrow: 1,
-          fontFamily: "Fredoka One, cursive",
-          color: "#6C5434",
+            flexGrow: 1,
+            fontFamily: "Fredoka One, cursive",
+            color: "#6C5434",
+            backgroundColor: '#60B6D1',
         },
-      }));
+    }));
 
-      const classes = useStyles();
+    const classes = useStyles();
 
     return (
         <div>
