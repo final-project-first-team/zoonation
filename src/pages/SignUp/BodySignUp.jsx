@@ -1,4 +1,5 @@
 import React from 'react';
+
 import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
 import Link from '@material-ui/core/Link';
@@ -7,10 +8,6 @@ import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
-
-// NOTE:
-// LINK EMAIL DAN PASSWORD MASIH DEFAULT BIRU KALO DI KLIK. ENTAH HARUS GANTI DIMANA
-// UDAH RESPONSIVE, TAPI BELUM TERLALU ENAK DILIAT, MOHON REVISI KALO ADA YANG BISA. DI CSS PAPER.
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -36,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
 	}
 }));
 
-export default function BodySignIn() {
+export default function BodySignUp() {
 	const classes = useStyles();
 
 	return (

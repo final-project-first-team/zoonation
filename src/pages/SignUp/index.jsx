@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+
+import Appbar from '../Components/AppBar';
+import Body from './BodySignUp';
+import Footer from '../Components/Footer';
 
 export default function SignUp() {
-    return (
-        <>
-        <h1></h1>
-        </>
-    )
+	return (
+		<Fragment>
+			<Appbar />
+			<Body />
+			<Footer />
+		</Fragment>
+	);
 }
