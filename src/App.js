@@ -12,7 +12,7 @@ import SignUp from './pages/SignUp';
 import PrivateRoute from './assets/helper/PrivateRoute';
 // import SignUp from "./pages/SignUp";
 import ProfileInfo from './pages/ProfileInfo';
-import AdoptionInfo from './pages/AdoptionInfo';
+// import AdoptionInfo from './pages/AdoptionInfo';
 // import RedeemPoints from './pages/RedeemPoints';
 
 function App() {

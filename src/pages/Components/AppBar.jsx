@@ -44,11 +44,6 @@ export default function ButtonAppBar() {
 					<Typography variant="h4" className={classes.zoonations}>
 						ZOONATIONS
 					</Typography>
-					{/* <Typography variant="h6" className={classes.title}>
-            <Link color="inherit" href="#">
-              Zoos and Conservations
-            </Link>
-          </Typography> */}
 					<Hidden mdDown>
 						<Typography variant="h6" className={classes.title}>
 							<Link color="inherit" href="#">
