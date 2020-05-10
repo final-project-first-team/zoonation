@@ -8,6 +8,7 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import Link from '@material-ui/core/Link';
 import Hidden from '@material-ui/core/Hidden';
+import Menu from './Menu';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -77,7 +78,7 @@ export default function ButtonAppBar() {
 					</Hidden>
 					<Hidden lgUp>
 						<IconButton edge="start" className={classes.menuButton} aria-label="menu">
-							<MenuIcon />
+							<Menu />
 						</IconButton>
 					</Hidden>
 				</Toolbar>

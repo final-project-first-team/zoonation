@@ -1,8 +1,16 @@
+<<<<<<< HEAD
 import React /* Fragment */ from 'react';
 import './homepage.css';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
+=======
+import React, { /* Fragment */ } from "react";
+import './homepage.css';
+import Grid from "@material-ui/core/Grid";
+import Paper from "@material-ui/core/Paper";
+import { makeStyles } from "@material-ui/core/styles";
+>>>>>>> 740a0e51d670440b12927e01d513d9d780a21172
 
 const useStyles = makeStyles((theme) => ({
 	base: {

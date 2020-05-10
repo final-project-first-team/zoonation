@@ -11,6 +11,9 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import { Formik } from 'formik';
 import Hidden from '@material-ui/core/Hidden';
 
+import { useDispatch } from 'react-redux';
+import { getUser } from '../../assets/redux/actions/registerAction';
+
 // NOTE:
 // LINK EMAIL DAN PASSWORD MASIH DEFAULT BIRU KALO DI KLIK. ENTAH HARUS GANTI DIMANA
 // UDAH RESPONSIVE, TAPI BELUM TERLALU ENAK DILIAT, MOHON REVISI KALO ADA YANG BISA. DI CSS PAPER.
@@ -43,6 +46,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function BodySignIn() {
 	const classes = useStyles();
+	const dispatch = useDispatch();
 
 	return (
 		<div className={classes.root} style={{ background: '#ECE4BA' }}>
@@ -132,6 +136,7 @@ export default function BodySignIn() {
 										return errors;
 									}}
 									onSubmit={(values) => {
+										dispatch(getUser());
 										alert(JSON.stringify(values));
 									}}
 								>
