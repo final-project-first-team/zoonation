@@ -10,6 +10,10 @@ import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 // import ProfileInfo from "./pages/Profile"
 import PrivateRoute from './assets/helper/PrivateRoute';
+// import SignUp from "./pages/SignUp";
+import ProfileInfo from './pages/ProfileInfo';
+import AdoptionInfo from './pages/AdoptionInfo';
+// import RedeemPoints from './pages/RedeemPoints';
 
 function App() {
 	return (
@@ -19,7 +23,7 @@ function App() {
 					<Route exact path="/" component={Homepage} />
 					<Route path="/sign-in" component={SignIn} />
 					<Route path="/sign-up" component={SignUp} />
-					{/* <PrivateRoute path ="/profile" component={ProfileInfo} /> */}
+					<PrivateRoute path="/profile" component={ProfileInfo} />
 				</Switch>
 			</Router>
 		</div>
