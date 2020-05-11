@@ -1,32 +1,27 @@
 import React from 'react';
 import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
-// import Link from '@material-ui/core/Link';
-import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import { Formik } from 'formik';
 import Hidden from '@material-ui/core/Hidden';
+import Grid from '@material-ui/core/Grid';
 
+import { Formik } from 'formik';
+import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { getUser } from '../../assets/redux/actions/registerAction';
 
-// NOTE:
-// LINK EMAIL DAN PASSWORD MASIH DEFAULT BIRU KALO DI KLIK. ENTAH HARUS GANTI DIMANA
-// UDAH RESPONSIVE, TAPI BELUM TERLALU ENAK DILIAT, MOHON REVISI KALO ADA YANG BISA. DI CSS PAPER.
-
 const useStyles = makeStyles((theme) => ({
 	root: {
-		// INI CSS SI BODY UTAMA YANG KUNING ITU
+		background: '#ECE4BA',
 		height: '100%',
 		submit: {
 			borderRadius: '10px'
 		}
 	},
-	pap: {
+	base: {
 		display: 'flex',
 		height: '100%',
 		alignItems: 'center',
@@ -49,8 +44,8 @@ export default function BodySignIn() {
 	const dispatch = useDispatch();
 
 	return (
-		<div className={classes.root} style={{ background: '#ECE4BA' }}>
-			<Paper className={classes.pap}>
+		<div className={classes.root}>
+			<Paper className={classes.base}>
 				<Grid container justify="center">
 					<Grid item lg={4}>
 						<Hidden mdDown>
@@ -144,7 +139,7 @@ export default function BodySignIn() {
 											<form className={classes.form} noValidate onSubmit={handleSubmit}>
 												<TextField
 													variant="outlined"
-													margin="normal"
+													margin="dense"
 													required
 													fullWidth
 													id="email"
@@ -153,10 +148,11 @@ export default function BodySignIn() {
 													autoComplete="email"
 													onChange={handleChange}
 													values={values.email}
+													size="small"
 												/>
 												<TextField
 													variant="outlined"
-													margin="normal"
+													margin="dense"
 													required
 													fullWidth
 													name="password"
@@ -166,6 +162,7 @@ export default function BodySignIn() {
 													autoComplete="current-password"
 													onChange={handleChange}
 													values={values.password}
+													size="small"
 												/>
 												<Button
 													type="submit"
@@ -176,7 +173,8 @@ export default function BodySignIn() {
 													style={{
 														borderRadius: '3px',
 														fontFamily: 'Roboto, sans-serif',
-														backgroundColor: '#60B6D1'
+														backgroundColor: '#60B6D1',
+														marginTop: '5%'
 													}}
 												>
 													Sign In
@@ -189,7 +187,9 @@ export default function BodySignIn() {
 									<br />
 									<Typography component="h3" variant="subtitle1" style={{ paddingTop: '0' }}>
 										<i>Not A Member Yet? </i>
-										<a href="#">Join us here</a>
+										<Link to="/sign-up">
+											<i>Join Us here</i>
+										</Link>
 									</Typography>
 								</Hidden>
 							</Grid>
