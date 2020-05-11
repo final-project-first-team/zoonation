@@ -52,7 +52,7 @@ export default function BodySignIn() {
 		<div className={classes.root} style={{ background: '#ECE4BA' }}>
 			<Paper className={classes.pap}>
 				<Grid container justify="center">
-					<Grid item>
+					<Grid item lg={4}>
 						<Hidden mdDown>
 							<Paper className={classes.paper}>
 								<Grid container direction="column">
@@ -89,11 +89,10 @@ export default function BodySignIn() {
 							</Paper>
 						</Hidden>
 					</Grid>
-					<Grid item>
+					<Grid item lg={4}>
 						<Paper className={classes.paper}>
 							<CssBaseline />
-
-							<div style={{ marginTop: '0px' }}>
+							<Grid container direction="column">
 								<Hidden lgUp>
 									<Typography
 										component="h1"
@@ -186,7 +185,14 @@ export default function BodySignIn() {
 										);
 									}}
 								</Formik>
-							</div>
+								<Hidden lgUp>
+									<br />
+									<Typography component="h3" variant="subtitle1" style={{ paddingTop: '0' }}>
+										<i>Not A Member Yet? </i>
+										<a href="#">Join us here</a>
+									</Typography>
+								</Hidden>
+							</Grid>
 						</Paper>
 					</Grid>
 				</Grid>
