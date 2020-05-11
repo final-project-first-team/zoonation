@@ -12,6 +12,8 @@ import Grid from '@material-ui/core/Grid';
 
 import { Formik } from 'formik';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { addUser } from '../../assets/redux/actions/registerAction';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -41,6 +43,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function BodySignUp() {
 	const classes = useStyles();
+	const dispatch = useDispatch();
 
 	return (
 		<div className={classes.root}>
@@ -92,8 +95,9 @@ export default function BodySignUp() {
 
 										return errors;
 									}}
-									onSubmit={(values) => {
-										alert(JSON.stringify(values));
+									onSubmit={ async (values) => {
+										await dispatch(addUser(values))
+										await alert(JSON.stringify(values));
 									}}
 								>
 									{({ handleChange, handleSubmit, values, isSubmitting, errors, touched }) => {

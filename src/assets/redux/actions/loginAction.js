@@ -4,7 +4,7 @@ const apiUrl = process.env.REACT_APP_API_URL
 
 export const loginUser = (values) => {
     return (dispatch) => {
-        return axios.post(`${apiUrl}/login`, values)
+        return axios.post(`${apiUrl}/users/login`, values)
             .then(response => {
                 dispatch(loginSuccess(response.data))
             })
