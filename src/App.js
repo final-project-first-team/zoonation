@@ -22,11 +22,12 @@ function App() {
 		<div className="App">
 			<Router>
 				<Switch>
-					<Route exact path="/" component={OurAnimals} />
+					<Route exact path="/" component={Homepage} />
 					<Route path="/sign-in" component={SignIn} />
 					<Route path="/sign-up" component={SignUp} />
 					<PrivateRoute path="/profile" component={ProfileInfo} />
 					<Route path="/animal-info" component={AnimalInfo} />
+					<Route path="/our-animals" component={OurAnimals} />
 				</Switch>
 			</Router>
 		</div>

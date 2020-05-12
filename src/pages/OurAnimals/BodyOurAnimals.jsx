@@ -70,15 +70,11 @@ export default function BodyOurAnimals() {
                         style={{textAlign: 'right'}}>
                             <Button 
                             style={{background: '#C4C4C4',
-                            borderRadius: '30px',
+                            borderRadius: '10px',
                             fontFamily: 'Fredoka One',
                             color: '#6C5434'}}>
-                            To help
-                            <br />
-                            the animals and 
-                            <br />
-                            the zoos,
-                            <br />
+                            To help the animals and the zoos,
+                            <br/>
                             click here!
                             </Button>
                         </Grid>
