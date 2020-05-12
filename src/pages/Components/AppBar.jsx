@@ -66,7 +66,7 @@ export default function ButtonAppBar() {
 											</Link>
 										</Grid>
 										<Grid item>
-											<Link to="#" style={{ textDecoration: 'none' }}>
+											<Link to="/our-animals" style={{ textDecoration: 'none' }}>
 												<Typography variant="h6" className={classes.title}>
 													Our Animals
 												</Typography>
