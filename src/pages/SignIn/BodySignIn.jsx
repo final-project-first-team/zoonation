@@ -64,22 +64,6 @@ export default function BodySignIn() {
 										The Animals are excited for you to visit them again!
 									</Typography>
 									<br />
-									<Typography component="h3" variant="subtitle1" style={{ paddingTop: '8px' }}>
-										<i>Not A Member Yet?</i>
-									</Typography>
-									<Button
-										type="submit"
-										fullWidth
-										variant="contained"
-										color="inherit"
-										style={{
-											borderRadius: '3px',
-											fontFamily: 'Roboto, sans-serif',
-											backgroundColor: '#60B6D1'
-										}}
-									>
-										Click Here to Join Us
-									</Button>
 								</Grid>
 							</Paper>
 						</Hidden>
@@ -129,7 +113,7 @@ export default function BodySignIn() {
 
 										return errors;
 									}}
-									onSubmit={ async (values) => {
+									onSubmit={async (values) => {
 										await dispatch(loginUser(values));
 										await alert(JSON.stringify(values));
 									}}
@@ -179,19 +163,27 @@ export default function BodySignIn() {
 												>
 													Sign In
 												</Button>
+												<Typography
+													component="h3"
+													variant="subtitle2"
+													style={{ paddingTop: '8px' }}
+												>
+													<i>Not A Member Yet?</i>
+												</Typography>
+												<Link
+													color="inherit"
+													style={{
+														fontFamily: 'Roboto, sans-serif',
+														color: '#6C5434'
+													}}
+													to="./sign-up"
+												>
+													Click Here to Join Us
+												</Link>
 											</form>
 										);
 									}}
 								</Formik>
-								<Hidden lgUp>
-									<br />
-									<Typography component="h3" variant="subtitle1" style={{ paddingTop: '0' }}>
-										<i>Not A Member Yet? </i>
-										<Link to="/sign-up">
-											<i>Join Us here</i>
-										</Link>
-									</Typography>
-								</Hidden>
 							</Grid>
 						</Paper>
 					</Grid>

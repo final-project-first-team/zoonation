@@ -4,8 +4,10 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import { Typography } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
+import Link from '@material-ui/core/Link';
 
 import CardMapping from '../Components/CardMapping';
+import SearchBar from '../Components/SearchBar';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { getAnimals } from '../../assets/redux/actions/animalsAction';
@@ -17,7 +19,7 @@ const useStyle = makeStyles((theme) => ({
 		flexWrap: 'wrap',
 		height: 'auto',
 		width: 'auto',
-		alignItems: 'flex-start',
+		alignItems: 'center',
 		textAlign: 'center',
 		flexDirection: 'row'
 	},
@@ -29,25 +31,27 @@ const useStyle = makeStyles((theme) => ({
 	},
 	ourAnimals: {
 		display: 'flex',
-		textAlign: 'left',
+		textAlign: 'center',
 		fontSize: '44px',
 		fontFamily: 'Fredoka One',
 		color: '#6C5434',
 		marginTop: theme.spacing(10),
-		marginLeft: theme.spacing(1)
 	},
-
 	serachAndButton: {
 		display: 'flex',
-		flexDirection: 'row',
-		flexGrow: 1,
+        flexDirection: 'column',
+        
 		textAlign: 'left',
 		margin: theme.spacing(3)
 	},
-
 	margin: {
-		margin: theme.spacing(2)
-	}
+		margin: theme.spacing(3)
+    },
+    toHelp: {
+        fontFamily: 'Lemonada',
+        color: '#6C5434',
+        cursor: 'pointer',
+    }
 }));
 
 export default function BodyOurAnimals() {
@@ -61,30 +65,20 @@ export default function BodyOurAnimals() {
 
 	return (
 		<div className={classes.root} style={{ background: '#ECE4BA' }}>
-			<Grid container maxWidth="lg">
-				<Grid item lg={12} md={12} sm={12}>
+			<Grid container justify="center" spacing={1}>
 					<Typography className={classes.ourAnimals}>Our Animals</Typography>
-				</Grid>
 
-				<div className={classes.serachAndButton}>
-					<Grid item lg={6} md={6} sm={6}>
-						<Button>Search Box</Button>
-					</Grid>
-					<Grid item lg={6} md={6} sm={6} style={{ textAlign: 'right' }}>
-						<Button
-							style={{
-								background: '#C4C4C4',
-								borderRadius: '10px',
-								fontFamily: 'Fredoka One',
-								color: '#6C5434'
-							}}
-						>
+                    <Grid container justify="center" spacing={1} maxWidth="sm">
+                        <SearchBar />   
+                    </Grid>
+                
+                <Grid container justify="center" spacing={1}>
+						<Typography className={classes.toHelp}>
 							To help the animals and the zoos,
 							<br />
-							click here!
-						</Button>
+							<Link color="inherit"><b>click here!</b></Link>
+                        </Typography>
 					</Grid>
-				</div>
 
 				<Grid container className={classes.margin} justify="center" spacing={2}>
 					{animalsData.length !== 0 ? (
@@ -92,11 +86,6 @@ export default function BodyOurAnimals() {
 							return <CardMapping animals={_animals} />;
 						})
 					) : null}
-					{/* <CardMapping /> */}
-					{/* {animalsData.data.map((_animals) => {
-                        return (
-                        )
-					})} */}
 				</Grid>
 			</Grid>
 		</div>

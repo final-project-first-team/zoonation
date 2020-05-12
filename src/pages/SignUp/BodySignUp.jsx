@@ -165,10 +165,11 @@ export default function BodySignUp() {
 								</Formik>
 								<Hidden lgUp>
 									<br />
-									<Typography component="h3" variant="subtitle1" style={{ paddingTop: '0' }}>
+									<Typography component="h3" variant="subtitle2" style={{ paddingTop: '0' }}>
 										<i>Already A Member? </i>
+										<br />
 										<Link to="/sign-in">
-											<i>Sign In here</i>
+											<i>Click Here to Sign In</i>
 										</Link>
 									</Typography>
 								</Hidden>
@@ -200,7 +201,7 @@ export default function BodySignUp() {
 											<li>Get a chance to adopt and take care various animals</li>
 										</ul>
 									</Typography>
-									<Typography component="h3" variant="subtitle1" style={{ paddingTop: '8px' }}>
+									<Typography component="h3" variant="subtitle2" style={{ paddingTop: '8px' }}>
 										<i>Already A Member?</i>
 									</Typography>
 									<Button

@@ -11,7 +11,8 @@ import Grid from '@material-ui/core/Grid';
 
 const useStyles = makeStyles({
 	root: {
-		maxWidth: 345
+		minWidth: 350,
+		borderRadius: '5px'
 	},
 	media: {
 		height: 140
@@ -32,18 +33,30 @@ export default function CardMapping(props) {
 						title={props.animals.scientificName}
 					/>
 					<CardContent>
-						<Typography gutterBottom variant="h5" component="h2">
+						<Typography
+							gutterBottom
+							variant="h5"
+							component="h2"
+							style={{
+								fontFamily: 'Fredoka One',
+								background: '#AAE787',
+								color: '#6C5434',
+								borderRadius: '5px'
+							}}
+						>
 							{props.animals.name}
 						</Typography>
 					</CardContent>
 				</CardActionArea>
 				<CardActions>
-					<Button size="small" color="primary">
-						Flip
-					</Button>
-					<Button size="small" color="primary">
-						Learn More
-					</Button>
+					<Grid container justify="center">
+						<Button size="small" color="inherit" style={{ fontFamily: 'roboto', color: '#6C5434' }}>
+							Flip
+						</Button>
+						<Button size="small" color="inherit" style={{ fontFamily: 'roboto', color: '#6C5434' }}>
+							Learn More
+						</Button>
+					</Grid>
 				</CardActions>
 			</Card>
 		</Grid>
