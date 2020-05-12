@@ -14,6 +14,7 @@ import PrivateRoute from './assets/helper/PrivateRoute';
 import ProfileInfo from './pages/ProfileInfo';
 // import AdoptionInfo from './pages/AdoptionInfo';
 // import RedeemPoints from './pages/RedeemPoints';
+import AnimalInfo from './pages/AnimalsInfo';
 
 function App() {
 	return (
@@ -24,6 +25,7 @@ function App() {
 					<Route path="/sign-in" component={SignIn} />
 					<Route path="/sign-up" component={SignUp} />
 					<PrivateRoute path="/profile" component={ProfileInfo} />
+					<Route path="/animal-info" component={AnimalInfo} />
 				</Switch>
 			</Router>
 		</div>
