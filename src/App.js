@@ -14,13 +14,14 @@ import PrivateRoute from './assets/helper/PrivateRoute';
 import ProfileInfo from './pages/ProfileInfo';
 // import AdoptionInfo from './pages/AdoptionInfo';
 // import RedeemPoints from './pages/RedeemPoints';
+import OurAnimals from "./pages/OurAnimals";
 
 function App() {
 	return (
 		<div className="App">
 			<Router>
 				<Switch>
-					<Route exact path="/" component={Homepage} />
+					<Route exact path="/" component={OurAnimals} />
 					<Route path="/sign-in" component={SignIn} />
 					<Route path="/sign-up" component={SignUp} />
 					<PrivateRoute path="/profile" component={ProfileInfo} />
