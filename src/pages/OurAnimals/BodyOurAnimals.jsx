@@ -17,7 +17,7 @@ const useStyle = makeStyles((theme) => ({
 		// CSS BODY
 		display: 'flex',
 		flexWrap: 'wrap',
-		height: 'auto',
+		height: '100vh',
 		width: 'auto',
 		alignItems: 'center',
 		textAlign: 'center',
@@ -64,14 +64,14 @@ export default function BodyOurAnimals() {
 
 	return (
 		<div className={classes.root} style={{ background: '#ECE4BA' }}>
-			<Grid container justify="center" spacing={1}>
+			<Grid container justify="center">
 				<Typography className={classes.ourAnimals}>Our Animals</Typography>
 
-				<Grid container justify="center" spacing={1} maxWidth="sm">
+				<Grid container justify="center" maxWidth="sm">
 					<SearchBar />
 				</Grid>
 
-				<Grid container justify="center" spacing={1}>
+				<Grid container justify="center">
 					<Typography className={classes.toHelp}>
 						To help the animals and the zoos,
 						<br />

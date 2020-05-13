@@ -13,11 +13,11 @@ import { getZoos } from '../../assets/redux/actions/zooActions';
 
 const useStyles = makeStyles((theme) => ({
     root: {
+        //CSS BODY
         display: 'flex',
         flexWrap: 'wrap',
         justifyContent: 'space-around',
         overflow: 'hidden',
-        // backgroundColor: theme.palette.background.paper,
         height: '100vh',
         width: 'auto',
         alignItems: 'center',
