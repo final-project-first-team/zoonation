@@ -16,6 +16,7 @@ import ProfileInfo from './pages/ProfileInfo';
 // import RedeemPoints from './pages/RedeemPoints';
 import OurAnimals from './pages/OurAnimals';
 import AnimalInfo from './pages/AnimalsInfo';
+import ZooCons from './pages/ZooCons';
 
 function App() {
 	return (
@@ -28,6 +29,7 @@ function App() {
 					<PrivateRoute path="/profile" component={ProfileInfo} />
 					<Route path="/our-animals" component={OurAnimals} />
 					<Route exact path="/animal-info/:id" component={AnimalInfo} />
+					<Route path="/zoos-and-conservation" component={ZooCons} />
 				</Switch>
 			</Router>
 		</div>
