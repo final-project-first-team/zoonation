@@ -59,7 +59,7 @@ export default function ButtonAppBar() {
 								<Grid container spacing={3} style={{ paddingLeft: '2%' }} justify="space-between">
 									<Grid container item lg={8} spacing={2}>
 										<Grid item>
-											<Link to="#" style={{ textDecoration: 'none' }}>
+											<Link to="/zoos-and-conservation" style={{ textDecoration: 'none' }}>
 												<Typography variant="h6" className={classes.title}>
 													Zoos and Conservations
 												</Typography>
