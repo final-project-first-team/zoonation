@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
 		padding: '30px',
 		backgroundColor: 'transparent',
 		alignSelf: 'flex-end',
-		justifyContent: 'flex-end',
+		justifyContent: 'flex-end'
 	},
 	text3: {
 		fontFamily: 'Fredoka One',
@@ -49,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
 		padding: '30px',
 		backgroundColor: 'transparent',
 		alignSelf: 'flex-end',
-		justifyContent: 'flex-end',
+		justifyContent: 'flex-end'
 	},
 	flexing: {
 		display: 'flex',
@@ -79,40 +79,54 @@ export default function Body() {
 					<Grid container>
 						<Grid item xs={6} md={6} lg={6}>
 							<Paper elevation={0} className={classes.text2}>
-								<Grid container 
-								style={{fontSize: '22px',
-								lineHeight: '18px',
-								textAlign: 'right',
-								background: 'rgba(255, 253, 99, 0.6)',
-								padding: '20px',
-								borderRadius: '5px',
-								}}>
-									<Grid item xs={12} md={12} lg={6}
-									style={{textAlign: 'center', background: '#C4C4C4'}}><p><b>10</b> Cooperating zoos and conservations</p>
-									<Typography
-									style={{fontFamily: 'Raleway', fontSize: '18px'}}>
-										Educate
-									</Typography>
-									<img src={people} alt="people_png" style={{width: '100px'}} />
-									<Typography
-									style={{fontFamily: 'Raleway', fontSize: '18px'}}>
-										People
-									</Typography>
+								<Grid
+									container
+									style={{
+										fontSize: '22px',
+										lineHeight: '18px',
+										textAlign: 'right',
+										background: 'rgba(255, 253, 99, 0.6)',
+										padding: '20px',
+										borderRadius: '5px'
+									}}
+								>
+									<Grid
+										item
+										xs={12}
+										md={12}
+										lg={6}
+										style={{ textAlign: 'center', background: '#C4C4C4' }}
+									>
+										<p>
+											<b>10</b> Cooperating zoos and conservations
+										</p>
+										<Typography style={{ fontFamily: 'Raleway', fontSize: '18px' }}>
+											Educate
+										</Typography>
+										<img src={people} alt="people_png" style={{ width: '100px' }} />
+										<Typography style={{ fontFamily: 'Raleway', fontSize: '18px' }}>
+											People
+										</Typography>
 									</Grid>
 									<br />
-									<Grid item xs={12} md={12} lg={6}
-									style={{textAlign: 'center', background: '#C4C4C4'}}><p><b>100</b> and more animals in shelter and protection</p>
-									<Typography
-									style={{fontFamily: 'Raleway', fontSize: '18px'}}>
-										Protect
-									</Typography>
-									<img src={rhino} alt="rhino_png" style={{width: '100px'}} />
-									<Typography
-									style={{fontFamily: 'Raleway', fontSize: '18px'}}>
-										Animals
-									</Typography>
+									<Grid
+										item
+										xs={12}
+										md={12}
+										lg={6}
+										style={{ textAlign: 'center', background: '#C4C4C4' }}
+									>
+										<p>
+											<b>100</b> and more animals in shelter and protection
+										</p>
+										<Typography style={{ fontFamily: 'Raleway', fontSize: '18px' }}>
+											Protect
+										</Typography>
+										<img src={rhino} alt="rhino_png" style={{ width: '100px' }} />
+										<Typography style={{ fontFamily: 'Raleway', fontSize: '18px' }}>
+											Animals
+										</Typography>
 									</Grid>
-	
 								</Grid>
 							</Paper>
 						</Grid>
@@ -130,7 +144,6 @@ export default function Body() {
 								</Grid>
 							</Grid>
 						</Grid>
-						
 					</Grid>
 				</div>
 			</div>
