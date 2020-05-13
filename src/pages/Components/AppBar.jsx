@@ -9,6 +9,7 @@ import IconButton from '@material-ui/core/IconButton';
 import Hidden from '@material-ui/core/Hidden';
 import Grid from '@material-ui/core/Grid';
 import { Link } from 'react-router-dom';
+import Paw from './paw.png';
 
 import Menu from './Menu';
 
@@ -48,9 +49,16 @@ export default function ButtonAppBar() {
 					<Grid container alignItems="center">
 						<Grid item xs={9} lg={3}>
 							<Link to="/" style={{ textDecoration: 'none' }}>
-								<Typography variant="h4" className={classes.zoonations}>
-									ZOONATIONS
-								</Typography>
+								<Hidden smDown>
+									<Typography variant="h4" className={classes.zoonations}>
+										Z<img src={Paw} style={{ maxHeight: '26px' }} />ONATIONS
+									</Typography>
+								</Hidden>
+								<Hidden mdUp>
+									<Typography variant="h5" className={classes.zoonations}>
+										Z<img src={Paw} style={{ maxHeight: '20px' }} />ONATIONS
+									</Typography>
+								</Hidden>
 							</Link>
 						</Grid>
 
@@ -60,7 +68,7 @@ export default function ButtonAppBar() {
 									<Grid container item lg={8} spacing={2}>
 										<Grid item>
 											<Link to="/zoos-and-conservation" style={{ textDecoration: 'none' }}>
-												<Typography variant="h6" className={classes.title}>
+												<Typography variant="h5" className={classes.title}>
 													Zoos and Conservations
 												</Typography>
 											</Link>

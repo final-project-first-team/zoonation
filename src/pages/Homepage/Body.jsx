@@ -10,7 +10,8 @@ import rhino from './rhino.png';
 const useStyles = makeStyles((theme) => ({
 	base: {
 		height: '100%',
-		paddingTop: '50px'
+		paddingTop: '50px',
+		paddingBottom: '50px'
 	},
 	paper: {
 		padding: theme.spacing(2),

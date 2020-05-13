@@ -18,7 +18,7 @@ const useStyle = makeStyles((theme) => ({
 		display: 'flex',
 		flexWrap: 'wrap',
 		height: 'auto',
-		// width: 'auto',
+		width: '100%',
 		alignItems: 'center',
 		textAlign: 'center',
 		flexDirection: 'row'
@@ -40,7 +40,6 @@ const useStyle = makeStyles((theme) => ({
 	serachAndButton: {
 		display: 'flex',
 		flexDirection: 'column',
-
 		textAlign: 'left',
 		margin: theme.spacing(3)
 	},
@@ -66,9 +65,11 @@ export default function BodyOurAnimals() {
 		<div className={classes.root} style={{ background: '#ECE4BA' }}>
 			<Grid container justify="center">
 				<Typography className={classes.ourAnimals}>Our Animals</Typography>
+
 				<Grid container justify="center" maxWidth="sm">
 					<SearchBar />
 				</Grid>
+
 				<Grid container justify="center">
 					<Typography className={classes.toHelp}>
 						To help the animals and the zoos,
