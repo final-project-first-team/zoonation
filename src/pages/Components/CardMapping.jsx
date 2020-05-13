@@ -11,7 +11,7 @@ import Grid from '@material-ui/core/Grid';
 
 const useStyles = makeStyles({
 	root: {
-		minWidth: 350,
+		// minWidth: 350,
 		borderRadius: '5px'
 	},
 	media: {
@@ -23,7 +23,7 @@ export default function CardMapping(props) {
 	const classes = useStyles();
 	console.log(props.animals);
 	return (
-		<Grid item>
+		<Grid item lg={3} md={4} sm={6} xs={12}>
 			<Card className={classes.root}>
 				<CardActionArea>
 					<CardMedia

@@ -35,23 +35,23 @@ const useStyle = makeStyles((theme) => ({
 		fontSize: '44px',
 		fontFamily: 'Fredoka One',
 		color: '#6C5434',
-		marginTop: theme.spacing(10),
+		marginTop: theme.spacing(10)
 	},
 	serachAndButton: {
 		display: 'flex',
-        flexDirection: 'column',
-        
+		flexDirection: 'column',
+
 		textAlign: 'left',
 		margin: theme.spacing(3)
 	},
 	margin: {
 		margin: theme.spacing(3)
-    },
-    toHelp: {
-        fontFamily: 'Lemonada',
-        color: '#6C5434',
-        cursor: 'pointer',
-    }
+	},
+	toHelp: {
+		fontFamily: 'Lemonada',
+		color: '#6C5434',
+		cursor: 'pointer'
+	}
 }));
 
 export default function BodyOurAnimals() {
@@ -61,24 +61,25 @@ export default function BodyOurAnimals() {
 	if (animalsData.length === 0) {
 		dispatch(getAnimals());
 	}
-	// console.log(animalsData.data);
 
 	return (
 		<div className={classes.root} style={{ background: '#ECE4BA' }}>
 			<Grid container justify="center" spacing={1}>
-					<Typography className={classes.ourAnimals}>Our Animals</Typography>
+				<Typography className={classes.ourAnimals}>Our Animals</Typography>
 
-                    <Grid container justify="center" spacing={1} maxWidth="sm">
-                        <SearchBar />   
-                    </Grid>
-                
-                <Grid container justify="center" spacing={1}>
-						<Typography className={classes.toHelp}>
-							To help the animals and the zoos,
-							<br />
-							<Link color="inherit"><b>click here!</b></Link>
-                        </Typography>
-					</Grid>
+				<Grid container justify="center" spacing={1} maxWidth="sm">
+					<SearchBar />
+				</Grid>
+
+				<Grid container justify="center" spacing={1}>
+					<Typography className={classes.toHelp}>
+						To help the animals and the zoos,
+						<br />
+						<Link color="inherit">
+							<b>click here!</b>
+						</Link>
+					</Typography>
+				</Grid>
 
 				<Grid container className={classes.margin} justify="center" spacing={2}>
 					{animalsData.length !== 0 ? (

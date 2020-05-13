@@ -61,7 +61,7 @@ export default function SimpleMenu() {
 						Zoos and Conservation
 					</MenuItem>
 				</Link>
-				<Link to="#" style={{ textDecoration: 'none' }}>
+				<Link to="/our-animals" style={{ textDecoration: 'none' }}>
 					<MenuItem className={classes.title} onClick={handleClose}>
 						Our Animals
 					</MenuItem>
