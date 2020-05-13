@@ -2,10 +2,15 @@ import React from 'react';
 
 import AnimalsImage from './AnimalsImage';
 import AnimalsData from './AnimalsData';
+import AnimalsBottomData from './AnimalsBottomData';
 
 import { makeStyles } from '@material-ui/core';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
+
+import { useParams } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { getSpecificAnimals } from '../../assets/redux/actions/spAnimalsAction';
 
 const useStyle = makeStyles((theme) => ({
 	root: {
@@ -30,27 +35,31 @@ const useStyle = makeStyles((theme) => ({
 		height: '100%'
 	},
 	dataViewer: {
-		display: 'flex',
 		minHeight: '50vh',
-		alignItems: 'center',
-		flexDirection: 'row',
 		backgroundColor: 'rgba(255, 255, 255, 0.39)',
-		height: '80%'
+		height: '100%',
+		borderRadius: '15%'
 	},
 	bottomData: {
-		display: 'flex',
-		minHeight: '10%',
-		alignItems: 'center',
-		flexDirection: 'row',
+		minHeight: '20vh',
 		backgroundColor: 'rgba(255, 255, 255, 0.39)',
-		height: '10%',
-		marginTop: '2%',
-		padding: '6%'
+		height: '100%',
+		padding: '1%'
 	}
 }));
 
 export default function BodyAnimalsInfo() {
 	const classes = useStyle();
+	const { id } = useParams();
+	const dispatch = useDispatch();
+	const currentAnimal = useSelector((state) => state.currentAnimal);
+	if (currentAnimal.length === 0) {
+		dispatch(getSpecificAnimals(id));
+	} else {
+		if (currentAnimal.data._id !== id) {
+			dispatch(getSpecificAnimals(id));
+		}
+	}
 
 	return (
 		<div className={classes.root}>
@@ -62,13 +71,15 @@ export default function BodyAnimalsInfo() {
 				</Grid>
 				<Grid item lg={5}>
 					<Paper className={classes.dataViewer}>
-						<AnimalsData />
+						<AnimalsData currAnimal={currentAnimal} />
 					</Paper>
 				</Grid>
 			</Grid>
 			<Grid container justify="space-around">
 				<Grid item lg={11}>
-					<Paper className={classes.bottomData}>Hello</Paper>
+					<Paper className={classes.bottomData}>
+						<AnimalsBottomData currAnimal={currentAnimal} />
+					</Paper>
 				</Grid>
 			</Grid>
 		</div>

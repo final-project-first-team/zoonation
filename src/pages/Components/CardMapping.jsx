@@ -9,6 +9,8 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 
+import { Link } from 'react-router-dom';
+
 const useStyles = makeStyles({
 	root: {
 		// minWidth: 350,
@@ -21,14 +23,12 @@ const useStyles = makeStyles({
 
 export default function CardMapping(props) {
 	const classes = useStyles();
-	console.log(props.animals);
 	return (
 		<Grid item lg={3} md={4} sm={6} xs={12}>
 			<Card className={classes.root}>
 				<CardActionArea>
 					<CardMedia
 						className={classes.media}
-						// image="/static/images/cards/contemplative-reptile.jpg"
 						image="https://wallpaperaccess.com/full/2136603.jpg"
 						title={props.animals.scientificName}
 					/>
@@ -53,9 +53,11 @@ export default function CardMapping(props) {
 						<Button size="small" color="inherit" style={{ fontFamily: 'roboto', color: '#6C5434' }}>
 							Flip
 						</Button>
-						<Button size="small" color="inherit" style={{ fontFamily: 'roboto', color: '#6C5434' }}>
-							Learn More
-						</Button>
+						<Link to={`/animal-info/${props.animals._id}`}>
+							<Button size="small" color="inherit" style={{ fontFamily: 'roboto', color: '#6C5434' }}>
+								Learn More
+							</Button>
+						</Link>
 					</Grid>
 				</CardActions>
 			</Card>

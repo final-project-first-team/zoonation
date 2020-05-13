@@ -24,11 +24,7 @@ export default function AnimalsImage() {
 	return (
 		<Grid container justify="center" height="100%" direction="row">
 			<Grid item lg={12}>
-				<img
-					className={classes.image}
-					alt="animals"
-					src="https://qph.fs.quoracdn.net/main-qimg-d74c93d381db1641534447a433a5338a"
-				/>
+				<img className={classes.image} alt="animals" src="https://wallpaperaccess.com/full/2136603.jpg" />
 			</Grid>
 		</Grid>
 	);

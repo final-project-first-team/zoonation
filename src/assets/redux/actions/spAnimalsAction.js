@@ -2,12 +2,12 @@ import axios from 'axios';
 
 const apiUrl = process.env.REACT_APP_API_URL;
 
-export const getAnimals = () => {
+export const getSpecificAnimals = (id) => {
 	return (dispatch) => {
 		return axios
-			.get(`${apiUrl}/animals`)
+			.get(`${apiUrl}/animals/${id}`)
 			.then((response) => {
-				dispatch(getAnimalsSuccess(response.data));
+				dispatch(getSpecificAnimalsSuccess(response.data));
 			})
 			.catch((error) => {
 				console.log(error);
@@ -15,9 +15,9 @@ export const getAnimals = () => {
 			});
 	};
 };
-export const getAnimalsSuccess = (data) => {
+export const getSpecificAnimalsSuccess = (data) => {
 	return {
-		type: 'GET_ANIMALS',
+		type: 'GET_SPECIFIC_ANIMALS',
 		payload: {
 			data
 		}

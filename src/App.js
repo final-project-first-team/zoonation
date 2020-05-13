@@ -26,8 +26,8 @@ function App() {
 					<Route path="/sign-in" component={SignIn} />
 					<Route path="/sign-up" component={SignUp} />
 					<PrivateRoute path="/profile" component={ProfileInfo} />
-					<Route path="/animal-info" component={AnimalInfo} />
 					<Route path="/our-animals" component={OurAnimals} />
+					<Route exact path="/animal-info/:id" component={AnimalInfo} />
 				</Switch>
 			</Router>
 		</div>
