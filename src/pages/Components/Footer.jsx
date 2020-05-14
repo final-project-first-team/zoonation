@@ -16,9 +16,9 @@ const useStyles = makeStyles((theme) => ({
 		marginTop: 'auto',
 		backgroundColor: '#60B6D1',
 		textAlign: 'center',
-		width: '100%',
-		position: 'fixed',
-		bottom: 0,
+		// width: '100%',
+		// position: 'fixed',
+		// bottom: 0,
 	},
 	fontAndColor: {
 		fontFamily: 'Fredoka One, cursive',

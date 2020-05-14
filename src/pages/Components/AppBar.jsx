@@ -64,11 +64,11 @@ export default function ButtonAppBar() {
 
 						<Grid item lg={9}>
 							<Hidden mdDown>
-								<Grid container spacing={3} style={{ paddingLeft: '2%' }} justify="space-between">
+								<Grid container spacing={3} justify="space-between">
 									<Grid container item lg={8} spacing={2}>
 										<Grid item>
 											<Link to="/zoos-and-conservation" style={{ textDecoration: 'none' }}>
-												<Typography variant="h5" className={classes.title}>
+												<Typography variant="h6" className={classes.title}>
 													Zoos and Conservations
 												</Typography>
 											</Link>
