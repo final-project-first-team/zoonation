@@ -7,6 +7,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import people from './people.png';
 import rhino from './rhino.png';
 
+import { useSelector, useDispatch } from 'react-redux';
+import { currentUser } from '../../assets/redux/actions/loginAction';
+
 const useStyles = makeStyles((theme) => ({
 	base: {
 		height: '100%',
@@ -62,6 +65,9 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Body() {
 	const classes = useStyles();
+	const dispatch = useDispatch();
+	const currentUser = useSelector((state) => state.currentUser);
+	console.log(currentUser);
 
 	return (
 		<div className="background-image">
