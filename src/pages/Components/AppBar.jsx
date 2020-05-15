@@ -5,13 +5,14 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
-// import Link from '@material-ui/core/Link';
 import Hidden from '@material-ui/core/Hidden';
 import Grid from '@material-ui/core/Grid';
 import { Link } from 'react-router-dom';
-import Paw from './paw.png';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
+import Fade from '@material-ui/core/Fade';
 
-import Menu from './Menu';
+import Paw from './paw.png';
 
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -50,6 +51,18 @@ export default function ButtonAppBar() {
 		console.log(currentUser);
 	});
 
+	// DROP DOWN MENU
+	const [ anchorE1, setAnchorE1 ] = React.useState(null);
+	const open = Boolean(anchorE1);
+
+	const handleClick = (event) => {
+		setAnchorE1(event.currentTarget);
+	};
+
+	const handleClose = () => {
+		setAnchorE1(null);
+	};
+
 	return (
 		<div className={classes.root}>
 			<AppBar position="fixed" style={{ background: '#AAE787' }}>
@@ -75,11 +88,36 @@ export default function ButtonAppBar() {
 								<Grid container spacing={3} justify="space-between">
 									<Grid container item lg={8} spacing={2}>
 										<Grid item>
-											<Link to="/zoos-and-conservation" style={{ textDecoration: 'none' }}>
+											<Link
+												edge="start"
+												aria-controls="fade-menu"
+												aria-haspopup="true"
+												onClick={handleClick}
+												style={{ textDecoration: 'none' }}
+											>
 												<Typography variant="h6" className={classes.title}>
 													Zoos and Conservations
 												</Typography>
 											</Link>
+											<Menu
+												id="fade-menu"
+												anchorE1={anchorE1}
+												anchorOrigin="center"
+												keepMounted
+												open={open}
+												onClose={handleClose}
+												TransitionComponent={Fade}
+											>
+												<MenuItem onClick={handleClose}>
+													<Link to="/zoos-and-conservation">Test</Link>
+												</MenuItem>
+												<MenuItem onClick={handleClose}>
+													<Link to="#">Test</Link>
+												</MenuItem>
+												<MenuItem onClick={handleClose}>
+													<Link to="#">Test</Link>
+												</MenuItem>
+											</Menu>
 										</Grid>
 										<Grid item>
 											<Link to="/our-animals" style={{ textDecoration: 'none' }}>
