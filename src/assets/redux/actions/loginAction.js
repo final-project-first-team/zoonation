@@ -12,7 +12,7 @@ export const loginUser = (values) => {
 				dispatch(currentUser(response.data.token));
 			})
 			.catch((error) => {
-				// alert(error.response.data);
+				alert(error.response.data);
 				throw error;
 			});
 	};
@@ -25,7 +25,8 @@ export const currentUser = (token) => {
 				headers: { Authorization: `Bearer ${token}` }
 			})
 			.then((response) => {
-				dispatch(loginSuccess(response.data));
+				dispatch(loginSuccess(response.data.currentUser));
+				dispatch(updateStatus(response.data.isLoggedIn));
 			})
 			.catch((error) => {
 				console.log(error);
@@ -36,6 +37,15 @@ export const currentUser = (token) => {
 export const loginSuccess = (data) => {
 	return {
 		type: 'LOGIN',
+		payload: {
+			data
+		}
+	};
+};
+
+export const updateStatus = (data) => {
+	return {
+		type: 'UPDATE_LOGIN_STATUS',
 		payload: {
 			data
 		}

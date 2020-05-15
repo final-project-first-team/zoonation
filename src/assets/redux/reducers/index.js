@@ -4,13 +4,15 @@ import registerReducer from './registerReducer';
 import animalsReducer from './animalsReducer';
 import spAnimalsReducer from './spAnimalsReducer';
 import zooReducer from './zooReducer';
+import loginStatusReducer from './loginStatusReducer';
 
 const allReducers = combineReducers({
 	currentUser: loginReducer,
 	userRegister: registerReducer,
 	animalsData: animalsReducer,
 	currentAnimal: spAnimalsReducer,
-	zooData: zooReducer
+	zooData: zooReducer,
+	isLoggedIn: loginStatusReducer
 });
 
 export default allReducers;

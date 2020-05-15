@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -12,6 +12,8 @@ import { Link } from 'react-router-dom';
 import Paw from './paw.png';
 
 import Menu from './Menu';
+
+import { useDispatch, useSelector } from 'react-redux';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -41,6 +43,12 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ButtonAppBar() {
 	const classes = useStyles();
+	const isLoggedIn = useSelector((state) => state.isLoggedIn);
+	const currentUser = useSelector((state) => state.currentUser);
+
+	useEffect(() => {
+		console.log(currentUser);
+	});
 
 	return (
 		<div className={classes.root}>
@@ -99,9 +107,16 @@ export default function ButtonAppBar() {
 									<Grid container item lg={4} justify="flex-end">
 										<Grid item>
 											<Link to="/sign-up" style={{ textDecoration: 'none' }}>
-												<Button color="inherit" className={classes.fredokaFont}>
-													Become A Member
-												</Button>
+												{(isLoggedIn.length === 0 || isLoggedIn === false) &&
+												currentUser.length === 0 ? (
+													<Button color="inherit" className={classes.fredokaFont}>
+														Become A Member
+													</Button>
+												) : (
+													<Button color="inherit" className={classes.fredokaFont}>
+														{currentUser.fullname}
+													</Button>
+												)}
 											</Link>
 										</Grid>
 										<Grid item>
@@ -111,9 +126,15 @@ export default function ButtonAppBar() {
 										</Grid>
 										<Link to="/sign-in" style={{ textDecoration: 'none' }}>
 											<Grid item>
-												<Button color="inherit" className={classes.fredokaFont}>
-													Sign In
-												</Button>
+												{isLoggedIn.length === 0 || isLoggedIn === false ? (
+													<Button color="inherit" className={classes.fredokaFont}>
+														Sign In
+													</Button>
+												) : (
+													<Button color="inherit" className={classes.fredokaFont}>
+														Sign Out
+													</Button>
+												)}
 											</Grid>
 										</Link>
 									</Grid>

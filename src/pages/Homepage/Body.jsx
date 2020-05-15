@@ -65,9 +65,9 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Body() {
 	const classes = useStyles();
-	const dispatch = useDispatch();
-	const currentUser = useSelector((state) => state.currentUser);
-	console.log(currentUser);
+	// const dispatch = useDispatch();
+	// const currentUser = useSelector((state) => state.currentUser);
+	// console.log(currentUser);
 
 	return (
 		<div className="background-image">
