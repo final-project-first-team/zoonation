@@ -15,10 +15,10 @@ const useStyles = makeStyles((theme) => ({
 		padding: theme.spacing(1, 1),
 		marginTop: 'auto',
 		backgroundColor: '#60B6D1',
-		textAlign: 'center',
-		width: '100%',
-		position: 'fixed',
-		bottom: 0,
+		textAlign: 'center'
+		// width: '100%',
+		// position: 'fixed',
+		// bottom: 0,
 	},
 	fontAndColor: {
 		fontFamily: 'Fredoka One, cursive',

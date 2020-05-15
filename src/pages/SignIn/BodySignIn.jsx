@@ -9,8 +9,8 @@ import Hidden from '@material-ui/core/Hidden';
 import Grid from '@material-ui/core/Grid';
 
 import { Formik } from 'formik';
-import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { Link, useHistory } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import { loginUser } from '../../assets/redux/actions/loginAction';
 
 const useStyles = makeStyles((theme) => ({
@@ -42,6 +42,8 @@ const useStyles = makeStyles((theme) => ({
 export default function BodySignIn() {
 	const classes = useStyles();
 	const dispatch = useDispatch();
+	const history = useHistory();
+	const currentUser = useSelector((state) => state.currentUser);
 
 	return (
 		<div className={classes.root}>
@@ -115,7 +117,7 @@ export default function BodySignIn() {
 									}}
 									onSubmit={async (values) => {
 										await dispatch(loginUser(values));
-										await alert(JSON.stringify(values));
+										await history.push('/');
 									}}
 								>
 									{({ handleChange, handleSubmit, values, isSubmitting, errors, touched }) => {

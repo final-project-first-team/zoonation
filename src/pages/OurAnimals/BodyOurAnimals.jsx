@@ -17,8 +17,8 @@ const useStyle = makeStyles((theme) => ({
 		// CSS BODY
 		display: 'flex',
 		flexWrap: 'wrap',
-		height: '100vh',
-		width: 'auto',
+		height: 'auto',
+		width: '100%',
 		alignItems: 'center',
 		textAlign: 'center',
 		flexDirection: 'row'
@@ -40,7 +40,6 @@ const useStyle = makeStyles((theme) => ({
 	serachAndButton: {
 		display: 'flex',
 		flexDirection: 'column',
-
 		textAlign: 'left',
 		margin: theme.spacing(3)
 	},
@@ -80,7 +79,6 @@ export default function BodyOurAnimals() {
 						</Link>
 					</Typography>
 				</Grid>
-
 				<Grid container className={classes.margin} justify="center" spacing={2}>
 					{animalsData.length !== 0 ? (
 						animalsData.data.map((_animals) => {

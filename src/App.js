@@ -17,6 +17,8 @@ import ProfileInfo from './pages/ProfileInfo';
 import OurAnimals from './pages/OurAnimals';
 import AnimalInfo from './pages/AnimalsInfo';
 import ZooCons from './pages/ZooCons';
+import AnimalAdopt from './pages/AnimalAdopt';
+import AnimalAdopt2 from './pages/AnimalAdopt2';
 
 function App() {
 	return (
@@ -30,6 +32,8 @@ function App() {
 					<Route path="/our-animals" component={OurAnimals} />
 					<Route exact path="/animal-info/:id" component={AnimalInfo} />
 					<Route path="/zoos-and-conservation" component={ZooCons} />
+					<Route path="/animal-adopt" component={AnimalAdopt} />
+					<Route path="/animal-adopt-2" component={AnimalAdopt2} />
 				</Switch>
 			</Router>
 		</div>
