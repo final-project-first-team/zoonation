@@ -15,6 +15,7 @@ import Fade from '@material-ui/core/Fade';
 import Paw from './paw.png';
 
 import { useDispatch, useSelector } from 'react-redux';
+import { currentUser, logout } from '../../assets/redux/actions/loginAction';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -42,14 +43,18 @@ const useStyles = makeStyles((theme) => ({
 	}
 }));
 
-export default function ButtonAppBar() {
+export default function ButtonAppBar(props) {
 	const classes = useStyles();
 	const isLoggedIn = useSelector((state) => state.isLoggedIn);
-	const currentUser = useSelector((state) => state.currentUser);
+	const currUser = useSelector((state) => state.currentUser);
+	const dispatch = useDispatch();
 
 	useEffect(() => {
-		console.log(currentUser);
-	});
+		const token = localStorage.getItem('token');
+		if (token) {
+			dispatch(currentUser(token));
+		}
+	}, []);
 
 	// DROP DOWN MENU
 	const [ anchorE1, setAnchorE1 ] = React.useState(null);
@@ -61,6 +66,13 @@ export default function ButtonAppBar() {
 
 	const handleClose = () => {
 		setAnchorE1(null);
+	};
+
+	const handleLogout = async (id) => {
+		await dispatch(logout(id));
+		await localStorage.removeItem('token');
+		await localStorage.removeItem('refToken');
+		await window.location.reload();
 	};
 
 	return (
@@ -146,13 +158,16 @@ export default function ButtonAppBar() {
 										<Grid item>
 											<Link to="/sign-up" style={{ textDecoration: 'none' }}>
 												{(isLoggedIn.length === 0 || isLoggedIn === false) &&
-												currentUser.length === 0 ? (
+												currUser.length === 0 ? (
 													<Button color="inherit" className={classes.fredokaFont}>
 														Become A Member
 													</Button>
 												) : (
-													<Button color="inherit" className={classes.fredokaFont}>
-														{currentUser.fullname}
+													<Button color="inherit">
+														{/* <img src={currUser.avatar} alt="User Avatar" /> */}
+														<Typography className={classes.fredokaFont}>
+															{currUser.fullname}
+														</Typography>
 													</Button>
 												)}
 											</Link>
@@ -162,19 +177,24 @@ export default function ButtonAppBar() {
 												|
 											</Typography>
 										</Grid>
-										<Link to="/sign-in" style={{ textDecoration: 'none' }}>
-											<Grid item>
-												{isLoggedIn.length === 0 || isLoggedIn === false ? (
+
+										<Grid item>
+											{isLoggedIn.length === 0 || isLoggedIn === false ? (
+												<Link to="/sign-in" style={{ textDecoration: 'none' }}>
 													<Button color="inherit" className={classes.fredokaFont}>
 														Sign In
 													</Button>
-												) : (
-													<Button color="inherit" className={classes.fredokaFont}>
-														Sign Out
-													</Button>
-												)}
-											</Grid>
-										</Link>
+												</Link>
+											) : (
+												<Button
+													color="inherit"
+													className={classes.fredokaFont}
+													onClick={() => handleLogout(currUser._id)}
+												>
+													Sign Out
+												</Button>
+											)}
+										</Grid>
 									</Grid>
 								</Grid>
 							</Hidden>

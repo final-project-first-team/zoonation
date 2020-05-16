@@ -52,7 +52,7 @@ export default function CardMapping(props) {
 					<Grid container justify="center">
 						{/* <Link to={`/animal-info/${props.animals._id}`}> */}
 						<Button size="small" color="inherit" style={{ fontFamily: 'roboto', color: '#6C5434' }}>
-							Adopt This Animal &hearts;
+							Feed Me Now &hearts;
 						</Button>
 						{/* </Link> */}
 					</Grid>

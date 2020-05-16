@@ -8,9 +8,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Homepage from './pages/Homepage';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
-// import ProfileInfo from "./pages/Profile"
 import PrivateRoute from './assets/helper/PrivateRoute';
-// import SignUp from "./pages/SignUp";
 import ProfileInfo from './pages/ProfileInfo';
 // import AdoptionInfo from './pages/AdoptionInfo';
 // import RedeemPoints from './pages/RedeemPoints';
@@ -19,6 +17,7 @@ import AnimalInfo from './pages/AnimalsInfo';
 import ZooCons from './pages/ZooCons';
 import AnimalAdopt from './pages/AnimalAdopt';
 import AnimalAdopt2 from './pages/AnimalAdopt2';
+import FeedingAnimals from './pages/FeedingAnimals';
 
 function App() {
 	return (
@@ -34,6 +33,7 @@ function App() {
 					<Route path="/zoos-and-conservation" component={ZooCons} />
 					<Route path="/animal-adopt" component={AnimalAdopt} />
 					<Route path="/animal-adopt-2" component={AnimalAdopt2} />
+					<Route path="/feeding-animals" component={FeedingAnimals} />
 				</Switch>
 			</Router>
 		</div>

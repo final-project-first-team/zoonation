@@ -8,7 +8,7 @@ export const loginUser = (values) => {
 			.post(`${apiUrl}/users/login`, values)
 			.then((response) => {
 				localStorage.setItem('token', response.data.token);
-				localStorage.setItem('isLoggedIn', true);
+				localStorage.setItem('refToken', response.data.refreshToken);
 				dispatch(currentUser(response.data.token));
 			})
 			.catch((error) => {
@@ -27,10 +27,39 @@ export const currentUser = (token) => {
 			.then((response) => {
 				dispatch(loginSuccess(response.data.currentUser));
 				dispatch(updateStatus(response.data.isLoggedIn));
+				dispatch(addToken(response.data.currentUser._id));
 			})
 			.catch((error) => {
-				console.log(error);
+				dispatch(newToken());
 			});
+	};
+};
+
+export const addToken = (id) => {
+	return () => {
+		return axios
+			.put(`${apiUrl}/users/addToken/${id}`, { refreshToken: localStorage.getItem('refToken') })
+			.then((response) => {
+				// console.log(response);
+			});
+	};
+};
+
+export const newToken = (token) => {
+	return () => {
+		return axios
+			.post(`${apiUrl}/users/token`, { refreshToken: localStorage.getItem('refToken') })
+			.then((response) => {
+				localStorage.setItem('token', response.data.token);
+			});
+	};
+};
+
+export const logout = (id) => {
+	return () => {
+		return axios.put(`${apiUrl}/users/logout/${id}`, {}).then((response) => {
+			console.log(response);
+		});
 	};
 };
 
