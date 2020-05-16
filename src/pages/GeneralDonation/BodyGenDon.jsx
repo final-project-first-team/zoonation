@@ -7,6 +7,7 @@ import Link from '@material-ui/core/Link';
 
 import MenuGenDon from '../Components/MenuGenDon'
 import Paw from '../Components/paw.png';
+import HomeIcon from '@material-ui/icons/Home';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { getZoos } from '../../assets/redux/actions/zooActions';
@@ -16,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
         //CSS BODY
         display: 'flex',
         flexWrap: 'wrap',
-        justifyContent: 'space-around',
+        // justifyContent: 'space-around',
         overflow: 'hidden',
         height: '100vh',
         width: 'auto',
@@ -37,36 +38,44 @@ const useStyles = makeStyles((theme) => ({
         color: '#6C5434',
         marginTop: theme.spacing(10)
     },
+    home: {
+        display: 'flex',
+        color: '#6C5434',
+        fontSize: '100px',
+    },
     margin: {
         margin: theme.spacing(3)
     },
 }));
 
-export default function BodyZooCons() {
+export default function BodyGenDon() {
     const classes = useStyles();
     // const dispatch = useDispatch();
     // const zooData = useSelector((state) => state.zooData);
     // if (zooData.length === 0) {
     //     dispatch(getZoos());
     // }
+    
 
     return (
         <div className={classes.root} style={{ background: '#ECE4BA' }}>
+            <Link href="/" >
+                <HomeIcon justify="center" className={classes.home} />
+            </Link>
             <Grid container justify="center" /* spacing={1} */>
                 <Typography className={classes.ourAnimals}>
                     Z<img src={Paw} style={{ maxHeight: '170px' }} />Odonations
                     </Typography>
 
-                {/* <Grid container justify="center" spacing={1} maxWidth="sm"> */}
+                <Grid container justify="center" spacing={1} maxWidth="sm">
                     <MenuGenDon />
-                {/* </Grid> */}
+                </Grid>
 
                 <Grid container className={classes.margin} justify="center" spacing={5}>
                     <Grid item>
-                        
                     </Grid>
                     <Grid item>
-                        
+
                     </Grid>
                 </Grid>
             </Grid>

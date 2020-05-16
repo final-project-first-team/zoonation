@@ -12,21 +12,6 @@ const useStyles = makeStyles({
     height: '300px',
     background: '#907C60',
   },
-  // forzoo: {
-  //   width: 500,
-  //   height: '300px',
-  //   background: '#907C60',
-  // },
-  // ourprj: {
-  //   width: 500,
-  //   height: '300px',
-  //   background: 'transparent',
-  // },
-  // gendon: {
-  //   width: 500,
-  //   height: '300px',
-  //   background: '#907C60',
-  // },
 });
 
 export default function SimpleBottomNavigation() {
@@ -42,9 +27,9 @@ export default function SimpleBottomNavigation() {
       showLabels
       className={classes.root}
     >
-      <BottomNavigationAction /* className={classes.forzoo} */ label="Donation for Zoo" icon={<PaymentIcon />} />
-      <BottomNavigationAction /* className={classes.ourprj} */ label="Our Project" icon={<PaymentIcon />} />
-      <BottomNavigationAction /* className={classes.gendon} */ label="General Donation" icon={<PaymentIcon />} />
+      <BottomNavigationAction label="Donation for Zoo" icon={<PaymentIcon />} />
+      <BottomNavigationAction label="Our Project" icon={<PaymentIcon />} />
+      <BottomNavigationAction label="General Donation" icon={<PaymentIcon />} />
     </BottomNavigation>
   );
 }
