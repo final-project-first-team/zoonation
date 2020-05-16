@@ -1,4 +1,5 @@
 import React from 'react';
+
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -6,39 +7,38 @@ import MenuIcon from '@material-ui/icons/Menu';
 import Divider from '@material-ui/core/Divider';
 import { makeStyles } from '@material-ui/core/styles';
 
+import Paper from '@material-ui/core/Paper';
+
 import { Link } from 'react-router-dom';
 
 export default function SimpleMenu() {
-	const [ anchorEl, setAnchorEl ] = React.useState(null);
-
+	const [anchorEl, setAnchorEl] = React.useState(null);
 	const handleClick = (event) => {
 		setAnchorEl(event.currentTarget);
 	};
-
 	const handleClose = () => {
 		setAnchorEl(null);
 	};
-
 	const useStyles = makeStyles((theme) => ({
 		root: {
-			flexGrow: 1
+			flexGrow: 1,
+			color: '#60B6D1',
 		},
 		title: {
 			flexGrow: 1,
 			fontFamily: 'Damion, cursive',
 			color: '#6C5434',
-			backgroundColor: '#60B6D1'
+			backgroundColor: '#60B6D1',
 		},
 		fredokaFont: {
 			flexGrow: 1,
 			fontFamily: 'Fredoka One, cursive',
 			color: '#6C5434',
-			backgroundColor: '#60B6D1'
+			background: '#60B6D1'
 		}
 	}));
 
 	const classes = useStyles();
-
 	return (
 		<div>
 			<Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
@@ -66,7 +66,6 @@ export default function SimpleMenu() {
 						Our Animals
 					</MenuItem>
 				</Link>
-
 				<Link to="#" style={{ textDecoration: 'none' }}>
 					<MenuItem className={classes.title} onClick={handleClose}>
 						Animals News
