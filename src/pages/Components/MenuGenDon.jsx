@@ -1,95 +1,50 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+
 import { makeStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
-import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
+import BottomNavigation from '@material-ui/core/BottomNavigation';
+import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 
-function TabPanel(props) {
-  const { children, value, index, ...other } = props;
+import PaymentIcon from '@material-ui/icons/Payment';
 
-  return (
-    <div
-      role="tabpanel"
-      hidden={value !== index}
-      id={`nav-tabpanel-${index}`}
-      aria-labelledby={`nav-tab-${index}`}
-      {...other}
-    >
-      {value === index && (
-        <Box p={3}>
-          <Typography>{children}</Typography>
-        </Box>
-      )}
-    </div>
-  );
-}
-
-TabPanel.propTypes = {
-  children: PropTypes.node,
-  index: PropTypes.any.isRequired,
-  value: PropTypes.any.isRequired,
-};
-
-function a11yProps(index) {
-  return {
-    id: `nav-tab-${index}`,
-    'aria-controls': `nav-tabpanel-${index}`,
-  };
-}
-
-function LinkTab(props) {
-  return (
-    <Tab
-      component="a"
-      onClick={(event) => {
-        event.preventDefault();
-      }}
-      {...props}
-    />
-  );
-}
-
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles({
   root: {
-    flexGrow: 1,
-    backgroundColor: theme.palette.background.paper,
+    width: 500,
+    height: '300px',
+    background: '#907C60',
   },
-}));
+  // forzoo: {
+  //   width: 500,
+  //   height: '300px',
+  //   background: '#907C60',
+  // },
+  // ourprj: {
+  //   width: 500,
+  //   height: '300px',
+  //   background: 'transparent',
+  // },
+  // gendon: {
+  //   width: 500,
+  //   height: '300px',
+  //   background: '#907C60',
+  // },
+});
 
-export default function NavTabs() {
+export default function SimpleBottomNavigation() {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
 
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
-
   return (
-    <div className={classes.root}>
-      <AppBar position="static">
-        <Tabs
-          variant="fullWidth"
-          value={value}
-          onChange={handleChange}
-          aria-label="nav tabs example"
-        >
-          <LinkTab label="Home" href="/drafts" {...a11yProps(0)} />
-          <LinkTab label="What we do" href="/trash" {...a11yProps(1)} />
-          <LinkTab label="Donation" href="/spam" {...a11yProps(2)} />
-        </Tabs>
-      </AppBar>
-      <TabPanel value={value} index={0}>
-        Home
-      </TabPanel>
-      <TabPanel value={value} index={1}>
-        What we do
-      </TabPanel>
-      <TabPanel value={value} index={2}>
-        Donation
-      </TabPanel>
-    </div>
+    <BottomNavigation
+      value={value}
+      onChange={(event, newValue) => {
+        setValue(newValue);
+      }}
+      showLabels
+      className={classes.root}
+    >
+      <BottomNavigationAction /* className={classes.forzoo} */ label="Donation for Zoo" icon={<PaymentIcon />} />
+      <BottomNavigationAction /* className={classes.ourprj} */ label="Our Project" icon={<PaymentIcon />} />
+      <BottomNavigationAction /* className={classes.gendon} */ label="General Donation" icon={<PaymentIcon />} />
+    </BottomNavigation>
   );
 }

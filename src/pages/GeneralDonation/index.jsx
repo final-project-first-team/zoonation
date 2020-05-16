@@ -1,15 +1,15 @@
 import React from "react";
 
-import MenuGenDon from '../Components/MenuGenDon'
-import Body from "./Body";
-import Footer from "../Components/Footer";
+// import MenuGenDon from '../Components/MenuGenDon'
+import BodyGenDon from "./BodyGenDon";
+// import Footer from "../Components/Footer";
 
 export default function Homepage() {
   return (
     <>
-      <MenuGenDon />
-      <Body />
-      <Footer />
+      <BodyGenDon />
+      {/* <MenuGenDon /> */}
+      {/* <Footer /> */}
     </>
   );
 }
