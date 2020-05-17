@@ -12,8 +12,14 @@ import { Link } from 'react-router-dom';
 import MenuItem from '@material-ui/core/MenuItem';
 import Fade from '@material-ui/core/Fade';
 
+<<<<<<< HEAD
 import Conservation from './Conservation';
 import MenuDropDown from './MenuDropDown';
+=======
+import Conservation from './Conservation'
+import WaysToHelp from './WaysToHelp'
+import MenuDropDown from './MenuDropDown'
+>>>>>>> e03af7557bc2251c5e36ae82c826d9e8a81d12d7
 import Paw from './paw.png';
 
 import { useDispatch, useSelector } from 'react-redux';
@@ -59,7 +65,7 @@ export default function ButtonAppBar(props) {
 	}, []);
 
 	// DROP DOWN MENU
-	const [ anchorE1, setAnchorE1 ] = React.useState(null);
+	const [anchorE1, setAnchorE1] = React.useState(null);
 	const open = Boolean(anchorE1);
 
 	const handleClick = (event) => {
@@ -108,11 +114,11 @@ export default function ButtonAppBar(props) {
 												aria-haspopup="true"
 												onClick={handleClick}
 												style={{ textDecoration: 'none' }}
-											>
-												<Typography variant="h6" className={classes.title}>
-													<Conservation/>
-												</Typography>
-											</Link>
+											> */}
+											<Typography variant="h6" className={classes.title}>
+												<Conservation />
+											</Typography>
+											{/* </Link> */}
 											{/* <Menu
 												id="fade-menu"
 												anchorE1={anchorE1}
@@ -134,11 +140,9 @@ export default function ButtonAppBar(props) {
 											</Menu> */}
 										</Grid>
 										<Grid item>
-											<Link to="/our-animals" style={{ textDecoration: 'none' }}>
-												<Typography variant="h6" className={classes.title}>
-													Our Animals
-												</Typography>
-											</Link>
+											<Typography variant="h6" className={classes.title}>
+												<WaysToHelp />
+											</Typography>
 										</Grid>
 
 										<Grid item>
@@ -160,18 +164,18 @@ export default function ButtonAppBar(props) {
 										<Grid item>
 											<Link to="/sign-up" style={{ textDecoration: 'none' }}>
 												{(isLoggedIn.length === 0 || isLoggedIn === false) &&
-												currUser.length === 0 ? (
-													<Button color="inherit" className={classes.fredokaFont}>
-														Become A Member
-													</Button>
-												) : (
-													<Button color="inherit">
-														{/* <img src={currUser.avatar} alt="User Avatar" /> */}
-														<Typography className={classes.fredokaFont}>
-															{currUser.fullname}
-														</Typography>
-													</Button>
-												)}
+													currUser.length === 0 ? (
+														<Button color="inherit" className={classes.fredokaFont}>
+															Become A Member
+														</Button>
+													) : (
+														<Button color="inherit">
+															{/* <img src={currUser.avatar} alt="User Avatar" /> */}
+															<Typography className={classes.fredokaFont}>
+																{currUser.fullname}
+															</Typography>
+														</Button>
+													)}
 											</Link>
 										</Grid>
 										<Grid item>
@@ -188,14 +192,14 @@ export default function ButtonAppBar(props) {
 													</Button>
 												</Link>
 											) : (
-												<Button
-													color="inherit"
-													className={classes.fredokaFont}
-													onClick={() => handleLogout(currUser._id)}
-												>
-													Sign Out
-												</Button>
-											)}
+													<Button
+														color="inherit"
+														className={classes.fredokaFont}
+														onClick={() => handleLogout(currUser._id)}
+													>
+														Sign Out
+													</Button>
+												)}
 										</Grid>
 									</Grid>
 								</Grid>
