@@ -103,36 +103,9 @@ export default function ButtonAppBar(props) {
 								<Grid container spacing={3} justify="space-between">
 									<Grid container item lg={8} spacing={2}>
 										<Grid item>
-											{/* <Link
-												edge="start"
-												aria-controls="fade-menu"
-												aria-haspopup="true"
-												onClick={handleClick}
-												style={{ textDecoration: 'none' }}
-											> */}
 											<Typography variant="h6" className={classes.title}>
 												<Conservation />
 											</Typography>
-											{/* </Link> */}
-											{/* <Menu
-												id="fade-menu"
-												anchorE1={anchorE1}
-												anchorOrigin="center"
-												keepMounted
-												open={open}
-												onClose={handleClose}
-												TransitionComponent={Fade}
-											>
-												<MenuItem onClick={handleClose}>
-													<Link to="/zoos-and-conservation">Test</Link>
-												</MenuItem>
-												<MenuItem onClick={handleClose}>
-													<Link to="#">Test</Link>
-												</MenuItem>
-												<MenuItem onClick={handleClose}>
-													<Link to="#">Test</Link>
-												</MenuItem>
-											</Menu> */}
 										</Grid>
 										<Grid item>
 											<Typography variant="h6" className={classes.title}>
