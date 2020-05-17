@@ -19,7 +19,7 @@ import AnimalAdopt from './pages/AnimalAdopt';
 import AnimalAdopt2 from './pages/AnimalAdopt2';
 import FeedingAnimals from './pages/FeedingAnimals';
 import AnimalFeeder from './pages/AnimalFeeder';
-import GeneralDonation from './pages/GeneralDonation';
+import Donation from './pages/Donation'
 
 function App() {
 	return (
@@ -37,7 +37,7 @@ function App() {
 					<Route path="/animal-adopt-2" component={AnimalAdopt2} />
 					<Route path="/feeding-animals" component={FeedingAnimals} />
 					<Route path="/animal-feeder" component={AnimalFeeder} />
-					<Route path="/general-donation" component={GeneralDonation} />
+					<Route path="/donation" component={Donation} />
 				</Switch>
 			</Router>
 		</div>
