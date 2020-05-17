@@ -7,8 +7,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import people from './people.png';
 import rhino from './rhino.png';
 
-import { useSelector, useDispatch } from 'react-redux';
-import { currentUser } from '../../assets/redux/actions/loginAction';
+// import { useSelector, useDispatch } from 'react-redux';
+// import { currentUser } from '../../assets/redux/actions/loginAction';
 
 const useStyles = makeStyles((theme) => ({
 	base: {

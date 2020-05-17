@@ -2,7 +2,6 @@ import React, { Fragment } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 
 import Typography from '@material-ui/core/Typography';
-import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -12,10 +11,6 @@ import Avatar from '@material-ui/core/Avatar';
 import ImageIcon from '@material-ui/icons/Image';
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
 import RemoveCircleOutlineIcon from '@material-ui/icons/RemoveCircleOutline';
-
-import Link from '@material-ui/core/Link';
-import Hidden from '@material-ui/core/Hidden';
-import { Divider } from '@material-ui/core';
 
 const useStyle = makeStyles((theme) => ({}));
 
