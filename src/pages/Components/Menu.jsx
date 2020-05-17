@@ -12,7 +12,7 @@ import Paper from '@material-ui/core/Paper';
 import { Link } from 'react-router-dom';
 
 export default function SimpleMenu() {
-	const [anchorEl, setAnchorEl] = React.useState(null);
+	const [ anchorEl, setAnchorEl ] = React.useState(null);
 	const handleClick = (event) => {
 		setAnchorEl(event.currentTarget);
 	};
@@ -22,13 +22,13 @@ export default function SimpleMenu() {
 	const useStyles = makeStyles((theme) => ({
 		root: {
 			flexGrow: 1,
-			color: '#60B6D1',
+			color: '#60B6D1'
 		},
 		title: {
 			flexGrow: 1,
 			fontFamily: 'Damion, cursive',
 			color: '#6C5434',
-			backgroundColor: '#60B6D1',
+			backgroundColor: '#60B6D1'
 		},
 		fredokaFont: {
 			flexGrow: 1,

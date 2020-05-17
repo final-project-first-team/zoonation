@@ -6,6 +6,7 @@ import Grid from '@material-ui/core/Grid';
 import Link from '@material-ui/core/Link';
 import Hidden from '@material-ui/core/Hidden';
 
+import { useSelector } from 'react-redux';
 import CardForFeed from '../Components/CardForFeed';
 
 const useStyle = makeStyles((theme) => ({
@@ -77,6 +78,7 @@ const useStyle = makeStyles((theme) => ({
 
 export default function BodyFeedingAnimals() {
 	const classes = useStyle();
+	const status = useSelector((state) => state.isLoggedIn);
 	return (
 		<div className={classes.root} style={{ background: '#ECE4BA' }}>
 			<Grid container justify="center">

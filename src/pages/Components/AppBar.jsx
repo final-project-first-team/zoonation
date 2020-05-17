@@ -8,10 +8,11 @@ import IconButton from '@material-ui/core/IconButton';
 import Hidden from '@material-ui/core/Hidden';
 import Grid from '@material-ui/core/Grid';
 import { Link } from 'react-router-dom';
-import Menu from '@material-ui/core/Menu';
+// import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import Fade from '@material-ui/core/Fade';
 
+import Menu from './Menu';
 import Paw from './paw.png';
 
 import { useDispatch, useSelector } from 'react-redux';
@@ -100,7 +101,7 @@ export default function ButtonAppBar(props) {
 								<Grid container spacing={3} justify="space-between">
 									<Grid container item lg={8} spacing={2}>
 										<Grid item>
-											<Link
+											{/* <Link
 												edge="start"
 												aria-controls="fade-menu"
 												aria-haspopup="true"
@@ -129,7 +130,7 @@ export default function ButtonAppBar(props) {
 												<MenuItem onClick={handleClose}>
 													<Link to="#">Test</Link>
 												</MenuItem>
-											</Menu>
+											</Menu> */}
 										</Grid>
 										<Grid item>
 											<Link to="/our-animals" style={{ textDecoration: 'none' }}>
