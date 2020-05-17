@@ -76,7 +76,7 @@ export default function MenuListComposition() {
 
                 >
                     <Typography style={{ textDecoration: 'none' }} className={classes.title}>
-                        Conservation
+                        Ways To Help
                     </Typography>
                 </Button>
                 <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
@@ -88,11 +88,14 @@ export default function MenuListComposition() {
                             <Paper>
                                 <ClickAwayListener onClickAway={handleClose}>
                                     <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
-                                        <Link to="/zoos-and-conservation" style={{ textDecoration: 'none' }}>
-                                            <MenuItem className={classes.title} onClick={handleClose}>Zoos</MenuItem>
+                                        <Link to="/general-donation" style={{ textDecoration: 'none' }}>
+                                            <MenuItem className={classes.title} onClick={handleClose}>Zoo Donation</MenuItem>
                                         </Link>
-                                        <Link to="/our-animals" style={{ textDecoration: 'none' }}>
-                                            <MenuItem className={classes.title} onClick={handleClose}>Animals</MenuItem>
+                                        <Link to="/feeding-animals" style={{ textDecoration: 'none' }}>
+                                            <MenuItem className={classes.title} onClick={handleClose}>Animal Feeding</MenuItem>
+                                        </Link>
+                                        <Link to="/animal-adopt" style={{ textDecoration: 'none' }}>
+                                            <MenuItem className={classes.title} onClick={handleClose}>Animal Adoption</MenuItem>
                                         </Link>
                                     </MenuList>
                                 </ClickAwayListener>
