@@ -10,6 +10,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 
 import Hidden from '@material-ui/core/Hidden';
 import { Divider } from '@material-ui/core';
+import { useSelector } from 'react-redux';
 
 import YourStorage from './YourStorage';
 import YourTray from './YourTray';
@@ -99,6 +100,7 @@ const useStyle = makeStyles((theme) => ({
 
 export default function BodyAnimalFeeder() {
 	const classes = useStyle();
+	const status = useSelector((state) => state.isLoggedIn);
 	return (
 		<div className={classes.root} style={{ background: '#ECE4BA' }}>
 			<Grid container justify="flex-start">
