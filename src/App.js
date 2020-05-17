@@ -18,6 +18,7 @@ import ZooCons from './pages/ZooCons';
 import AnimalAdopt from './pages/AnimalAdopt';
 import AnimalAdopt2 from './pages/AnimalAdopt2';
 import FeedingAnimals from './pages/FeedingAnimals';
+import AnimalFeeder from './pages/AnimalFeeder';
 import GeneralDonation from './pages/GeneralDonation';
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
 					<Route path="/animal-adopt" component={AnimalAdopt} />
 					<Route path="/animal-adopt-2" component={AnimalAdopt2} />
 					<Route path="/feeding-animals" component={FeedingAnimals} />
+					<Route path="/animal-feeder" component={AnimalFeeder} />
 					<Route path="/general-donation" component={GeneralDonation} />
 				</Switch>
 			</Router>

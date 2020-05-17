@@ -10,7 +10,6 @@ import CardForFeed from '../Components/CardForFeed';
 
 const useStyle = makeStyles((theme) => ({
 	root: {
-		// CSS BODY
 		display: 'flex',
 		flexWrap: 'wrap',
 		height: 'auto',
