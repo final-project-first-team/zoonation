@@ -13,6 +13,7 @@ import { Divider } from '@material-ui/core';
 
 import YourStorage from './YourStorage';
 import YourTray from './YourTray';
+import AnimalsData from './AnimalsData';
 
 const useStyle = makeStyles((theme) => ({
 	root: {
@@ -137,41 +138,7 @@ export default function BodyAnimalFeeder() {
 				</Grid>
 				<Grid container item className={classes.rightContainer} lg={3} direction="column">
 					<Grid item className={classes.rightContainerInside} lg={12}>
-						<Typography>Animals Name</Typography>
-						<Typography>Animals Scientific Name</Typography>
-						<Typography style={{ textAlign: 'left', paddingTop: '5%', paddingBottom: 0 }}>
-							Feeds/Day :
-						</Typography>
-						<List style={{ paddingTop: 0, paddingBottom: '2%', textAlign: 'center' }}>
-							<ListItem style={{ paddingTop: 0, paddingBottom: '0', textAlign: 'center' }}>
-								<ListItemText primary="Feeds Name" />
-								<ListItemText secondary="X 20" />
-							</ListItem>
-							<ListItem style={{ paddingTop: 0, paddingBottom: '0', textAlign: 'center' }}>
-								<ListItemText primary="Feeds Name" />
-								<ListItemText secondary="X 20" />
-							</ListItem>
-						</List>
-						<Typography style={{ textAlign: 'left', paddingTop: '5%', paddingBottom: 0 }}>
-							Feeds source :
-						</Typography>
-						<List style={{ paddingTop: 0, paddingBottom: '2%', textAlign: 'center' }}>
-							<ListItem style={{ paddingTop: 0, paddingBottom: '0', textAlign: 'center' }}>
-								<ListItemText primary="Feeds Name" />
-								<ListItemText secondary=": Source" />
-							</ListItem>
-							<ListItem style={{ paddingTop: 0, paddingBottom: '0', textAlign: 'center' }}>
-								<ListItemText primary="Feeds Name" />
-								<ListItemText secondary=": Source" />
-							</ListItem>
-						</List>
-						<Typography style={{ textAlign: 'left', paddingTop: '5%', paddingBottom: 0 }}>
-							Number of virtual feeds given today :
-						</Typography>
-						<Grid container justify="space-around">
-							<Grid item>Type 1</Grid>
-							<Grid item>Type 2</Grid>
-						</Grid>
+						<AnimalsData />
 					</Grid>
 				</Grid>
 			</Grid>
