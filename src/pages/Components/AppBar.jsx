@@ -8,10 +8,12 @@ import IconButton from '@material-ui/core/IconButton';
 import Hidden from '@material-ui/core/Hidden';
 import Grid from '@material-ui/core/Grid';
 import { Link } from 'react-router-dom';
-import Menu from '@material-ui/core/Menu';
+// import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import Fade from '@material-ui/core/Fade';
 
+import Conservation from './Conservation'
+import MenuDropDown from './MenuDropDown'
 import Paw from './paw.png';
 
 import { useDispatch, useSelector } from 'react-redux';
@@ -108,10 +110,10 @@ export default function ButtonAppBar(props) {
 												style={{ textDecoration: 'none' }}
 											>
 												<Typography variant="h6" className={classes.title}>
-													Zoos and Conservations
+													<Conservation/>
 												</Typography>
 											</Link>
-											<Menu
+											{/* <Menu
 												id="fade-menu"
 												anchorE1={anchorE1}
 												anchorOrigin="center"
@@ -129,7 +131,7 @@ export default function ButtonAppBar(props) {
 												<MenuItem onClick={handleClose}>
 													<Link to="#">Test</Link>
 												</MenuItem>
-											</Menu>
+											</Menu> */}
 										</Grid>
 										<Grid item>
 											<Link to="/our-animals" style={{ textDecoration: 'none' }}>
@@ -202,7 +204,7 @@ export default function ButtonAppBar(props) {
 						<Grid item xs={3} style={{ textAlign: 'right' }}>
 							<Hidden lgUp>
 								<IconButton edge="start" className={classes.menuButton} aria-label="menu">
-									<Menu />
+									<MenuDropDown />
 								</IconButton>
 							</Hidden>
 						</Grid>
