@@ -35,7 +35,7 @@ export default function SimpleMenu() {
 			fontFamily: 'Fredoka One, cursive',
 			color: '#6C5434',
 			background: '#60B6D1'
-		},
+		}
 	}));
 
 	const classes = useStyles();

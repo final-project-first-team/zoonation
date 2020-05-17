@@ -4,16 +4,15 @@ import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
 
 import Hidden from '@material-ui/core/Hidden';
 import { Divider } from '@material-ui/core';
 import { useSelector } from 'react-redux';
 
 import YourStorage from './YourStorage';
+import YourStorageNotSignedIn from './YourStorageNotSignedIn';
 import YourTray from './YourTray';
+import YourTrayNotSignedIn from './YourTrayNotSignedIn';
 import AnimalsData from './AnimalsData';
 
 const useStyle = makeStyles((theme) => ({
@@ -101,6 +100,7 @@ const useStyle = makeStyles((theme) => ({
 export default function BodyAnimalFeeder() {
 	const classes = useStyle();
 	const status = useSelector((state) => state.isLoggedIn);
+
 	return (
 		<div className={classes.root} style={{ background: '#ECE4BA' }}>
 			<Grid container justify="flex-start">
@@ -117,15 +117,11 @@ export default function BodyAnimalFeeder() {
 				<Grid container item className={classes.leftContainer} lg={2} justify="center">
 					<Grid item className={classes.leftContainerInside} lg={11}>
 						<Grid container justify="center" direction="column" className={classes.storage}>
-							<Grid item>
-								<YourStorage />
-							</Grid>
+							<Grid item>{status.length === 0 ? <YourStorageNotSignedIn /> : <YourStorage />}</Grid>
 						</Grid>
 						<Divider />
 						<Grid container justify="center" direction="column" className={classes.tray}>
-							<Grid item>
-								<YourTray />
-							</Grid>
+							<Grid item>{status.length === 0 ? <YourTrayNotSignedIn /> : <YourTray />}</Grid>
 						</Grid>
 					</Grid>
 				</Grid>

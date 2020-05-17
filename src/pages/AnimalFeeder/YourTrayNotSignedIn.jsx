@@ -15,12 +15,12 @@ const useStyle = makeStyles((theme) => ({
 	}
 }));
 
-export default function YourStorageNotSignedIn() {
+export default function YourTray() {
 	const classes = useStyle();
 
 	return (
 		<Fragment>
-			<Typography>Become a member and start feeding these animals</Typography>
+			<Typography>Already a member?</Typography>
 			<br />
 			<Button className={classes.button} type="submit" fullWidth variant="contained">
 				<Typography>Sign In</Typography>
