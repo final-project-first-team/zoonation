@@ -6,7 +6,6 @@ import { Typography } from '@material-ui/core';
 import Paper from '@material-ui/core/Paper';
 // import Link from '@material-ui/core/Link';
 
-import ProfilePartner from '../Components/ProfilePartner'
 // import { Link } from 'react-router-dom';
 // import ZooPartnerAct from '../Components/ZooPartnerAct';
 import SingleSlider from '../Components/SingleSlider'
