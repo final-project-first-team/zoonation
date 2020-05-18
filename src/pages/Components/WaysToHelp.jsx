@@ -66,7 +66,6 @@ export default function MenuListComposition() {
 		[ open ]
 	);
 
-<<<<<<< HEAD
 	return (
 		<div className={classes.root}>
 			<div>
@@ -114,38 +113,4 @@ export default function MenuListComposition() {
 			</div>
 		</div>
 	);
-=======
-                >
-                    <Typography style={{ textDecoration: 'none' }} className={classes.title}>
-                        Ways To Help
-                    </Typography>
-                </Button>
-                <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
-                    {({ TransitionProps, placement }) => (
-                        <Grow
-                            {...TransitionProps}
-                            style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
-                        >
-                            <Paper>
-                                <ClickAwayListener onClickAway={handleClose}>
-                                    <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
-                                        <Link to="/donation" style={{ textDecoration: 'none' }}>
-                                            <MenuItem className={classes.title} onClick={handleClose}>Zoo Donation</MenuItem>
-                                        </Link>
-                                        <Link to="/feeding-animals" style={{ textDecoration: 'none' }}>
-                                            <MenuItem className={classes.title} onClick={handleClose}>Animal Feeding</MenuItem>
-                                        </Link>
-                                        <Link to="/animal-adopt" style={{ textDecoration: 'none' }}>
-                                            <MenuItem className={classes.title} onClick={handleClose}>Animal Adoption</MenuItem>
-                                        </Link>
-                                    </MenuList>
-                                </ClickAwayListener>
-                            </Paper>
-                        </Grow>
-                    )}
-                </Popper>
-            </div>
-        </div>
-    );
->>>>>>> afbb0f85e79e63e98073cd14184cf2895666ef1c
 }
