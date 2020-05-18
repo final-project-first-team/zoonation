@@ -21,6 +21,7 @@ import FeedingAnimals from './pages/FeedingAnimals';
 import AnimalFeeder from './pages/AnimalFeeder';
 import Donation from './pages/Donation'
 import ZooPartner from './pages/ZooPartner'
+import PayMetDon from './pages/PayMetDon'
 
 function App() {
 	return (
@@ -40,6 +41,7 @@ function App() {
 					<Route path="/animal-feeder" component={AnimalFeeder} />
 					<Route path="/donation" component={Donation} />
 					<Route path="/zoo-partner" component={ZooPartner} />
+					<Route path="/donation-payment-method" component={PayMetDon} />
 				</Switch>
 			</Router>
 		</div>
