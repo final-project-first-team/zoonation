@@ -1,9 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
+
 import { makeStyles } from '@material-ui/core/styles';
 
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
-import Link from '@material-ui/core/Link';
+// import Link from '@material-ui/core/Link';
 import Hidden from '@material-ui/core/Hidden';
 
 import CardForAdopt from '../Components/CardForAdopt';
@@ -118,13 +120,13 @@ export default function AnimalAdopt() {
 				<Grid item xs={12} sm={12} md={6} lg={6} xl={6} style={{ background: '#AAE787' }}>
 					<Hidden smDown>
 						<Typography className={classes.text1}>
-							<Link color="inherit">Make a donation to zoonations today</Link>
+							<Link to='/donation' style={{ color: '#6C5434', textDecoration: 'none' }}>Make a donation to zoonations today</Link>
 						</Typography>
 					</Hidden>
 
 					<Hidden mdUp>
 						<Typography className={classes.text2}>
-							<Link color="inherit">Make a donation to zoonations today</Link>
+							<Link to='/donation' style={{ color: '#6C5434', textDecoration: 'none' }}>Make a donation to zoonations today</Link>
 						</Typography>
 					</Hidden>
 				</Grid>
@@ -132,13 +134,13 @@ export default function AnimalAdopt() {
 				<Grid item xs={12} sm={12} md={6} lg={6} xl={6} style={{ background: '#91BD78' }}>
 					<Hidden smDown>
 						<Typography className={classes.text1}>
-							<Link color="inherit">Feed our animals</Link>
+							<Link to='/feeding-animals' style={{ color: '#6C5434', textDecoration: 'none' }}>Feed our animals</Link>
 						</Typography>
 					</Hidden>
 
 					<Hidden mdUp>
 						<Typography className={classes.text2}>
-							<Link color="inherit">Feed our animals</Link>
+							<Link to='/feeding-animals' style={{ color: '#6C5434', textDecoration: 'none' }}>Feed our animals</Link>
 						</Typography>
 					</Hidden>
 				</Grid>

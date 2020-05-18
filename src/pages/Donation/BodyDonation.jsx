@@ -3,8 +3,9 @@ import { makeStyles } from '@material-ui/core/styles';
 
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
-import Link from '@material-ui/core/Link';
+// import Link from '@material-ui/core/Link';
 import Hidden from '@material-ui/core/Hidden';
+import { Link } from 'react-router-dom'
 
 import CardDonation from '../Components/CardDonation';
 
@@ -100,7 +101,7 @@ export default function AnimalAdopt() {
 
             <Grid container justify="center">
                 <Typography className={classes.giftText}>
-                There are also various project to help animals that also need your help.
+                    There are also various project to help animals that also need your help.
 				</Typography>
             </Grid>
 
@@ -113,14 +114,14 @@ export default function AnimalAdopt() {
             <Grid container display="flex" maxWidth="xl" style={{ marginBottom: '30px' }}>
                 <Grid item xs={12} sm={12} md={6} lg={6} xl={6} style={{ background: '#AAE787' }}>
                     <Hidden smDown>
-                        <Typography className={classes.text1}>
-                            <Link color="inherit">Adopt our animals</Link>
+                        <Typography className={classes.text1} /* style={{textDecoration:'none'}} */>
+                            <Link to='/animal-adopt' style={{color:'#6C5434', textDecoration:'none'}}>Adopt our animals</Link>
                         </Typography>
                     </Hidden>
 
                     <Hidden mdUp>
-                        <Typography className={classes.text2}>
-                            <Link color="inherit">Adopt our animals</Link>
+                        <Typography className={classes.text2} /* style={{textDecoration:'none'}} */>
+                            <Link to='/animal-adopt' style={{color:'#6C5434', textDecoration:'none'}}>Adopt our animals</Link>
                         </Typography>
                     </Hidden>
                 </Grid>
@@ -128,13 +129,13 @@ export default function AnimalAdopt() {
                 <Grid item xs={12} sm={12} md={6} lg={6} xl={6} style={{ background: '#91BD78' }}>
                     <Hidden smDown>
                         <Typography className={classes.text1}>
-                            <Link color="inherit">Feed our animals</Link>
+                            <Link to='/feeding-animals' style={{color:'#6C5434', textDecoration:'none'}}>Feed our animals</Link>
                         </Typography>
                     </Hidden>
 
                     <Hidden mdUp>
                         <Typography className={classes.text2}>
-                            <Link color="inherit">Feed our animals</Link>
+                            <Link to='/feeding-animals' style={{color:'#6C5434', textDecoration:'none'}}>Feed our animals</Link>
                         </Typography>
                     </Hidden>
                 </Grid>
