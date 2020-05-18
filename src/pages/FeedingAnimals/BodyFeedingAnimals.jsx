@@ -1,9 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
+
 import { makeStyles } from '@material-ui/core/styles';
 
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
-import Link from '@material-ui/core/Link';
+// import Link from '@material-ui/core/Link';
 import Hidden from '@material-ui/core/Hidden';
 
 import { useSelector } from 'react-redux';
@@ -116,13 +118,13 @@ export default function BodyFeedingAnimals() {
 				<Grid item xs={12} sm={12} md={6} lg={6} xl={6} style={{ background: '#AAE787' }}>
 					<Hidden smDown>
 						<Typography className={classes.text1}>
-							<Link color="inherit">Make a donation to our zoo partner</Link>
+							<Link to='/donation' style={{color:'#6C5434', textDecoration:'none'}}>Make a donation to our zoo partner</Link>
 						</Typography>
 					</Hidden>
 
 					<Hidden mdUp>
 						<Typography className={classes.text2}>
-							<Link color="inherit">Make a donation to our zoo partner</Link>
+							<Link to='/donation' style={{color:'#6C5434', textDecoration:'none'}}>Make a donation to our zoo partner</Link>
 						</Typography>
 					</Hidden>
 				</Grid>
@@ -130,13 +132,13 @@ export default function BodyFeedingAnimals() {
 				<Grid item xs={12} sm={12} md={6} lg={6} xl={6} style={{ background: '#91BD78' }}>
 					<Hidden smDown>
 						<Typography className={classes.text1}>
-							<Link color="inherit">Adopt our animals</Link>
+							<Link to='/animal-adopt' style={{color:'#6C5434', textDecoration:'none'}}>Adopt our animals</Link>
 						</Typography>
 					</Hidden>
 
 					<Hidden mdUp>
 						<Typography className={classes.text2}>
-							<Link color="inherit">Adopt our animals</Link>
+							<Link to='/animal-adopt' style={{color:'#6C5434', textDecoration:'none'}}>Adopt our animals</Link>
 						</Typography>
 					</Hidden>
 				</Grid>
