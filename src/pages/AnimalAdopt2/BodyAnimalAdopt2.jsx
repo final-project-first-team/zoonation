@@ -23,8 +23,9 @@ const useStyle = makeStyles((theme) => ({
     image: {
 		margin: 'auto',
 		display: 'block',
-		maxWidth: '50vw',
-		maxHeight: '50vh'
+		width: '100%',
+        maxHeight: '50vh',
+        borderRadius: '5px'
     },
     imageHidden: {
         margin: 'auto',
@@ -69,7 +70,13 @@ export default function AnimalAdopt2() {
 
             <Grid container>
                 <Hidden smDown>
-                <Grid item lg={8} style={{ background: '#ECE4BA', padding: '10px' }}>
+                <Grid item lg={4} style={{ background: '#ECE4BA', padding: '10px' }}>
+                    <Paper> 
+                        <img className={classes.image} alt="animals" src="https://wallpaperaccess.com/full/2136603.jpg" />
+                    </Paper>
+                </Grid>
+
+                <Grid item lg={4} style={{ background: '#ECE4BA', padding: '10px' }}>
                     <Paper> 
                         <img className={classes.image} alt="animals" src="https://wallpaperaccess.com/full/2136603.jpg" />
                     </Paper>
@@ -88,8 +95,13 @@ export default function AnimalAdopt2() {
             <Hidden smDown>
                 <Grid item lg={4} sm={4} style={{ background: '#ECE4BA', padding: '10px'}}>
                     <Grid item lg={12}>
+                        <Typography style={{ fontFamily: 'Lemonada', fontSize: '18px', color: '#6C5434'}}>
+                            Choose Your Adoption Rate!
+                        </Typography>
+                    </Grid>
+                    <Grid item lg={12}>
                     <Paper elevation={0} style={{background: '#6C5434', margin: '3px'}}>
-                        <Button style={{margin: '5px', width: '80%', fontSize: '24px', fontFamily: 'Fredoka One'}} variant="contained" disableElevation>
+                        <Button style={{margin: '5px', width: '80%', fontSize: '20px', fontFamily: 'Fredoka One'}} variant="contained" disableElevation>
                             IDR 150.000
                         </Button>
                     </Paper>
@@ -97,7 +109,7 @@ export default function AnimalAdopt2() {
 
                 <Grid item lg={12}>
                     <Paper elevation={0} style={{background: '#6C5434', margin:'3px'}}>
-                        <Button style={{margin: '5px', width: '80%', fontSize: '24px', fontFamily: 'Fredoka One'}} variant="contained" disableElevation>
+                        <Button style={{margin: '5px', width: '80%', fontSize: '20px', fontFamily: 'Fredoka One'}} variant="contained" disableElevation>
                             IDR 200.000
                         </Button>
                     </Paper>
@@ -105,23 +117,24 @@ export default function AnimalAdopt2() {
 
                 <Grid item lg={12}>
                     <Paper elevation={0} style={{background: '#6C5434', margin: '3px'}}>
-                        <Button style={{margin: '5px', width: '80%', fontSize: '24px', fontFamily: 'Fredoka One'}} variant="contained" disableElevation>
+                        <Button style={{margin: '5px', width: '80%', fontSize: '20px', fontFamily: 'Fredoka One'}} variant="contained" disableElevation>
                             IDR 250.000
                         </Button>
                     </Paper>
                 </Grid>
 
-                <Grid item lg={12}>
-                    <Paper elevation={0} style={{background: '#6C5434', margin: '3px'}}>
-                        <Button style={{margin: '5px', width: '80%', fontSize: '24px', fontFamily: 'Fredoka One'}} variant="contained" disableElevation>
-                            ADOPT
-                        </Button>
-                    </Paper>
-                </Grid>
+                
                 </Grid>
                 </Hidden>
 
                 <Hidden mdUp>
+                <Grid container justify="center">
+                <Grid item sm={12}>
+                        <Typography style={{ fontFamily: 'Lemonada', fontSize: '18px', color: '#6C5434', margin: '10px'}}>
+                            Choose Your Adoption Rate!
+                        </Typography>
+                    </Grid>
+                </Grid>
                 <Grid container justify="center">
                     <Grid item sm={3}>
                         <Button style={{margin: '2px', fontSize: '16px', fontFamily: 'Fredoka One'}} variant="contained">
@@ -138,11 +151,7 @@ export default function AnimalAdopt2() {
                             IDR 250.000
                         </Button>
                     </Grid>
-                    <Grid item sm={3}>
-                    <Button style={{margin: '2px', fontSize: '16px', fontFamily: 'Fredoka One'}} variant="contained">
-                            ADOPT
-                        </Button>
-                    </Grid>
+                    
                 </Grid>
                 </Hidden>
                 

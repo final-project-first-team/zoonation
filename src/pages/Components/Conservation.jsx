@@ -11,96 +11,101 @@ import Typography from '@material-ui/core/Typography';
 
 import { Link } from 'react-router-dom';
 
-
 const useStyles = makeStyles((theme) => ({
-    root: {
-        display: 'flex',
-    },
-    paper: {
-        marginRight: theme.spacing(2),
-    },
-    title: {
-        flexGrow: 1,
-        fontFamily: 'Damion, cursive',
-        color: '#6C5434',
-    },
-    fredokaFont: {
-        flexGrow: 1,
-        fontFamily: 'Fredoka One, cursive',
-        color: '#6C5434',
-        background: '#60B6D1'
-    },
+	root: {
+		display: 'flex'
+	},
+	paper: {
+		marginRight: theme.spacing(2)
+	},
+	title: {
+		flexGrow: 1,
+		fontFamily: 'Damion, cursive',
+		color: '#6C5434'
+	},
+	fredokaFont: {
+		flexGrow: 1,
+		fontFamily: 'Fredoka One, cursive',
+		color: '#6C5434',
+		background: '#60B6D1'
+	}
 }));
 
 export default function MenuListComposition() {
-    const classes = useStyles();
-    const [open, setOpen] = React.useState(false);
-    const anchorRef = React.useRef(null);
+	const classes = useStyles();
+	const [ open, setOpen ] = React.useState(false);
+	const anchorRef = React.useRef(null);
 
-    const handleToggle = () => {
-        setOpen((prevOpen) => !prevOpen);
-    };
+	const handleToggle = () => {
+		setOpen((prevOpen) => !prevOpen);
+	};
 
-    const handleClose = (event) => {
-        if (anchorRef.current && anchorRef.current.contains(event.target)) {
-            return;
-        }
-        setOpen(false);
-    };
+	const handleClose = (event) => {
+		if (anchorRef.current && anchorRef.current.contains(event.target)) {
+			return;
+		}
+		setOpen(false);
+	};
 
-    function handleListKeyDown(event) {
-        if (event.key === 'Tab') {
-            event.preventDefault();
-            setOpen(false);
-        }
-    }
+	function handleListKeyDown(event) {
+		if (event.key === 'Tab') {
+			event.preventDefault();
+			setOpen(false);
+		}
+	}
 
-    const prevOpen = React.useRef(open);
-    React.useEffect(() => {
-        if (prevOpen.current === true && open === false) {
-            anchorRef.current.focus();
-        }
+	const prevOpen = React.useRef(open);
+	React.useEffect(
+		() => {
+			if (prevOpen.current === true && open === false) {
+				anchorRef.current.focus();
+			}
 
-        prevOpen.current = open;
-    }, [open]);
+			prevOpen.current = open;
+		},
+		[ open ]
+	);
 
-    return (
-        <div className={classes.root}>
-            <div>
-                <Button
-                    ref={anchorRef}
-                    aria-controls={open ? 'menu-list-grow' : undefined}
-                    aria-haspopup="true"
-                    onClick={handleToggle}
-                    style={{textDecoration:'none'}}
-
-                >
-                    <Typography style={{ textDecoration: 'none' }} className={classes.title}>
-                        Conservation
-                    </Typography>
-                </Button>
-                <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
-                    {({ TransitionProps, placement }) => (
-                        <Grow
-                            {...TransitionProps}
-                            style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
-                        >
-                            <Paper>
-                                <ClickAwayListener onClickAway={handleClose}>
-                                    <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
-                                        <Link to="/zoos-and-conservation" style={{ textDecoration: 'none' }}>
-                                            <MenuItem className={classes.title} onClick={handleClose}>Zoos</MenuItem>
-                                        </Link>
-                                        <Link to="/our-animals" style={{ textDecoration: 'none' }}>
-                                            <MenuItem className={classes.title} onClick={handleClose}>Animals</MenuItem>
-                                        </Link>
-                                    </MenuList>
-                                </ClickAwayListener>
-                            </Paper>
-                        </Grow>
-                    )}
-                </Popper>
-            </div>
-        </div>
-    );
+	return (
+		<div className={classes.root}>
+			<div>
+				<Button
+					ref={anchorRef}
+					aria-controls={open ? 'menu-list-grow' : undefined}
+					aria-haspopup="true"
+					onClick={handleToggle}
+					style={{ textDecoration: 'none' }}
+				>
+					<Typography variant="h6" style={{ textTransform: 'none' }} className={classes.title}>
+						Conservation
+					</Typography>
+				</Button>
+				<Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
+					{({ TransitionProps, placement }) => (
+						<Grow
+							{...TransitionProps}
+							style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
+						>
+							<Paper>
+								<ClickAwayListener onClickAway={handleClose}>
+									<MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
+										<Link to="/zoos-and-conservation" style={{ textDecoration: 'none' }}>
+											<MenuItem className={classes.title} onClick={handleClose}>
+												Zoos
+											</MenuItem>
+										</Link>
+										<Link to="/our-animals" style={{ textDecoration: 'none' }}>
+											<MenuItem className={classes.title} onClick={handleClose}>
+												Animals
+											</MenuItem>
+										</Link>
+									</MenuList>
+								</ClickAwayListener>
+							</Paper>
+						</Grow>
+					)}
+				</Popper>
+			</div>
+		</div>
+	);
 }
