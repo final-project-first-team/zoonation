@@ -101,7 +101,7 @@ export default function AnimalAdopt2() {
                     </Grid>
                     <Grid item lg={12}>
                     <Paper elevation={0} style={{background: '#6C5434', margin: '3px'}}>
-                        <Button style={{margin: '5px', width: '80%', fontSize: '24px', fontFamily: 'Fredoka One'}} variant="contained" disableElevation>
+                        <Button style={{margin: '5px', width: '80%', fontSize: '20px', fontFamily: 'Fredoka One'}} variant="contained" disableElevation>
                             IDR 150.000
                         </Button>
                     </Paper>
@@ -109,7 +109,7 @@ export default function AnimalAdopt2() {
 
                 <Grid item lg={12}>
                     <Paper elevation={0} style={{background: '#6C5434', margin:'3px'}}>
-                        <Button style={{margin: '5px', width: '80%', fontSize: '24px', fontFamily: 'Fredoka One'}} variant="contained" disableElevation>
+                        <Button style={{margin: '5px', width: '80%', fontSize: '20px', fontFamily: 'Fredoka One'}} variant="contained" disableElevation>
                             IDR 200.000
                         </Button>
                     </Paper>
@@ -117,7 +117,7 @@ export default function AnimalAdopt2() {
 
                 <Grid item lg={12}>
                     <Paper elevation={0} style={{background: '#6C5434', margin: '3px'}}>
-                        <Button style={{margin: '5px', width: '80%', fontSize: '24px', fontFamily: 'Fredoka One'}} variant="contained" disableElevation>
+                        <Button style={{margin: '5px', width: '80%', fontSize: '20px', fontFamily: 'Fredoka One'}} variant="contained" disableElevation>
                             IDR 250.000
                         </Button>
                     </Paper>
