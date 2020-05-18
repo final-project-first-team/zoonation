@@ -5,6 +5,9 @@ import animalsReducer from './animalsReducer';
 import spAnimalsReducer from './spAnimalsReducer';
 import zooReducer from './zooReducer';
 import loginStatusReducer from './loginStatusReducer';
+import storageReducer from './storageReducer';
+import priceReducer from './priceReducer';
+import { itemsCartReducer, amountCartReducer, priceCartReducer } from './feedsCartReducer';
 
 const allReducers = combineReducers({
 	currentUser: loginReducer,
@@ -12,7 +15,12 @@ const allReducers = combineReducers({
 	animalsData: animalsReducer,
 	currentAnimal: spAnimalsReducer,
 	zooData: zooReducer,
-	isLoggedIn: loginStatusReducer
+	isLoggedIn: loginStatusReducer,
+	feedsStorage: storageReducer,
+	feedsPrice: priceReducer,
+	itemsHolder: itemsCartReducer,
+	amountHolder: amountCartReducer,
+	priceHolder: priceCartReducer
 });
 
 export default allReducers;

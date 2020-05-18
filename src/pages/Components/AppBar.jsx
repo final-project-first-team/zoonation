@@ -11,6 +11,7 @@ import { Link } from 'react-router-dom';
 // import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import Fade from '@material-ui/core/Fade';
+import Avatar from '@material-ui/core/Avatar';
 
 import Conservation from './Conservation';
 import WaysToHelp from './WaysToHelp';
@@ -43,6 +44,10 @@ const useStyles = makeStyles((theme) => ({
 		flexGrow: 1,
 		fontFamily: 'Fredoka One, cursive',
 		color: '#6C5434'
+	},
+	avatar: {
+		width: theme.spacing(4),
+		height: theme.spacing(4)
 	}
 }));
 
@@ -100,7 +105,7 @@ export default function ButtonAppBar(props) {
 
 						<Grid item lg={9}>
 							<Hidden mdDown>
-								<Grid container spacing={3} justify="space-between">
+								<Grid container spacing={3} justify="space-between" alignItems="center">
 									<Grid container item lg={8} spacing={2}>
 										<Grid item>
 											<Typography variant="h6" className={classes.title}>
@@ -128,23 +133,30 @@ export default function ButtonAppBar(props) {
 											</Link>
 										</Grid>
 									</Grid>
-									<Grid container item lg={4} justify="flex-end">
+									<Grid container item lg={4} justify="flex-end" alignItems="center">
 										<Grid item>
-											<Link to="/sign-up" style={{ textDecoration: 'none' }}>
-												{(isLoggedIn.length === 0 || isLoggedIn === false) &&
-												currUser.length === 0 ? (
+											{(isLoggedIn.length === 0 || isLoggedIn === false) &&
+											currUser.length === 0 ? (
+												<Link to="/sign-up" style={{ textDecoration: 'none' }}>
 													<Button color="inherit" className={classes.fredokaFont}>
 														Become A Member
 													</Button>
-												) : (
+												</Link>
+											) : (
+												<Link to="/profile" style={{ textDecoration: 'none' }}>
 													<Button color="inherit">
-														{/* <img src={currUser.avatar} alt="User Avatar" /> */}
+														<Avatar
+															alt={currUser.fullname}
+															src={currUser.avatar}
+															style={{ marginRight: '5%' }}
+															className={classes.avatar}
+														/>
 														<Typography className={classes.fredokaFont}>
 															{currUser.fullname}
 														</Typography>
 													</Button>
-												)}
-											</Link>
+												</Link>
+											)}
 										</Grid>
 										<Grid item>
 											<Typography variant="h5" className={classes.fredokaFont}>

@@ -8,6 +8,8 @@ import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
+import ExpandLess from '@material-ui/icons/ExpandLess';
+import ExpandMore from '@material-ui/icons/ExpandMore';
 
 import { Link } from 'react-router-dom';
 
@@ -79,6 +81,7 @@ export default function MenuListComposition() {
 					<Typography variant="h6" style={{ textTransform: 'none' }} className={classes.title}>
 						Ways To Help
 					</Typography>
+					{open ? <ExpandLess /> : <ExpandMore />}
 				</Button>
 				<Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
 					{({ TransitionProps, placement }) => (
