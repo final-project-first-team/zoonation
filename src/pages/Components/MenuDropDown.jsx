@@ -100,7 +100,7 @@ export default function SimpleMenu() {
 				<Collapse in={openWays} timeout="auto" unmountOnExit>
 					<List component="div" disablePadding>
 						<ListItem button className={classes.nested}>
-							<Link to="/general-donation" style={{ textDecoration: 'none' }} className={classes.title}>
+							<Link to="/donation" style={{ textDecoration: 'none' }} className={classes.title}>
 								Zoo Donation
 							</Link>
 						</ListItem>
