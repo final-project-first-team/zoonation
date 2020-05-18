@@ -9,6 +9,7 @@ export const loginUser = (values) => {
 			.then((response) => {
 				localStorage.setItem('token', response.data.token);
 				localStorage.setItem('refToken', response.data.refreshToken);
+				localStorage.setItem('isLoggedIn', true);
 				dispatch(currentUser(response.data.token));
 			})
 			.catch((error) => {

@@ -19,27 +19,36 @@ import AnimalAdopt from './pages/AnimalAdopt';
 import AnimalAdopt2 from './pages/AnimalAdopt2';
 import FeedingAnimals from './pages/FeedingAnimals';
 import AnimalFeeder from './pages/AnimalFeeder';
-import Donation from './pages/Donation'
-import ZooPartner from './pages/ZooPartner'
+import Donation from './pages/Donation';
+import ZooPartner from './pages/ZooPartner';
+import FeedsStore from './pages/FeedsStore';
 
 function App() {
 	return (
 		<div className="App">
 			<Router>
 				<Switch>
+					{/* Basic Features*/}
 					<Route exact path="/" component={Homepage} />
 					<Route path="/sign-in" component={SignIn} />
 					<Route path="/sign-up" component={SignUp} />
-					<PrivateRoute path="/profile" component={ProfileInfo} />
+
+					{/* Main Features - Education */}
+					<Route path="/zoo-partner" component={ZooPartner} />
+					<Route path="/zoos-and-conservation" component={ZooCons} />
 					<Route path="/our-animals" component={OurAnimals} />
 					<Route exact path="/animal-info/:id" component={AnimalInfo} />
-					<Route path="/zoos-and-conservation" component={ZooCons} />
+
+					{/* Main Features - Donation */}
+					<Route path="/donation" component={Donation} />
 					<Route path="/animal-adopt" component={AnimalAdopt} />
 					<Route path="/animal-adopt-2" component={AnimalAdopt2} />
 					<Route path="/feeding-animals" component={FeedingAnimals} />
 					<Route path="/animal-feeder" component={AnimalFeeder} />
-					<Route path="/donation" component={Donation} />
-					<Route path="/zoo-partner" component={ZooPartner} />
+
+					{/* User Profile */}
+					<PrivateRoute path="/profile" component={ProfileInfo} />
+					<PrivateRoute path="/feeds-store" component={FeedsStore} />
 				</Switch>
 			</Router>
 		</div>
