@@ -7,47 +7,57 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
+
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles({
-  root: {
-    maxWidth: 345,
-  },
-  media: {
-    height: 140,
-  },
+	root: {
+		// minWidth: 300,
+		borderRadius: '5px'
+	},
+	media: {
+		height: 140
+	}
 });
 
-export default function MediaCard() {
-  const classes = useStyles();
-
-  return (
-    <div>
-      <Card className={classes.root}>
-        <CardActionArea>
-          <CardMedia
-            className={classes.media}
-            image="/static/images/cards/contemplative-reptile.jpg"
-            title="Contemplative Reptile"
-          />
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="h2">
-              Lizard
-          </Typography>
-            <Typography variant="body2" color="textSecondary" component="p">
-              Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-              across all continents except Antarctica
-          </Typography>
-          </CardContent>
-        </CardActionArea>
-        <CardActions>
-          <Button size="small" color="primary">
-            Share
-        </Button>
-          <Button size="small" color="primary">
-            Learn More
-        </Button>
-        </CardActions>
-      </Card>
-    </div>
-  );
+export default function CardMapping(props) {
+	const classes = useStyles();
+	return (
+		<Grid item lg={3} md={4} sm={6} xs={12}>
+			<Card className={classes.root}>
+				<CardActionArea>
+					<CardMedia
+						className={classes.media}
+						image="https://media.13newsnow.com/assets/WVEC/images/cd4e02dc-cc24-449a-85b6-899443dc73b8/cd4e02dc-cc24-449a-85b6-899443dc73b8_1920x1080.jpg"
+						// title={props.animals.scientificName}
+					/>
+					<CardContent>
+						<Typography
+							gutterBottom
+							variant="h5"
+							component="h2"
+							style={{
+								fontFamily: 'Fredoka One',
+								background: '#AAE787',
+								color: '#6C5434',
+								borderRadius: '5px'
+							}}
+						>
+							{/* {props.animals.name} */}
+						</Typography>
+					</CardContent>
+				</CardActionArea>
+				<CardActions>
+					<Grid container justify="center">
+						{/* <Link to={`/animal-info/${props.animals._id}`}> */}
+						<Button size="small" color="inherit" style={{ fontFamily: 'roboto', color: '#6C5434' }}>
+							Zoo's info
+						</Button>
+						{/* </Link> */}
+					</Grid>
+				</CardActions>
+			</Card>
+		</Grid>
+	);
 }

@@ -1,16 +1,12 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 
+import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
-import { Typography } from '@material-ui/core';
-// import Link from '@material-ui/core/Link';
+import Link from '@material-ui/core/Link';
+import Hidden from '@material-ui/core/Hidden';
 
-import CardDonation from '../Components/CardDonation'
-import { Link } from 'react-router-dom';
-// import CardMapping from '../Components/CardMapping';
-
-// import { useDispatch, useSelector } from 'react-redux';
-// import { getAnimals } from '../../assets/redux/actions/animalsAction';
+import CardDonation from '../Components/CardDonation';
 
 const useStyle = makeStyles((theme) => ({
     root: {
@@ -21,13 +17,7 @@ const useStyle = makeStyles((theme) => ({
         width: '100%',
         alignItems: 'center',
         textAlign: 'center',
-        flexDirection: 'row',
-    },
-    roots: {
-        maxWidth: 345
-    },
-    media: {
-        height: 140
+        flexDirection: 'row'
     },
     ourAnimals: {
         display: 'flex',
@@ -37,76 +27,116 @@ const useStyle = makeStyles((theme) => ({
         color: '#6C5434',
         marginTop: theme.spacing(10)
     },
+    ourAnimalsSm: {
+        display: 'flex',
+        textAlign: 'center',
+        fontSize: '34px',
+        fontFamily: 'Fredoka One',
+        color: '#6C5434',
+        marginTop: theme.spacing(10)
+    },
+    adoptForBetter: {
+        fontFamily: 'Lemonada',
+        fontStyle: 'normal',
+        fontWeight: 'normal',
+        fontSize: '20px',
+        lineHeight: '25px',
+        display: 'flex',
+        alignItems: 'center',
+        color: '#6C5434',
+        marginTop: theme.spacing(1)
+    },
+    giftText: {
+        fontFamily: 'Raleway',
+        fontStyle: 'normal',
+        fontWeight: 'normal',
+        fontSize: '16px',
+        lineHeight: '21px',
+        display: 'flex',
+        alignItems: 'center',
+        color: '#6C5434',
+        marginTop: theme.spacing(1)
+    },
     margin: {
         margin: theme.spacing(3)
     },
-    toHelp: {
-        fontFamily: 'Lemonada',
-        color: '#6C5434',
-        cursor: 'pointer'
-    },
-    navLink: {
-        display: 'flex',
-        textAlign: 'center',
-        alignItems: 'center',
-        justifyContent: 'center',
-        flexWrap: 'wrap',
-        height: '20vh',
-        marginTop: '30px',
-        marginBottom: '30px',
+    text1: {
         fontFamily: 'Fredoka One',
+        color: '#6C5434',
+        lineHeight: '65px',
+        cursor: 'pointer',
+        fontSize: '28px'
+    },
+    text2: {
+        fontFamily: 'Fredoka One',
+        color: '#6C5434',
+        lineHeight: '32.5px',
+        cursor: 'pointer',
+        fontSize: '20px'
     }
 }));
 
-export default function BodyDonation() {
+export default function AnimalAdopt() {
     const classes = useStyle();
-    const preventDefault = (event) => event.preventDefault();
-    // const dispatch = useDispatch();
-    // const animalsData = useSelector((state) => state.animalsData);
-    // if (animalsData.length === 0) {
-    //     dispatch(getAnimals());
-    // }
-
     return (
         <div className={classes.root} style={{ background: '#ECE4BA' }}>
             <Grid container justify="center">
-                <Typography className={classes.ourAnimals}>
-                    Donate to our zoo partners
-                    </Typography>
+                <Hidden smDown>
+                    <Typography className={classes.ourAnimals}>Donate to Our Zoo Partner</Typography>
+                </Hidden>
 
-                <Grid container justify="center" maxWidth="sm">
-                    <Typography className={classes.toHelp}>
-                        <h3>Help them providing better place and facilities for animals</h3>
-                    </Typography>
+                <Hidden mdUp>
+                    <Typography className={classes.ourAnimalsSm}>Donate to Our Zoo Partner</Typography>
+                </Hidden>
+            </Grid>
+
+            <Grid container justify="center">
+                <Hidden smDown>
+                    <Typography className={classes.adoptForBetter}>
+                        Help them providing better place and facilities for animals
+					</Typography>
+                </Hidden>
+            </Grid>
+
+            <Grid container justify="center">
+                <Typography className={classes.giftText}>
+                There are also various project to help animals that also need your help.
+				</Typography>
+            </Grid>
+
+            <Grid container justify="center" className={classes.margin} spacing={2}>
+                <CardDonation />
+                <CardDonation />
+                <CardDonation />
+            </Grid>
+
+            <Grid container display="flex" maxWidth="xl" style={{ marginBottom: '30px' }}>
+                <Grid item xs={12} sm={12} md={6} lg={6} xl={6} style={{ background: '#AAE787' }}>
+                    <Hidden smDown>
+                        <Typography className={classes.text1}>
+                            <Link color="inherit">Adopt our animals</Link>
+                        </Typography>
+                    </Hidden>
+
+                    <Hidden mdUp>
+                        <Typography className={classes.text2}>
+                            <Link color="inherit">Adopt our animals</Link>
+                        </Typography>
+                    </Hidden>
                 </Grid>
 
-                <Grid container justify="center">
-                    <Typography className={classes.toHelp}>
-                        <h4>There are also various proeject to help animals that also need your help</h4>
-                    </Typography>
-                </Grid>
+                <Grid item xs={12} sm={12} md={6} lg={6} xl={6} style={{ background: '#91BD78' }}>
+                    <Hidden smDown>
+                        <Typography className={classes.text1}>
+                            <Link color="inherit">Feed our animals</Link>
+                        </Typography>
+                    </Hidden>
 
-                <Grid container className={classes.margin} justify="center" spacing={2}>
-                    <CardDonation />
-                    {/* {animalsData.length !== 0 ? (
-                        animalsData.data.map((_animals) => {
-                            return <CardMapping animals={_animals} />;
-                        })
-                    ) : null} */}
-                </Grid>
-                <Grid className={classes.navLink} item container justify="center" lg={6} md={6} sm={6} xs={12} style={{ backgroundColor: '#AAE787' }}>
-                    <Typography>
-                        <Link href="#" onClick={preventDefault}>
-                            {'Adopt our animals'}
-                        </Link>
-                    </Typography>
-                </Grid>
-                <Grid className={classes.navLink} item container justify="center" lg={6} md={6} sm={6} xs={12} style={{ backgroundColor: '#91BD78' }}>
-                    <Typography>
-                        <Link href="#" onClick={preventDefault}>
-                            {'Feed our animals'}
-                        </Link>
-                    </Typography>
+                    <Hidden mdUp>
+                        <Typography className={classes.text2}>
+                            <Link color="inherit">Feed our animals</Link>
+                        </Typography>
+                    </Hidden>
                 </Grid>
             </Grid>
         </div>
