@@ -6,6 +6,9 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
 
+import { useDispatch } from 'react-redux';
+import { getCartData, resetAmountCart, resetPriceCart } from '../../assets/redux/actions/feedsCartAction';
+
 const useStyles = makeStyles((theme) => ({
 	image: {
 		width: theme.spacing(4),
@@ -15,12 +18,23 @@ const useStyles = makeStyles((theme) => ({
 
 export default function RegularMeat() {
 	const classes = useStyles();
+	const dispatch = useDispatch();
+	const handleClick = () => {
+		dispatch(getCartData('RegularFruit'));
+		dispatch(resetAmountCart());
+		dispatch(resetPriceCart());
+	};
 
 	return (
 		<Fragment>
 			<Grid item>
 				<Grid item>
-					<Button variant="text" size="small" style={{ width: '100%', justifyContent: 'left' }}>
+					<Button
+						variant="text"
+						size="small"
+						onClick={() => handleClick()}
+						style={{ width: '100%', justifyContent: 'left' }}
+					>
 						<Avatar
 							alt=""
 							src="https://i.ibb.co/RSpvvbd/banana-png-27771.png"

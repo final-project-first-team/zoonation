@@ -16,7 +16,7 @@ import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
 
 const useStyle = makeStyles((theme) => ({
-    root: {
+	root: {
 		// CSS BODY
 		display: 'flex',
 		flexWrap: 'wrap',
@@ -25,16 +25,16 @@ const useStyle = makeStyles((theme) => ({
 		alignItems: 'center',
 		textAlign: 'center',
 		flexDirection: 'row'
-    },
-    ourAnimals: {
+	},
+	ourAnimals: {
 		display: 'flex',
 		textAlign: 'center',
 		fontSize: '44px',
 		fontFamily: 'Fredoka One',
 		color: '#6C5434',
-        marginTop: theme.spacing(10)
-    },
-    adoptForBetter: {
+		marginTop: theme.spacing(10)
+	},
+	adoptForBetter: {
 		fontFamily: 'Lemonada',
 		fontStyle: 'normal',
 		fontWeight: 'normal',
@@ -44,92 +44,118 @@ const useStyle = makeStyles((theme) => ({
 		alignItems: 'center',
 		color: '#6C5434',
 		marginTop: theme.spacing(1)
-	},
-}))
+	}
+}));
 
 export default function AnimalAdopt3() {
-    const classes = useStyle();
-    const [value, setValue] = React.useState('female');
+	const classes = useStyle();
+	const [ value, setValue ] = React.useState('female');
 
-    const handleChange = (event) => {
-        setValue(event.target.value);
-      };
-    return (
-        <div className={classes.root} style={{ background: '#ECE4BA' }}>
-             <Grid container justify="center">
-                <Typography className={classes.ourAnimals}>
-                    Payment Method
-                </Typography>
-            </Grid>
-
-            <Grid container justify="center">
-					<Typography className={classes.adoptForBetter}>
-					    Adopt. Together We Save Lives.
-					</Typography>
+	const handleChange = (event) => {
+		setValue(event.target.value);
+	};
+	return (
+		<div className={classes.root} style={{ background: '#ECE4BA' }}>
+			<Grid container justify="center">
+				<Typography className={classes.ourAnimals}>Payment Method</Typography>
 			</Grid>
 
-            <Grid container justify="center">
-                    <Grid item md={7} style={{ background: '#6C5434', height: '100%', margin: '20px', padding: '20px'}}>
-                        <Grid item md={12} style={{ background: '#C4C4C4', fontFamily: 'Fredoka One', fontSize: '18px', padding: '10px', color: '#6C5434'}}>
-                            Secure Form Payment
-                        </Grid>
+			<Grid container justify="center">
+				<Typography className={classes.adoptForBetter}>Adopt. Together We Save Lives.</Typography>
+			</Grid>
 
-                        <Grid item md={12} style={{ background: '#F6F4E4', fontFamily: 'Fredoka One', fontSize: '18px', padding: '10px'}}>
-                            <TextField 
-                            label="Name"
-                            fullWidth
-                            style={{background: '#C4C4C4', textAlign: 'center'}}></TextField>
-                        </Grid>
+			<Grid container justify="center">
+				<Grid item md={7} style={{ background: '#6C5434', height: '100%', margin: '20px', padding: '20px' }}>
+					<Grid
+						item
+						md={12}
+						style={{
+							background: '#C4C4C4',
+							fontFamily: 'Fredoka One',
+							fontSize: '18px',
+							padding: '10px',
+							color: '#6C5434'
+						}}
+					>
+						Secure Form Payment
+					</Grid>
 
-                        <Grid item md={12} style={{ background: '#F6F4E4', fontFamily: 'Fredoka One', fontSize: '18px', padding: '10px'}}>
-                            <TextField 
-                            label="Email"
-                            fullWidth
-                            style={{background: '#C4C4C4', textAlign: 'center'}}></TextField>
-                        </Grid>
+					<Grid
+						item
+						md={12}
+						style={{ background: '#F6F4E4', fontFamily: 'Fredoka One', fontSize: '18px', padding: '10px' }}
+					>
+						<TextField label="Name" fullWidth style={{ background: '#C4C4C4', textAlign: 'center' }} />
+					</Grid>
 
-                        <Grid item md={12} style={{ background: '#F6F4E4', fontFamily: 'Fredoka One', fontSize: '18px', padding: '10px'}}>
-                            <TextField 
-                            label="Phone"
-                            fullWidth
-                            style={{background: '#C4C4C4', textAlign: 'center'}}></TextField>
-                        </Grid>
+					<Grid
+						item
+						md={12}
+						style={{ background: '#F6F4E4', fontFamily: 'Fredoka One', fontSize: '18px', padding: '10px' }}
+					>
+						<TextField label="Email" fullWidth style={{ background: '#C4C4C4', textAlign: 'center' }} />
+					</Grid>
 
-                        <Grid item md={12} style={{ background: '#F6F4E4', fontFamily: 'Fredoka One', fontSize: '18px', padding: '10px'}}>
-                            <TextArea 
-                            placeholder="Send a personal message to your animal keeper:"
-                            style={{background: '#C4C4C4', 
-                            textAlign: 'left',
-                            fontFamily: 'Raleway', fontSize: '14px', 
-                            width: '50vw', height: '25vh'}}></TextArea>
-                        <Grid item md={12}>
-                            <Button size="large" variant="outlined"
-                            style={{margin: '10px', color: '#6C5434'}}>
-                                Submit
-                            </Button>
-                        </Grid>
-                    </Grid>
-  
-                    </Grid>
-                    
-                    <Grid item md={4} style={{ background: '#6C5434', height: '100%', margin: '20px', padding: '20px'}}>
-                        <Grid item md={12} style={{ background: '#C4C4C4', fontFamily: 'Fredoka One', fontSize: '18px', padding: '10px', color: '#6C5434'}}>
-                                Choose Your Payment Method
-                            </Grid>
+					<Grid
+						item
+						md={12}
+						style={{ background: '#F6F4E4', fontFamily: 'Fredoka One', fontSize: '18px', padding: '10px' }}
+					>
+						<TextField label="Phone" fullWidth style={{ background: '#C4C4C4', textAlign: 'center' }} />
+					</Grid>
 
-                        <Grid item md={12} style={{ background: '#F6F4E4' }}>
-                        <FormControl component="fieldset" style={{ margin: '10px'}}>
-                            <FormLabel component="legend">Your payment is secured</FormLabel>
-                            <RadioGroup aria-label="payment" name="gender1" value={value} onChange={handleChange}>
-                                <FormControlLabel value="ATM" control={<Radio />} label="ATM Transfer" />
-                                <FormControlLabel value="CC" control={<Radio />} label="MasterCard / VISA" />
-                                <FormControlLabel value="OVO" control={<Radio />} label="OVO" />
-                                <FormControlLabel value="gopay" control={<Radio />} label="GoPay" /> 
-                            </RadioGroup>
-                            </FormControl>
-                        </Grid>
-                    </Grid>
-                </Grid>
-        </div>
-    )
+					<Grid
+						item
+						md={12}
+						style={{ background: '#F6F4E4', fontFamily: 'Fredoka One', fontSize: '18px', padding: '10px' }}
+					>
+						<TextArea
+							placeholder="Send a personal message to your animal keeper:"
+							style={{
+								background: '#C4C4C4',
+								textAlign: 'left',
+								fontFamily: 'Raleway',
+								fontSize: '14px',
+								width: '50vw',
+								height: '25vh'
+							}}
+						/>
+						<Grid item md={12}>
+							<Button size="large" variant="outlined" style={{ margin: '10px', color: '#6C5434' }}>
+								Submit
+							</Button>
+						</Grid>
+					</Grid>
+				</Grid>
+
+				<Grid item md={4} style={{ background: '#6C5434', height: '100%', margin: '20px', padding: '20px' }}>
+					<Grid
+						item
+						md={12}
+						style={{
+							background: '#C4C4C4',
+							fontFamily: 'Fredoka One',
+							fontSize: '18px',
+							padding: '10px',
+							color: '#6C5434'
+						}}
+					>
+						Choose Your Payment Method
+					</Grid>
+
+					<Grid item md={12} style={{ background: '#F6F4E4' }}>
+						<FormControl component="fieldset" style={{ margin: '10px' }}>
+							<FormLabel component="legend">Your payment is secured</FormLabel>
+							<RadioGroup aria-label="payment" name="gender1" value={value} onChange={handleChange}>
+								<FormControlLabel value="ATM" control={<Radio />} label="ATM Transfer" />
+								<FormControlLabel value="CC" control={<Radio />} label="MasterCard / VISA" />
+								<FormControlLabel value="OVO" control={<Radio />} label="OVO" />
+								<FormControlLabel value="gopay" control={<Radio />} label="GoPay" />
+							</RadioGroup>
+						</FormControl>
+					</Grid>
+				</Grid>
+			</Grid>
+		</div>
+	);
 }

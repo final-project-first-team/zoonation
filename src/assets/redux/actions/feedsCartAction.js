@@ -18,3 +18,35 @@ export const amountDecrement = () => {
 		type: 'DECREMENT'
 	};
 };
+
+export const resetAmountCart = () => {
+	return {
+		type: 'RESET_AMOUNT_CART'
+	};
+};
+
+export const priceMultiplierUp = (amount, basePrice) => {
+	return {
+		type: 'CART_PRICE_INCREMENT',
+		payload: {
+			amount,
+			basePrice
+		}
+	};
+};
+
+export const priceMultiplierDown = (amount, basePrice) => {
+	return {
+		type: 'CART_PRICE_DECREMENT',
+		payload: {
+			amount,
+			basePrice
+		}
+	};
+};
+
+export const resetPriceCart = () => {
+	return {
+		type: 'CART_PRICE_RESET'
+	};
+};

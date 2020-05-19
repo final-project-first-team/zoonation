@@ -7,7 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
 
 import { useDispatch } from 'react-redux';
-import { getCartData } from '../../assets/redux/actions/feedsCartAction';
+import { getCartData, resetAmountCart, resetPriceCart } from '../../assets/redux/actions/feedsCartAction';
 
 const useStyles = makeStyles((theme) => ({
 	image: {
@@ -21,6 +21,8 @@ export default function RegularMeat() {
 	const dispatch = useDispatch();
 	const handleClick = () => {
 		dispatch(getCartData('RegularMeat'));
+		dispatch(resetAmountCart());
+		dispatch(resetPriceCart());
 	};
 
 	return (

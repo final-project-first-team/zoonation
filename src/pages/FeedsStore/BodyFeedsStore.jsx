@@ -4,18 +4,26 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
-import Container from '@material-ui/core/Container';
 import Avatar from '@material-ui/core/Avatar';
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
 import RemoveCircleOutlineIcon from '@material-ui/icons/RemoveCircleOutline';
 import IconButton from '@material-ui/core/IconButton';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
 
 import { useSelector, useDispatch } from 'react-redux';
 
 import { getPrice } from '../../assets/redux/actions/priceAction';
-import { amountIncrement, amountDecrement } from '../../assets/redux/actions/feedsCartAction';
+import {
+	amountIncrement,
+	amountDecrement,
+	priceMultiplierUp,
+	priceMultiplierDown
+} from '../../assets/redux/actions/feedsCartAction';
 import SideNav from '../Components/SideNav';
 import RegularMeat from './RegularMeat';
 import PremiumMeat from './PremiumMeat';
@@ -53,16 +61,17 @@ const useStyles = makeStyles((theme) => ({
 	},
 	instruction: {
 		backgroundColor: '#D0C89E',
-		paddingTop: theme.spacing(2)
+		paddingTop: theme.spacing(1),
+		width: '90%'
 	},
 	store: {
 		// paddingTop: theme.spacing(2),
 		// paddingBottom: theme.spacing(2)
 	},
 	storage: {
-		backgroundColor: '#D0C89E',
-		marginBottom: theme.spacing(1),
-		paddingTop: theme.spacing(1)
+		backgroundColor: '#D0C89E'
+		// marginBottom: theme.spacing(1),
+		// paddingTop: theme.spacing(1)
 		// height: '40vh'
 	},
 	image: {
@@ -70,9 +79,9 @@ const useStyles = makeStyles((theme) => ({
 		height: theme.spacing(4)
 	},
 	cart: {
-		marginTop: theme.spacing(1),
-		backgroundColor: '#D0C89E',
-		paddingTop: theme.spacing(2)
+		backgroundColor: '#D0C89E'
+		// marginTop: theme.spacing(1),
+		// paddingTop: theme.spacing(1)
 	}
 }));
 
@@ -81,22 +90,100 @@ export default function BodyProfileInfo() {
 	const dispatch = useDispatch();
 	const currUser = useSelector((state) => state.currentUser);
 	const price = useSelector((state) => state.feedsPrice);
-	const item = useSelector((state) => state.itemHolder);
+	const item = useSelector((state) => state.itemsHolder);
 	const amount = useSelector((state) => state.amountHolder);
 	const priceCart = useSelector((state) => state.priceHolder);
+	const [ open, setOpen ] = React.useState(false);
+
+	const handleClickOpen = () => {
+		setOpen(true);
+	};
+
+	const handleClose = () => {
+		setOpen(false);
+	};
 
 	useEffect(() => {
 		if (price.length === 0) {
 			dispatch(getPrice());
 		}
+		console.log('test');
 	}, []);
 
 	const increment = () => {
 		dispatch(amountIncrement());
+		let basePrice = 0;
+		switch (item) {
+			case 'RegularMeat':
+				basePrice = price.regularMeat;
+				break;
+			case 'PremiumMeat':
+				basePrice = price.premiumMeat;
+				break;
+			case 'RegularFodder':
+				basePrice = price.regularFodder;
+				break;
+			case 'PremiumFodder':
+				basePrice = price.premiumFodder;
+				break;
+			case 'RegularFruit':
+				basePrice = price.regularFruit;
+				break;
+			case 'PremiumFruit':
+				basePrice = price.premiumFruit;
+				break;
+			case 'RegularBean':
+				basePrice = price.regularBean;
+				break;
+			case 'PremiumBean':
+				basePrice = price.premiumBean;
+				break;
+			default:
+				basePrice = 0;
+				break;
+		}
+
+		if (item === 'RegularMeat') {
+			basePrice = price.regularMeat;
+		}
+
+		dispatch(priceMultiplierUp(amount + 1, basePrice));
 	};
 
 	const decrement = () => {
 		dispatch(amountDecrement());
+		let basePrice = 0;
+		switch (item) {
+			case 'RegularMeat':
+				basePrice = price.regularMeat;
+				break;
+			case 'PremiumMeat':
+				basePrice = price.premiumMeat;
+				break;
+			case 'RegularFodder':
+				basePrice = price.regularFodder;
+				break;
+			case 'PremiumFodder':
+				basePrice = price.premiumFodder;
+				break;
+			case 'RegularFruit':
+				basePrice = price.regularFruit;
+				break;
+			case 'PremiumFruit':
+				basePrice = price.premiumFruit;
+				break;
+			case 'RegularBean':
+				basePrice = price.regularBean;
+				break;
+			case 'PremiumBean':
+				basePrice = price.premiumBean;
+				break;
+			default:
+				basePrice = 0;
+				break;
+		}
+
+		dispatch(priceMultiplierDown(amount - 1, basePrice));
 	};
 
 	return (
@@ -111,12 +198,22 @@ export default function BodyProfileInfo() {
 							Feeds Store
 						</Typography>
 					</Grid>
-					<Grid container item justify="space-around">
-						<Grid item lg={5} className={classes.instruction}>
+					<Grid container item justify="space-around" direction="column" alignItems="center">
+						<Grid item className={classes.instruction}>
 							<Typography variant="h6">Welcome to the feeds store</Typography>
+							<Grid container item>
+								<Grid item style={{ paddingTop: '1%', paddingBottom: '1%' }}>
+									<Typography>
+										Here, you can buy various feeds for your beloved animals. To make it simple,
+										animals has been categorized by their feeds. There are meat eater, fodder eater,
+										fruit eater, bean eater. Check out your favorite animals type in their
+										respective page
+									</Typography>
+								</Grid>
+							</Grid>
 						</Grid>
-						<Grid container item lg={5} className={classes.store} direction="column">
-							<Grid item className={classes.storage}>
+						<Grid container item style={{ paddingTop: '3%' }} justify="space-around">
+							<Grid item lg={5} className={classes.storage}>
 								<Typography variant="h6">Available Items</Typography>
 								<Grid container direction="row" justify="space-around">
 									<Grid container item lg={6} direction="column">
@@ -133,43 +230,142 @@ export default function BodyProfileInfo() {
 									</Grid>
 								</Grid>
 							</Grid>
-							<Grid item className={classes.cart}>
+							<Grid item lg={5} className={classes.cart}>
 								<Typography variant="h6">Your Cart</Typography>
 								<Grid container justify="space-around" alignItems="center">
 									<Grid item lg={6}>
-										{/* {item === '' ? null : item === 'RegularMeat' ? <RegularMeat /> : null} */}
-										<Button
-											variant="text"
-											size="small"
-											style={{ width: '100%', justifyContent: 'left' }}
-										>
-											<Avatar
-												alt=""
-												src=""
-												style={{ marginRight: '5%' }}
-												className={classes.image}
-											/>
-											<Typography variant="caption" style={{ textAlign: 'left' }}>
-												Premium Bean
-											</Typography>
-										</Button>
+										{item === '' ? (
+											<Button
+												variant="text"
+												size="small"
+												style={{ width: '100%', justifyContent: 'left' }}
+											>
+												<Avatar
+													alt=""
+													src=""
+													style={{ marginRight: '5%' }}
+													className={classes.image}
+												/>
+												<Typography variant="caption" style={{ textAlign: 'left' }}>
+													Select your items
+												</Typography>
+											</Button>
+										) : item === 'RegularMeat' ? (
+											<RegularMeat />
+										) : item === 'PremiumMeat' ? (
+											<PremiumMeat />
+										) : item === 'RegularFodder' ? (
+											<RegularFodder />
+										) : item === 'PremiumFodder' ? (
+											<PremiumFodder />
+										) : item === 'RegularFruit' ? (
+											<RegularFruit />
+										) : item === 'PremiumFruit' ? (
+											<PremiumFruit />
+										) : item === 'RegularBean' ? (
+											<RegularBean />
+										) : item === 'PremiumBean' ? (
+											<PremiumBean />
+										) : null}
 									</Grid>
 									<Grid item lg={4}>
 										<Typography>Own : 6</Typography>
 									</Grid>
 								</Grid>
-								<Grid container justify="space-around" alignItems="center">
+								<Grid container justify="space-around" style={{ paddingTop: '2%' }}>
+									<Grid item>
+										<Typography>Price</Typography>
+									</Grid>
+									<Grid item>
+										<Typography>
+											{' '}
+											@ IDR{' '}
+											{item === '' ? (
+												0
+											) : item === 'RegularMeat' ? (
+												price.regularMeat
+											) : item === 'PremiumMeat' ? (
+												price.premiumMeat
+											) : item === 'RegularFodder' ? (
+												price.regularFodder
+											) : item === 'PremiumFodder' ? (
+												price.premiumFodder
+											) : item === 'RegularFruit' ? (
+												price.regularFruit
+											) : item === 'PremiumFruit' ? (
+												price.premiumFruit
+											) : item === 'RegularBean' ? (
+												price.regularBean
+											) : item === 'PremiumBean' ? (
+												price.premiumBean
+											) : null}
+										</Typography>
+									</Grid>
+								</Grid>
+								<Grid container justify="space-around" alignItems="center" style={{ paddingTop: '2%' }}>
 									<Grid container item lg={6} justify="center" alignItems="center">
-										<IconButton onClick={() => decrement()}>
+										<IconButton disabled={item === ''} onClick={() => decrement()}>
 											<RemoveCircleOutlineIcon />
 										</IconButton>
 										<Typography>{amount}</Typography>
-										<IconButton onClick={() => increment()}>
+										<IconButton disabled={item === ''} onClick={() => increment()}>
 											<AddCircleOutlineIcon />
 										</IconButton>
 									</Grid>
 									<Grid item lg={6}>
-										<Typography>Total price: IDR 30,000</Typography>
+										<Typography>Total price: IDR {priceCart}</Typography>
+									</Grid>
+								</Grid>
+								<Grid container>
+									<Grid item lg={12}>
+										<Button
+											disabled={item === '' || amount === 0}
+											onClick={handleClickOpen}
+											style={{ backgroundColor: '#b8b086' }}
+										>
+											Buy Now
+										</Button>
+										<Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
+											<DialogTitle id="form-dialog-title">Confirm your items</DialogTitle>
+											<DialogContent>
+												<DialogContentText>
+													{item === 'RegularMeat' ? (
+														'Regular Meat'
+													) : item === 'PremiumMeat' ? (
+														'Premium Meat'
+													) : item === 'RegularFodder' ? (
+														'Regular Fodder'
+													) : item === 'PremiumFodder' ? (
+														'Premium Fodder'
+													) : item === 'RegularFruit' ? (
+														'Regular Fruit'
+													) : item === 'PremiumFruit' ? (
+														'Premium Fruit'
+													) : item === 'RegularBean' ? (
+														'Regular Bean'
+													) : item === 'PremiumBean' ? (
+														'Premium Bean'
+													) : null}{' '}
+													X {amount} for {priceCart}
+												</DialogContentText>
+												<TextField
+													autoFocus
+													margin="dense"
+													id="name"
+													label="Email Address"
+													type="email"
+													fullWidth
+												/>
+											</DialogContent>
+											<DialogActions>
+												<Button onClick={handleClose} color="primary">
+													Cancel
+												</Button>
+												<Button onClick={handleClose} color="primary">
+													Subscribe
+												</Button>
+											</DialogActions>
+										</Dialog>
 									</Grid>
 								</Grid>
 							</Grid>
