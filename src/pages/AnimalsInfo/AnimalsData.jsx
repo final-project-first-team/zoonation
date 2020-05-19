@@ -19,10 +19,10 @@ export default function AnimalsImage(props) {
 	return (
 		<Grid container direction="column" spacing={0}>
 			<Grid item lg={12} style={{ paddingTop: '2%' }}>
-				<Typography>{currentAnimal !== undefined ? currentAnimal.name : null}</Typography>
+				<Typography style={{ fontFamily: 'Fredoka One', fontSize: '24px'}}>{currentAnimal !== undefined ? currentAnimal.name : null}</Typography>
 			</Grid>
 			<Grid item lg={12}>
-				<Typography>{currentAnimal !== undefined ? currentAnimal.scientificName : null}</Typography>
+				<Typography style={{ fontFamily: 'Raleway' }}>{currentAnimal !== undefined ? currentAnimal.scientificName : null}</Typography>
 			</Grid>
 			<Grid container item lg={12} style={{ paddingTop: '6%' }}>
 				<Grid container item lg={6} justify="center">
@@ -36,7 +36,7 @@ export default function AnimalsImage(props) {
 					</Grid>
 					<Grid container item lg={8}>
 						<Grid item lg={12} style={{ textAlign: 'left' }}>
-							<Typography>Height</Typography>
+							<Typography style={{ fontFamily: 'Fredoka One'}}>Height</Typography>
 						</Grid>
 						<Grid item lg={12} style={{ textAlign: 'left' }}>
 							<Typography>{currentAnimal !== undefined ? currentAnimal.height : null} m</Typography>
@@ -54,7 +54,7 @@ export default function AnimalsImage(props) {
 					</Grid>
 					<Grid container item lg={8}>
 						<Grid item lg={12} style={{ textAlign: 'left' }}>
-							<Typography>Weight</Typography>
+							<Typography style={{ fontFamily: 'Fredoka One'}}>Weight</Typography>
 						</Grid>
 						<Grid item lg={12} style={{ textAlign: 'left' }}>
 							<Typography>{currentAnimal !== undefined ? currentAnimal.weight : null} kg</Typography>
@@ -74,7 +74,7 @@ export default function AnimalsImage(props) {
 					</Grid>
 					<Grid container item lg={8}>
 						<Grid item lg={12} style={{ textAlign: 'left' }}>
-							<Typography>Status</Typography>
+							<Typography style={{ fontFamily: 'Fredoka One'}}>Status</Typography>
 						</Grid>
 						<Grid item lg={12} style={{ textAlign: 'left' }}>
 							<Typography>{currentAnimal !== undefined ? currentAnimal.status : null}</Typography>
@@ -92,7 +92,7 @@ export default function AnimalsImage(props) {
 					</Grid>
 					<Grid container item lg={8}>
 						<Grid item lg={12} style={{ textAlign: 'left' }}>
-							<Typography>Populations</Typography>
+							<Typography style={{ fontFamily: 'Fredoka One'}}>Populations</Typography>
 						</Grid>
 						<Grid item lg={12} style={{ textAlign: 'left' }}>
 							<Typography>
@@ -114,7 +114,7 @@ export default function AnimalsImage(props) {
 					</Grid>
 					<Grid container item lg={8}>
 						<Grid item lg={12} style={{ textAlign: 'left' }}>
-							<Typography>Habitats</Typography>
+							<Typography style={{ fontFamily: 'Fredoka One'}}>Habitats</Typography>
 						</Grid>
 						<Grid item lg={12} style={{ textAlign: 'left' }}>
 							<Typography>{currentAnimal !== undefined ? currentAnimal.habitats : null}</Typography>

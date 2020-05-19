@@ -8,7 +8,8 @@ const useStyle = makeStyles((theme) => ({
 		margin: 'auto',
 		display: 'block',
 		maxWidth: '100%',
-		maxHeight: '50vh'
+		maxHeight: '50vh',
+		borderRadius: '5px',
 	},
 	imageSmall: {
 		margin: 'auto',

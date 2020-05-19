@@ -15,6 +15,7 @@ import { loginUser } from '../../assets/redux/actions/loginAction';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
+		paddingTop: theme.spacing(8),
 		background: '#ECE4BA',
 		height: '100%',
 		submit: {
@@ -54,7 +55,7 @@ export default function BodySignIn() {
 							<Paper className={classes.paper}>
 								<Grid container direction="column">
 									<Typography component="h1" variant="h5" style={{ fontFamily: 'Lemonada, cursive' }}>
-										Welcome Back,
+										Welcome Back!
 									</Typography>
 									<br />
 									<br />
@@ -78,9 +79,9 @@ export default function BodySignIn() {
 									<Typography
 										component="h1"
 										variant="h5"
-										style={{ fontFamily: 'Lemonada, cursive', paddingBottom: '5%' }}
+										style={{ fontFamily: 'Lemonada, cursive', paddingBottom: '5%', color: '#6C5434'  }}
 									>
-										Welcome Back,
+										Welcome Back!
 									</Typography>
 								</Hidden>
 								<Hidden only={[ 'xs', 'sm', 'lg', 'xl' ]}>
@@ -93,7 +94,7 @@ export default function BodySignIn() {
 									</Typography>
 								</Hidden>
 								<br />
-								<Typography component="h1" variant="h5" style={{ fontFamily: 'Fredoka One, cursive' }}>
+								<Typography component="h1" variant="h5" style={{ fontFamily: 'Fredoka One, cursive', color: '#6C5434' }}>
 									Sign In
 								</Typography>
 								<Formik
@@ -160,10 +161,11 @@ export default function BodySignIn() {
 														borderRadius: '3px',
 														fontFamily: 'Roboto, sans-serif',
 														backgroundColor: '#60B6D1',
+														color: '#6C5434',
 														marginTop: '5%'
 													}}
 												>
-													Sign In
+													<b>Sign In</b>
 												</Button>
 												<Typography
 													component="h3"

@@ -40,13 +40,6 @@ export default function SimpleMenu() {
 			flexGrow: 1,
 			fontFamily: 'Damion, cursive',
 			color: '#6C5434',
-			backgroundColor: '#60B6D1'
-		},
-		fredokaFont: {
-			flexGrow: 1,
-			fontFamily: 'Fredoka One, cursive',
-			color: '#6C5434',
-			background: '#60B6D1'
 		},
 		nested: {
 			paddingLeft: theme.spacing(4)
@@ -61,17 +54,18 @@ export default function SimpleMenu() {
 			</Button>
 			<Menu id="simple-Menu" anchorEl={anchorEl} keepMounted open={Boolean(anchorEl)} onClose={handleClose}>
 				<Link to="/sign-up" style={{ textDecoration: 'none' }}>
-					<MenuItem className={classes.fredokaFont} onClick={handleClose}>
+					<MenuItem style={{ fontFamily: 'Damion, cursive', color: '#6C5434' }} onClick={handleClose}>
 						Become a Member
 					</MenuItem>
 				</Link>
 				<Link to="/sign-in" style={{ textDecoration: 'none' }}>
-					<MenuItem className={classes.fredokaFont} onClick={handleClose}>
+					<MenuItem style={{ fontFamily: 'Damion, cursive', color: '#6C5434' }} onClick={handleClose}>
 						Sign In
 					</MenuItem>
 				</Link>
 				<Divider />
-				<ListItem button onClick={handleClickCons}>
+				<ListItem button onClick={handleClickCons} 
+				style={{ background: 'transparent', fontFamily: 'Damion, cursive', color: '#6C5434' }}>
 					Conservation
 					{openCons ? <ExpandLess /> : <ExpandMore />}
 				</ListItem>
@@ -81,8 +75,7 @@ export default function SimpleMenu() {
 							<Link
 								to="/zoos-and-conservation"
 								style={{ textDecoration: 'none' }}
-								className={classes.title}
-							>
+								className={classes.title}>
 								Zoos
 							</Link>
 						</ListItem>
@@ -93,14 +86,15 @@ export default function SimpleMenu() {
 						</ListItem>
 					</List>
 				</Collapse>
-				<ListItem button onClick={handleClickWays}>
+				<ListItem button onClick={handleClickWays} 
+				style={{ background: 'transparent', fontFamily: 'Damion, cursive', color: '#6C5434' }}>
 					Ways to Help
 					{openWays ? <ExpandLess /> : <ExpandMore />}
 				</ListItem>
 				<Collapse in={openWays} timeout="auto" unmountOnExit>
 					<List component="div" disablePadding>
 						<ListItem button className={classes.nested}>
-							<Link to="/donation" style={{ textDecoration: 'none' }} className={classes.title}>
+							<Link to="/donation" style={{ textDecoration: 'transparent' }} className={classes.title}>
 								Zoo Donation
 							</Link>
 						</ListItem>

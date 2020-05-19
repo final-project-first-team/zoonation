@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
 	title: {
 		flexGrow: 1,
 		fontFamily: 'Damion, cursive',
-		color: '#6C5434'
+		color: '#6C5434',
 	},
 	fredokaFont: {
 		flexGrow: 1,
@@ -91,7 +91,8 @@ export default function MenuListComposition() {
 						>
 							<Paper>
 								<ClickAwayListener onClickAway={handleClose}>
-									<MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
+									<MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown} 
+											  style={{ padding: '0px', background :'#AAE787' }}>
 										<Link to="/zoos-and-conservation" style={{ textDecoration: 'none' }}>
 											<MenuItem className={classes.title} onClick={handleClose}>
 												Zoos
