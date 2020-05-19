@@ -150,7 +150,7 @@ export default function AnimalAdopt3() {
                             </Grid>
                         <Grid item md={12} style={{ background: '#F6F4E4' }}>
                             <FormControl component="fieldset" style={{ margin: '10px'}}>
-                                <FormLabel component="legend">Your payment is secured</FormLabel>
+                                <FormLabel component="legend" style={{ fontFamily: 'Raleway' }}>Your payment is secured</FormLabel>
                                     <RadioGroup aria-label="payment" name="gender1" value={value} onChange={handleChange}>
                                         <FormControlLabel value="ATM" control={<Radio />} label="ATM Transfer" />
                                         <FormControlLabel value="CC" control={<Radio />} label="MasterCard / VISA" />

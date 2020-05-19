@@ -24,6 +24,7 @@ import Donation from './pages/Donation';
 import ZooPartner from './pages/ZooPartner';
 import PayMetDon from './pages/PayMetDon';
 import FeedsStore from './pages/FeedsStore';
+import AnimalsNews from './pages/AnimalsNews';
 
 function App() {
 	return (
@@ -54,6 +55,10 @@ function App() {
 					{/* User Profile */}
 					<PrivateRoute path="/profile" component={ProfileInfo} />
 					<PrivateRoute path="/feeds-store" component={FeedsStore} />
+					
+					{/* Additional Features */}
+					<Route path="/animals-news" component={AnimalsNews} />
+
 				</Switch>
 			</Router>
 		</div>

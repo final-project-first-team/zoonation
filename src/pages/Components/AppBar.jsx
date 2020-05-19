@@ -8,7 +8,6 @@ import IconButton from '@material-ui/core/IconButton';
 import Hidden from '@material-ui/core/Hidden';
 import Grid from '@material-ui/core/Grid';
 import { Link } from 'react-router-dom';
-// import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import Fade from '@material-ui/core/Fade';
 import Avatar from '@material-ui/core/Avatar';
@@ -32,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
 	title: {
 		flexGrow: 1,
 		fontFamily: 'Damion, cursive',
-		color: '#6C5434'
+		color: '#6C5434',
 	},
 	zoonations: {
 		flexGrow: 1,

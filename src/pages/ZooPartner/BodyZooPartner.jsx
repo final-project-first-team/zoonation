@@ -144,7 +144,7 @@ export default function ZooPartner() {
                 </Grid>
 
                 <Grid container justify="center" style={{ margin: '30px' }}>
-                    <Grid item sm={6} lg={3} style={{ background: 'transparent', margin: '0px' }}>
+                    <Grid item sm={6} lg={3} style={{ background: '#F6F4E4', margin: '0px' }}>
                         <Paper square>
                             <div>
                                 <img className={classes.img} src='https://previews.123rf.com/images/chyball/chyball1604/chyball160400032/56188211-the-tigers-breeding-on-the-lawn-in-the-zoo-.jpg' />
