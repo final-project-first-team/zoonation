@@ -23,6 +23,7 @@ import FormLabel from '@material-ui/core/FormLabel';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { getPrice } from '../../assets/redux/actions/priceAction';
+import { getStorage } from '../../assets/redux/actions/storageAction';
 import {
 	amountIncrement,
 	amountDecrement,
@@ -94,6 +95,7 @@ export default function BodyProfileInfo() {
 	const classes = useStyles();
 	const dispatch = useDispatch();
 	const currUser = useSelector((state) => state.currentUser);
+	const userStorage = useSelector((state) => state.feedsStorage);
 	const price = useSelector((state) => state.feedsPrice);
 	const item = useSelector((state) => state.itemsHolder);
 	const amount = useSelector((state) => state.amountHolder);
@@ -117,8 +119,13 @@ export default function BodyProfileInfo() {
 		if (price.length === 0) {
 			dispatch(getPrice());
 		}
-		console.log('test');
 	}, []);
+
+	if (currUser.length !== 0) {
+		if (userStorage.length === 0) {
+			dispatch(getStorage(currUser._id));
+		}
+	}
 
 	const increment = () => {
 		dispatch(amountIncrement());
@@ -279,7 +286,28 @@ export default function BodyProfileInfo() {
 										) : null}
 									</Grid>
 									<Grid item lg={4}>
-										<Typography>Own : 6</Typography>
+										<Typography>
+											Own :{' '}
+											{item === '' ? (
+												0
+											) : item === 'RegularMeat' ? (
+												userStorage.regularMeat
+											) : item === 'PremiumMeat' ? (
+												userStorage.premiumMeat
+											) : item === 'RegularFodder' ? (
+												userStorage.regularFodder
+											) : item === 'PremiumFodder' ? (
+												userStorage.premiumFodder
+											) : item === 'RegularFruit' ? (
+												userStorage.regularFruit
+											) : item === 'PremiumFruit' ? (
+												userStorage.premiumFruit
+											) : item === 'RegularBean' ? (
+												userStorage.regularBean
+											) : item === 'PremiumBean' ? (
+												userStorage.premiumBean
+											) : null}
+										</Typography>
 									</Grid>
 								</Grid>
 								<Grid container justify="space-around" style={{ paddingTop: '2%' }}>

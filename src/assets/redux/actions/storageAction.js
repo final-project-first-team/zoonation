@@ -7,7 +7,7 @@ export const getStorage = (id) => {
 		return axios
 			.get(`${apiUrl}/foodStorage/${id}`)
 			.then((response) => {
-				dispatch(getStorageSuccess(response.data));
+				dispatch(getStorageSuccess(response.data.data));
 			})
 			.catch((error) => {
 				console.log(error);
@@ -17,7 +17,7 @@ export const getStorage = (id) => {
 };
 export const getStorageSuccess = (data) => {
 	return {
-		type: 'GET_PRICE',
+		type: 'GET_USER_STORAGE',
 		payload: {
 			data
 		}
