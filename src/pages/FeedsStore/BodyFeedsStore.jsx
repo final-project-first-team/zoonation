@@ -14,6 +14,11 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormControl from '@material-ui/core/FormControl';
+import FormLabel from '@material-ui/core/FormLabel';
 
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -94,6 +99,7 @@ export default function BodyProfileInfo() {
 	const amount = useSelector((state) => state.amountHolder);
 	const priceCart = useSelector((state) => state.priceHolder);
 	const [ open, setOpen ] = React.useState(false);
+	const [ value, setValue ] = React.useState('');
 
 	const handleClickOpen = () => {
 		setOpen(true);
@@ -101,6 +107,10 @@ export default function BodyProfileInfo() {
 
 	const handleClose = () => {
 		setOpen(false);
+	};
+
+	const handleChange = (event) => {
+		setValue(event.target.value);
 	};
 
 	useEffect(() => {
@@ -325,7 +335,12 @@ export default function BodyProfileInfo() {
 										>
 											Buy Now
 										</Button>
-										<Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
+										<Dialog
+											open={open}
+											onClose={handleClose}
+											aria-labelledby="form-dialog-title"
+											fullWidth="true"
+										>
 											<DialogTitle id="form-dialog-title">Confirm your items</DialogTitle>
 											<DialogContent>
 												<DialogContentText>
@@ -348,21 +363,41 @@ export default function BodyProfileInfo() {
 													) : null}{' '}
 													X {amount} for {priceCart}
 												</DialogContentText>
-												<TextField
-													autoFocus
-													margin="dense"
-													id="name"
-													label="Email Address"
-													type="email"
-													fullWidth
-												/>
+												<FormControl component="fieldset" style={{ margin: '10px' }}>
+													<FormLabel component="legend">
+														Select your payment method. Your payment is secured
+													</FormLabel>
+													<RadioGroup
+														aria-label="payment"
+														name="gender1"
+														value={value}
+														onChange={handleChange}
+													>
+														<FormControlLabel
+															value="ATM"
+															control={<Radio />}
+															label="ATM Transfer"
+														/>
+														<FormControlLabel
+															value="CC"
+															control={<Radio />}
+															label="MasterCard / VISA"
+														/>
+														<FormControlLabel value="OVO" control={<Radio />} label="OVO" />
+														<FormControlLabel
+															value="GoPay"
+															control={<Radio />}
+															label="GoPay"
+														/>
+													</RadioGroup>
+												</FormControl>
 											</DialogContent>
 											<DialogActions>
 												<Button onClick={handleClose} color="primary">
 													Cancel
 												</Button>
 												<Button onClick={handleClose} color="primary">
-													Subscribe
+													Buy Now
 												</Button>
 											</DialogActions>
 										</Dialog>
