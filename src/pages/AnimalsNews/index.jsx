@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react';
 
-import Appbar from '../Components/AppBar';
+import Appbar from '../../assets/Components/AppBar';
 import BodyAnimalsNews from './BodyAnimalsNews';
-import Footer from '../Components/Footer';
+import Footer from '../../assets/Components/Footer';
 
 export default function AnimalsNews() {
 	return (

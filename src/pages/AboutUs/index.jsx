@@ -1,8 +1,8 @@
 import React from "react";
 
-import AppBar from "../Components/AppBar";
+import AppBar from "../../assets/Components/AppBar";
 import BodyAboutUs from "./BodyAboutUs";
-import Footer from "../Components/Footer";
+import Footer from "../../assets/Components/Footer";
 
 export default function AboutUs() {
   return (

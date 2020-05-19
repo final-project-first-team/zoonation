@@ -6,7 +6,7 @@ import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Hidden from '@material-ui/core/Hidden';
 
-import '../Homepage/homepage.css';
+import '../../pages/Homepage/homepage.css';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
 		textAlign: 'right',
 		marginTop: 'auto',
 		fontSize: '12px'
-	},
+	}
 }));
 
 export default function StickyFooter() {
@@ -69,7 +69,7 @@ export default function StickyFooter() {
 
 						{/* MIDDLE FOOTER */}
 						<Hidden mdDown>
-							<Grid item xs={4} style={{ paddingTop: '8px'}}>
+							<Grid item xs={4} style={{ paddingTop: '8px' }}>
 								<Link href="#">
 									<ion-icon size="large" name="logo-facebook" />{' '}
 								</Link>
@@ -83,7 +83,7 @@ export default function StickyFooter() {
 						</Hidden>
 
 						<Hidden smUp>
-							<Grid item xs={4} style={{ padding: '8px'}}>
+							<Grid item xs={4} style={{ padding: '8px' }}>
 								<Link href="#">
 									<ion-icon size="small" name="logo-facebook" />{' '}
 								</Link>

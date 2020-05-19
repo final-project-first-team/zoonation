@@ -1,13 +1,13 @@
 import React, { Fragment } from 'react';
 
-import Appbar from '../Components/AppBar';
+import AppBar from '../../assets/Components/AppBar';
+import Footer from '../../assets/Components/Footer';
 import Body from './BodySignUp';
-import Footer from '../Components/Footer';
 
 export default function SignUp() {
 	return (
 		<Fragment>
-			<Appbar />
+			<AppBar />
 			<Body />
 			<Footer />
 		</Fragment>

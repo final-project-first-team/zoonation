@@ -9,7 +9,7 @@ import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import { useSelector } from 'react-redux';
 
-import SideNav from '../Components/SideNav';
+import SideNav from '../../assets/Components/SideNav';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
