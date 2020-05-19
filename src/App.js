@@ -25,6 +25,7 @@ import ZooPartner from './pages/ZooPartner';
 import PayMetDon from './pages/PayMetDon';
 import FeedsStore from './pages/FeedsStore';
 import AnimalsNews from './pages/AnimalsNews';
+import AboutUs from './pages/AboutUs';
 
 function App() {
 	return (
@@ -58,6 +59,7 @@ function App() {
 					
 					{/* Additional Features */}
 					<Route path="/animals-news" component={AnimalsNews} />
+					<Route path="/about-us" component={AboutUs} />
 
 				</Switch>
 			</Router>
