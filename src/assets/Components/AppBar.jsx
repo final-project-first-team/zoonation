@@ -106,7 +106,7 @@ export default function ButtonAppBar(props) {
 						<Grid item lg={9}>
 							<Hidden mdDown>
 								<Grid container spacing={3} justify="space-between" alignItems="center">
-									<Grid container item lg={8} spacing={2}>
+									<Grid container item lg={8} spacing={2} alignItems="center">
 										<Grid item>
 											<Typography variant="h6" className={classes.title}>
 												<Conservation />
@@ -121,7 +121,7 @@ export default function ButtonAppBar(props) {
 										<Grid item>
 											<Link to="#" style={{ textDecoration: 'none' }}>
 												<Typography variant="h6" className={classes.title}>
-													Animals News
+													Animal News
 												</Typography>
 											</Link>
 										</Grid>

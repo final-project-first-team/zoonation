@@ -1,13 +1,13 @@
 import React, { Fragment } from 'react';
 
-import Appbar from '../Components/AppBar';
-import BodyZooCons from './BodyZooCons'
-import Footer from '../Components/Footer';
+import AppBar from '../../assets/Components/AppBar';
+import Footer from '../../assets/Components/Footer';
+import BodyZooCons from './BodyZooCons';
 
 export default function ZooCons() {
 	return (
 		<Fragment>
-			<Appbar />
+			<AppBar />
 			<BodyZooCons />
 			<Footer />
 		</Fragment>

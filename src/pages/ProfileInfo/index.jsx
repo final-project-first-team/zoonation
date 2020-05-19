@@ -1,8 +1,8 @@
 import React from "react";
 
-import AppBar from "../Components/AppBar";
+import AppBar from "../../assets/Components/AppBar";
+import Footer from "../../assets/Components/Footer";
 import BodyProfileInfo from "./BodyProfileInfo";
-import Footer from "../Components/Footer";
 
 export default function ProfileInfo() {
   return (

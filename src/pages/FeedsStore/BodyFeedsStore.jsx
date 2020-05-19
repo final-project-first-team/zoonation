@@ -23,14 +23,17 @@ import FormLabel from '@material-ui/core/FormLabel';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { getPrice } from '../../assets/redux/actions/priceAction';
-import { getStorage } from '../../assets/redux/actions/storageAction';
+import { getStorage, updateStorage } from '../../assets/redux/actions/storageAction';
+import { newFeedTransaction } from '../../assets/redux/actions/feedTransactionAction';
 import {
 	amountIncrement,
 	amountDecrement,
 	priceMultiplierUp,
-	priceMultiplierDown
+	priceMultiplierDown,
+	resetAmountCart,
+	resetPriceCart
 } from '../../assets/redux/actions/feedsCartAction';
-import SideNav from '../Components/SideNav';
+import SideNav from '../../assets/Components/SideNav';
 import RegularMeat from './RegularMeat';
 import PremiumMeat from './PremiumMeat';
 import RegularFodder from './RegularFodder';
@@ -113,6 +116,76 @@ export default function BodyProfileInfo() {
 
 	const handleChange = (event) => {
 		setValue(event.target.value);
+	};
+
+	const submitData = (id) => {
+		const transactionData = {
+			userId: id,
+			type: 'buy',
+			regularFeedType: 'none',
+			regularFeedAmount: 0,
+			premiumFeedType: 'none',
+			premiumFeedAmount: 0,
+			paymentMethod: value,
+			total: priceCart
+		};
+
+		if (item === 'RegularMeat' || item === 'RegularFodder' || item === 'RegularFruit' || item === 'RegularBean') {
+			transactionData.regularFeedType = item;
+			transactionData.regularFeedAmount = amount;
+		}
+
+		if (item === 'PremiumMeat' || item === 'PremiumFodder' || item === 'PremiumFruit' || item === 'PremiumBean') {
+			transactionData.premiumFeedType = item;
+			transactionData.premiumFeedAmount = amount;
+		}
+
+		const updatedData = {
+			regularMeat: userStorage.regularMeat,
+			premiumMeat: userStorage.premiumMeat,
+			regularFodder: userStorage.regularFodder,
+			premiumFodder: userStorage.premiumFodder,
+			regularFruit: userStorage.regularFruit,
+			premiumFruit: userStorage.premiumFruit,
+			regularBean: userStorage.regularBean,
+			premiumBean: userStorage.premiumBean
+		};
+
+		switch (item) {
+			case 'RegularMeat':
+				updatedData.regularMeat += amount;
+				break;
+			case 'PremiumMeat':
+				updatedData.premiumMeat += amount;
+				break;
+			case 'RegularFodder':
+				updatedData.regularFodder += amount;
+				break;
+			case 'PremiumFodder':
+				updatedData.premiumFodder += amount;
+				break;
+			case 'RegularFruit':
+				updatedData.regularFruit += amount;
+				break;
+			case 'PremiumFruit':
+				updatedData.premiumFruit += amount;
+				break;
+			case 'RegularBean':
+				updatedData.regularBean += amount;
+				break;
+			case 'PremiumBean':
+				updatedData.premiumBean += amount;
+				break;
+		}
+		// console.log(transactionData, 'trans');
+		// console.log(updatedData, 'upt');
+
+		dispatch(newFeedTransaction(transactionData));
+		dispatch(updateStorage(id, updatedData));
+		setValue('');
+		setOpen(false);
+		dispatch(resetAmountCart());
+		dispatch(resetPriceCart());
 	};
 
 	useEffect(() => {
@@ -424,7 +497,7 @@ export default function BodyProfileInfo() {
 												<Button onClick={handleClose} color="primary">
 													Cancel
 												</Button>
-												<Button onClick={handleClose} color="primary">
+												<Button onClick={() => submitData(currUser._id)} color="primary">
 													Buy Now
 												</Button>
 											</DialogActions>

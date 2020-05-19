@@ -6,8 +6,8 @@ import { Typography } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import Link from '@material-ui/core/Link';
 
-import CardMapping from '../Components/CardMapping';
-import SearchBar from '../Components/SearchBar';
+import CardMapping from '../../assets/Components/CardMapping';
+import SearchBar from '../../assets/Components/SearchBar';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { getAnimals } from '../../assets/redux/actions/animalsAction';
