@@ -177,6 +177,8 @@ export default function BodyProfileInfo() {
 				updatedData.premiumBean += amount;
 				break;
 		}
+		// console.log(transactionData.userId);
+
 		// console.log(transactionData, 'trans');
 		// console.log(updatedData, 'upt');
 

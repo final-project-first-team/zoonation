@@ -23,7 +23,7 @@ export default function YourStorageNotSignedIn() {
 			<Typography>Become a member and start feeding these animals</Typography>
 			<br />
 			<Button className={classes.button} type="submit" fullWidth variant="contained">
-				<Typography>Sign In</Typography>
+				<Typography>Sign Up</Typography>
 			</Button>
 		</Fragment>
 	);
