@@ -11,6 +11,8 @@ import Grid from '@material-ui/core/Grid';
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
 import RemoveCircleOutlineIcon from '@material-ui/icons/RemoveCircleOutline';
 import IconButton from '@material-ui/core/IconButton';
+import Snackbar from '@material-ui/core/Snackbar';
+import MuiAlert from '@material-ui/lab/Alert';
 
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -30,8 +32,22 @@ import {
 	resetAmountCart,
 	resetPriceCart
 } from '../../assets/redux/actions/feedsCartAction';
+import { newFeedTransaction } from '../../assets/redux/actions/feedTransactionAction';
+import { getStorage, updateStorage } from '../../assets/redux/actions/storageAction';
+
+import { currentUser } from '../../assets/redux/actions/loginAction';
+
+function Alert(props) {
+	return <MuiAlert elevation={6} variant="filled" {...props} />;
+}
 
 const useStyle = makeStyles((theme) => ({
+	root: {
+		width: '100%',
+		'& > * + *': {
+			marginTop: theme.spacing(2)
+		}
+	},
 	button: {
 		display: 'flex',
 		textAlign: 'center',
@@ -43,28 +59,41 @@ const useStyle = makeStyles((theme) => ({
 
 export default function YourTray(props) {
 	const classes = useStyle();
+	const [ open, setOpen ] = React.useState(false);
 	const dispatch = useDispatch();
 	const item = useSelector((state) => state.itemsHolder);
 	const userStorage = props.storage;
 	const amount = useSelector((state) => state.amountHolder);
+	const currentStorageAmount =
+		item === ''
+			? 0
+			: item === 'RegularMeat'
+				? userStorage.regularMeat
+				: item === 'PremiumMeat'
+					? userStorage.premiumMeat
+					: item === 'RegularFodder'
+						? userStorage.regularFodder
+						: item === 'PremiumFodder'
+							? userStorage.premiumFodder
+							: item === 'RegularFruit'
+								? userStorage.regularFruit
+								: item === 'PremiumFruit'
+									? userStorage.premiumFruit
+									: item === 'RegularBean'
+										? userStorage.regularBean
+										: item === 'PremiumBean' ? userStorage.premiumBean : null;
 
 	const increment = () => {
-		dispatch(amountIncrement());
-
-		// if (item === 'RegularMeat') {
-		// 	basePrice = price.regularMeat;
-		// }
-
-		// dispatch(priceMultiplierUp(amount + 1, basePrice));
+		if (amount + 1 <= currentStorageAmount) {
+			dispatch(amountIncrement());
+		}
 	};
 
 	const decrement = () => {
 		dispatch(amountDecrement());
-
-		// dispatch(priceMultiplierDown(amount - 1, basePrice));
 	};
 
-	const handleClick = (id) => {
+	const submitData = (id) => {
 		const transactionData = {
 			userId: id,
 			type: 'spend',
@@ -97,32 +126,43 @@ export default function YourTray(props) {
 
 		switch (item) {
 			case 'RegularMeat':
-				updatedData.regularMeat += amount;
+				updatedData.regularMeat -= amount;
 				break;
 			case 'PremiumMeat':
-				updatedData.premiumMeat += amount;
+				updatedData.premiumMeat -= amount;
 				break;
 			case 'RegularFodder':
-				updatedData.regularFodder += amount;
+				updatedData.regularFodder -= amount;
 				break;
 			case 'PremiumFodder':
-				updatedData.premiumFodder += amount;
+				updatedData.premiumFodder -= amount;
 				break;
 			case 'RegularFruit':
-				updatedData.regularFruit += amount;
+				updatedData.regularFruit -= amount;
 				break;
 			case 'PremiumFruit':
-				updatedData.premiumFruit += amount;
+				updatedData.premiumFruit -= amount;
 				break;
 			case 'RegularBean':
-				updatedData.regularBean += amount;
+				updatedData.regularBean -= amount;
 				break;
 			case 'PremiumBean':
-				updatedData.premiumBean += amount;
+				updatedData.premiumBean -= amount;
 				break;
 		}
-		// dispatch(newFeedTransaction(transactionData));
-		// dispatch(updateStorage(id, updatedData));
+
+		dispatch(newFeedTransaction(transactionData));
+		dispatch(updateStorage(id, updatedData));
+		dispatch(resetAmountCart());
+		setOpen(true);
+	};
+
+	const handleClose = (event, reason) => {
+		if (reason === 'clickaway') {
+			return;
+		}
+
+		setOpen(false);
 	};
 
 	return (
@@ -191,9 +231,20 @@ export default function YourTray(props) {
 					</Grid>
 				</Grid>
 			</List>
-			<Button className={classes.button} type="submit" fullWidth variant="contained" onClick={handleClick}>
+			<Button
+				className={classes.button}
+				type="submit"
+				fullWidth
+				variant="contained"
+				onClick={() => submitData(userStorage.userId)}
+			>
 				<Typography>Feed Now</Typography>
 			</Button>
+			<Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+				<Alert onClose={handleClose} severity="success">
+					Thanks for feeding me!
+				</Alert>
+			</Snackbar>
 		</Fragment>
 	);
 }
