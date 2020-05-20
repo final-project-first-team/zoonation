@@ -1,14 +1,14 @@
 import React from "react";
 
 import AppBar from "../../assets/Components/AppBar";
+import BodyAboutUs from "./BodyAboutUs";
 import Footer from "../../assets/Components/Footer";
-import BodyProfileInfo from "./BodyProfileInfo";
 
-export default function ProfileInfo() {
+export default function AboutUs() {
   return (
     <>
       <AppBar /> 
-      <BodyProfileInfo />
+      <BodyAboutUs />
       <Footer />
     </>
   );

@@ -8,7 +8,6 @@ import IconButton from '@material-ui/core/IconButton';
 import Hidden from '@material-ui/core/Hidden';
 import Grid from '@material-ui/core/Grid';
 import { Link } from 'react-router-dom';
-// import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import Fade from '@material-ui/core/Fade';
 import Avatar from '@material-ui/core/Avatar';
@@ -32,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
 	title: {
 		flexGrow: 1,
 		fontFamily: 'Damion, cursive',
-		color: '#6C5434'
+		color: '#6C5434',
 	},
 	zoonations: {
 		flexGrow: 1,
@@ -106,7 +105,7 @@ export default function ButtonAppBar(props) {
 						<Grid item lg={9}>
 							<Hidden mdDown>
 								<Grid container spacing={3} justify="space-between" alignItems="center">
-									<Grid container item lg={8} spacing={2}>
+									<Grid container item lg={8} spacing={2} alignItems="center">
 										<Grid item>
 											<Typography variant="h6" className={classes.title}>
 												<Conservation />
@@ -119,14 +118,14 @@ export default function ButtonAppBar(props) {
 										</Grid>
 
 										<Grid item>
-											<Link to="#" style={{ textDecoration: 'none' }}>
+											<Link to="/animals-news" style={{ textDecoration: 'none' }}>
 												<Typography variant="h6" className={classes.title}>
-													Animals News
+													Animal News
 												</Typography>
 											</Link>
 										</Grid>
 										<Grid item>
-											<Link to="#" style={{ textDecoration: 'none' }}>
+											<Link to="/about-us" style={{ textDecoration: 'none' }}>
 												<Typography variant="h6" className={classes.title}>
 													About Us
 												</Typography>

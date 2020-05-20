@@ -14,17 +14,26 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormControl from '@material-ui/core/FormControl';
+import FormLabel from '@material-ui/core/FormLabel';
 
 import { useSelector, useDispatch } from 'react-redux';
 
 import { getPrice } from '../../assets/redux/actions/priceAction';
+import { getStorage, updateStorage } from '../../assets/redux/actions/storageAction';
+import { newFeedTransaction } from '../../assets/redux/actions/feedTransactionAction';
 import {
 	amountIncrement,
 	amountDecrement,
 	priceMultiplierUp,
-	priceMultiplierDown
+	priceMultiplierDown,
+	resetAmountCart,
+	resetPriceCart
 } from '../../assets/redux/actions/feedsCartAction';
-import SideNav from '../Components/SideNav';
+import SideNav from '../../assets/Components/SideNav';
 import RegularMeat from './RegularMeat';
 import PremiumMeat from './PremiumMeat';
 import RegularFodder from './RegularFodder';
@@ -89,11 +98,13 @@ export default function BodyProfileInfo() {
 	const classes = useStyles();
 	const dispatch = useDispatch();
 	const currUser = useSelector((state) => state.currentUser);
+	const userStorage = useSelector((state) => state.feedsStorage);
 	const price = useSelector((state) => state.feedsPrice);
 	const item = useSelector((state) => state.itemsHolder);
 	const amount = useSelector((state) => state.amountHolder);
 	const priceCart = useSelector((state) => state.priceHolder);
 	const [ open, setOpen ] = React.useState(false);
+	const [ value, setValue ] = React.useState('');
 
 	const handleClickOpen = () => {
 		setOpen(true);
@@ -103,12 +114,91 @@ export default function BodyProfileInfo() {
 		setOpen(false);
 	};
 
+	const handleChange = (event) => {
+		setValue(event.target.value);
+	};
+
+	const submitData = (id) => {
+		const transactionData = {
+			userId: id,
+			type: 'buy',
+			regularFeedType: 'none',
+			regularFeedAmount: 0,
+			premiumFeedType: 'none',
+			premiumFeedAmount: 0,
+			paymentMethod: value,
+			total: priceCart
+		};
+
+		if (item === 'RegularMeat' || item === 'RegularFodder' || item === 'RegularFruit' || item === 'RegularBean') {
+			transactionData.regularFeedType = item;
+			transactionData.regularFeedAmount = amount;
+		}
+
+		if (item === 'PremiumMeat' || item === 'PremiumFodder' || item === 'PremiumFruit' || item === 'PremiumBean') {
+			transactionData.premiumFeedType = item;
+			transactionData.premiumFeedAmount = amount;
+		}
+
+		const updatedData = {
+			regularMeat: userStorage.regularMeat,
+			premiumMeat: userStorage.premiumMeat,
+			regularFodder: userStorage.regularFodder,
+			premiumFodder: userStorage.premiumFodder,
+			regularFruit: userStorage.regularFruit,
+			premiumFruit: userStorage.premiumFruit,
+			regularBean: userStorage.regularBean,
+			premiumBean: userStorage.premiumBean
+		};
+
+		switch (item) {
+			case 'RegularMeat':
+				updatedData.regularMeat += amount;
+				break;
+			case 'PremiumMeat':
+				updatedData.premiumMeat += amount;
+				break;
+			case 'RegularFodder':
+				updatedData.regularFodder += amount;
+				break;
+			case 'PremiumFodder':
+				updatedData.premiumFodder += amount;
+				break;
+			case 'RegularFruit':
+				updatedData.regularFruit += amount;
+				break;
+			case 'PremiumFruit':
+				updatedData.premiumFruit += amount;
+				break;
+			case 'RegularBean':
+				updatedData.regularBean += amount;
+				break;
+			case 'PremiumBean':
+				updatedData.premiumBean += amount;
+				break;
+		}
+		// console.log(transactionData, 'trans');
+		// console.log(updatedData, 'upt');
+
+		dispatch(newFeedTransaction(transactionData));
+		dispatch(updateStorage(id, updatedData));
+		setValue('');
+		setOpen(false);
+		dispatch(resetAmountCart());
+		dispatch(resetPriceCart());
+	};
+
 	useEffect(() => {
 		if (price.length === 0) {
 			dispatch(getPrice());
 		}
-		console.log('test');
 	}, []);
+
+	if (currUser.length !== 0) {
+		if (userStorage.length === 0) {
+			dispatch(getStorage(currUser._id));
+		}
+	}
 
 	const increment = () => {
 		dispatch(amountIncrement());
@@ -269,7 +359,28 @@ export default function BodyProfileInfo() {
 										) : null}
 									</Grid>
 									<Grid item lg={4}>
-										<Typography>Own : 6</Typography>
+										<Typography>
+											Own :{' '}
+											{item === '' ? (
+												0
+											) : item === 'RegularMeat' ? (
+												userStorage.regularMeat
+											) : item === 'PremiumMeat' ? (
+												userStorage.premiumMeat
+											) : item === 'RegularFodder' ? (
+												userStorage.regularFodder
+											) : item === 'PremiumFodder' ? (
+												userStorage.premiumFodder
+											) : item === 'RegularFruit' ? (
+												userStorage.regularFruit
+											) : item === 'PremiumFruit' ? (
+												userStorage.premiumFruit
+											) : item === 'RegularBean' ? (
+												userStorage.regularBean
+											) : item === 'PremiumBean' ? (
+												userStorage.premiumBean
+											) : null}
+										</Typography>
 									</Grid>
 								</Grid>
 								<Grid container justify="space-around" style={{ paddingTop: '2%' }}>
@@ -325,7 +436,12 @@ export default function BodyProfileInfo() {
 										>
 											Buy Now
 										</Button>
-										<Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
+										<Dialog
+											open={open}
+											onClose={handleClose}
+											aria-labelledby="form-dialog-title"
+											fullWidth="true"
+										>
 											<DialogTitle id="form-dialog-title">Confirm your items</DialogTitle>
 											<DialogContent>
 												<DialogContentText>
@@ -348,21 +464,41 @@ export default function BodyProfileInfo() {
 													) : null}{' '}
 													X {amount} for {priceCart}
 												</DialogContentText>
-												<TextField
-													autoFocus
-													margin="dense"
-													id="name"
-													label="Email Address"
-													type="email"
-													fullWidth
-												/>
+												<FormControl component="fieldset" style={{ margin: '10px' }}>
+													<FormLabel component="legend">
+														Select your payment method. Your payment is secured
+													</FormLabel>
+													<RadioGroup
+														aria-label="payment"
+														name="gender1"
+														value={value}
+														onChange={handleChange}
+													>
+														<FormControlLabel
+															value="ATM"
+															control={<Radio />}
+															label="ATM Transfer"
+														/>
+														<FormControlLabel
+															value="CC"
+															control={<Radio />}
+															label="MasterCard / VISA"
+														/>
+														<FormControlLabel value="OVO" control={<Radio />} label="OVO" />
+														<FormControlLabel
+															value="GoPay"
+															control={<Radio />}
+															label="GoPay"
+														/>
+													</RadioGroup>
+												</FormControl>
 											</DialogContent>
 											<DialogActions>
 												<Button onClick={handleClose} color="primary">
 													Cancel
 												</Button>
-												<Button onClick={handleClose} color="primary">
-													Subscribe
+												<Button onClick={() => submitData(currUser._id)} color="primary">
+													Buy Now
 												</Button>
 											</DialogActions>
 										</Dialog>

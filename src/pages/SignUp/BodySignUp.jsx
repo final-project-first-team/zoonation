@@ -16,6 +16,7 @@ import { addUser } from '../../assets/redux/actions/registerAction';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
+		paddingTop: theme.spacing(8),
 		background: '#ECE4BA',
 		height: '100%',
 		submit: {
@@ -57,9 +58,9 @@ export default function BodySignUp() {
 									<Typography
 										component="h1"
 										variant="h5"
-										style={{ fontFamily: 'Lemonada, cursive', paddingBottom: '5%' }}
+										style={{ fontFamily: 'Lemonada, cursive', paddingBottom: '5%', color: '#6C5434' }}
 									>
-										Join Us Now,
+										Join Us Now!
 									</Typography>
 								</Hidden>
 								<Hidden only={[ 'xs', 'sm', 'lg', 'xl' ]}>
@@ -72,7 +73,7 @@ export default function BodySignUp() {
 									</Typography>
 								</Hidden>
 								<br />
-								<Typography component="h1" variant="h5" style={{ fontFamily: 'Fredoka One, cursive' }}>
+								<Typography component="h1" variant="h5" style={{ fontFamily: 'Fredoka One, cursive', color: '#6C5434' }}>
 									Sign Up
 								</Typography>
 								<Formik
@@ -154,10 +155,11 @@ export default function BodySignUp() {
 														borderRadius: '3px',
 														fontFamily: 'Roboto, sans-serif',
 														backgroundColor: '#60B6D1',
-														marginTop: '5%'
+														marginTop: '5%',
+														color: '#6C5434'
 													}}
 												>
-													Sign Up
+													<b>Sign Up</b>
 												</Button>
 											</form>
 										);
@@ -181,7 +183,7 @@ export default function BodySignUp() {
 							<Paper className={classes.paper}>
 								<Grid container direction="column">
 									<Typography component="h1" variant="h5" style={{ fontFamily: 'Lemonada, cursive' }}>
-										Join Us Now,
+										Join Us Now!
 									</Typography>
 									<br />
 									<br />
@@ -204,7 +206,7 @@ export default function BodySignUp() {
 									<Typography component="h3" variant="subtitle2" style={{ paddingTop: '8px' }}>
 										<i>Already A Member?</i>
 									</Typography>
-									<Button
+									<Link to="/sign-in"
 										type="submit"
 										fullWidth
 										variant="contained"
@@ -212,11 +214,11 @@ export default function BodySignUp() {
 										style={{
 											borderRadius: '3px',
 											fontFamily: 'Roboto, sans-serif',
-											backgroundColor: '#60B6D1'
+											color: '#6C5434'
 										}}
 									>
 										Click Here to Sign In
-									</Button>
+									</Link>
 								</Grid>
 							</Paper>
 						</Hidden>

@@ -19,20 +19,20 @@ export default function AnimalsBottomData(props) {
 	return (
 		<Grid container>
 			<Grid item lg={4}>
-				<Typography style={{ textAlign: 'left' }}>Zoo</Typography>
-				<Typography style={{ textAlign: 'left' }}>
+				<Typography style={{ textAlign: 'left', fontFamily: 'Fredoka One' }}>Zoo</Typography>
+				<Typography style={{ textAlign: 'left', fontFamily: 'Raleway' }}>
 					{currentAnimal !== undefined ? currentAnimal.zoo : null}
 				</Typography>
 			</Grid>
 			<Grid item lg={4}>
-				<Typography style={{ textAlign: 'left' }}>Feeds</Typography>
-				<Typography style={{ textAlign: 'left' }}>
+				<Typography style={{ textAlign: 'left', fontFamily: 'Fredoka One' }}>Feeds</Typography>
+				<Typography style={{ textAlign: 'left', fontFamily: 'Raleway' }}>
 					{currentAnimal !== undefined ? currentAnimal.feeds : null}
 				</Typography>
 			</Grid>
 			<Grid item lg={4}>
-				<Typography style={{ textAlign: 'left' }}>Help these animals with</Typography>
-				<Typography style={{ textAlign: 'center' }}>Provide the feeds or adopt them</Typography>
+				<Typography style={{ textAlign: 'left', fontFamily: 'Raleway' }}>Help these animals with</Typography>
+				<Typography style={{ textAlign: 'center', fontFamily: 'Raleway' }}>Provide the feeds or adopt them</Typography>
 				<Grid container alignItems="center">
 					<Grid container item lg={5} alignItems="center">
 						<Grid item lg={5}>
@@ -44,7 +44,7 @@ export default function AnimalsBottomData(props) {
 							/>
 						</Grid>
 						<Grid item lg={6}>
-							<Typography style={{ textAlign: 'left' }}>Feed Me</Typography>
+							<Typography style={{ textAlign: 'left', fontFamily: 'Fredoka One' }}>Feed Me</Typography>
 						</Grid>
 					</Grid>
 					<Grid item lg={2}>
@@ -61,7 +61,7 @@ export default function AnimalsBottomData(props) {
 							/>
 						</Grid>
 						<Grid item lg={6}>
-							<Typography style={{ textAlign: 'left' }}>Adopt Me</Typography>
+							<Typography style={{ textAlign: 'left', fontFamily: 'Fredoka One' }}>Adopt Me</Typography>
 						</Grid>
 					</Grid>
 				</Grid>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -9,7 +9,7 @@ import Grid from '@material-ui/core/Grid';
 import Hidden from '@material-ui/core/Hidden';
 
 import { useSelector } from 'react-redux';
-import CardForFeed from '../Components/CardForFeed';
+import CardForFeed from '../../assets/Components/CardForFeed';
 
 const useStyle = makeStyles((theme) => ({
 	root: {
@@ -118,13 +118,17 @@ export default function BodyFeedingAnimals() {
 				<Grid item xs={12} sm={12} md={6} lg={6} xl={6} style={{ background: '#AAE787' }}>
 					<Hidden smDown>
 						<Typography className={classes.text1}>
-							<Link to='/donation' style={{color:'#6C5434', textDecoration:'none'}}>Make a donation to our zoo partner</Link>
+							<Link to="/donation" style={{ color: '#6C5434', textDecoration: 'none' }}>
+								Make a donation to our zoo partner
+							</Link>
 						</Typography>
 					</Hidden>
 
 					<Hidden mdUp>
 						<Typography className={classes.text2}>
-							<Link to='/donation' style={{color:'#6C5434', textDecoration:'none'}}>Make a donation to our zoo partner</Link>
+							<Link to="/donation" style={{ color: '#6C5434', textDecoration: 'none' }}>
+								Make a donation to our zoo partner
+							</Link>
 						</Typography>
 					</Hidden>
 				</Grid>
@@ -132,13 +136,17 @@ export default function BodyFeedingAnimals() {
 				<Grid item xs={12} sm={12} md={6} lg={6} xl={6} style={{ background: '#91BD78' }}>
 					<Hidden smDown>
 						<Typography className={classes.text1}>
-							<Link to='/animal-adopt' style={{color:'#6C5434', textDecoration:'none'}}>Adopt our animals</Link>
+							<Link to="/animal-adopt" style={{ color: '#6C5434', textDecoration: 'none' }}>
+								Adopt our animals
+							</Link>
 						</Typography>
 					</Hidden>
 
 					<Hidden mdUp>
 						<Typography className={classes.text2}>
-							<Link to='/animal-adopt' style={{color:'#6C5434', textDecoration:'none'}}>Adopt our animals</Link>
+							<Link to="/animal-adopt" style={{ color: '#6C5434', textDecoration: 'none' }}>
+								Adopt our animals
+							</Link>
 						</Typography>
 					</Hidden>
 				</Grid>
