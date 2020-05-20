@@ -7,7 +7,9 @@ import Paper from '@material-ui/core/Paper';
 import Link from '@material-ui/core/Link';
 import Button from '@material-ui/core/Button';
 import Hidden from '@material-ui/core/Hidden';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { getSpecificAnimals } from '../../assets/redux/actions/spAnimalsAction';
 
 const useStyle = makeStyles((theme) => ({
     root: {
@@ -59,11 +61,24 @@ const useStyle = makeStyles((theme) => ({
 
 export default function AnimalAdopt2() {
     const classes = useStyle();
+    const { id } = useParams();
+	const dispatch = useDispatch();
+    const currentAnimal = useSelector((state) => state.currentAnimal);
+    
+    if (currentAnimal.length === 0) {
+		dispatch(getSpecificAnimals(id));
+	} else {
+		if (currentAnimal.data._id !== id) {
+            dispatch(getSpecificAnimals(id));
+
+		}
+    }
+    
     return (
         <div className={classes.root} style={{ background: '#ECE4BA' }}>
             <Grid container justify="center">
                 <Typography className={classes.ourAnimals}>
-                    Adopt a Tiger
+                    Adopt a {currentAnimal.data !== undefined ? currentAnimal.data.name : null}
                 </Typography>
             </Grid>
 
@@ -123,7 +138,6 @@ export default function AnimalAdopt2() {
                     </Paper>
                 </Grid>
 
-                
                 </Grid>
                 </Hidden>
 
@@ -157,6 +171,7 @@ export default function AnimalAdopt2() {
                 
                 <Grid item lg={12} sm={12} style={{ background: '#ECE4BA', margin: '5px' }}>
                     <Paper elevation={0}>
+                        {/* LOREM GANTI SAMA KAYA DIATAS TAPI DATA.CAPTION */}
                         <p className={classes.forP}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea quia ut, voluptate voluptatum adipisci culpa? Molestiae nostrum est adipisci! Quae distinctio maiores placeat perferendis rerum debitis exercitationem, tenetur maxime impedit.
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae veniam suscipit quae officiis voluptas commodi nostrum, facere rem consectetur saepe modi asperiores placeat nihil illum laborum magnam, alias dignissimos accusamus?
                         </p>

@@ -30,7 +30,7 @@ export default function CardMapping(props) {
 					<CardMedia
 						className={classes.media}
 						image="https://wallpaperaccess.com/full/2136603.jpg"
-						// title={props.animals.scientificName}
+						title={props.animals.scientificName}
 					/>
 					<CardContent>
 						<Typography
@@ -44,17 +44,17 @@ export default function CardMapping(props) {
 								borderRadius: '5px'
 							}}
 						>
-							{/* {props.animals.name} */}
+							{props.animals.name}
 						</Typography>
 					</CardContent>
 				</CardActionArea>
 				<CardActions>
 					<Grid container justify="center">
-						{/* <Link to={`/animal-info/${props.animals._id}`}> */}
-						<Button size="small" color="inherit" style={{ fontFamily: 'roboto', color: '#6C5434' }}>
+						<Link to={`/animal-adopt-2/${props.animals._id}`} style={{ textDecoration: 'none' }}>
+						<Button size="small" color="inherit" style={{ fontFamily: 'Raleway', color: '#6C5434' }}>
 							Adopt This Animal &hearts;
 						</Button>
-						{/* </Link> */}
+						</Link>
 					</Grid>
 				</CardActions>
 			</Card>

@@ -45,7 +45,7 @@ function App() {
 					{/* Main Features - Donation */}
 					<Route path="/donation" component={Donation} />
 					<Route path="/animal-adopt" component={AnimalAdopt} />
-					<Route path="/animal-adopt-2" component={AnimalAdopt2} />
+					<Route path="/animal-adopt-2/:id" component={AnimalAdopt2} />
 					<Route path="/animal-adopt-3" component={AnimalAdopt3} />
 					<Route path="/feeding-animals" component={FeedingAnimals} />
 					<Route path="/animal-feeder/:id" component={AnimalFeeder} />
