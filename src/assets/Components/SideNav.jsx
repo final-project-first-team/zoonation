@@ -34,6 +34,7 @@ export default function SideNav() {
 		await dispatch(logout(id));
 		await localStorage.removeItem('token');
 		await localStorage.removeItem('refToken');
+		await localStorage.removeItem('isLoggedIn');
 		await window.location.reload();
 	};
 
