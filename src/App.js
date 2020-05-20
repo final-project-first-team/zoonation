@@ -38,7 +38,6 @@ function App() {
 					<Route path="/sign-up" component={SignUp} />
 
 					{/* Main Features - Education */}
-					<Route path="/zoo-partner" component={ZooPartner} />
 					<Route path="/zoos-and-conservation" component={ZooCons} />
 					<Route path="/our-animals" component={OurAnimals} />
 					<Route exact path="/animal-info/:id" component={AnimalInfo} />
