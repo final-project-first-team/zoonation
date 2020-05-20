@@ -42,7 +42,7 @@ const useStyle = makeStyles((theme) => ({
 		fontFamily: 'Lemonada',
 		fontStyle: 'normal',
 		fontWeight: 'normal',
-		fontSize: '20px',
+		fontSize: '18px',
 		lineHeight: '25px',
 		display: 'flex',
 		alignItems: 'center',
@@ -61,19 +61,19 @@ const useStyle = makeStyles((theme) => ({
 		marginTop: theme.spacing(1)
 	},
 	margin: {
-		margin: theme.spacing(3)
+		margin: theme.spacing(0)
 	},
 	text1: {
 		fontFamily: 'Fredoka One',
 		color: '#6C5434',
 		lineHeight: '65px',
 		cursor: 'pointer',
-		fontSize: '28px'
+		fontSize: '20px'
 	},
 	text2: {
 		fontFamily: 'Fredoka One',
 		color: '#6C5434',
-		lineHeight: '32.5px',
+		lineHeight: '40px',
 		cursor: 'pointer',
 		fontSize: '20px'
 	}
@@ -105,26 +105,26 @@ export default function BodyFeedingAnimals() {
 		<div className={classes.root} style={{ background: '#ECE4BA' }}>
 			<Grid container justify="center">
 				<Hidden smDown>
-					<Typography className={classes.ourAnimals}>Feed the Animals Now</Typography>
+					<Typography className={classes.ourAnimals}>FEED THE ANIMALS</Typography>
 				</Hidden>
 
 				<Hidden mdUp>
-					<Typography className={classes.ourAnimalsSm}>Feed the Animals Now</Typography>
+					<Typography className={classes.ourAnimalsSm}>FEED THE ANIMALS</Typography>
 				</Hidden>
 			</Grid>
 
 			<Grid container justify="center">
 				<Hidden smDown>
 					<Typography className={classes.adoptForBetter}>
-						Don't have time to feed them at zoo?
-						<br />Now you can do it everywhere
+						Don't have a time to feed them at zoo?
+						<br />Now you can do it everywhere!
 					</Typography>
 				</Hidden>
 			</Grid>
 
 			<Grid container justify="center">
 				<Typography className={classes.giftText}>
-					Buy our food currencies at our virtual store and feed those hungry animals.
+					Buy Zoonations food currencies at Zoonations virtual store and feed those hungry animals
 				</Typography>
 			</Grid>
 
@@ -135,8 +135,8 @@ export default function BodyFeedingAnimals() {
 					})
 				) : null}
 				<Link to={'/our-animals'} style={{ textDecoration: 'none' }}>
-					<Button>
-						Not found the animals you want to feed? <br />Browse our other animals here
+					<Button style={{ fontFamily: 'Fredoka One', padding: '10px', color: '#6C5434'}}>
+						Not found the animals you want to feed? <br />Browse our other animals here!
 					</Button>
 				</Link>
 			</Grid>
@@ -146,7 +146,7 @@ export default function BodyFeedingAnimals() {
 					<Hidden smDown>
 						<Typography className={classes.text1}>
 							<Link to="/donation" style={{ color: '#6C5434', textDecoration: 'none' }}>
-								Make a donation to our zoo partner
+								DONATE TO YOUR CITY ZOO
 							</Link>
 						</Typography>
 					</Hidden>
@@ -154,7 +154,7 @@ export default function BodyFeedingAnimals() {
 					<Hidden mdUp>
 						<Typography className={classes.text2}>
 							<Link to="/donation" style={{ color: '#6C5434', textDecoration: 'none' }}>
-								Make a donation to our zoo partner
+								DONATE TO YOUR CITY ZOO
 							</Link>
 						</Typography>
 					</Hidden>
@@ -164,7 +164,7 @@ export default function BodyFeedingAnimals() {
 					<Hidden smDown>
 						<Typography className={classes.text1}>
 							<Link to="/animal-adopt" style={{ color: '#6C5434', textDecoration: 'none' }}>
-								Adopt our animals
+								ADOPT YOUR FAVORITE ANIMAL
 							</Link>
 						</Typography>
 					</Hidden>
@@ -172,7 +172,7 @@ export default function BodyFeedingAnimals() {
 					<Hidden mdUp>
 						<Typography className={classes.text2}>
 							<Link to="/animal-adopt" style={{ color: '#6C5434', textDecoration: 'none' }}>
-								Adopt our animals
+								ADOPT YOUR FAVORITE ANIMAL
 							</Link>
 						</Typography>
 					</Hidden>

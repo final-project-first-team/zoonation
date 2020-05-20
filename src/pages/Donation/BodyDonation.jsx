@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
+import Button from '@material-ui/core/Button';
 // import Link from '@material-ui/core/Link';
 import Hidden from '@material-ui/core/Hidden';
 import { Link } from 'react-router-dom';
@@ -40,7 +41,7 @@ const useStyle = makeStyles((theme) => ({
 		fontFamily: 'Lemonada',
 		fontStyle: 'normal',
 		fontWeight: 'normal',
-		fontSize: '20px',
+		fontSize: '18px',
 		lineHeight: '25px',
 		display: 'flex',
 		alignItems: 'center',
@@ -59,19 +60,19 @@ const useStyle = makeStyles((theme) => ({
 		marginTop: theme.spacing(1)
 	},
 	margin: {
-		margin: theme.spacing(3)
+		margin: theme.spacing(0)
 	},
 	text1: {
 		fontFamily: 'Fredoka One',
 		color: '#6C5434',
 		lineHeight: '65px',
 		cursor: 'pointer',
-		fontSize: '28px'
+		fontSize: '20px'
 	},
 	text2: {
 		fontFamily: 'Fredoka One',
 		color: '#6C5434',
-		lineHeight: '32.5px',
+		lineHeight: '40px',
 		cursor: 'pointer',
 		fontSize: '20px'
 	}
@@ -83,25 +84,25 @@ export default function AnimalAdopt() {
 		<div className={classes.root} style={{ background: '#ECE4BA' }}>
 			<Grid container justify="center">
 				<Hidden smDown>
-					<Typography className={classes.ourAnimals}>Donate to Our Zoo Partner</Typography>
+					<Typography className={classes.ourAnimals}>DONATE TO OUR ZOO PARTNER</Typography>
 				</Hidden>
 
 				<Hidden mdUp>
-					<Typography className={classes.ourAnimalsSm}>Donate to Our Zoo Partner</Typography>
+					<Typography className={classes.ourAnimalsSm}>DONATE TO OUR ZOO PARTNER</Typography>
 				</Hidden>
 			</Grid>
 
 			<Grid container justify="center">
 				<Hidden smDown>
 					<Typography className={classes.adoptForBetter}>
-						Help them providing better place and facilities for animals
+						Help them providing a better place and facilities for the animals
 					</Typography>
 				</Hidden>
 			</Grid>
 
 			<Grid container justify="center">
 				<Typography className={classes.giftText}>
-					There are also various project to help animals that also need your help.
+					You'll be helping their maintenance and operational for the continuity of the zoo
 				</Typography>
 			</Grid>
 
@@ -109,6 +110,12 @@ export default function AnimalAdopt() {
 				<CardDonation />
 				<CardDonation />
 				<CardDonation />
+
+				<Link to={'/our-animals'} style={{ textDecoration: 'none', padding:'10px' }}>
+					<Button style={{ fontFamily: 'Fredoka One', padding: '10px', color: '#6C5434'}}>
+						Not found the zoo you want to help? <br />Browse our other zoos here!
+					</Button>
+				</Link>
 			</Grid>
 
 			<Grid container display="flex" maxWidth="xl" style={{ marginBottom: '30px' }}>
@@ -116,7 +123,7 @@ export default function AnimalAdopt() {
 					<Hidden smDown>
 						<Typography className={classes.text1} /* style={{textDecoration:'none'}} */>
 							<Link to="/animal-adopt" style={{ color: '#6C5434', textDecoration: 'none' }}>
-								Adopt our animals
+								ADOPT YOUR FAVORITE ANIMAL
 							</Link>
 						</Typography>
 					</Hidden>
@@ -124,7 +131,7 @@ export default function AnimalAdopt() {
 					<Hidden mdUp>
 						<Typography className={classes.text2} /* style={{textDecoration:'none'}} */>
 							<Link to="/animal-adopt" style={{ color: '#6C5434', textDecoration: 'none' }}>
-								Adopt our animals
+								ADOPT YOUR FAVORITE ANIMAL
 							</Link>
 						</Typography>
 					</Hidden>
@@ -134,7 +141,7 @@ export default function AnimalAdopt() {
 					<Hidden smDown>
 						<Typography className={classes.text1}>
 							<Link to="/feeding-animals" style={{ color: '#6C5434', textDecoration: 'none' }}>
-								Feed our animals
+								FEED OUR ANIMALS
 							</Link>
 						</Typography>
 					</Hidden>
@@ -142,7 +149,7 @@ export default function AnimalAdopt() {
 					<Hidden mdUp>
 						<Typography className={classes.text2}>
 							<Link to="/feeding-animals" style={{ color: '#6C5434', textDecoration: 'none' }}>
-								Feed our animals
+								FEEDS OUR ANIMALS
 							</Link>
 						</Typography>
 					</Hidden>
