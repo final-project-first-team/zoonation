@@ -7,7 +7,10 @@ import Button from '@material-ui/core/Button';
 
 import Hidden from '@material-ui/core/Hidden';
 import { Divider } from '@material-ui/core';
-import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { getSpecificAnimals } from '../../assets/redux/actions/spAnimalsAction';
+import { getStorage, updateStorage } from '../../assets/redux/actions/storageAction';
 
 import YourStorage from './YourStorage';
 import YourStorageNotSignedIn from './YourStorageNotSignedIn';
@@ -54,7 +57,7 @@ const useStyle = makeStyles((theme) => ({
 	},
 	storage: {
 		paddingTop: theme.spacing(1),
-		minHeight: '26vh'
+		minHeight: '20vh'
 	},
 	tray: {
 		minHeight: '26vh'
@@ -100,6 +103,25 @@ const useStyle = makeStyles((theme) => ({
 export default function BodyAnimalFeeder() {
 	const classes = useStyle();
 	const status = useSelector((state) => state.isLoggedIn);
+	const { id } = useParams();
+	const dispatch = useDispatch();
+	const currentAnimal = useSelector((state) => state.currentAnimal);
+	const currUser = useSelector((state) => state.currentUser);
+	const userStorage = useSelector((state) => state.feedsStorage);
+
+	if (currentAnimal.length === 0) {
+		dispatch(getSpecificAnimals(id));
+	} else {
+		if (currentAnimal.data._id !== id) {
+			dispatch(getSpecificAnimals(id));
+		}
+	}
+
+	if (currUser.length !== 0) {
+		if (userStorage.length === 0) {
+			dispatch(getStorage(currUser._id));
+		}
+	}
 
 	return (
 		<div className={classes.root} style={{ background: '#ECE4BA' }}>
@@ -114,14 +136,22 @@ export default function BodyAnimalFeeder() {
 			</Grid>
 
 			<Grid container justify="space-around">
-				<Grid container item className={classes.leftContainer} lg={2} justify="center">
+				<Grid container item className={classes.leftContainer} lg={3} justify="center">
 					<Grid item className={classes.leftContainerInside} lg={11}>
 						<Grid container justify="center" direction="column" className={classes.storage}>
-							<Grid item>{status.length === 0 ? <YourStorageNotSignedIn /> : <YourStorage />}</Grid>
+							<Grid item>
+								{status.length === 0 ? (
+									<YourStorageNotSignedIn />
+								) : (
+									<YourStorage storage={userStorage} currAnimal={currentAnimal.data} />
+								)}
+							</Grid>
 						</Grid>
 						<Divider />
 						<Grid container justify="center" direction="column" className={classes.tray}>
-							<Grid item>{status.length === 0 ? <YourTrayNotSignedIn /> : <YourTray />}</Grid>
+							<Grid item>
+								{status.length === 0 ? <YourTrayNotSignedIn /> : <YourTray storage={userStorage} />}
+							</Grid>
 						</Grid>
 					</Grid>
 				</Grid>
@@ -134,9 +164,9 @@ export default function BodyAnimalFeeder() {
 						/>
 					</Grid>
 				</Grid>
-				<Grid container item className={classes.rightContainer} lg={3} direction="column">
+				<Grid container item className={classes.rightContainer} lg={2} direction="column">
 					<Grid item className={classes.rightContainerInside} lg={12}>
-						<AnimalsData />
+						<AnimalsData currAnimal={currentAnimal} />
 					</Grid>
 				</Grid>
 			</Grid>

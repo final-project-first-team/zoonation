@@ -8,6 +8,7 @@ import loginStatusReducer from './loginStatusReducer';
 import storageReducer from './storageReducer';
 import priceReducer from './priceReducer';
 import { itemsCartReducer, amountCartReducer, priceCartReducer } from './feedsCartReducer';
+import { trayReducer } from './trayReducers';
 
 const allReducers = combineReducers({
 	currentUser: loginReducer,
@@ -20,7 +21,8 @@ const allReducers = combineReducers({
 	feedsPrice: priceReducer,
 	itemsHolder: itemsCartReducer,
 	amountHolder: amountCartReducer,
-	priceHolder: priceCartReducer
+	priceHolder: priceCartReducer,
+	trayHolder: trayReducer
 });
 
 export default allReducers;

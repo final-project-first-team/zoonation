@@ -1,14 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 import { makeStyles } from '@material-ui/core/styles';
 
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
-// import Link from '@material-ui/core/Link';
 import Hidden from '@material-ui/core/Hidden';
+import Button from '@material-ui/core/Button';
 
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { getAnimals } from '../../assets/redux/actions/animalsAction';
 import CardForFeed from '../../assets/Components/CardForFeed';
 
 const useStyle = makeStyles((theme) => ({
@@ -81,6 +82,25 @@ const useStyle = makeStyles((theme) => ({
 export default function BodyFeedingAnimals() {
 	const classes = useStyle();
 	const status = useSelector((state) => state.isLoggedIn);
+	const animalList = useSelector((state) => state.animalsData);
+	const dispatch = useDispatch();
+	let randomAnimals = [];
+
+	useEffect(() => {
+		if (animalList.length === 0) {
+			dispatch(getAnimals());
+		}
+	}, []);
+	for (let i = 0; i < 3; i++) {
+		if (animalList.length !== 0) {
+			let animal = animalList.data[Math.floor(Math.random() * animalList.data.length)];
+			while (randomAnimals.includes(animal)) {
+				animal = animalList.data[Math.floor(Math.random() * animalList.data.length)];
+			}
+			randomAnimals.push(animal);
+		}
+	}
+
 	return (
 		<div className={classes.root} style={{ background: '#ECE4BA' }}>
 			<Grid container justify="center">
@@ -109,9 +129,16 @@ export default function BodyFeedingAnimals() {
 			</Grid>
 
 			<Grid container justify="center" className={classes.margin} spacing={2}>
-				<CardForFeed />
-				<CardForFeed />
-				<CardForFeed />
+				{randomAnimals.length !== 0 ? (
+					randomAnimals.map((_animals) => {
+						return <CardForFeed animals={_animals} />;
+					})
+				) : null}
+				<Link to={'/our-animals'} style={{ textDecoration: 'none' }}>
+					<Button>
+						Not found the animals you want to feed? <br />Browse our other animals here
+					</Button>
+				</Link>
 			</Grid>
 
 			<Grid container display="flex" maxWidth="xl" style={{ marginBottom: '30px' }}>

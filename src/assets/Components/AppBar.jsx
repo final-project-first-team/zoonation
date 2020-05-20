@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
 	title: {
 		flexGrow: 1,
 		fontFamily: 'Damion, cursive',
-		color: '#6C5434',
+		color: '#6C5434'
 	},
 	zoonations: {
 		flexGrow: 1,
@@ -79,6 +79,7 @@ export default function ButtonAppBar(props) {
 		await dispatch(logout(id));
 		await localStorage.removeItem('token');
 		await localStorage.removeItem('refToken');
+		await localStorage.removeItem('isLoggedIn');
 		await window.location.reload();
 	};
 

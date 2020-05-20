@@ -49,18 +49,17 @@ function App() {
 					<Route path="/animal-adopt-2" component={AnimalAdopt2} />
 					<Route path="/animal-adopt-3" component={AnimalAdopt3} />
 					<Route path="/feeding-animals" component={FeedingAnimals} />
-					<Route path="/animal-feeder" component={AnimalFeeder} />
+					<Route path="/animal-feeder/:id" component={AnimalFeeder} />
 					<Route path="/zoo-partner" component={ZooPartner} />
 					<Route path="/donation-payment-method" component={PayMetDon} />
 
 					{/* User Profile */}
 					<PrivateRoute path="/profile" component={ProfileInfo} />
 					<PrivateRoute path="/feeds-store" component={FeedsStore} />
-					
+
 					{/* Additional Features */}
 					<Route path="/animals-news" component={AnimalsNews} />
 					<Route path="/about-us" component={AboutUs} />
-
 				</Switch>
 			</Router>
 		</div>
