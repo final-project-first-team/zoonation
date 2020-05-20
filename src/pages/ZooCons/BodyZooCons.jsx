@@ -7,7 +7,7 @@ import Link from '@material-ui/core/Link';
 
 import SearchBar from '../Components/SearchBar';
 import SingleSlider from '../Components/SingleSlider';
-import SliderSlick from '../Components/SliderSlick'
+import SliderSlick from '../../assets/Components/SliderSlick'
 
 // import { useDispatch, useSelector } from 'react-redux';
 // import { getZoos } from '../../assets/redux/actions/zooActions';
