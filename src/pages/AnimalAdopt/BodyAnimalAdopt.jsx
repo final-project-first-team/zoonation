@@ -172,7 +172,7 @@ export default function AnimalAdopt() {
 					<Hidden mdUp>
 						<Typography className={classes.text2}>
 							<Link to="/feeding-animals" style={{ color: '#6C5434', textDecoration: 'none' }}>
-								FEEDS OUR HUNGRY ANIMALS
+								FEEDS OUR ANIMALS
 							</Link>
 						</Typography>
 					</Hidden>
