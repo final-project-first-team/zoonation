@@ -92,7 +92,7 @@ export default function MenuListComposition() {
 							<Paper>
 								<ClickAwayListener onClickAway={handleClose}>
 									<MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
-										<Link to="/general-donation" style={{ textDecoration: 'none' }}>
+										<Link to="/donation" style={{ textDecoration: 'none' }}>
 											<MenuItem className={classes.title} onClick={handleClose}>
 												Zoo Donation
 											</MenuItem>

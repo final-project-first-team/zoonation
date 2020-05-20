@@ -7,6 +7,7 @@ import Link from '@material-ui/core/Link';
 
 import SearchBar from '../Components/SearchBar';
 import SingleSlider from '../Components/SingleSlider';
+import SliderSlick from '../Components/SliderSlick'
 
 // import { useDispatch, useSelector } from 'react-redux';
 // import { getZoos } from '../../assets/redux/actions/zooActions';
@@ -75,7 +76,8 @@ export default function BodyZooCons() {
 				</Grid>
 
 				<Grid container className={classes.margin} justify="center" spacing={5}>
-					<Grid item>
+					<Grid item xs={12}>
+						{/* <SliderSlick /> */}
 						<SingleSlider /* zoo={zooData} */ />
 					</Grid>
 					<Grid item>
