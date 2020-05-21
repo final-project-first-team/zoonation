@@ -50,8 +50,8 @@ function App() {
 					<Route path="/animal-adopt-3/:id" component={AnimalAdopt3} />
 					<Route path="/feeding-animals" component={FeedingAnimals} />
 					<Route path="/animal-feeder/:id" component={AnimalFeeder} />
-					<Route path="/zoo-partner" component={ZooPartner} />
-					<Route path="/donation-payment-method" component={PayMetDon} />
+					<Route path="/zoo-partner/:id" component={ZooPartner} />
+					<Route path="/donation-payment-method/:id" component={PayMetDon} />
 
 					{/* User Profile */}
 					<PrivateRoute path="/profile" component={ProfileInfo} />

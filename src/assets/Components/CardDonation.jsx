@@ -15,8 +15,8 @@ const useStyles = makeStyles({
 	root: {
 		// minWidth: 300,
 		borderRadius: '5px',
-		width: 350,
-		margin: '1%'
+		// width: 350,
+		// margin: '1%'
 	},
 	media: {
 		height: 140,
@@ -53,11 +53,11 @@ export default function CardMapping(props) {
 				</CardActionArea>
 				<CardActions>
 					<Grid container justify="center">
-						{/* <Link to={`/animal-info/${props.animals._id}`}> */}
+						<Link to={`/zoo-partner/${props.zoos._id}`}>
 						<Button size="small" color="inherit" style={{ fontFamily: 'roboto', color: '#6C5434' }}>
 							Zoo's info
 						</Button>
-						{/* </Link> */}
+						</Link>
 					</Grid>
 				</CardActions>
 			</Card>

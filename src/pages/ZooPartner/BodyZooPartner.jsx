@@ -6,15 +6,17 @@ import { Typography } from '@material-ui/core';
 import Paper from '@material-ui/core/Paper';
 // import Link from '@material-ui/core/Link';
 
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 // import ZooPartnerAct from '../Components/ZooPartnerAct';
 import SingleSlider from '../../assets/Components/SingleSlider';
 // import CardMapping from '../Components/CardMapping';
 
-import Link from '@material-ui/core/Link';
+// import Link from '@material-ui/core/Link';
 import Button from '@material-ui/core/Button';
 import Hidden from '@material-ui/core/Hidden';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { getSpecificZoos } from '../../assets/redux/actions/zooPartnerAction';
 
 const useStyle = makeStyles((theme) => ({
 	root: {
@@ -30,16 +32,16 @@ const useStyle = makeStyles((theme) => ({
 	image: {
 		margin: 'auto',
 		display: 'block',
-        width: '100%',
-        alignItems: 'center',
-        height: '250px',
+		width: '100%',
+		alignItems: 'center',
+		height: '250px',
 	},
 	imageHidden: {
 		margin: 'auto',
 		display: 'block',
-        width: '100%',
-        alignItems: 'center',
-        height: '250px',
+		width: '100%',
+		alignItems: 'center',
+		height: '250px',
 	},
 	ourAnimals: {
 		display: 'flex',
@@ -58,19 +60,33 @@ const useStyle = makeStyles((theme) => ({
 	},
 	img: {
 		width: '90%',
-        height: '200px',
-        alignItems: 'center',
-        padding: '5px',
-        margin: '3px',
+		height: '200px',
+		alignItems: 'center',
+		padding: '5px',
+		margin: '3px',
 	}
 }));
 
 export default function ZooPartner() {
 	const classes = useStyle();
+	const { id } = useParams();
+	const dispatch = useDispatch();
+	const currentZoo = useSelector((state) => state.currentZoo);
+	const status = useSelector((state) => state.isLoggedIn);
+
+	if (currentZoo.length === 0) {
+		dispatch(getSpecificZoos(id));
+	} else {
+		if (currentZoo.data._id !== id) {
+			dispatch(getSpecificZoos(id));
+		}
+	}
+console.log(currentZoo);
+
 	return (
 		<div className={classes.root} style={{ background: '#ECE4BA' }}>
 			<Grid container justify="center">
-				<Typography className={classes.ourAnimals}>DONATE TO YOUR CITY ZOO</Typography>
+				<Typography className={classes.ourAnimals}>DONATE TO {currentZoo.length !== 0 ? currentZoo.data.zooName : null}</Typography>
 			</Grid>
 
 			<Grid container>
@@ -115,9 +131,9 @@ export default function ZooPartner() {
 								<Button
 									style={{ margin: '5px', width: '80%', fontSize: '20px', fontFamily: 'Fredoka One' }}
 									disableElevation>
-										<Link to="#"
-										style={{ textDecoration:'none', color: '#F6F4E4'}}>
-									DONATE NOW
+									<Link to={`/donation-payment-method/${id}`}
+										style={{ textDecoration: 'none', color: '#F6F4E4' }}>
+										DONATE NOW
 										</Link>
 								</Button>
 							</Paper>
@@ -128,9 +144,9 @@ export default function ZooPartner() {
 								<Button
 									style={{ margin: '5px', width: '80%', fontSize: '20px', fontFamily: 'Fredoka One' }}
 									disableElevation>
-										<Link to="#"
-										style={{ textDecoration:'none', color: '#F6F4E4', margin:'3px' }}>
-									CHANGE ZOO
+									<Link to="/zoos-and-conservation"
+										style={{ textDecoration: 'none', color: '#F6F4E4', margin: '3px' }}>
+										CHANGE ZOO
 									</Link>
 								</Button>
 							</Paper>
@@ -139,14 +155,14 @@ export default function ZooPartner() {
 				</Hidden>
 
 				<Hidden mdUp>
-					<Grid container justify="center" style={{ padding: '10px'}}>
+					<Grid container justify="center" style={{ padding: '10px' }}>
 						<Grid item sm={3}>
 							<Button
 								style={{ margin: '2px', fontSize: '16px', fontFamily: 'Fredoka One', background: '#6C5434' }}
-								>
-									<Link to="#"
-										style={{ textDecoration:'none', color: '#F6F4E4'}}>
-										DONATE NOW
+							>
+								<Link to={`/donation-payment-method/${id}`}
+									style={{ textDecoration: 'none', color: '#F6F4E4' }}>
+									DONATE NOW
 									</Link>
 							</Button>
 						</Grid>
@@ -154,9 +170,9 @@ export default function ZooPartner() {
 							<Button
 								style={{ margin: '2px', fontSize: '16px', fontFamily: 'Fredoka One', background: '#6C5434' }}
 							>
-								<Link to="#"
-										style={{ textDecoration:'none', color: '#F6F4E4'}}>
-								CHANGE ZOO
+								<Link to="/zoos-and-conservation"
+									style={{ textDecoration: 'none', color: '#F6F4E4' }}>
+									CHANGE ZOO
 								</Link>
 							</Button>
 						</Grid>
@@ -166,12 +182,7 @@ export default function ZooPartner() {
 				<Grid item lg={12} sm={12} style={{ background: '#ECE4BA', margin: '5px' }}>
 					<Paper elevation={0} square>
 						<p className={classes.forP}>
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea quia ut, voluptate voluptatum
-							adipisci culpa? Molestiae nostrum est adipisci! Quae distinctio maiores placeat perferendis
-							rerum debitis exercitationem, tenetur maxime impedit. Lorem ipsum dolor sit amet consectetur
-							adipisicing elit. Vitae veniam suscipit quae officiis voluptas commodi nostrum, facere rem
-							consectetur saepe modi asperiores placeat nihil illum laborum magnam, alias dignissimos
-							accusamus?
+						{currentZoo.length !== 0 ? currentZoo.data.about : null}
 						</p>
 					</Paper>
 				</Grid>

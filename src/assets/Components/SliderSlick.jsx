@@ -13,6 +13,8 @@ import Slider from "react-slick";
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 
+import {Link } from 'react-router-dom';
+
 export default function SliderSlick(props) {
     const settings = {
         dots: true,
@@ -78,7 +80,9 @@ export default function SliderSlick(props) {
                             <img className={classes.image}
                                 src='https://www.indianapoliszoo.com/wp-content/uploads/2020/02/Sophi-and-Zahara-Carla-Knapp.jpg' /* {zoo.photo} */ />
                             <Typography className={classes.toHelp}>
+                                <Link to={`/zoo-partner/${zoo._id}`}>
                                 {zoo.zooName}
+                                </Link>
                             </Typography>
                         </div>
 
