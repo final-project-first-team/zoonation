@@ -135,7 +135,7 @@ export default function BodyFeedingAnimals() {
 					})
 				) : null}
 				<Link to={'/our-animals'} style={{ textDecoration: 'none', padding: '10px' }}>
-					<Button style={{ fontFamily: 'Fredoka One', padding: '10px', color: '#6C5434'}}>
+					<Button style={{ fontFamily: 'Fredoka One', padding: '10px', color: '#6C5434' }}>
 						Not found the animals you want to feed? <br />Browse our other animals here!
 					</Button>
 				</Link>

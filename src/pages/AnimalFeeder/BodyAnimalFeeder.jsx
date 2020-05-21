@@ -122,8 +122,21 @@ export default function BodyAnimalFeeder() {
 			</Grid>
 
 			<Grid container justify="space-evenly">
+				<Grid container item className={classes.rightContainer} lg={3} direction="column" justify="center">
+					<Grid item className={classes.rightContainerInside} lg={12}>
+						<AnimalsData currAnimal={currentAnimal} />
+					</Grid>
+				</Grid>
+				<Grid container item className={classes.centerContainer} lg={4}>
+					<Grid item xs={12} style={{ padding: '10px' }}>
+						{currentAnimal.length !== 0 ? (
+							<img className={classes.image} alt="animals" src={`${currentAnimal.data.image1}`} />
+						) : null}
+					</Grid>
+				</Grid>
+
 				<Grid container item className={classes.leftContainer} lg={3} justify="center">
-					<Grid item className={classes.leftContainerInside} lg={12}>
+					<Grid item className={classes.leftContainerInside} lg={12} xs={12}>
 						<Grid container justify="center" direction="column" className={classes.storage}>
 							<Grid item>
 								{status.length === 0 ? (
@@ -139,20 +152,6 @@ export default function BodyAnimalFeeder() {
 								{status.length === 0 ? <YourTrayNotSignedIn /> : <YourTray storage={userStorage} />}
 							</Grid>
 						</Grid>
-					</Grid>
-				</Grid>
-				<Grid container item className={classes.centerContainer} lg={4}>
-					<Grid item xs={12} style={{ padding: '10px' }}>
-						<img
-							className={classes.image}
-							alt="animals"
-							src="https://wallpaperaccess.com/full/2136603.jpg"
-						/>
-					</Grid>
-				</Grid>
-				<Grid container item className={classes.rightContainer} lg={3} direction="column" justify="center">
-					<Grid item className={classes.rightContainerInside} lg={12}>
-						<AnimalsData currAnimal={currentAnimal} />
 					</Grid>
 				</Grid>
 			</Grid>

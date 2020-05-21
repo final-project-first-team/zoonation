@@ -23,6 +23,8 @@ const useStyles = makeStyles({
 
 export default function CardMapping(props) {
 	const classes = useStyles();
+	const animals = props.animals;
+	// console.log(animals);
 
 	return (
 		<Grid item lg={3} md={4} sm={6} xs={12}>
@@ -30,8 +32,8 @@ export default function CardMapping(props) {
 				<CardActionArea>
 					<CardMedia
 						className={classes.media}
-						image="https://wallpaperaccess.com/full/2136603.jpg"
-						title={props.animals.scientificName}
+						image={`${animals.image1}`}
+						title={`${animals.scientificName}`}
 					/>
 					<CardContent>
 						<Typography
