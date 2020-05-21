@@ -65,7 +65,7 @@ export default function BodyOurAnimals() {
 	return (
 		<div className={classes.root} style={{ background: '#ECE4BA' }}>
 			<Grid container justify="center">
-				<Typography className={classes.ourAnimals}>OUR ANIMALS</Typography>
+				<Typography className={classes.ourAnimals}>Our Animals</Typography>
 
 				<Grid container justify="center" maxWidth="sm">
 					<SearchBar />

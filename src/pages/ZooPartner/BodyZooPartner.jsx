@@ -70,7 +70,7 @@ export default function ZooPartner() {
 	return (
 		<div className={classes.root} style={{ background: '#ECE4BA' }}>
 			<Grid container justify="center">
-				<Typography className={classes.ourAnimals}>DONATE TO YOUR CITY ZOO</Typography>
+				<Typography className={classes.ourAnimals}>Donate to Your City Zoo</Typography>
 			</Grid>
 
 			<Grid container>

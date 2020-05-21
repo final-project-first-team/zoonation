@@ -68,7 +68,7 @@ export default function BodyMetDon() {
         <div className={classes.root} style={{ background: '#ECE4BA' }}>
             <Grid container justify="center">
                 <Typography className={classes.ourAnimals}>
-                    PAYMENT METHOD
+                    Payment Method
                     </Typography>
             </Grid>
 

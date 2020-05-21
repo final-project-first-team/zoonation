@@ -31,7 +31,7 @@ export default function CardMapping(props) {
 					<Link to={`/animal-info/${props.animals._id}`}>
 						<CardMedia
 							className={classes.media}
-							image="https://wallpaperaccess.com/full/2136603.jpg"
+							image={props.animals.image3}
 							title={props.animals.scientificName}
 						/>
 					</Link>

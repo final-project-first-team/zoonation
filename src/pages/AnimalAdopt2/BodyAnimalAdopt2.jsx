@@ -35,7 +35,7 @@ const useStyle = makeStyles((theme) => ({
 		display: 'block',
         width: '100%',
         alignItems: 'center',
-        height: '250px',
+        height: 'auto',
           
     },
     ourAnimals: {
@@ -85,7 +85,7 @@ export default function AnimalAdopt2() {
         <div className={classes.root} style={{ background: '#ECE4BA' }}>
             <Grid container justify="center">
                 <Typography className={classes.ourAnimals}>
-                    ADOPT A {currentAnimal.data !== undefined ? currentAnimal.data.name : null}
+                    Adopt a {currentAnimal.data !== undefined ? currentAnimal.data.name : null}
                 </Typography>
             </Grid>
 

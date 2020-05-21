@@ -45,7 +45,7 @@ export default function AboutUs() {
         <div className={classes.root} style={{ background: '#ECE4BA', padding: '5px' }}>
              <Grid container justify="center">
                 <Typography className={classes.ourAnimals}>
-                    ABOUT US
+                    About Us
                 </Typography>
             </Grid>   
 
