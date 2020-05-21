@@ -92,21 +92,27 @@ export default function AnimalAdopt2() {
 
             <Grid container>
                 <Hidden smDown>
-                <Grid item xl= {4} lg={4} style={{ background: '#ECE4BA', padding: '10px' }}>
-                    <Paper square> 
-                        <img className={classes.image} alt="animal" src={currentAnimal.data !== undefined ? currentAnimal.data.image1 : null} />
-                    </Paper>
-                </Grid>
+                    <Grid item xl= {4} lg={4} md={4} style={{ background: '#ECE4BA', padding: '10px' }}>
+                        <Paper square> 
+                            <img className={classes.image} alt="animal" src={currentAnimal.data !== undefined ? currentAnimal.data.image1 : null} />
+                        </Paper>
+                    </Grid>
 
-                <Grid item xl={4} lg={4} style={{ background: '#ECE4BA', padding: '10px' }}>
-                    <Paper square> 
-                        <img className={classes.image} alt="animal" src={currentAnimal.data !== undefined ? currentAnimal.data.image2 : null} />
-                    </Paper>
-                </Grid>
+                    <Grid item xl={4} lg={4} md={4} style={{ background: '#ECE4BA', padding: '10px' }}>
+                        <Paper square> 
+                            <img className={classes.image} alt="animal" src={currentAnimal.data !== undefined ? currentAnimal.data.image2 : null} />
+                        </Paper>
+                    </Grid>
+
+                    <Grid item xl={4} lg={4} md={4} style={{ background: '#ECE4BA', padding: '10px' }}>
+                        <Paper square> 
+                            <img className={classes.image} alt="animal" src={currentAnimal.data !== undefined ? currentAnimal.data.image3 : null} />
+                        </Paper>
+                    </Grid>
                 </Hidden>
 
                 <Hidden mdUp>
-                <Grid item sm={12} style={{ background: '#ECE4BA', padding: '10px' }}>
+                <Grid item sm={12} xs={12} style={{ background: '#ECE4BA', padding: '10px' }}>
                     <Paper square> 
                         <img className={classes.imageHidden} alt="animal" src={currentAnimal.data !== undefined ? currentAnimal.data.image1 : null} />
                     </Paper>
@@ -114,7 +120,7 @@ export default function AnimalAdopt2() {
                 </Hidden>
                 
 
-            <Hidden smDown>
+            {/* <Hidden smDown>
                 <Grid item lg={4} sm={4} style={{ background: '#', padding: '10px'}}>
                     <Grid item lg={12}>
                         <Typography style={{ fontFamily: 'Fredoka One', fontSize: '18px', color: '#6C5434'}}>
@@ -204,7 +210,7 @@ export default function AnimalAdopt2() {
                     </Grid>
                     
                 </Grid>
-                </Hidden>
+                </Hidden> */}
                 
                 <Grid item lg={12} sm={12} style={{ background: '#ECE4BA', margin: '5px' }}>
                     <Paper elevation={0} square>
