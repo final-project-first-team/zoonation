@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -7,6 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import Hidden from '@material-ui/core/Hidden';
+import Skeleton from '@material-ui/lab/Skeleton';
 
 import CardForAdopt from '../../assets/Components/CardForAdopt';
 import { useDispatch, useSelector } from 'react-redux';
@@ -62,7 +63,7 @@ const useStyle = makeStyles((theme) => ({
 		marginTop: theme.spacing(1)
 	},
 	margin: {
-		margin: theme.spacing(0),
+		margin: theme.spacing(0)
 	},
 	text1: {
 		fontFamily: 'Fredoka One',
@@ -76,7 +77,7 @@ const useStyle = makeStyles((theme) => ({
 		color: '#6C5434',
 		lineHeight: '40px',
 		cursor: 'pointer',
-		fontSize: '20px',
+		fontSize: '20px'
 	}
 }));
 
@@ -92,7 +93,7 @@ export default function AnimalAdopt() {
 		}
 	}, []);
 	for (let i = 0; i < 3; i++) {
-		if (animalList.length !==0) {
+		if (animalList.length !== 0) {
 			let animal = animalList.data[Math.floor(Math.random() * animalList.data.length)];
 			while (randomAnimals.includes(animal)) {
 				animal = animalList.data[Math.floor(Math.random() * animalList.data.length)];
@@ -100,7 +101,7 @@ export default function AnimalAdopt() {
 			randomAnimals.push(animal);
 		}
 	}
-	
+
 	return (
 		<div className={classes.root} style={{ background: '#ECE4BA' }}>
 			<Grid container justify="center">
@@ -131,11 +132,11 @@ export default function AnimalAdopt() {
 			<Grid container justify="center" className={classes.margin} spacing={2}>
 				{randomAnimals.length !== 0 ? (
 					randomAnimals.map((_animals) => {
-						return <CardForAdopt animals={_animals} />
+						return <CardForAdopt animals={_animals} />;
 					})
 				) : null}
-				<Link to={'/our-animals'} style={{ textDecoration: 'none', padding:'10px' }}>
-					<Button style={{ fontFamily: 'Fredoka One', padding: '10px', color: '#6C5434'}}>
+				<Link to={'/our-animals'} style={{ textDecoration: 'none', padding: '10px' }}>
+					<Button style={{ fontFamily: 'Fredoka One', padding: '10px', color: '#6C5434' }}>
 						Not found the animal you want to adopt? <br />Browse our other animals here!
 					</Button>
 				</Link>

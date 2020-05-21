@@ -12,10 +12,17 @@ import ListItemText from '@material-ui/core/ListItemText';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 import Collapse from '@material-ui/core/Collapse';
+import Avatar from '@material-ui/core/Avatar';
+import Typography from '@material-ui/core/Typography';
 
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { currentUser, logout } from '../../assets/redux/actions/loginAction';
 
 export default function SimpleMenu() {
+	const isLoggedIn = useSelector((state) => state.isLoggedIn);
+	const currUser = useSelector((state) => state.currentUser);
+	const dispatch = useDispatch();
 	const [ anchorEl, setAnchorEl ] = React.useState(null);
 	const [ openCons, setOpenCons ] = React.useState(false);
 	const [ openWays, setOpenWays ] = React.useState(false);
@@ -31,6 +38,14 @@ export default function SimpleMenu() {
 	const handleClose = () => {
 		setAnchorEl(null);
 	};
+	const handleLogout = async (id) => {
+		setAnchorEl(null);
+		await dispatch(logout(id));
+		await localStorage.removeItem('token');
+		await localStorage.removeItem('refToken');
+		await localStorage.removeItem('isLoggedIn');
+		await window.location.reload();
+	};
 	const useStyles = makeStyles((theme) => ({
 		root: {
 			flexGrow: 1,
@@ -39,10 +54,14 @@ export default function SimpleMenu() {
 		title: {
 			flexGrow: 1,
 			fontFamily: 'Damion, cursive',
-			color: '#6C5434',
+			color: '#6C5434'
 		},
 		nested: {
 			paddingLeft: theme.spacing(4)
+		},
+		avatar: {
+			width: theme.spacing(3),
+			height: theme.spacing(3)
 		}
 	}));
 
@@ -53,19 +72,45 @@ export default function SimpleMenu() {
 				<MenuIcon />
 			</Button>
 			<Menu id="simple-Menu" anchorEl={anchorEl} keepMounted open={Boolean(anchorEl)} onClose={handleClose}>
-				<Link to="/sign-up" style={{ textDecoration: 'none' }}>
-					<MenuItem style={{ fontFamily: 'Damion, cursive', color: '#6C5434' }} onClick={handleClose}>
-						Become a Member
+				{(isLoggedIn.length === 0 || isLoggedIn === false) && currUser.length === 0 ? (
+					<Link to="/sign-up" style={{ textDecoration: 'none' }}>
+						<MenuItem style={{ fontFamily: 'Damion, cursive', color: '#6C5434' }} onClick={handleClose}>
+							Become A Member
+						</MenuItem>
+					</Link>
+				) : (
+					<Link to="/profile" style={{ textDecoration: 'none' }}>
+						<MenuItem style={{ fontFamily: 'Damion, cursive', color: '#6C5434' }} onClick={handleClose}>
+							<Avatar
+								alt={currUser.fullname}
+								src={currUser.avatar}
+								style={{ marginRight: '5%' }}
+								className={classes.avatar}
+							/>
+							<Typography className={classes.fredokaFont}>{currUser.fullname}</Typography>
+						</MenuItem>
+					</Link>
+				)}
+				{isLoggedIn.length === 0 || isLoggedIn === false ? (
+					<Link to="/sign-in" style={{ textDecoration: 'none' }}>
+						<MenuItem style={{ fontFamily: 'Damion, cursive', color: '#6C5434' }} onClick={handleClose}>
+							Sign In
+						</MenuItem>
+					</Link>
+				) : (
+					<MenuItem
+						style={{ fontFamily: 'Damion, cursive', color: '#6C5434' }}
+						onClick={() => handleLogout(currUser._id)}
+					>
+						Sign Out
 					</MenuItem>
-				</Link>
-				<Link to="/sign-in" style={{ textDecoration: 'none' }}>
-					<MenuItem style={{ fontFamily: 'Damion, cursive', color: '#6C5434' }} onClick={handleClose}>
-						Sign In
-					</MenuItem>
-				</Link>
+				)}
 				<Divider />
-				<ListItem button onClick={handleClickCons} 
-				style={{ background: 'transparent', fontFamily: 'Damion, cursive', color: '#6C5434' }}>
+				<ListItem
+					button
+					onClick={handleClickCons}
+					style={{ background: 'transparent', fontFamily: 'Damion, cursive', color: '#6C5434' }}
+				>
 					Conservation
 					{openCons ? <ExpandLess /> : <ExpandMore />}
 				</ListItem>
@@ -75,7 +120,8 @@ export default function SimpleMenu() {
 							<Link
 								to="/zoos-and-conservation"
 								style={{ textDecoration: 'none' }}
-								className={classes.title}>
+								className={classes.title}
+							>
 								Zoos
 							</Link>
 						</ListItem>
@@ -86,8 +132,11 @@ export default function SimpleMenu() {
 						</ListItem>
 					</List>
 				</Collapse>
-				<ListItem button onClick={handleClickWays} 
-				style={{ background: 'transparent', fontFamily: 'Damion, cursive', color: '#6C5434' }}>
+				<ListItem
+					button
+					onClick={handleClickWays}
+					style={{ background: 'transparent', fontFamily: 'Damion, cursive', color: '#6C5434' }}
+				>
 					Ways to Help
 					{openWays ? <ExpandLess /> : <ExpandMore />}
 				</ListItem>
