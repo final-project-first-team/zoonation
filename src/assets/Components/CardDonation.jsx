@@ -14,10 +14,13 @@ import { Link } from 'react-router-dom';
 const useStyles = makeStyles({
 	root: {
 		// minWidth: 300,
-		borderRadius: '5px'
+		borderRadius: '5px',
+		width: 350,
+		margin: '1%'
 	},
 	media: {
-		height: 140
+		height: 140,
+		
 	}
 });
 
@@ -30,7 +33,7 @@ export default function CardMapping(props) {
 					<CardMedia
 						className={classes.media}
 						image="https://media.13newsnow.com/assets/WVEC/images/cd4e02dc-cc24-449a-85b6-899443dc73b8/cd4e02dc-cc24-449a-85b6-899443dc73b8_1920x1080.jpg"
-						// title={props.animals.scientificName}
+						title={props.zoos.zooName}
 					/>
 					<CardContent>
 						<Typography
@@ -44,7 +47,7 @@ export default function CardMapping(props) {
 								borderRadius: '5px'
 							}}
 						>
-							{/* {props.animals.name} */}
+							{props.zoos.zooName}
 						</Typography>
 					</CardContent>
 				</CardActionArea>
