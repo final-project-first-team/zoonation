@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
 		backgroundColor: 'rgba(255, 255, 255, 0.39)',
 		padding: '20px',
 		height: 'auto',
-		width: '100%',
+		width: '100%'
 	}
 }));
 
@@ -81,7 +81,11 @@ export default function BodySignIn() {
 									<Typography
 										component="h1"
 										variant="h5"
-										style={{ fontFamily: 'Lemonada, cursive', paddingBottom: '10px', color: '#6C5434'  }}
+										style={{
+											fontFamily: 'Lemonada, cursive',
+											paddingBottom: '10px',
+											color: '#6C5434'
+										}}
 									>
 										Welcome Back!
 									</Typography>
@@ -96,7 +100,11 @@ export default function BodySignIn() {
 									</Typography>
 								</Hidden>
 								<br />
-								<Typography component="h1" variant="h5" style={{ fontFamily: 'Fredoka One, cursive', color: '#6C5434' }}>
+								<Typography
+									component="h1"
+									variant="h5"
+									style={{ fontFamily: 'Fredoka One, cursive', color: '#6C5434' }}
+								>
 									Sign In
 								</Typography>
 								<Formik

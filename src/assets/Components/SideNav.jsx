@@ -52,7 +52,9 @@ export default function SideNav(props) {
 				</div> */}
 			</Grid>
 			<Grid item>
-				<Typography>Welcome back, {currUser !== undefined ? currUser.fullname : ''}</Typography>
+				<Typography variant="h6" style={{ paddingTop: '3%', paddingBottom: '5%' }}>
+					Welcome back, {currUser !== undefined ? currUser.fullname : ''}
+				</Typography>
 			</Grid>
 			<Grid item className={classes.sideNav}>
 				<Link href="#" color="inherit">

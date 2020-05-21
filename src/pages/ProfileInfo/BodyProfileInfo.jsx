@@ -1,12 +1,11 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import React, { Fragment } from 'react';
+import { Formik } from 'formik';
 
+import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import { useSelector } from 'react-redux';
-
 import SideNav from '../../assets/Components/SideNav';
 import RegularMeat from '../FeedsStore/RegularMeat';
 import PremiumMeat from '../FeedsStore/PremiumMeat';
@@ -17,6 +16,9 @@ import PremiumFruit from '../FeedsStore/PremiumFruit';
 import RegularBean from '../FeedsStore/RegularBean';
 import PremiumBean from '../FeedsStore/PremiumBean';
 import { Avatar } from '@material-ui/core';
+
+import { useSelector, useDispatch } from 'react-redux';
+import { getStorage } from '../../assets/redux/actions/storageAction';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -55,7 +57,15 @@ const useStyles = makeStyles((theme) => ({
 
 export default function BodyProfileInfo() {
 	const classes = useStyles();
+	const dispatch = useDispatch();
 	const currUser = useSelector((state) => state.currentUser);
+	const userStorage = useSelector((state) => state.feedsStorage);
+
+	if (currUser.length !== 0) {
+		if (userStorage.length === 0) {
+			dispatch(getStorage(currUser._id));
+		}
+	}
 
 	return (
 		<div className={classes.root} style={{ background: '#ECE4BA' }}>
@@ -69,37 +79,106 @@ export default function BodyProfileInfo() {
 							Profile Info
 						</Typography>
 					</Grid>
-					<Grid container item justify="flex-start" alignItems="center" style={{ paddingLeft: '5%' }}>
-						<Grid item lg={1} style={{ textAlign: 'left' }}>
-							<Typography>Name : </Typography>
-						</Grid>
-						<Grid item lg={5} style={{ textAlign: 'left' }}>
-							<TextField />
-						</Grid>
-						<Grid item lg={1} style={{ textAlign: 'left' }}>
-							<Typography>Pass : </Typography>
-						</Grid>
-						<Grid item lg={5} style={{ textAlign: 'left' }}>
-							<TextField />
-						</Grid>
-					</Grid>
-					<Grid
-						container
-						item
-						justify="flex-start"
-						alignItems="center"
-						style={{ paddingLeft: '5%', paddingTop: '2%' }}
+					<Formik
+						initialValues={{
+							email: '',
+							password: ''
+						}}
+						// validate={(values) => {
+						// 	const errors = {};
+						// 	if (!values.email) {
+						// 		errors.email = 'Required';
+						// 	} else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
+						// 		errors.email = 'Invalid email address';
+						// 	}
+
+						// 	if (!values.password) {
+						// 		errors.password = 'Required';
+						// 	}
+
+						// 	return errors;
+						// }}
+						onSubmit={async (values) => {
+							// await dispatch(loginUser(values));
+							// await history.push('/');
+						}}
 					>
-						<Grid item lg={1} style={{ textAlign: 'left' }}>
-							<Typography>Email : </Typography>
-						</Grid>
-						<Grid item lg={5} style={{ textAlign: 'left' }}>
-							<TextField />
-						</Grid>
-						<Grid item lg={5} style={{ textAlign: 'right' }}>
-							<Button size="small">Change data</Button>
-						</Grid>
-					</Grid>
+						{({ handleChange, handleSubmit, values, isSubmitting, errors, touched }) => {
+							return (
+								<Fragment>
+									<form className={classes.form} noValidate onSubmit={handleSubmit}>
+										<Grid
+											container
+											item
+											justify="flex-start"
+											alignItems="center"
+											style={{ paddingLeft: '5%' }}
+										>
+											<Grid item lg={1} style={{ textAlign: 'left' }}>
+												<Typography>Name : </Typography>
+											</Grid>
+											<Grid item lg={5} style={{ textAlign: 'left' }}>
+												<TextField
+													variant="outlined"
+													margin="normal"
+													required
+													style={{ width: '90%' }}
+													id="fullname"
+													label="Full Name"
+													name="fullname"
+													autoComplete="fullname"
+													onChange={handleChange}
+													values={values.fullname}
+													size="small"
+												/>
+											</Grid>
+											<Grid item lg={1} style={{ textAlign: 'left' }}>
+												<Typography>Email : </Typography>
+											</Grid>
+											<Grid item lg={5} style={{ textAlign: 'left' }}>
+												<TextField
+													variant="outlined"
+													margin="dense"
+													required
+													style={{ width: '90%' }}
+													id="email"
+													label="Email Address"
+													name="email"
+													autoComplete="email"
+													onChange={handleChange}
+													values={values.email}
+													size="small"
+												/>
+											</Grid>
+											<Grid item lg={1} style={{ textAlign: 'left' }}>
+												<Typography>Pass : </Typography>
+											</Grid>
+											<Grid item lg={5} style={{ textAlign: 'left' }}>
+												<TextField
+													variant="outlined"
+													margin="dense"
+													required
+													style={{ width: '90%' }}
+													name="password"
+													label="Password"
+													type="password"
+													id="password"
+													autoComplete="current-password"
+													onChange={handleChange}
+													values={values.password}
+													size="small"
+												/>
+											</Grid>
+											<Grid item lg={5} style={{ textAlign: 'right' }}>
+												<Button size="small">Change data</Button>
+											</Grid>
+										</Grid>
+									</form>
+								</Fragment>
+							);
+						}}
+					</Formik>
+
 					<Grid container item className={classes.subTitle}>
 						<Grid container item lg={8} justify="center" alignItems="center">
 							<Grid item lg={12} style={{ paddingBottom: '3%' }}>
@@ -111,50 +190,49 @@ export default function BodyProfileInfo() {
 								<RegularMeat />
 							</Grid>
 							<Grid item lg={1}>
-								X 10
+								X {userStorage !== undefined ? userStorage.regularMeat : 0}
 							</Grid>
 							<Grid item lg={4}>
 								<RegularFruit />
 							</Grid>
 							<Grid item lg={1}>
-								X 10
+								X {userStorage !== undefined ? userStorage.regularFruit : 0}
 							</Grid>
 							<Grid item lg={4}>
 								<PremiumMeat />
 							</Grid>
 							<Grid item lg={1}>
-								X 10
+								X {userStorage !== undefined ? userStorage.premiumMeat : 0}
 							</Grid>
 							<Grid item lg={4}>
 								<PremiumFruit />
 							</Grid>
 							<Grid item lg={1}>
-								X 10
+								X {userStorage !== undefined ? userStorage.premiumFruit : 0}
 							</Grid>
 							<Grid item lg={4}>
 								<RegularFodder />
 							</Grid>
 							<Grid item lg={1}>
-								X 10
+								X {userStorage !== undefined ? userStorage.regularFodder : 0}
 							</Grid>
 							<Grid item lg={4}>
 								<RegularBean />
 							</Grid>
 							<Grid item lg={1}>
-								X 10
+								X {userStorage !== undefined ? userStorage.regularBean : 0}
 							</Grid>
 							<Grid item lg={4}>
 								<PremiumFodder />
 							</Grid>
 							<Grid item lg={1}>
-								X 10
+								X {userStorage !== undefined ? userStorage.premiumFodder : 0}
 							</Grid>
-
 							<Grid item lg={4}>
 								<PremiumBean />
 							</Grid>
 							<Grid item lg={1}>
-								X 10
+								X {userStorage !== undefined ? userStorage.premiumBean : 0}
 							</Grid>
 							<Grid item lg={12} style={{ paddingTop: '5%' }}>
 								<Typography>Buy more feeds on our feeds store</Typography>
