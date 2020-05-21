@@ -1,4 +1,5 @@
 import React from 'react';
+
 import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
@@ -35,8 +36,9 @@ const useStyles = makeStyles((theme) => ({
 		alignItems: 'center',
 		flexDirection: 'row',
 		backgroundColor: 'rgba(255, 255, 255, 0.39)',
-		padding: '10%',
-		height: '80%'
+		padding: '20px',
+		height: 'auto',
+		width: '100%',
 	}
 }));
 
@@ -79,7 +81,7 @@ export default function BodySignIn() {
 									<Typography
 										component="h1"
 										variant="h5"
-										style={{ fontFamily: 'Lemonada, cursive', paddingBottom: '5%', color: '#6C5434'  }}
+										style={{ fontFamily: 'Lemonada, cursive', paddingBottom: '10px', color: '#6C5434'  }}
 									>
 										Welcome Back!
 									</Typography>
@@ -88,7 +90,7 @@ export default function BodySignIn() {
 									<Typography
 										component="h1"
 										variant="h5"
-										style={{ fontFamily: 'Raleway, sans-serif', paddingBottom: '5%' }}
+										style={{ fontFamily: 'Raleway, sans-serif', paddingBottom: '10px' }}
 									>
 										The Animals are excited for you to visit them again!
 									</Typography>
@@ -162,7 +164,7 @@ export default function BodySignIn() {
 														fontFamily: 'Roboto, sans-serif',
 														backgroundColor: '#60B6D1',
 														color: '#6C5434',
-														marginTop: '5%'
+														marginTop: '10px'
 													}}
 												>
 													<b>Sign In</b>

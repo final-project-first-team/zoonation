@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
 		fontFamily: 'Lemonada',
 		fontStyle: 'normal',
 		fontWeight: 'normal',
-		fontSize: '20px',
+		fontSize: '18px',
 		lineHeight: '25px',
 		display: 'flex',
 		alignItems: 'center',
@@ -45,7 +45,7 @@ export default function AboutUs() {
         <div className={classes.root} style={{ background: '#ECE4BA', padding: '5px' }}>
              <Grid container justify="center">
                 <Typography className={classes.ourAnimals}>
-                    About Us
+                    ABOUT US
                 </Typography>
             </Grid>   
 

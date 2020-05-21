@@ -36,8 +36,9 @@ const useStyles = makeStyles((theme) => ({
 		alignItems: 'center',
 		flexDirection: 'row',
 		backgroundColor: 'rgba(255, 255, 255, 0.39)',
-		padding: '10%',
-		height: '80%'
+		padding: '20px',
+		height: 'auto',
+		width: '100%',
 	}
 }));
 
@@ -58,7 +59,7 @@ export default function BodySignUp() {
 									<Typography
 										component="h1"
 										variant="h5"
-										style={{ fontFamily: 'Lemonada, cursive', paddingBottom: '5%', color: '#6C5434' }}
+										style={{ fontFamily: 'Lemonada, cursive', paddingBottom: '10px', color: '#6C5434' }}
 									>
 										Join Us Now!
 									</Typography>
@@ -67,7 +68,7 @@ export default function BodySignUp() {
 									<Typography
 										component="h1"
 										variant="h5"
-										style={{ fontFamily: 'Raleway, sans-serif', paddingBottom: '5%' }}
+										style={{ fontFamily: 'Raleway, sans-serif', paddingBottom: '10px' }}
 									>
 										Get Various Benefits as Member
 									</Typography>
@@ -155,7 +156,7 @@ export default function BodySignUp() {
 														borderRadius: '3px',
 														fontFamily: 'Roboto, sans-serif',
 														backgroundColor: '#60B6D1',
-														marginTop: '5%',
+														marginTop: '10px',
 														color: '#6C5434'
 													}}
 												>

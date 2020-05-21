@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid';
 
 const useStyle = makeStyles((theme) => ({
 	button: {
@@ -11,7 +12,9 @@ const useStyle = makeStyles((theme) => ({
 		// fontSize: '44px',
 		// fontFamily: 'Fredoka One',
 		// color: '#6C5434',
-		marginRight: theme.spacing(5)
+		background: '#60B6D1',
+		width: '90%',
+		color: '#6C5434',
 	}
 }));
 
@@ -20,11 +23,14 @@ export default function YourTray() {
 
 	return (
 		<Fragment>
-			<Typography>Already a member?</Typography>
+			<Grid item xs={12}>
+			<Typography style={{ fontFamily: 'Raleway'}}>
+				<i>Already a member?</i></Typography>
 			<br />
 			<Button className={classes.button} type="submit" fullWidth variant="contained">
-				<Typography>Sign In</Typography>
+				<Typography style={{ fontFamily: 'Fredoka One', color: '' }}>Sign In</Typography>
 			</Button>
+			</Grid>
 		</Fragment>
 	);
 }

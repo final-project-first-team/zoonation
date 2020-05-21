@@ -34,23 +34,23 @@ export default function AnimalsData(props) {
 
 			<Typography style={{ textAlign: 'left', padding: '8px', fontFamily: 'Fredoka One', color: '#6C5434' }}>Feeds/Day :</Typography>
 			<List>
-				<ListItem style={{ padding: '2px', textAlign: 'center' }}>
+				<ListItem style={{ paddingLeft: '16px', textAlign: 'justify' }}>
 					<ListItemText primary={currentAnimal !== undefined ? currentAnimal.feeds.feeds1 : null} />
 					<ListItemText secondary={currentAnimal !== undefined ? currentAnimal.feeds.perDay1 : null} />
 				</ListItem>
 
-				<ListItem style={{ position: 'relative', textAlign: 'center' }}>
+				<ListItem style={{ paddingLeft: '16px', textAlign: 'justify' }}>
 					<ListItemText primary={currentAnimal !== undefined ? currentAnimal.feeds.feeds2 : null} />
 					<ListItemText secondary={currentAnimal !== undefined ? currentAnimal.feeds.perDay2 : null} />
 				</ListItem>
 			</List>
 			<Typography style={{ textAlign: 'left', padding: '8px', fontFamily: 'Fredoka One', color: '#6C5434' }}>Feeds source :</Typography>
 			<List>
-				<ListItem style={{ padding: '2px', textAlign: 'center' }}>
+				<ListItem style={{ paddingLeft: '16px', textAlign: 'justify' }}>
 					<ListItemText primary={currentAnimal !== undefined ? currentAnimal.feeds.feeds1 : null} />
 					<ListItemText secondary={currentAnimal !== undefined ? currentAnimal.feeds.sources1 : null} />
 				</ListItem>
-				<ListItem style={{ position: 'relative', textAlign: 'center' }}>
+				<ListItem style={{ paddingLeft: '16px', textAlign: 'justify' }}>
 					<ListItemText primary={currentAnimal !== undefined ? currentAnimal.feeds.feeds2 : null} />
 					<ListItemText secondary={currentAnimal !== undefined ? currentAnimal.feeds.sources2 : null} />
 				</ListItem>

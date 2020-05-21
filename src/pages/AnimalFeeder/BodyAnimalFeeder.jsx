@@ -52,28 +52,27 @@ const useStyle = makeStyles((theme) => ({
 	leftContainerInside: {
 		backgroundColor: '#f6f4e4',
 		margin: theme.spacing(2),
+		padding: '50px',
 
 	},
 	storage: {
-		height: '100px'
+		height: 'auto'
 	},
 	tray: {
 		minHeight: '200px',
 	},
 	centerContainer: {
-		minHeight: '100%'
+		minHeight: '100%',
 	},
 	image: {
 		margin: 'auto',
 		width: '100%',
-		height: '280px',
+		height: '260px',
 		alignItems: 'center',
-		paddingTop: theme.spacing(2),
-		paddingBottom: theme.spacing(2),
 	},
 	rightContainer: {
 		backgroundColor: '#6c5434',
-		minHeight: '100%'
+		minHeight: '100%',
 	},
 	rightContainerInside: {
 		margin: theme.spacing(2),
@@ -112,7 +111,7 @@ export default function BodyAnimalFeeder() {
 	}
 
 	return (
-		<div className={classes.root} style={{ background: '#ECE4BA' }}>
+		<div className={classes.root} style={{ background: '#ECE4BA', padding: '5px' }}>
 			<Grid container justify="center">
 				<Hidden smDown>
 					<Typography className={classes.title}>ANIMAL FEEDING</Typography>
@@ -144,7 +143,7 @@ export default function BodyAnimalFeeder() {
 					</Grid>
 				</Grid>
 				<Grid container item className={classes.centerContainer} lg={4}>
-					<Grid item>
+					<Grid item xs={12} style={{ padding: '10px'}}>
 						<img
 							className={classes.image}
 							alt="animals"
