@@ -35,7 +35,7 @@ const useStyle = makeStyles((theme) => ({
 		fontSize: '44px',
 		fontFamily: 'Fredoka One',
 		color: '#6C5434',
-		marginTop: theme.spacing(10),
+		marginTop: theme.spacing(10)
 	},
 	titleSm: {
 		display: 'flex',
@@ -43,48 +43,47 @@ const useStyle = makeStyles((theme) => ({
 		fontSize: '34px',
 		fontFamily: 'Fredoka One',
 		color: '#6C5434',
-		marginTop: theme.spacing(10),
+		marginTop: theme.spacing(10)
 	},
 	leftContainer: {
 		backgroundColor: '#6c5434',
-		minHeight: '100%',
+		minHeight: '100%'
 	},
 	leftContainerInside: {
 		backgroundColor: '#f6f4e4',
 		margin: theme.spacing(2),
-		padding: '50px',
-
+		padding: '50px'
 	},
 	storage: {
 		height: 'auto'
 	},
 	tray: {
-		minHeight: '200px',
+		minHeight: '200px'
 	},
 	centerContainer: {
-		minHeight: '100%',
+		minHeight: '100%'
 	},
 	image: {
 		margin: 'auto',
 		width: '100%',
 		height: '260px',
-		alignItems: 'center',
+		alignItems: 'center'
 	},
 	rightContainer: {
 		backgroundColor: '#6c5434',
-		minHeight: '100%',
+		minHeight: '100%'
 	},
 	rightContainerInside: {
 		margin: theme.spacing(2),
 		backgroundColor: '#f6f4e4'
 	},
 	test: {
-		backgroundColor: 'transparent',
+		backgroundColor: 'transparent'
 	},
 	test2: {
 		marginTop: theme.spacing(3),
-		marginBottom: theme.spacing(3),
-	},
+		marginBottom: theme.spacing(3)
+	}
 }));
 
 export default function BodyAnimalFeeder() {
@@ -143,7 +142,7 @@ export default function BodyAnimalFeeder() {
 					</Grid>
 				</Grid>
 				<Grid container item className={classes.centerContainer} lg={4}>
-					<Grid item xs={12} style={{ padding: '10px'}}>
+					<Grid item xs={12} style={{ padding: '10px' }}>
 						<img
 							className={classes.image}
 							alt="animals"
@@ -163,7 +162,9 @@ export default function BodyAnimalFeeder() {
 					<Grid item lg={4}>
 						<Button>
 							<Link type="submit" fullWidth variant="contained" style={{ textDecoration: 'none' }}>
-								<Typography style={{ fontFamily: 'Fredoka One', color: '#6c5434' }}>Feed another animal?</Typography>
+								<Typography style={{ fontFamily: 'Fredoka One', color: '#6c5434' }}>
+									Feed another animal?
+								</Typography>
 							</Link>
 						</Button>
 					</Grid>
@@ -173,7 +174,9 @@ export default function BodyAnimalFeeder() {
 					<Grid item lg={4}>
 						<Button>
 							<Link type="submit" fullWidth variant="contained" style={{ textDecoration: 'none' }}>
-								<Typography style={{ fontFamily: 'Fredoka One', color: '#6c5434' }}>Feed another animal?</Typography>
+								<Typography style={{ fontFamily: 'Fredoka One', color: '#6c5434' }}>
+									Feed another animal?
+								</Typography>
 							</Link>
 						</Button>
 					</Grid>

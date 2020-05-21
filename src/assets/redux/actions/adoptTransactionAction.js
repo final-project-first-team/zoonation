@@ -7,7 +7,7 @@ export const newAdoptTransaction = (data) => {
 		return axios
 			.post(`${apiUrl}/adoptTransaction`, {
 				userId: data.userId,
-				animalId: data.id,
+				animalId: data.animalId,
 				name: data.userData.name,
 				email: data.userData.email,
 				phone: data.userData.phone,
@@ -28,7 +28,7 @@ export const updateAdoptData = (data) => {
 		return axios
 			.post(`${apiUrl}/adoptData`, {
 				userId: data.userId,
-				animalId: data.id,
+				animalId: data.animalId,
 				long: data.long,
 				status: 'active'
 			})
