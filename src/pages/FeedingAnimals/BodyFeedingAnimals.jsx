@@ -105,11 +105,11 @@ export default function BodyFeedingAnimals() {
 		<div className={classes.root} style={{ background: '#ECE4BA' }}>
 			<Grid container justify="center">
 				<Hidden smDown>
-					<Typography className={classes.ourAnimals}>FEED THE ANIMALS</Typography>
+					<Typography className={classes.ourAnimals}>Feed The Animals</Typography>
 				</Hidden>
 
 				<Hidden mdUp>
-					<Typography className={classes.ourAnimalsSm}>FEED THE ANIMALS</Typography>
+					<Typography className={classes.ourAnimalsSm}>Feed The Animals</Typography>
 				</Hidden>
 			</Grid>
 

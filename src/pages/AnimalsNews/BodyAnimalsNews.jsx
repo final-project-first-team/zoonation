@@ -49,7 +49,7 @@ export default function AnimalsNews() {
         <div className={classes.root} style={{ background: '#ECE4BA' }}>
             <Grid container justify="center">
                 <Typography className={classes.ourAnimals}>
-                    ANIMAL AND ZOO NEWS
+                    Animal and Zoo News
                 </Typography>
             </Grid>
 

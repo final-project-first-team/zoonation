@@ -73,7 +73,7 @@ export default function AnimalAdopt3() {
 	return (
 		<div className={classes.root} style={{ background: '#ECE4BA' }}>
 			<Grid container justify="center">
-				<Typography className={classes.ourAnimals}>PAYMENT METHOD</Typography>
+				<Typography className={classes.ourAnimals}>Payment Method</Typography>
 			</Grid>
 
 			<Grid container justify="center">

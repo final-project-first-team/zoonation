@@ -109,11 +109,11 @@ export default function AnimalAdopt() {
 		<div className={classes.root} style={{ background: '#ECE4BA' }}>
 			<Grid container justify="center">
 				<Hidden smDown>
-					<Typography className={classes.ourAnimals}>DONATE TO OUR ZOO PARTNER</Typography>
+					<Typography className={classes.ourAnimals}>Donate to Our Zoo Partner</Typography>
 				</Hidden>
 
 				<Hidden mdUp>
-					<Typography className={classes.ourAnimalsSm}>DONATE TO OUR ZOO PARTNER</Typography>
+					<Typography className={classes.ourAnimalsSm}>Donate to Our Zoo Partner</Typography>
 				</Hidden>
 			</Grid>
 

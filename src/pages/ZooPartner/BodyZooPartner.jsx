@@ -34,14 +34,14 @@ const useStyle = makeStyles((theme) => ({
 		display: 'block',
 		width: '100%',
 		alignItems: 'center',
-		height: '250px',
+		height: '250px'
 	},
 	imageHidden: {
 		margin: 'auto',
 		display: 'block',
 		width: '100%',
 		alignItems: 'center',
-		height: '250px',
+		height: '250px'
 	},
 	ourAnimals: {
 		display: 'flex',
@@ -63,7 +63,7 @@ const useStyle = makeStyles((theme) => ({
 		height: '200px',
 		alignItems: 'center',
 		padding: '5px',
-		margin: '3px',
+		margin: '3px'
 	}
 }));
 
@@ -81,12 +81,14 @@ export default function ZooPartner() {
 			dispatch(getSpecificZoos(id));
 		}
 	}
-console.log(currentZoo);
+	console.log(currentZoo);
 
 	return (
 		<div className={classes.root} style={{ background: '#ECE4BA' }}>
 			<Grid container justify="center">
-				<Typography className={classes.ourAnimals}>DONATE TO {currentZoo.length !== 0 ? currentZoo.data.zooName : null}</Typography>
+				<Typography className={classes.ourAnimals}>
+					DONATE TO {currentZoo.length !== 0 ? currentZoo.data.zooName : null}
+				</Typography>
 			</Grid>
 
 			<Grid container>
@@ -130,11 +132,14 @@ console.log(currentZoo);
 							<Paper elevation={0} style={{ background: '#6C5434', margin: '3px' }}>
 								<Button
 									style={{ margin: '5px', width: '80%', fontSize: '20px', fontFamily: 'Fredoka One' }}
-									disableElevation>
-									<Link to={`/donation-payment-method/${id}`}
-										style={{ textDecoration: 'none', color: '#F6F4E4' }}>
+									disableElevation
+								>
+									<Link
+										to={`/donation-payment-method/${id}`}
+										style={{ textDecoration: 'none', color: '#F6F4E4' }}
+									>
 										DONATE NOW
-										</Link>
+									</Link>
 								</Button>
 							</Paper>
 						</Grid>
@@ -143,9 +148,12 @@ console.log(currentZoo);
 							<Paper elevation={0} style={{ background: '#6C5434', margin: '3px' }}>
 								<Button
 									style={{ margin: '5px', width: '80%', fontSize: '20px', fontFamily: 'Fredoka One' }}
-									disableElevation>
-									<Link to="/zoos-and-conservation"
-										style={{ textDecoration: 'none', color: '#F6F4E4', margin: '3px' }}>
+									disableElevation
+								>
+									<Link
+										to="/zoos-and-conservation"
+										style={{ textDecoration: 'none', color: '#F6F4E4', margin: '3px' }}
+									>
 										CHANGE ZOO
 									</Link>
 								</Button>
@@ -158,20 +166,31 @@ console.log(currentZoo);
 					<Grid container justify="center" style={{ padding: '10px' }}>
 						<Grid item sm={3}>
 							<Button
-								style={{ margin: '2px', fontSize: '16px', fontFamily: 'Fredoka One', background: '#6C5434' }}
+								style={{
+									margin: '2px',
+									fontSize: '16px',
+									fontFamily: 'Fredoka One',
+									background: '#6C5434'
+								}}
 							>
-								<Link to={`/donation-payment-method/${id}`}
-									style={{ textDecoration: 'none', color: '#F6F4E4' }}>
+								<Link
+									to={`/donation-payment-method/${id}`}
+									style={{ textDecoration: 'none', color: '#F6F4E4' }}
+								>
 									DONATE NOW
-									</Link>
+								</Link>
 							</Button>
 						</Grid>
 						<Grid item sm={3}>
 							<Button
-								style={{ margin: '2px', fontSize: '16px', fontFamily: 'Fredoka One', background: '#6C5434' }}
+								style={{
+									margin: '2px',
+									fontSize: '16px',
+									fontFamily: 'Fredoka One',
+									background: '#6C5434'
+								}}
 							>
-								<Link to="/zoos-and-conservation"
-									style={{ textDecoration: 'none', color: '#F6F4E4' }}>
+								<Link to="/zoos-and-conservation" style={{ textDecoration: 'none', color: '#F6F4E4' }}>
 									CHANGE ZOO
 								</Link>
 							</Button>
@@ -181,9 +200,7 @@ console.log(currentZoo);
 
 				<Grid item lg={12} sm={12} style={{ background: '#ECE4BA', margin: '5px' }}>
 					<Paper elevation={0} square>
-						<p className={classes.forP}>
-						{currentZoo.length !== 0 ? currentZoo.data.about : null}
-						</p>
+						<p className={classes.forP}>{currentZoo.length !== 0 ? currentZoo.data.about : null}</p>
 					</Paper>
 				</Grid>
 
