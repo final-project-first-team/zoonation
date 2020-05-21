@@ -172,7 +172,7 @@ export default function BodySignIn() {
 												<Typography
 													component="h3"
 													variant="subtitle2"
-													style={{ paddingTop: '8px' }}
+													style={{ paddingTop: '16px' }}
 												>
 													<i>Not A Member Yet?</i>
 												</Typography>
