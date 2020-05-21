@@ -75,7 +75,7 @@ export default function SideNav() {
 				</Link>
 			</Grid>
 			<Grid item className={classes.sideNav}>
-				<Link href="#" color="inherit">
+				<Link to="/transaction-history" style={{ textDecoration: 'none' }}>
 					<Button
 						variant="contained"
 						size="small"

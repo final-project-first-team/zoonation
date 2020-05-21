@@ -26,6 +26,7 @@ import PayMetDon from './pages/PayMetDon';
 import FeedsStore from './pages/FeedsStore';
 import AnimalsNews from './pages/AnimalsNews';
 import AboutUs from './pages/AboutUs';
+import TransactionHistory from './pages/TransactionHistory';
 
 function App() {
 	return (
@@ -38,7 +39,6 @@ function App() {
 					<Route path="/sign-up" component={SignUp} />
 
 					{/* Main Features - Education */}
-					<Route path="/zoo-partner" component={ZooPartner} />
 					<Route path="/zoos-and-conservation" component={ZooCons} />
 					<Route path="/our-animals" component={OurAnimals} />
 					<Route exact path="/animal-info/:id" component={AnimalInfo} />
@@ -56,6 +56,7 @@ function App() {
 					{/* User Profile */}
 					<PrivateRoute path="/profile" component={ProfileInfo} />
 					<PrivateRoute path="/feeds-store" component={FeedsStore} />
+					<PrivateRoute path="/transaction-history" component={TransactionHistory} />
 
 					{/* Additional Features */}
 					<Route path="/animals-news" component={AnimalsNews} />
