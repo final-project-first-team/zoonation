@@ -10,6 +10,15 @@ import Container from '@material-ui/core/Container';
 import { useSelector } from 'react-redux';
 
 import SideNav from '../../assets/Components/SideNav';
+import RegularMeat from '../FeedsStore/RegularMeat';
+import PremiumMeat from '../FeedsStore/PremiumMeat';
+import RegularFodder from '../FeedsStore/RegularFodder';
+import PremiumFodder from '../FeedsStore/PremiumFodder';
+import RegularFruit from '../FeedsStore/RegularFruit';
+import PremiumFruit from '../FeedsStore/PremiumFruit';
+import RegularBean from '../FeedsStore/RegularBean';
+import PremiumBean from '../FeedsStore/PremiumBean';
+import { Avatar } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -30,38 +39,20 @@ const useStyles = makeStyles((theme) => ({
 		paddingBottom: theme.spacing(11)
 	},
 	rightCont: {
-		backgroundColor: 'red'
+		backgroundColor: 'rgba(255, 255, 255, 0.39)'
+	},
+	title: {
+		paddingTop: theme.spacing(2),
+		paddingBottom: theme.spacing(4)
+	},
+	subTitle: {
+		paddingTop: theme.spacing(3),
+		paddingBottom: theme.spacing(4)
+	},
+	image: {
+		width: theme.spacing(6),
+		height: theme.spacing(6)
 	}
-	// root: {
-	// 	// INI CSS BODY
-	// 	display: 'flex',
-	// 	flexWrap: 'wrap',
-	// 	height: 'auto',
-	// 	width: 'auto',
-	// 	alignItems: 'center',
-	// 	textAlign: 'center',
-	// 	flexDirection: 'row',
-	// 	'& > *': {
-	// 		//   INI CSS 2 KOTAK DALAM BODY
-	// 		display: 'flex',
-	// 		flexWrap: 'wrap',
-	// 		width: '100%',
-	// 		minHeight: '95vh',
-	// 		alignItems: 'center',
-	// 		padding: '10px',
-	// 		flexDirection: 'column',
-	// 		backgroundColor: 'rgba(255, 255, 255, 0.39)'
-	// 	}
-	// },
-
-	// buttons: {
-	// 	margin: theme.spacing(1),
-	// 	width: '80%',
-	// 	fontFamily: 'Fredoka One, cursive'
-	// },
-	// margin: {
-	// 	margin: theme.spacing(1)
-	// }
 }));
 
 export default function BodyProfileInfo() {
@@ -74,8 +65,126 @@ export default function BodyProfileInfo() {
 				<Grid container item lg={3} className={classes.leftCont} direction="column" alignItems="center">
 					<SideNav />
 				</Grid>
-				<Grid item lg={8} className={classes.rightCont}>
-					a
+				<Grid container item lg={8} className={classes.rightCont} direction="column" alignItems="center">
+					<Grid item className={classes.title}>
+						<Typography variant="h4" style={{ fontFamily: 'Fredoka One, cursive' }}>
+							Profile Info
+						</Typography>
+					</Grid>
+					<Grid container item justify="flex-start" alignItems="center" style={{ paddingLeft: '5%' }}>
+						<Grid item lg={1} style={{ textAlign: 'left' }}>
+							<Typography>Name : </Typography>
+						</Grid>
+						<Grid item lg={5} style={{ textAlign: 'left' }}>
+							<TextField />
+						</Grid>
+						<Grid item lg={1} style={{ textAlign: 'left' }}>
+							<Typography>Pass : </Typography>
+						</Grid>
+						<Grid item lg={5} style={{ textAlign: 'left' }}>
+							<TextField />
+						</Grid>
+					</Grid>
+					<Grid
+						container
+						item
+						justify="flex-start"
+						alignItems="center"
+						style={{ paddingLeft: '5%', paddingTop: '2%' }}
+					>
+						<Grid item lg={1} style={{ textAlign: 'left' }}>
+							<Typography>Email : </Typography>
+						</Grid>
+						<Grid item lg={5} style={{ textAlign: 'left' }}>
+							<TextField />
+						</Grid>
+						<Grid item lg={5} style={{ textAlign: 'right' }}>
+							<Button size="small">Change data</Button>
+						</Grid>
+					</Grid>
+					<Grid container item className={classes.subTitle}>
+						<Grid container item lg={8} justify="center" alignItems="center">
+							<Grid item lg={12} style={{ paddingBottom: '3%' }}>
+								<Typography variant="h6" style={{ fontFamily: 'Fredoka One, cursive' }}>
+									Feeds Storage
+								</Typography>
+							</Grid>
+							<Grid item lg={4}>
+								<RegularMeat />
+							</Grid>
+							<Grid item lg={1}>
+								X 10
+							</Grid>
+							<Grid item lg={4}>
+								<RegularFruit />
+							</Grid>
+							<Grid item lg={1}>
+								X 10
+							</Grid>
+							<Grid item lg={4}>
+								<PremiumMeat />
+							</Grid>
+							<Grid item lg={1}>
+								X 10
+							</Grid>
+							<Grid item lg={4}>
+								<PremiumFruit />
+							</Grid>
+							<Grid item lg={1}>
+								X 10
+							</Grid>
+							<Grid item lg={4}>
+								<RegularFodder />
+							</Grid>
+							<Grid item lg={1}>
+								X 10
+							</Grid>
+							<Grid item lg={4}>
+								<RegularBean />
+							</Grid>
+							<Grid item lg={1}>
+								X 10
+							</Grid>
+							<Grid item lg={4}>
+								<PremiumFodder />
+							</Grid>
+							<Grid item lg={1}>
+								X 10
+							</Grid>
+
+							<Grid item lg={4}>
+								<PremiumBean />
+							</Grid>
+							<Grid item lg={1}>
+								X 10
+							</Grid>
+							<Grid item lg={12} style={{ paddingTop: '5%' }}>
+								<Typography>Buy more feeds on our feeds store</Typography>
+							</Grid>
+						</Grid>
+						<Grid container item lg={4} justify="center">
+							<Grid item lg={12} style={{ paddingBottom: '3%' }}>
+								<Typography variant="h6" style={{ fontFamily: 'Fredoka One, cursive' }}>
+									Current Animal Adopted
+								</Typography>
+							</Grid>
+							<Grid>
+								<Avatar alt="" src="" style={{ marginRight: '5%' }} className={classes.image} />
+							</Grid>
+							<Grid item lg={12}>
+								<Typography>Capybara</Typography>
+							</Grid>
+							<Grid item lg={12}>
+								<Typography>Taman Safari Indonesia</Typography>
+							</Grid>
+							<Grid item lg={12}>
+								<Typography>You adopted this animal for 3 months</Typography>
+							</Grid>
+							<Grid item lg={12}>
+								<Typography>The animal you adopted is in good condition</Typography>
+							</Grid>
+						</Grid>
+					</Grid>
 				</Grid>
 			</Grid>
 
