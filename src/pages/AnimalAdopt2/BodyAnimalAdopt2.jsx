@@ -211,6 +211,17 @@ export default function AnimalAdopt2() {
                     
                 </Grid>
                 </Hidden> */}
+
+                <Grid container justify='center'>
+                    <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
+                        <Button variant='contained' color="inherit" style={{ fontFamily: 'Fredoka One', padding: '10px', marginTop: '15px', fontSize: '16px', background:'#60B6D1'}}>
+                            <Link to="/animal-adopt-3/:id"
+                                style={{ textDecoration: 'none', color: '#6C5434'}}>
+                                BECOME AN ADOPTER
+                            </Link>
+                        </Button>
+                    </Grid>
+                </Grid>
                 
                 <Grid item lg={12} sm={12} style={{ background: '#ECE4BA', margin: '5px' }}>
                     <Paper elevation={0} square>

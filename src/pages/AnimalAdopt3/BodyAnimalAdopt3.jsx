@@ -37,7 +37,7 @@ const useStyle = makeStyles((theme) => ({
 		fontFamily: 'Lemonada',
 		fontStyle: 'normal',
 		fontWeight: 'normal',
-		fontSize: '20px',
+		fontSize: '18px',
 		lineHeight: '25px',
 		display: 'flex',
 		alignItems: 'center',
@@ -61,11 +61,11 @@ export default function AnimalAdopt3() {
 	return (
 		<div className={classes.root} style={{ background: '#ECE4BA' }}>
 			<Grid container justify="center">
-				<Typography className={classes.ourAnimals}>Payment Method</Typography>
+				<Typography className={classes.ourAnimals}>PAYMENT METHOD</Typography>
 			</Grid>
 
 			<Grid container justify="center">
-				<Typography className={classes.adoptForBetter}>Adopt. Together We Save Lives.</Typography>
+				<Typography className={classes.adoptForBetter}>Adopt. Together We Save Lives</Typography>
 			</Grid>
 
 			<Grid container justify="center">
@@ -85,7 +85,7 @@ export default function AnimalAdopt3() {
 							<Grid
 								item
 								md={7}
-								style={{ background: '#6C5434', height: '100%', margin: '20px', padding: '20px' }}
+								style={{ background: '#6C5434', height: '100%', width:'100%', margin: '20px', padding: '20px' }}
 							>
 								<Grid
 									item
@@ -98,7 +98,7 @@ export default function AnimalAdopt3() {
 										color: '#6C5434'
 									}}
 								>
-									Secure Form Payment
+									Secure Payment Form
 								</Grid>
 								<form noValidate onSubmit={handleSubmit}>
 									<Grid
@@ -185,7 +185,7 @@ export default function AnimalAdopt3() {
 												textAlign: 'left',
 												fontFamily: 'Raleway',
 												fontSize: '14px',
-												width: '50vw',
+												width: '90%',
 												height: '25vh'
 											}}
 										/>
@@ -206,7 +206,31 @@ export default function AnimalAdopt3() {
 					}}
 				</Formik>
 
-				<Grid item md={4} style={{ background: '#6C5434', height: '100%', margin: '20px', padding: '20px' }}>
+				<Grid item md={4} xs={12} sm={12} style={{ background: '#6C5434', minHeight: '100%', margin: '20px', padding: '20px' }}>
+					<Grid
+						item
+						md={12}
+						style={{
+							background: '#C4C4C4',
+							fontFamily: 'Fredoka One',
+							fontSize: '18px',
+							padding: '10px',
+							color: '#6C5434'
+						}}
+					>
+						Choose Your Adoption Rate
+					</Grid>
+					<Grid item md={12} style={{ background: '#F6F4E4', paddingBottom:'24px' }}>
+						<FormControl component="fieldset" style={{ margin: '10px' }}>
+							<FormLabel component="legend" style={{ fontFamily: 'Raleway' }}>You're about saving a life</FormLabel>
+							<RadioGroup aria-label="payment" name="gender1" value={value} onChange={handleChange}>
+								<FormControlLabel value="150" control={<Radio />} label="IDR 150,000" />
+								<FormControlLabel value="200" control={<Radio />} label="IDR 200,000" />
+								<FormControlLabel value="250" control={<Radio />} label="IDR 250,000" />
+							</RadioGroup>
+						</FormControl>
+					</Grid>
+
 					<Grid
 						item
 						md={12}
@@ -222,7 +246,7 @@ export default function AnimalAdopt3() {
 					</Grid>
 					<Grid item md={12} style={{ background: '#F6F4E4' }}>
 						<FormControl component="fieldset" style={{ margin: '10px' }}>
-							<FormLabel component="legend">Your payment is secured</FormLabel>
+							<FormLabel component="legend" style={{ fontFamily: 'Raleway' }}>Your payment is secured</FormLabel>
 							<RadioGroup aria-label="payment" name="gender1" value={value} onChange={handleChange}>
 								<FormControlLabel value="ATM" control={<Radio />} label="ATM Transfer" />
 								<FormControlLabel value="CC" control={<Radio />} label="MasterCard / VISA" />
