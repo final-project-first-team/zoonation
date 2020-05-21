@@ -48,6 +48,9 @@ const useStyle = makeStyles((theme) => ({
 		color: '#6C5434',
 		marginTop: theme.spacing(1)
 	},
+	margin: {
+		margin: theme.spacing(1)
+	},
 	giftText: {
 		fontFamily: 'Raleway',
 		fontStyle: 'normal',
@@ -141,7 +144,7 @@ export default function AnimalAdopt() {
 					<Hidden smDown>
 						<Typography className={classes.text1}>
 							<Link to="/feeding-animals" style={{ color: '#6C5434', textDecoration: 'none' }}>
-								FEED OUR ANIMALS
+								FEEDS OUR ANIMALS
 							</Link>
 						</Typography>
 					</Hidden>

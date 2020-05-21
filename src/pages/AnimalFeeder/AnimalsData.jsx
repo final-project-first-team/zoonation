@@ -20,32 +20,37 @@ export default function AnimalsData(props) {
 
 	return (
 		<Fragment>
-			<Typography>{currentAnimal !== undefined ? currentAnimal.name : null}</Typography>
-			<Typography>{currentAnimal !== undefined ? currentAnimal.scientificName : null}</Typography>
-			<List style={{ paddingTop: 0, paddingBottom: '2%', textAlign: 'center' }}>
-				<ListItem style={{ paddingTop: 0, paddingBottom: '0', textAlign: 'center' }}>
+			{/* ANIMAL NAME */}
+			<Typography style={{ fontFamily: 'Fredoka One', fontSize:'22px', color: '#6C5434'}}>{currentAnimal !== undefined ? currentAnimal.name : null}</Typography>
+			
+			{/* SCIENTIFIC NAME */}
+			<Typography style={{ fontFamily: 'Raleway', fontSize:'16px', color: '#6C5434'}}>{currentAnimal !== undefined ? currentAnimal.scientificName : null}</Typography>
+			<List style={{ textAlign: 'left', fontFamily: 'Fredoka One' }}>
+				<ListItem style={{ textAlign: 'center' }}>
 					<ListItemText primary="Type : " />
 					<ListItemText secondary={currentAnimal !== undefined ? currentAnimal.feeds.type : null} />
 				</ListItem>
 			</List>
-			<Typography style={{ textAlign: 'left', paddingTop: '5%', paddingBottom: 0 }}>Feeds/Day :</Typography>
-			<List style={{ paddingTop: 0, paddingBottom: '2%', textAlign: 'center' }}>
-				<ListItem style={{ paddingTop: 0, paddingBottom: '0', textAlign: 'center' }}>
+
+			<Typography style={{ textAlign: 'left', padding: '8px', fontFamily: 'Fredoka One', color: '#6C5434' }}>Feeds/Day :</Typography>
+			<List>
+				<ListItem style={{ padding: '2px', textAlign: 'center' }}>
 					<ListItemText primary={currentAnimal !== undefined ? currentAnimal.feeds.feeds1 : null} />
 					<ListItemText secondary={currentAnimal !== undefined ? currentAnimal.feeds.perDay1 : null} />
 				</ListItem>
-				<ListItem style={{ paddingTop: 0, paddingBottom: '0', textAlign: 'center' }}>
+
+				<ListItem style={{ position: 'relative', textAlign: 'center' }}>
 					<ListItemText primary={currentAnimal !== undefined ? currentAnimal.feeds.feeds2 : null} />
 					<ListItemText secondary={currentAnimal !== undefined ? currentAnimal.feeds.perDay2 : null} />
 				</ListItem>
 			</List>
-			<Typography style={{ textAlign: 'left', paddingTop: '5%', paddingBottom: 0 }}>Feeds source :</Typography>
-			<List style={{ paddingTop: 0, paddingBottom: '2%', textAlign: 'center' }}>
-				<ListItem style={{ paddingTop: 0, paddingBottom: '0', textAlign: 'center' }}>
+			<Typography style={{ textAlign: 'left', padding: '8px', fontFamily: 'Fredoka One', color: '#6C5434' }}>Feeds source :</Typography>
+			<List>
+				<ListItem style={{ padding: '2px', textAlign: 'center' }}>
 					<ListItemText primary={currentAnimal !== undefined ? currentAnimal.feeds.feeds1 : null} />
 					<ListItemText secondary={currentAnimal !== undefined ? currentAnimal.feeds.sources1 : null} />
 				</ListItem>
-				<ListItem style={{ paddingTop: 0, paddingBottom: '0', textAlign: 'center' }}>
+				<ListItem style={{ position: 'relative', textAlign: 'center' }}>
 					<ListItemText primary={currentAnimal !== undefined ? currentAnimal.feeds.feeds2 : null} />
 					<ListItemText secondary={currentAnimal !== undefined ? currentAnimal.feeds.sources2 : null} />
 				</ListItem>

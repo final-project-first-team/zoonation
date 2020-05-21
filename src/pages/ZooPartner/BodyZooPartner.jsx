@@ -30,14 +30,16 @@ const useStyle = makeStyles((theme) => ({
 	image: {
 		margin: 'auto',
 		display: 'block',
-		maxWidth: '50vw',
-		maxHeight: '50vh'
+        width: '100%',
+        alignItems: 'center',
+        height: '250px',
 	},
 	imageHidden: {
 		margin: 'auto',
 		display: 'block',
-		maxWidth: '100%',
-		maxHeight: '50vh'
+        width: '100%',
+        alignItems: 'center',
+        height: '250px',
 	},
 	ourAnimals: {
 		display: 'flex',
@@ -55,11 +57,11 @@ const useStyle = makeStyles((theme) => ({
 		padding: '15px'
 	},
 	img: {
-		width: '250px',
-		height: '200px',
-		alignItems: 'center',
-		padding: '5px',
-		margin: '3px'
+		width: '90%',
+        height: '200px',
+        alignItems: 'center',
+        padding: '5px',
+        margin: '3px',
 	}
 }));
 
@@ -68,16 +70,26 @@ export default function ZooPartner() {
 	return (
 		<div className={classes.root} style={{ background: '#ECE4BA' }}>
 			<Grid container justify="center">
-				<Typography className={classes.ourAnimals}>Donate to Our Zoo Partner</Typography>
+				<Typography className={classes.ourAnimals}>DONATE TO YOUR CITY ZOO</Typography>
 			</Grid>
 
 			<Grid container>
 				<Hidden smDown>
-					<Grid item lg={8} style={{ background: '#ECE4BA', padding: '10px' }}>
-						<Paper>
+					<Grid item xl={4} lg={4} style={{ background: '#ECE4BA', padding: '10px' }}>
+						<Paper square>
 							<img
 								className={classes.image}
-								alt="animals"
+								alt="zoo"
+								src="https://dolanyok.com/wp-content/uploads/Kebun-Binatang-Ragunan-dEPAN.jpg"
+							/>
+						</Paper>
+					</Grid>
+
+					<Grid item xl={4} lg={4} style={{ background: '#ECE4BA', padding: '10px' }}>
+						<Paper square>
+							<img
+								className={classes.image}
+								alt="zoo"
 								src="https://dolanyok.com/wp-content/uploads/Kebun-Binatang-Ragunan-dEPAN.jpg"
 							/>
 						</Paper>
@@ -89,7 +101,7 @@ export default function ZooPartner() {
 						<Paper>
 							<img
 								className={classes.imageHidden}
-								alt="animals"
+								alt="zoo"
 								src="https://dolanyok.com/wp-content/uploads/Kebun-Binatang-Ragunan-dEPAN.jpg"
 							/>
 						</Paper>
@@ -97,15 +109,16 @@ export default function ZooPartner() {
 				</Hidden>
 
 				<Hidden smDown>
-					<Grid item lg={4} sm={4} style={{ background: '#ECE4BA', padding: '10px' }}>
+					<Grid item lg={4} sm={4} style={{ background: 'transparent', padding: '70px' }}>
 						<Grid item lg={12}>
 							<Paper elevation={0} style={{ background: '#6C5434', margin: '3px' }}>
 								<Button
-									style={{ margin: '5px', width: '80%', fontSize: '24px', fontFamily: 'Fredoka One' }}
-									variant="contained"
-									disableElevation
-								>
-									Donate Now
+									style={{ margin: '5px', width: '80%', fontSize: '20px', fontFamily: 'Fredoka One' }}
+									disableElevation>
+										<Link to="#"
+										style={{ textDecoration:'none', color: '#F6F4E4'}}>
+									DONATE NOW
+										</Link>
 								</Button>
 							</Paper>
 						</Grid>
@@ -113,11 +126,12 @@ export default function ZooPartner() {
 						<Grid item lg={12}>
 							<Paper elevation={0} style={{ background: '#6C5434', margin: '3px' }}>
 								<Button
-									style={{ margin: '5px', width: '80%', fontSize: '24px', fontFamily: 'Fredoka One' }}
-									variant="contained"
-									disableElevation
-								>
-									Change Zoo
+									style={{ margin: '5px', width: '80%', fontSize: '20px', fontFamily: 'Fredoka One' }}
+									disableElevation>
+										<Link to="#"
+										style={{ textDecoration:'none', color: '#F6F4E4', margin:'3px' }}>
+									CHANGE ZOO
+									</Link>
 								</Button>
 							</Paper>
 						</Grid>
@@ -125,28 +139,32 @@ export default function ZooPartner() {
 				</Hidden>
 
 				<Hidden mdUp>
-					<Grid container justify="center">
+					<Grid container justify="center" style={{ padding: '10px'}}>
 						<Grid item sm={3}>
 							<Button
-								style={{ margin: '2px', fontSize: '16px', fontFamily: 'Fredoka One' }}
-								variant="contained"
-							>
-								Donate Now
+								style={{ margin: '2px', fontSize: '16px', fontFamily: 'Fredoka One', background: '#6C5434' }}
+								>
+									<Link to="#"
+										style={{ textDecoration:'none', color: '#F6F4E4'}}>
+										DONATE NOW
+									</Link>
 							</Button>
 						</Grid>
 						<Grid item sm={3}>
 							<Button
-								style={{ margin: '2px', fontSize: '16px', fontFamily: 'Fredoka One' }}
-								variant="contained"
+								style={{ margin: '2px', fontSize: '16px', fontFamily: 'Fredoka One', background: '#6C5434' }}
 							>
-								Change Zoo
+								<Link to="#"
+										style={{ textDecoration:'none', color: '#F6F4E4'}}>
+								CHANGE ZOO
+								</Link>
 							</Button>
 						</Grid>
 					</Grid>
 				</Hidden>
 
 				<Grid item lg={12} sm={12} style={{ background: '#ECE4BA', margin: '5px' }}>
-					<Paper elevation={0}>
+					<Paper elevation={0} square>
 						<p className={classes.forP}>
 							Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea quia ut, voluptate voluptatum
 							adipisci culpa? Molestiae nostrum est adipisci! Quae distinctio maiores placeat perferendis
@@ -163,9 +181,9 @@ export default function ZooPartner() {
 						<Typography
 							style={{
 								fontFamily: 'Fredoka One',
-								fontSize: '28px',
+								fontSize: '20px',
 								color: '#6C5434',
-								lineHeight: '52px'
+								lineHeight: '40px'
 							}}
 						>
 							PROJECT AND ACTIVITIES IN THIS ZOO
@@ -174,7 +192,7 @@ export default function ZooPartner() {
 				</Grid>
 
 				<Grid container justify="center" style={{ margin: '30px' }}>
-					<Grid item sm={6} lg={3} style={{ background: 'transparent', margin: '0px' }}>
+					<Grid item sm={6} xs={12} lg={3} style={{ background: 'transparent', margin: '0px' }}>
 						<Paper square>
 							<div>
 								<img
@@ -185,17 +203,17 @@ export default function ZooPartner() {
 							<Typography
 								style={{
 									fontFamily: 'Fredoka One',
-									fontSize: '18px',
+									fontSize: '14px',
 									color: '#6C5434',
 									padding: '10px'
 								}}
 							>
-								TIGER BREEDING
+								Animal Breeding
 							</Typography>
 						</Paper>
 					</Grid>
 
-					<Grid item sm={6} lg={3} style={{ background: 'transparent', margin: '0px' }}>
+					<Grid item sm={6} xs={12} lg={3} style={{ background: 'transparent', margin: '0px' }}>
 						<Paper square>
 							<div>
 								<img
@@ -206,17 +224,17 @@ export default function ZooPartner() {
 							<Typography
 								style={{
 									fontFamily: 'Fredoka One',
-									fontSize: '18px',
+									fontSize: '14px',
 									color: '#6C5434',
 									padding: '10px'
 								}}
 							>
-								REFORESTATION
+								Reforestation
 							</Typography>
 						</Paper>
 					</Grid>
 
-					<Grid item sm={6} lg={3} style={{ background: 'transparent', margin: '0px' }}>
+					<Grid item sm={6} xs={12} lg={3} style={{ background: 'transparent', margin: '0px' }}>
 						<Paper square>
 							<div>
 								<img
@@ -227,17 +245,17 @@ export default function ZooPartner() {
 							<Typography
 								style={{
 									fontFamily: 'Fredoka One',
-									fontSize: '18px',
+									fontSize: '14px',
 									color: '#6C5434',
 									padding: '10px'
 								}}
 							>
-								FEEDS PLANTATION
+								Feeds Plantation
 							</Typography>
 						</Paper>
 					</Grid>
 
-					<Grid item sm={6} lg={3} style={{ background: 'transparent', margin: '0px' }}>
+					<Grid item sm={6} xs={12} lg={3} style={{ background: 'transparent' }}>
 						<Paper square>
 							<div>
 								<img
@@ -248,12 +266,12 @@ export default function ZooPartner() {
 							<Typography
 								style={{
 									fontFamily: 'Fredoka One',
-									fontSize: '18px',
+									fontSize: '14px',
 									color: '#6C5434',
 									padding: '10px'
 								}}
 							>
-								RHINO SANCTUARY
+								Rhino Sanctuary
 							</Typography>
 						</Paper>
 					</Grid>

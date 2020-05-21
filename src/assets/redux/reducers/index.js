@@ -9,6 +9,7 @@ import storageReducer from './storageReducer';
 import priceReducer from './priceReducer';
 import { itemsCartReducer, amountCartReducer, priceCartReducer } from './feedsCartReducer';
 import { trayReducer } from './trayReducers';
+import { saveAmountReducer } from './adoptRateReducer'
 
 const allReducers = combineReducers({
 	currentUser: loginReducer,
@@ -22,7 +23,8 @@ const allReducers = combineReducers({
 	itemsHolder: itemsCartReducer,
 	amountHolder: amountCartReducer,
 	priceHolder: priceCartReducer,
-	trayHolder: trayReducer
+	trayHolder: trayReducer,
+	amountHolder: saveAmountReducer,
 });
 
 export default allReducers;

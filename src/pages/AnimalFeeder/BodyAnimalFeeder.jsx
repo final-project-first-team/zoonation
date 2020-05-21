@@ -7,7 +7,7 @@ import Button from '@material-ui/core/Button';
 
 import Hidden from '@material-ui/core/Hidden';
 import { Divider } from '@material-ui/core';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { getSpecificAnimals } from '../../assets/redux/actions/spAnimalsAction';
 import { getStorage, updateStorage } from '../../assets/redux/actions/storageAction';
@@ -26,7 +26,8 @@ const useStyle = makeStyles((theme) => ({
 		width: '100%',
 		alignItems: 'center',
 		textAlign: 'center',
-		flexDirection: 'row'
+		flexDirection: 'row',
+		padding: '5px'
 	},
 	title: {
 		display: 'flex',
@@ -35,7 +36,6 @@ const useStyle = makeStyles((theme) => ({
 		fontFamily: 'Fredoka One',
 		color: '#6C5434',
 		marginTop: theme.spacing(10),
-		marginLeft: theme.spacing(4)
 	},
 	titleSm: {
 		display: 'flex',
@@ -44,60 +44,48 @@ const useStyle = makeStyles((theme) => ({
 		fontFamily: 'Fredoka One',
 		color: '#6C5434',
 		marginTop: theme.spacing(10),
-		marginLeft: theme.spacing(2)
 	},
 	leftContainer: {
 		backgroundColor: '#6c5434',
-		marginBottom: theme.spacing(3),
-		minHeight: '58vh'
+		minHeight: '100%',
 	},
 	leftContainerInside: {
+		backgroundColor: '#f6f4e4',
 		margin: theme.spacing(2),
-		backgroundColor: '#f6f4e4'
+
 	},
 	storage: {
-		paddingTop: theme.spacing(1),
-		minHeight: '20vh'
+		height: '100px'
 	},
 	tray: {
-		minHeight: '26vh'
+		minHeight: '200px',
 	},
 	centerContainer: {
-		backgroundColor: '#6c5434',
-		marginBottom: theme.spacing(3),
-		minHeight: '58vh'
+		minHeight: '100%'
 	},
 	image: {
 		margin: 'auto',
-		display: 'block',
-		maxWidth: '100%',
-		minHeight: '58vh'
+		width: '100%',
+		height: '280px',
+		alignItems: 'center',
+		paddingTop: theme.spacing(2),
+		paddingBottom: theme.spacing(2),
 	},
 	rightContainer: {
 		backgroundColor: '#6c5434',
-		marginBottom: theme.spacing(3),
-		minHeight: '58vh'
+		minHeight: '100%'
 	},
 	rightContainerInside: {
 		margin: theme.spacing(2),
 		backgroundColor: '#f6f4e4'
 	},
 	test: {
-		backgroundColor: 'red',
-		marginBottom: theme.spacing(3)
-	},
-	button: {
-		// display: 'flex',
-		// textAlign: 'center',
-		// fontSize: '44px',
-		// fontFamily: 'Fredoka One',
-		// color: '#6C5434',
-		marginRight: theme.spacing(5)
+		backgroundColor: 'transparent',
 	},
 	test2: {
+		marginTop: theme.spacing(3),
 		marginBottom: theme.spacing(3),
-		marginRight: theme.spacing(5)
-	}
+	},
 }));
 
 export default function BodyAnimalFeeder() {
@@ -125,19 +113,19 @@ export default function BodyAnimalFeeder() {
 
 	return (
 		<div className={classes.root} style={{ background: '#ECE4BA' }}>
-			<Grid container justify="flex-start">
+			<Grid container justify="center">
 				<Hidden smDown>
-					<Typography className={classes.title}>Animal Feeder</Typography>
+					<Typography className={classes.title}>ANIMAL FEEDING</Typography>
 				</Hidden>
 
 				<Hidden mdUp>
-					<Typography className={classes.titleSm}>Animal Feeder</Typography>
+					<Typography className={classes.titleSm}>ANIMAL FEEDING</Typography>
 				</Hidden>
 			</Grid>
 
-			<Grid container justify="space-around">
+			<Grid container justify="space-evenly">
 				<Grid container item className={classes.leftContainer} lg={3} justify="center">
-					<Grid item className={classes.leftContainerInside} lg={11}>
+					<Grid item className={classes.leftContainerInside} lg={12}>
 						<Grid container justify="center" direction="column" className={classes.storage}>
 							<Grid item>
 								{status.length === 0 ? (
@@ -155,7 +143,7 @@ export default function BodyAnimalFeeder() {
 						</Grid>
 					</Grid>
 				</Grid>
-				<Grid container item className={classes.centerContainer} lg={6}>
+				<Grid container item className={classes.centerContainer} lg={4}>
 					<Grid item>
 						<img
 							className={classes.image}
@@ -164,7 +152,7 @@ export default function BodyAnimalFeeder() {
 						/>
 					</Grid>
 				</Grid>
-				<Grid container item className={classes.rightContainer} lg={2} direction="column">
+				<Grid container item className={classes.rightContainer} lg={3} direction="column" justify="center">
 					<Grid item className={classes.rightContainerInside} lg={12}>
 						<AnimalsData currAnimal={currentAnimal} />
 					</Grid>
@@ -174,16 +162,20 @@ export default function BodyAnimalFeeder() {
 			<Grid container justify="flex-end" className={classes.test2}>
 				<Hidden smDown>
 					<Grid item lg={4}>
-						<Button className={classes.button} type="submit" fullWidth variant="contained">
-							<Typography>Feed another animals</Typography>
+						<Button>
+							<Link type="submit" fullWidth variant="contained" style={{ textDecoration: 'none' }}>
+								<Typography style={{ fontFamily: 'Fredoka One', color: '#6c5434' }}>Feed another animal?</Typography>
+							</Link>
 						</Button>
 					</Grid>
 				</Hidden>
 
 				<Hidden mdUp>
 					<Grid item lg={4}>
-						<Button className={classes.button} type="submit" fullWidth variant="contained">
-							<Typography>Feed another animals</Typography>
+						<Button>
+							<Link type="submit" fullWidth variant="contained" style={{ textDecoration: 'none' }}>
+								<Typography style={{ fontFamily: 'Fredoka One', color: '#6c5434' }}>Feed another animal?</Typography>
+							</Link>
 						</Button>
 					</Grid>
 				</Hidden>

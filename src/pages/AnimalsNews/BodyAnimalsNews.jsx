@@ -29,13 +29,12 @@ const useStyles = makeStyles((theme) => ({
 		fontFamily: 'Lemonada',
 		fontStyle: 'normal',
 		fontWeight: 'normal',
-		fontSize: '20px',
+		fontSize: '18px',
 		lineHeight: '25px',
 		display: 'flex',
 		alignItems: 'center',
 		color: '#6C5434',
         marginTop: theme.spacing(1),
-        marginBottom: theme.spacing(1),
 	},
     p: {
         fontFamily: 'Raleway',
@@ -50,7 +49,7 @@ export default function AnimalsNews() {
         <div className={classes.root} style={{ background: '#ECE4BA' }}>
             <Grid container justify="center">
                 <Typography className={classes.ourAnimals}>
-                    Animals News
+                    ANIMAL AND ZOO NEWS
                 </Typography>
             </Grid>
 
@@ -61,30 +60,29 @@ export default function AnimalsNews() {
 			</Grid>
 
             <Grid container justify="center">
-                <Grid item lg={5} md={5} sm={5} style={{ background: '#F3EFD5', margin: '20px', padding: '10px', borderRadius: '10px', height: '100%' }}>
-                    <img src="https://i.pinimg.com/originals/dc/53/7d/dc537d9ba4b05ff85926aa98d9a3596f.jpg" style={{ width: '100%', height: '300px', borderRadius: '10px'}}/>
-                    <Typography variant="h5" style={{ margin: '10px', fontFamily: 'Fredoka One', color: '#6C5434' }}>
-                        WELCOME DINGO! OUR NEW BORN TIGER.
-                    </Typography>
-                    <p className={classes.p}> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ut cumque eligendi rem quod quo deleniti vitae ad, esse omnis sit tenetur repellat officiis velit in, aliquid necessitatibus consectetur repudiandae iste?
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur officiis ab rerum facere aut illum sit dicta, nostrum nisi sed error veritatis optio dignissimos cupiditate alias deserunt debitis iusto laboriosam.
+                <Grid item lg={5} md={5} sm={12} xs={12} style={{ background: '#91BD78', margin: '20px', padding: '10px', minHeight: '100%' }}>
+                        <img src="https://i.pinimg.com/originals/dc/53/7d/dc537d9ba4b05ff85926aa98d9a3596f.jpg" style={{ width: '100%', height: 'auto', padding: '5px' }}/>
+                            <Typography variant="h5" style={{ margin: '10px', fontFamily: 'Fredoka One', color: '#6C5434' }}>
+                                WELCOME DINGO! OUR NEW BORN TIGER
+                            </Typography>
+                    <p className={classes.p}>
+                        Taman Safari Indonesia has welcomed a tiger cub. The zoo director Dr. Kevin Lazarus said the cub were birthed on April 12.
+                        <br /><br />"The cub and their 11-year-old mother are doing fine and in stable conditions. The cub weigh between 700g and 900g. The zoo now has eight tigers in total," he said in a statement.
+                        <br /><br />Dr. Lazarus said the cub would stay with their mother, whom the zookeepers called "Baby", for 18 months.
+                        "They are being kept 'safe and comfortably' in isolation and monitored regularly," he said, adding that the mother was also born at the zoo. 
                     </p>
-                    <Button variant="outlined" style={{fontFamily: 'Fredoka One', color: '#6C5434'}}>
-                        <b>More</b>
-                    </Button>
                 </Grid>
 
-                <Grid item lg={5} md={5} sm={5} style={{ background: '#F3EFD5', margin: '20px', padding: '10px', borderRadius: '10px', height: '100%' }}>
-                    <img src="https://www.acehtoday.com/files/images/20200515-mei-15-makanan-kebun-binatang.jpeg" style={{ width: '100%', height: '300px', borderRadius: '10px'}} />
+                <Grid item lg={5} md={5} sm={12} xs={12} style={{ background: '#91BD78', margin: '20px', padding: '10px', minHeight: '100%' }}>
                     <Typography variant="h5" style={{ margin: '10px', fontFamily: 'Fredoka One', color: '#6C5434' }}>
-                        A COUNSELING IN BAZOGA
-                    </Typography>
-                    <p className={classes.p}> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ut cumque eligendi rem quod quo deleniti vitae ad, esse omnis sit tenetur repellat officiis velit in, aliquid necessitatibus consectetur repudiandae iste?
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur officiis ab rerum facere aut illum sit dicta, nostrum nisi sed error veritatis optio dignissimos cupiditate alias deserunt debitis iusto laboriosam.
+                            A RENOVATION AT SURABAYA ZOO
+                        </Typography>
+                    <p className={classes.p}>
+                        From the planning of a new continent full of habitats to general upkeep, there are dozens of projects going on at the Surabaya Zoo.
+                        <br /><br />But the work is more than repairing what's broken. They want to make sure that each area is safe and in the best shape for both visitors and animals. For example, the grizzly exhibit is expanding and instead of a moat acting as a barrier, there will be a glass wall so visitors can get closer to the animal.
+                        <br /><br />"Two years ago when this habitat was built, we didn't have as much understanding and knowledge of what it takes to take care of a grizzly bear the proper way as we do now. So as we gained more knowledge we want to make sure we're utilizing the best techniques," Animal Management Supervisor Mr. Danu said. 
                     </p>
-                    <Button variant="outlined" style={{fontFamily: 'Fredoka One', color: '#6C5434'}}>
-                        <b>More</b>
-                    </Button>
+                        <img src="https://statik.tempo.co/data/2016/05/14/id_506357/506357_620.jpg" style={{ width: '100%', height: 'auto', padding: '5px' }} />
                 </Grid>              
 
 

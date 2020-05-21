@@ -44,12 +44,13 @@ const useStyle = makeStyles((theme) => ({
 		margin: theme.spacing(3)
 	},
 	margin: {
-		margin: theme.spacing(3)
+		margin: theme.spacing(1)
 	},
 	toHelp: {
 		fontFamily: 'Lemonada',
 		color: '#6C5434',
-		cursor: 'pointer'
+		cursor: 'pointer',
+		fontSize: '18px',
 	}
 }));
 
@@ -64,7 +65,7 @@ export default function BodyOurAnimals() {
 	return (
 		<div className={classes.root} style={{ background: '#ECE4BA' }}>
 			<Grid container justify="center">
-				<Typography className={classes.ourAnimals}>Our Animals</Typography>
+				<Typography className={classes.ourAnimals}>OUR ANIMALS</Typography>
 
 				<Grid container justify="center" maxWidth="sm">
 					<SearchBar />
@@ -74,7 +75,7 @@ export default function BodyOurAnimals() {
 					<Typography className={classes.toHelp}>
 						To help the animals and the zoos,
 						<br />
-						<Link color="inherit">
+						<Link style={{ fontSize: "18px" }} color="inherit">
 							<b>click here!</b>
 						</Link>
 					</Typography>

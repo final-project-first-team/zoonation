@@ -47,7 +47,7 @@ function App() {
 					<Route path="/donation" component={Donation} />
 					<Route path="/animal-adopt" component={AnimalAdopt} />
 					<Route path="/animal-adopt-2/:id" component={AnimalAdopt2} />
-					<Route path="/animal-adopt-3" component={AnimalAdopt3} />
+					<Route path="/animal-adopt-3/:id" component={AnimalAdopt3} />
 					<Route path="/feeding-animals" component={FeedingAnimals} />
 					<Route path="/animal-feeder/:id" component={AnimalFeeder} />
 					<Route path="/zoo-partner" component={ZooPartner} />

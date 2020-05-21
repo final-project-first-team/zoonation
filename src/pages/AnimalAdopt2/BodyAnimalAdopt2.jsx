@@ -4,12 +4,13 @@ import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-import Link from '@material-ui/core/Link';
+import { Link } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import Hidden from '@material-ui/core/Hidden';
 import { useHistory, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getSpecificAnimals } from '../../assets/redux/actions/spAnimalsAction';
+import { saveAmount } from '../../assets/redux/actions/adoptRateAction';
 
 const useStyle = makeStyles((theme) => ({
     root: {
@@ -25,15 +26,17 @@ const useStyle = makeStyles((theme) => ({
     image: {
 		margin: 'auto',
 		display: 'block',
-		width: '100%',
-        maxHeight: '50vh',
-        borderRadius: '5px'
+        width: '100%',
+        alignItems: 'center',
+        height: '250px',   
     },
     imageHidden: {
         margin: 'auto',
 		display: 'block',
-		maxWidth: '100%',
-		maxHeight: '50vh'   
+        width: '100%',
+        alignItems: 'center',
+        height: '250px',
+          
     },
     ourAnimals: {
 		display: 'flex',
@@ -51,7 +54,7 @@ const useStyle = makeStyles((theme) => ({
         padding: '15px',
     },
     img: {
-        width: '250px',
+        width: 'auto',
         height: '200px',
         alignItems: 'center',
         padding: '5px',
@@ -64,6 +67,7 @@ export default function AnimalAdopt2() {
     const { id } = useParams();
 	const dispatch = useDispatch();
     const currentAnimal = useSelector((state) => state.currentAnimal);
+    const status = useSelector((state) => state.isLoggedIn);
     
     if (currentAnimal.length === 0) {
 		dispatch(getSpecificAnimals(id));
@@ -74,67 +78,85 @@ export default function AnimalAdopt2() {
 		}
     }
     
+    const handleClick = (amount) => {
+        dispatch(saveAmount(amount))
+    }
     return (
         <div className={classes.root} style={{ background: '#ECE4BA' }}>
             <Grid container justify="center">
                 <Typography className={classes.ourAnimals}>
-                    Adopt a {currentAnimal.data !== undefined ? currentAnimal.data.name : null}
+                    ADOPT A {currentAnimal.data !== undefined ? currentAnimal.data.name : null}
                 </Typography>
             </Grid>
 
 
             <Grid container>
                 <Hidden smDown>
-                <Grid item lg={4} style={{ background: '#ECE4BA', padding: '10px' }}>
-                    <Paper> 
-                        <img className={classes.image} alt="animals" src="https://wallpaperaccess.com/full/2136603.jpg" />
+                <Grid item xl= {4} lg={4} style={{ background: '#ECE4BA', padding: '10px' }}>
+                    <Paper square> 
+                        <img className={classes.image} alt="animal" src={currentAnimal.data !== undefined ? currentAnimal.data.image1 : null} />
                     </Paper>
                 </Grid>
 
-                <Grid item lg={4} style={{ background: '#ECE4BA', padding: '10px' }}>
-                    <Paper> 
-                        <img className={classes.image} alt="animals" src="https://wallpaperaccess.com/full/2136603.jpg" />
+                <Grid item xl={4} lg={4} style={{ background: '#ECE4BA', padding: '10px' }}>
+                    <Paper square> 
+                        <img className={classes.image} alt="animal" src={currentAnimal.data !== undefined ? currentAnimal.data.image2 : null} />
                     </Paper>
                 </Grid>
                 </Hidden>
 
                 <Hidden mdUp>
                 <Grid item sm={12} style={{ background: '#ECE4BA', padding: '10px' }}>
-                    <Paper> 
-                        <img className={classes.imageHidden} alt="animals" src="https://wallpaperaccess.com/full/2136603.jpg" />
+                    <Paper square> 
+                        <img className={classes.imageHidden} alt="animal" src={currentAnimal.data !== undefined ? currentAnimal.data.image1 : null} />
                     </Paper>
                 </Grid>
                 </Hidden>
                 
 
             <Hidden smDown>
-                <Grid item lg={4} sm={4} style={{ background: '#ECE4BA', padding: '10px'}}>
+                <Grid item lg={4} sm={4} style={{ background: '#', padding: '10px'}}>
                     <Grid item lg={12}>
-                        <Typography style={{ fontFamily: 'Lemonada', fontSize: '18px', color: '#6C5434'}}>
-                            Choose Your Adoption Rate!
+                        <Typography style={{ fontFamily: 'Fredoka One', fontSize: '18px', color: '#6C5434'}}>
+                            Choose your adoption rate!
                         </Typography>
                     </Grid>
                     <Grid item lg={12}>
                     <Paper elevation={0} style={{background: '#6C5434', margin: '3px'}}>
-                        <Button style={{margin: '5px', width: '80%', fontSize: '20px', fontFamily: 'Fredoka One'}} variant="contained" disableElevation>
-                            IDR 150.000
-                        </Button>
+                            <Button style={{margin: '5px', width: '80%', fontSize: '20px', fontFamily: 'Fredoka One'}} disableElevation
+                            onClick={ () => handleClick('150000')}
+                            disabled = { status === true ? false : true }>
+                                <Link to={currentAnimal.data !== undefined ? (`/animal-adopt-3/${currentAnimal.data._id}`): '' }
+                                style={{ textDecoration:'none', color: '#F6F4E4'}}>
+                                IDR 150.000
+                                </Link>
+                            </Button>
                     </Paper>
                 </Grid>
 
                 <Grid item lg={12}>
                     <Paper elevation={0} style={{background: '#6C5434', margin:'3px'}}>
-                        <Button style={{margin: '5px', width: '80%', fontSize: '20px', fontFamily: 'Fredoka One'}} variant="contained" disableElevation>
-                            IDR 200.000
-                        </Button>
+                            <Button style={{margin: '5px', width: '80%', fontSize: '20px', fontFamily: 'Fredoka One'}} disableElevation
+                            onClick={ () => handleClick('200000')}
+                            disabled = { status === true ? false : true }>
+                                 <Link to={currentAnimal.data !== undefined ? (`/animal-adopt-3/${currentAnimal.data._id}`): '' }
+                                 style={{ textDecoration:'none', color: '#F6F4E4'}}>
+                                IDR 200.000
+                                </Link>
+                            </Button>
                     </Paper>
                 </Grid>
 
                 <Grid item lg={12}>
                     <Paper elevation={0} style={{background: '#6C5434', margin: '3px'}}>
-                        <Button style={{margin: '5px', width: '80%', fontSize: '20px', fontFamily: 'Fredoka One'}} variant="contained" disableElevation>
-                            IDR 250.000
-                        </Button>
+                            <Button type="submit" style={{margin: '5px', width: '80%', fontSize: '20px', fontFamily: 'Fredoka One'}} variant="contained" disableElevation
+                            onClick={ () => handleClick('250000')}
+                            disabled = { status === true ? false : true }>
+                                <Link to={currentAnimal.data !== undefined ? (`/animal-adopt-3/${currentAnimal.data._id}`): '' }
+                                style={{ textDecoration:'none', color: '#F6F4E4'}}>
+                                IDR 250.000
+                            </Link>
+                            </Button>
                     </Paper>
                 </Grid>
 
@@ -144,89 +166,103 @@ export default function AnimalAdopt2() {
                 <Hidden mdUp>
                 <Grid container justify="center">
                 <Grid item sm={12}>
-                        <Typography style={{ fontFamily: 'Lemonada', fontSize: '18px', color: '#6C5434', margin: '10px'}}>
-                            Choose Your Adoption Rate!
+                        <Typography style={{ fontFamily: 'Fredoka One', fontSize: '18px', color: '#6C5434', margin: '10px'}}>
+                            Choose your adoption rate!
                         </Typography>
                     </Grid>
                 </Grid>
                 <Grid container justify="center">
                     <Grid item sm={3}>
-                        <Button style={{margin: '2px', fontSize: '16px', fontFamily: 'Fredoka One'}} variant="contained">
-                            IDR 150.000
-                        </Button>
+                            <Button style={{margin: '2px', fontSize: '16px', fontFamily: 'Fredoka One', background: '#6C5434' }}
+                            onClick={ () => handleClick('150000')}
+                            disabled = { status === true ? false : true }>
+                                <Link to={currentAnimal.data !== undefined ? (`/animal-adopt-3/${currentAnimal.data._id}`): '' }
+                                style={{ textDecoration:'none', color: '#F6F4E4'}}>
+                                IDR 150.000
+                                </Link>
+                            </Button>
                     </Grid>
                     <Grid item sm={3}>
-                    <Button style={{margin: '2px', fontSize: '16px', fontFamily: 'Fredoka One'}} variant="contained">
-                            IDR 200.000
-                        </Button>
+                            <Button style={{margin: '2px', fontSize: '16px', fontFamily: 'Fredoka One', background: '#6C5434'}}
+                            onClick={ () => handleClick('200000')}
+                            disabled = { status === true ? false : true }>
+                                <Link to={currentAnimal.data !== undefined ? (`/animal-adopt-3/${currentAnimal.data._id}`): '' }
+                                style={{ textDecoration:'none', color: '#F6F4E4'}}>
+                                IDR 200.000
+                                </Link>
+                            </Button>
                     </Grid>
                     <Grid item sm={3}>
-                    <Button style={{margin: '2px', fontSize: '16px', fontFamily: 'Fredoka One'}} variant="contained">
-                            IDR 250.000
-                        </Button>
+                            <Button style={{margin: '2px', fontSize: '16px', fontFamily: 'Fredoka One', background: '#6C5434'}}
+                            onClick={ () => handleClick('250000')}
+                            disabled = { status === true ? false : true }>
+                                <Link to={currentAnimal.data !== undefined ? (`/animal-adopt-3/${currentAnimal.data._id}`): '' }
+                                style={{ textDecoration:'none', color: '#F6F4E4'}}>
+                                IDR 250.000
+                                </Link>
+                            </Button>
                     </Grid>
                     
                 </Grid>
                 </Hidden>
                 
                 <Grid item lg={12} sm={12} style={{ background: '#ECE4BA', margin: '5px' }}>
-                    <Paper elevation={0}>
-                        {/* LOREM GANTI SAMA KAYA DIATAS TAPI DATA.CAPTION */}
-                        <p className={classes.forP}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea quia ut, voluptate voluptatum adipisci culpa? Molestiae nostrum est adipisci! Quae distinctio maiores placeat perferendis rerum debitis exercitationem, tenetur maxime impedit.
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae veniam suscipit quae officiis voluptas commodi nostrum, facere rem consectetur saepe modi asperiores placeat nihil illum laborum magnam, alias dignissimos accusamus?
+                    <Paper elevation={0} square>
+                        <p className={classes.forP}>
+                        {currentAnimal.data !== undefined ? currentAnimal.data.caption : null} 
                         </p>
                     </Paper>
                 </Grid>
 
                 <Grid container justify="center" style={{ background: '#AAE787' }}>
                     <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
-                        <Typography style={{ fontFamily: 'Fredoka One', fontSize: '28px', color: '#6C5434', lineHeight: '52px' }}>
+                        <Typography style={{ fontFamily: 'Fredoka One', fontSize: '20px', color: '#6C5434', lineHeight: '40px' }}>
                         PROTECT THIS INCREDIBLE ANIMALS, AND RECIEVE
                         </Typography>
                     </Grid>
                 </Grid>
 
-                <Grid container justify="center" style={{margin: '30px'}}>
-                    <Grid item sm={6} lg={3} style={{ background: 'transparent', margin: '0px'}}>
+                <Grid container justify="center" style={{ margin: '30px'}}>
+                    <Grid item sm={12} xs={12} lg={3} style={{ background: 'transparent', margin: '0px'}}>
                         <Paper square>
                             <div>
-                                <img className={classes.img} src="https://i.ebayimg.com/images/g/4vMAAOSwW7ddh6OK/s-l1600.jpg" />
+                                <img className={classes.img} src="https://images-na.ssl-images-amazon.com/images/I/91Oc19qjgyL._AC_SX425_.jpg" />
                             </div>
-                            <Typography style={{ fontFamily: 'Fredoka One', fontSize: '18px', color: '#6C5434', padding: '10px' }}>
-                                PLUSH TOY
+                            <Typography style={{ fontFamily: 'Fredoka One', fontSize: '14px', color: '#6C5434', padding: '10px' }}>
+                                Plush Toy
                             </Typography>
                         </Paper>
                     </Grid>
 
-                    <Grid item sm={6} lg={3} style={{ background: 'transparent', margin: '0px' }}>
+                    <Grid item sm={12} xs={12} lg={3} style={{ background: 'transparent', margin: '0px' }}>
                         <Paper square>
                             <div>
-                                <img className={classes.img} src="https://image.freepik.com/free-vector/set-animals-sticker_1308-23424.jpg"/>
+                                <img className={classes.img} src="https://dbdzm869oupei.cloudfront.net/img/sticker/large/7599.jpg"/>
                             </div>
-                                <Typography style={{ fontFamily: 'Fredoka One', fontSize: '18px', color: '#6C5434', padding: '10px' }}>
-                                    ANIMAL STICKERS SET
+                                <Typography style={{ fontFamily: 'Fredoka One', fontSize: '14px', color: '#6C5434', padding: '10px' }}>
+                                    Animal Sticker Set
                                 </Typography>
                         </Paper>
                     </Grid>
 
-                    <Grid item sm={6} lg={3} style={{ background: 'transparent', margin: '0px' }}>
+                    <Grid item sm={12} xs={12} lg={3} style={{ background: 'transparent', margin: '0px' }}>
                         <Paper square> 
                             <div>
-                                <img className={classes.img} src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRyzaXKdnLeqqGqAbkAw-ewfrgsfv17ZvA7R4mX_yrS51XfJALY&usqp=CAU"/>
+                                <img className={classes.img} src="https://covers.magazinecloner.com/covers/157365.jpg"/>
                             </div>
-                            <Typography style={{ fontFamily: 'Fredoka One', fontSize: '18px', color: '#6C5434', padding: '10px' }}>
-                                    MONTHLY MAGAZINE
+                            <Typography style={{ fontFamily: 'Fredoka One', fontSize: '14px', color: '#6C5434', padding: '10px' }}>
+                                    Monthly Magazine
                                 </Typography>
                         </Paper>
                     </Grid>
 
-                    <Grid item sm={6} lg={3} style={{ background: 'transparent', margin: '0px' }}>
+                    <Grid item sm={12} xs={12} lg={3} style={{ background: 'transparent', margin: '0px' }}>
                         <Paper square>
                             <div>
-                                <img className={classes.img} src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSRgupHw2ae5Nhimt6VSv1dapHiUiYE2UjdiJmliUQPiCkr2rve&usqp=CAU"/>
+                                <img className={classes.img} src="https://cdn.cp.adobe.io/content/2/rendition/3901fe78-2416-4023-84a5-0ed4eb282c5f/artwork/5fa3a90a-2b08-43f0-82ef-cff446f38ff1/version/0/format/jpg/dimension/width/size/300"/>
                             </div>
-                            <Typography style={{ fontFamily: 'Fredoka One', fontSize: '18px', color: '#6C5434', padding: '10px' }}>
-                                    CERTIFICATE
+                            <Typography style={{ fontFamily: 'Fredoka One', fontSize: '14px', color: '#6C5434', padding: '10px' }}>
+                                    Personalized Certificate
                                 </Typography>
                         </Paper>
                     </Grid>
