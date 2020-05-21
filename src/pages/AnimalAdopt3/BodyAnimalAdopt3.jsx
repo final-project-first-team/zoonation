@@ -77,7 +77,7 @@ export default function AnimalAdopt3() {
 			</Grid>
 
 			<Grid container justify="center">
-				<Typography className={classes.adoptForBetter}>Adopt. Together We Save Lives</Typography>
+				<Typography className={classes.adoptForBetter}>Adopt. Together we save lives</Typography>
 			</Grid>
 
 			<Grid container justify="center">

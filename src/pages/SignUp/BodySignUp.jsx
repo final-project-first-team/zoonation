@@ -179,7 +179,8 @@ export default function BodySignUp() {
 									<Typography component="h3" variant="subtitle2" style={{ paddingTop: '0' }}>
 										<i>Already A Member? </i>
 										<br />
-										<Link to="/sign-in">
+										<Link to="/sign-in"
+											style= {{ fontFamily: 'Roboto, sans-serif', color: '#6C5434'}}>
 											<i>Click Here to Sign In</i>
 										</Link>
 									</Typography>
