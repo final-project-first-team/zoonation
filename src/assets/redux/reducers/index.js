@@ -10,7 +10,7 @@ import priceReducer from './priceReducer';
 import { itemsCartReducer, amountCartReducer, priceCartReducer } from './feedsCartReducer';
 import { trayReducer } from './trayReducers';
 import { saveAmountReducer } from './adoptRateReducer';
-import zooPartnerReducer from './zooPartnerReducer'
+import zooPartnerReducer from './zooPartnerReducer';
 
 const allReducers = combineReducers({
 	currentUser: loginReducer,
@@ -25,8 +25,8 @@ const allReducers = combineReducers({
 	amountHolder: amountCartReducer,
 	priceHolder: priceCartReducer,
 	trayHolder: trayReducer,
-	amountHolder: saveAmountReducer,
-	currentZoo:zooPartnerReducer,
+	amountHolderSave: saveAmountReducer,
+	currentZoo: zooPartnerReducer
 });
 
 export default allReducers;

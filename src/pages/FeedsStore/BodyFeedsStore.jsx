@@ -209,6 +209,8 @@ export default function BodyProfileInfo() {
 
 	const increment = () => {
 		dispatch(amountIncrement());
+		console.log('test');
+
 		let basePrice = 0;
 		switch (item) {
 			case 'RegularMeat':
