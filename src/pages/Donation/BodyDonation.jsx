@@ -1,5 +1,6 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+
 
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
@@ -9,6 +10,8 @@ import Hidden from '@material-ui/core/Hidden';
 import { Link } from 'react-router-dom';
 
 import CardDonation from '../../assets/Components/CardDonation';
+import { useDispatch, useSelector } from 'react-redux';
+import { getZoos } from '../../assets/redux/actions/zooActions';
 
 const useStyle = makeStyles((theme) => ({
 	root: {
@@ -83,6 +86,25 @@ const useStyle = makeStyles((theme) => ({
 
 export default function AnimalAdopt() {
 	const classes = useStyle();
+	const zoosList = useSelector((state) => state.zooData);
+	const dispatch = useDispatch();
+	let randomZoos = [];
+
+	useEffect(() => {
+		if (zoosList.length === 0) {
+			dispatch(getZoos());
+		}
+	}, []);
+	for (let i = 0; i < 3; i++) {
+		if (zoosList.length !== 0) {
+			let zoos = zoosList.data[Math.floor(Math.random() * zoosList.data.length)];
+			while (randomZoos.includes(zoos)) {
+				zoos = zoosList.data[Math.floor(Math.random() * zoosList.data.length)];
+			}
+			randomZoos.push(zoos);
+		}
+	}
+
 	return (
 		<div className={classes.root} style={{ background: '#ECE4BA' }}>
 			<Grid container justify="center">
@@ -110,12 +132,17 @@ export default function AnimalAdopt() {
 			</Grid>
 
 			<Grid container justify="center" className={classes.margin} spacing={2}>
+				{randomZoos.length !== 0 ? (
+					randomZoos.map((_Zoos) => {
+						return <CardDonation zoos={_Zoos} />
+					})
+				) : null}
+				{/* <CardDonation />
 				<CardDonation />
-				<CardDonation />
-				<CardDonation />
+				<CardDonation /> */}
 
-				<Link to={'/our-animals'} style={{ textDecoration: 'none', padding:'10px' }}>
-					<Button style={{ fontFamily: 'Fredoka One', padding: '10px', color: '#6C5434'}}>
+				<Link to={'/our-animals'} style={{ textDecoration: 'none', padding: '10px' }}>
+					<Button style={{ fontFamily: 'Fredoka One', padding: '10px', color: '#6C5434' }}>
 						Not found the zoo you want to help? <br />Browse our other zoos here!
 					</Button>
 				</Link>

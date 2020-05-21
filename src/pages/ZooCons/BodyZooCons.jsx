@@ -3,14 +3,16 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Typography } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
-import Link from '@material-ui/core/Link';
+// import Link from '@material-ui/core/Link';
+
+import { Link } from 'react-router-dom';
 
 import SearchBar from '../../assets/Components/SearchBar';
-import SingleSlider from '../../assets/Components/SingleSlider';
-// import SliderSlick from '../../assets/Components/SliderSlick';
+// import SingleSlider from '../../assets/Components/SingleSlider';
+import SliderSlick from '../../assets/Components/SliderSlick';
 
-// import { useDispatch, useSelector } from 'react-redux';
-// import { getZoos } from '../../assets/redux/actions/zooActions';
+import { useDispatch, useSelector } from 'react-redux';
+import { getZoos } from '../../assets/redux/actions/zooActions';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -50,26 +52,26 @@ const useStyles = makeStyles((theme) => ({
 
 export default function BodyZooCons() {
 	const classes = useStyles();
-	// const dispatch = useDispatch();
-	// const zooData = useSelector((state) => state.zooData);
-	// if (zooData.length === 0) {
-	//     dispatch(getZoos());
-	// }
+	const dispatch = useDispatch();
+	const zooData = useSelector((state) => state.zooData);
+	if (zooData.length === 0) {
+		dispatch(getZoos());
+	}
 
 	return (
 		<div className={classes.root} style={{ background: '#ECE4BA' }}>
 			<Grid container justify="center" spacing={1}>
 				<Typography className={classes.ourAnimals}>Zoos And Conservations</Typography>
 
-				<Grid container justify="center" spacing={1} maxWidth="sm">
+				{/* <Grid container justify="center" spacing={1} maxWidth="sm">
 					<SearchBar />
-				</Grid>
+				</Grid> */}
 
 				<Grid container justify="center" spacing={1}>
 					<Typography className={classes.toHelp}>
 						To help the animals and the zoos,
 						<br />
-						<Link color="inherit">
+						<Link to='/donation' className={classes.toHelp} style={{ textDecoration: 'none' }}>
 							<b>click here!</b>
 						</Link>
 					</Typography>
@@ -77,11 +79,12 @@ export default function BodyZooCons() {
 
 				<Grid container className={classes.margin} justify="center" spacing={5}>
 					<Grid item xs={12}>
-						{/* <SliderSlick /> */}
-						<SingleSlider /* zoo={zooData} */ />
+
+					<SliderSlick zoo={zooData} />
+					{/* <SingleSlider zoo={zooData} /> */}
 					</Grid>
 					<Grid item>
-						<SingleSlider /* zoo={zooData} */ />
+						{/* <SingleSlider zoo={zooData} /> */}
 					</Grid>
 				</Grid>
 			</Grid>
