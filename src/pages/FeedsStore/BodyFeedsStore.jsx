@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import { Link } from 'react-router-dom';
 
 import Grid from '@material-ui/core/Grid';
-import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
@@ -19,6 +19,11 @@ import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
+import Hidden from '@material-ui/core/Hidden';
+import ExpansionPanel from '@material-ui/core/ExpansionPanel';
+import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
+import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -78,8 +83,8 @@ const useStyles = makeStyles((theme) => ({
 		// paddingBottom: theme.spacing(2)
 	},
 	storage: {
-		backgroundColor: '#D0C89E'
-		// marginBottom: theme.spacing(1),
+		backgroundColor: '#D0C89E',
+		marginTop: theme.spacing(1)
 		// paddingTop: theme.spacing(1)
 		// height: '40vh'
 	},
@@ -88,9 +93,9 @@ const useStyles = makeStyles((theme) => ({
 		height: theme.spacing(4)
 	},
 	cart: {
-		backgroundColor: '#D0C89E'
-		// marginTop: theme.spacing(1),
-		// paddingTop: theme.spacing(1)
+		backgroundColor: '#D0C89E',
+		marginTop: theme.spacing(1),
+		paddingBottom: theme.spacing(1)
 	}
 }));
 
@@ -281,10 +286,52 @@ export default function BodyProfileInfo() {
 	return (
 		<div className={classes.root} style={{ background: '#ECE4BA' }}>
 			<Grid container className={classes.base} justify="space-around">
-				<Grid container item lg={3} className={classes.leftCont} direction="column" alignItems="center">
-					<SideNav />
-				</Grid>
-				<Grid container item lg={8} className={classes.rightCont} direction="column" alignItems="center">
+				<Hidden mdDown>
+					<Grid container item lg={3} className={classes.leftCont} direction="column" alignItems="center">
+						<SideNav />
+					</Grid>
+				</Hidden>
+				<Hidden lgUp>
+					<Grid>
+						<ExpansionPanel>
+							<ExpansionPanelSummary
+								expandIcon={<ExpandMoreIcon />}
+								aria-controls="panel1a-content"
+								id="panel1a-header"
+							>
+								<Typography className={classes.heading}>Welcome back</Typography>
+							</ExpansionPanelSummary>
+							<ExpansionPanelDetails>
+								<Grid container>
+									<Grid item md={12} sm={12} xs={12}>
+										<Link to="/profile" style={{ textDecoration: 'none' }}>
+											<Button style={{ width: '100%' }}>Profile Info</Button>
+										</Link>
+									</Grid>
+									<Grid item md={12} sm={12} xs={12}>
+										<Link to="/transaction-history" style={{ textDecoration: 'none' }}>
+											<Button style={{ width: '100%' }}>Transaction History</Button>
+										</Link>
+									</Grid>
+									<Grid item md={12} sm={12} xs={12}>
+										<Link to="/feeds-store" style={{ textDecoration: 'none' }}>
+											<Button style={{ width: '100%' }}>Feeds Store</Button>
+										</Link>
+									</Grid>
+								</Grid>
+							</ExpansionPanelDetails>
+						</ExpansionPanel>
+					</Grid>
+				</Hidden>
+				<Grid
+					container
+					item
+					lg={8}
+					xs={12}
+					className={classes.rightCont}
+					direction="column"
+					alignItems="center"
+				>
 					<Grid item className={classes.title}>
 						<Typography variant="h4" style={{ fontFamily: 'Fredoka One, cursive' }}>
 							Feeds Store
@@ -305,16 +352,16 @@ export default function BodyProfileInfo() {
 							</Grid>
 						</Grid>
 						<Grid container item style={{ paddingTop: '3%' }} justify="space-around">
-							<Grid item lg={5} className={classes.storage}>
+							<Grid item lg={5} xs={11} className={classes.storage}>
 								<Typography variant="h6">Available Items</Typography>
 								<Grid container direction="row" justify="space-around">
-									<Grid container item lg={6} direction="column">
+									<Grid container item lg={6} xs={6} direction="column">
 										<RegularMeat />
 										<PremiumMeat />
 										<RegularFodder />
 										<PremiumFodder />
 									</Grid>
-									<Grid container item lg={6} direction="column">
+									<Grid container item lg={6} xs={6} direction="column">
 										<RegularFruit />
 										<PremiumFruit />
 										<RegularBean />
@@ -322,10 +369,10 @@ export default function BodyProfileInfo() {
 									</Grid>
 								</Grid>
 							</Grid>
-							<Grid item lg={5} className={classes.cart}>
+							<Grid item lg={5} xs={11} className={classes.cart}>
 								<Typography variant="h6">Your Cart</Typography>
 								<Grid container justify="space-around" alignItems="center">
-									<Grid item lg={6}>
+									<Grid item lg={6} xs={6}>
 										{item === '' ? (
 											<Button
 												variant="text"
@@ -360,7 +407,7 @@ export default function BodyProfileInfo() {
 											<PremiumBean />
 										) : null}
 									</Grid>
-									<Grid item lg={4}>
+									<Grid item lg={4} xs={4}>
 										<Typography>
 											Own :{' '}
 											{item === '' ? (
@@ -416,7 +463,7 @@ export default function BodyProfileInfo() {
 									</Grid>
 								</Grid>
 								<Grid container justify="space-around" alignItems="center" style={{ paddingTop: '2%' }}>
-									<Grid container item lg={6} justify="center" alignItems="center">
+									<Grid container item lg={6} xs={6} justify="center" alignItems="center">
 										<IconButton disabled={item === ''} onClick={() => decrement()}>
 											<RemoveCircleOutlineIcon />
 										</IconButton>
@@ -425,12 +472,12 @@ export default function BodyProfileInfo() {
 											<AddCircleOutlineIcon />
 										</IconButton>
 									</Grid>
-									<Grid item lg={6}>
+									<Grid item lg={6} xs={6}>
 										<Typography>Total price: IDR {priceCart}</Typography>
 									</Grid>
 								</Grid>
 								<Grid container>
-									<Grid item lg={12}>
+									<Grid item lg={12} xs={12}>
 										<Button
 											disabled={item === '' || amount === 0}
 											onClick={handleClickOpen}
