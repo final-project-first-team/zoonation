@@ -1,13 +1,11 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
+
 import { makeStyles } from '@material-ui/core/styles';
-
-
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
-// import Link from '@material-ui/core/Link';
 import Hidden from '@material-ui/core/Hidden';
-import { Link } from 'react-router-dom';
 
 import CardDonation from '../../assets/Components/CardDonation';
 import { useDispatch, useSelector } from 'react-redux';
@@ -137,9 +135,6 @@ export default function AnimalAdopt() {
 						return <CardDonation zoos={_Zoos} />
 					})
 				) : null}
-				{/* <CardDonation />
-				<CardDonation />
-				<CardDonation /> */}
 
 				<Link to={'/our-animals'} style={{ textDecoration: 'none', padding: '10px' }}>
 					<Button style={{ fontFamily: 'Fredoka One', padding: '10px', color: '#6C5434' }}>
@@ -151,7 +146,7 @@ export default function AnimalAdopt() {
 			<Grid container display="flex" maxWidth="xl" style={{ marginBottom: '30px' }}>
 				<Grid item xs={12} sm={12} md={6} lg={6} xl={6} style={{ background: '#AAE787' }}>
 					<Hidden smDown>
-						<Typography className={classes.text1} /* style={{textDecoration:'none'}} */>
+						<Typography className={classes.text1}>
 							<Link to="/animal-adopt" style={{ color: '#6C5434', textDecoration: 'none' }}>
 								ADOPT YOUR FAVORITE ANIMAL
 							</Link>
@@ -159,7 +154,7 @@ export default function AnimalAdopt() {
 					</Hidden>
 
 					<Hidden mdUp>
-						<Typography className={classes.text2} /* style={{textDecoration:'none'}} */>
+						<Typography className={classes.text2}>
 							<Link to="/animal-adopt" style={{ color: '#6C5434', textDecoration: 'none' }}>
 								ADOPT YOUR FAVORITE ANIMAL
 							</Link>

@@ -7,6 +7,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import people from './people.png';
 import rhino from './rhino.png';
 
+import SliderHome from '../../assets/Components/SliderHome'
+
 // import { useSelector, useDispatch } from 'react-redux';
 // import { currentUser } from '../../assets/redux/actions/loginAction';
 
@@ -73,6 +75,11 @@ export default function Body() {
 		<div className="background-image">
 			<div className={classes.base}>
 				<div className={classes.flexing}>
+					{/* <Grid container>
+						<Grid item xs={12}>
+							<SliderHome/>
+						</Grid>
+					</Grid> */}
 					<Grid container>
 						<Grid item xs={12}>
 							<div className={classes.text1}>

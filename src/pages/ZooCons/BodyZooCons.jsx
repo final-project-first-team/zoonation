@@ -3,12 +3,9 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Typography } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
-// import Link from '@material-ui/core/Link';
 
 import { Link } from 'react-router-dom';
 
-import SearchBar from '../../assets/Components/SearchBar';
-// import SingleSlider from '../../assets/Components/SingleSlider';
 import SliderSlick from '../../assets/Components/SliderSlick';
 
 import { useDispatch, useSelector } from 'react-redux';
@@ -29,7 +26,6 @@ const useStyles = makeStyles((theme) => ({
 	},
 	gridList: {
 		flexWrap: 'nowrap',
-		// Promote the list into his own layer on Chrome. This cost memory but helps keeping high FPS.
 		transform: 'translateZ(0)'
 	},
 	ourAnimals: {
@@ -63,10 +59,6 @@ export default function BodyZooCons() {
 			<Grid container justify="center" spacing={1}>
 				<Typography className={classes.ourAnimals}>Zoos And Conservations</Typography>
 
-				{/* <Grid container justify="center" spacing={1} maxWidth="sm">
-					<SearchBar />
-				</Grid> */}
-
 				<Grid container justify="center" spacing={1}>
 					<Typography className={classes.toHelp}>
 						To help the animals and the zoos,
@@ -79,12 +71,7 @@ export default function BodyZooCons() {
 
 				<Grid container className={classes.margin} justify="center" spacing={5}>
 					<Grid item xs={12}>
-
-					<SliderSlick zoo={zooData} />
-					{/* <SingleSlider zoo={zooData} /> */}
-					</Grid>
-					<Grid item>
-						{/* <SingleSlider zoo={zooData} /> */}
+						<SliderSlick zoo={zooData} />
 					</Grid>
 				</Grid>
 			</Grid>

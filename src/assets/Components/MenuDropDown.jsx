@@ -8,7 +8,6 @@ import Divider from '@material-ui/core/Divider';
 import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 import Collapse from '@material-ui/core/Collapse';
@@ -159,13 +158,13 @@ export default function SimpleMenu() {
 						</ListItem>
 					</List>
 				</Collapse>
-				<Link to="#" style={{ textDecoration: 'none' }}>
+				<Link to="/animals-news" style={{ textDecoration: 'none' }}>
 					<MenuItem className={classes.title} onClick={handleClose}>
 						Animals News
 					</MenuItem>
 				</Link>
 
-				<Link to="#" style={{ textDecoration: 'none' }}>
+				<Link to="/about-us" style={{ textDecoration: 'none' }}>
 					<MenuItem className={classes.title} onClick={handleClose}>
 						About Us
 					</MenuItem>
