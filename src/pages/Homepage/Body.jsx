@@ -2,24 +2,22 @@ import React /* Fragment */ from 'react';
 import './homepage.css';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
+import Hidden from '@material-ui/core/Hidden';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import people from './people.png';
-import rhino from './rhino.png';
+import rhino from './elephant.png';
 
-import SliderHome from '../../assets/Components/SliderHome'
+import SliderHome from '../../assets/Components/SliderHome';
 
 // import { useSelector, useDispatch } from 'react-redux';
 // import { currentUser } from '../../assets/redux/actions/loginAction';
 
 const useStyles = makeStyles((theme) => ({
 	base: {
-		height: '100%',
-		paddingTop: '50px',
-		paddingBottom: '50px'
+		height: 'auto'
 	},
 	paper: {
-		padding: theme.spacing(2),
 		textAlign: 'center',
 		color: theme.palette.text.secondary
 	},
@@ -27,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
 		fontFamily: 'Fredoka One',
 		fontStyle: 'normal',
 		fontWeight: 'normal',
-		fontSize: '36px',
+		fontSize: '44px',
 		lineHeight: '44px',
 		textAlign: 'right',
 		padding: '30px',
@@ -37,31 +35,13 @@ const useStyles = makeStyles((theme) => ({
 		fontFamily: 'Fredoka One',
 		fontStyle: 'normal',
 		fontWeight: 'normal',
-		fontSize: '36px',
-		lineHeight: '44px',
+		fontSize: '44px',
+		lineHeight: '48px',
 		textAlign: 'right',
 		padding: '30px',
 		backgroundColor: 'transparent',
 		alignSelf: 'flex-end',
 		justifyContent: 'flex-end'
-	},
-	text3: {
-		fontFamily: 'Fredoka One',
-		fontStyle: 'normal',
-		fontWeight: 'normal',
-		fontSize: '36px',
-		lineHeight: '44px',
-		textAlign: 'right',
-		padding: '30px',
-		backgroundColor: 'transparent',
-		alignSelf: 'flex-end',
-		justifyContent: 'flex-end'
-	},
-	flexing: {
-		display: 'flex',
-		flexDirection: 'column',
-		justifyContent: 'space-between',
-		minHeight: '100%'
 	}
 }));
 
@@ -72,94 +52,67 @@ export default function Body() {
 	// console.log(currentUser);
 
 	return (
-		<div className="background-image">
-			<div className={classes.base}>
-				<div className={classes.flexing}>
-					{/* <Grid container>
-						<Grid item xs={12}>
-							<SliderHome/>
-						</Grid>
-					</Grid> */}
-					<Grid container>
-						<Grid item xs={12}>
-							<div className={classes.text1}>
-								“The First Collaborative Website
-								<br />
-								for Zoo Across Nations”
-							</div>
-						</Grid>
-					</Grid>
-
-					<Grid container>
-						<Grid item xs={6} md={6} lg={6}>
-							<Paper elevation={0} className={classes.text2}>
+		<div className={classes.base}>
+			<div className="background-image">
+				<Grid container justify="flex-start" style={{ paddingTop: '80px' }}>
+					<Grid item xs={12} md={12} lg={6}>
+						<Paper elevation={0} className={classes.text2}>
+							<Grid
+								container
+								style={{
+									fontSize: '22px',
+									lineHeight: '18px',
+									textAlign: 'right',
+									background: 'rgba(255, 253, 99, 0.6)',
+									padding: '20px',
+									borderRadius: '5px'
+								}}
+							>
 								<Grid
-									container
-									style={{
-										fontSize: '22px',
-										lineHeight: '18px',
-										textAlign: 'right',
-										background: 'rgba(255, 253, 99, 0.6)',
-										padding: '20px',
-										borderRadius: '5px'
-									}}
+									item
+									xs={12}
+									md={12}
+									lg={6}
+									style={{ textAlign: 'center', background: '#C4C4C4' }}
 								>
-									<Grid
-										item
-										xs={12}
-										md={12}
-										lg={6}
-										style={{ textAlign: 'center', background: '#C4C4C4' }}
-									>
-										<p>
-											<b>10</b> Cooperating zoos and conservations
-										</p>
-										<Typography style={{ fontFamily: 'Raleway', fontSize: '18px' }}>
-											Educate
-										</Typography>
-										<img src={people} alt="people_png" style={{ width: '100px' }} />
-										<Typography style={{ fontFamily: 'Raleway', fontSize: '18px' }}>
-											People
-										</Typography>
-									</Grid>
-									<br />
-									<Grid
-										item
-										xs={12}
-										md={12}
-										lg={6}
-										style={{ textAlign: 'center', background: '#C4C4C4' }}
-									>
-										<p>
-											<b>100</b> and more animals in shelter and protection
-										</p>
-										<Typography style={{ fontFamily: 'Raleway', fontSize: '18px' }}>
-											Protect
-										</Typography>
-										<img src={rhino} alt="rhino_png" style={{ width: '100px' }} />
-										<Typography style={{ fontFamily: 'Raleway', fontSize: '18px' }}>
-											Animals
-										</Typography>
-									</Grid>
+									<p>
+										<b>10</b> Cooperating zoos and conservations
+									</p>
+									<Typography style={{ fontFamily: 'Raleway', fontSize: '18px' }}>Educate</Typography>
+									<img src={people} alt="people_png" style={{ width: '100px', margin: '8px' }} />
+									<Typography style={{ fontFamily: 'Raleway', fontSize: '18px' }}>People</Typography>
 								</Grid>
-							</Paper>
-						</Grid>
-
-						<Grid item xs={6}>
-							<Grid container>
-								<Grid item xs={12}>
-									<div className={classes.text3}>
-										Feed and Meet
-										<br />
-										The Wildlife,
-										<br />
-										From Your Screen.
-									</div>
+								<br />
+								<Grid
+									item
+									xs={12}
+									md={12}
+									lg={6}
+									style={{ textAlign: 'center', background: '#C4C4C4' }}
+								>
+									<p>
+										<b>100</b> and more animals in shelter and protection
+									</p>
+									<Typography style={{ fontFamily: 'Raleway', fontSize: '18px' }}>Protect</Typography>
+									<img src={rhino} alt="rhino_png" style={{ width: '125px', margin: '8px' }} />
+									<Typography style={{ fontFamily: 'Raleway', fontSize: '18px' }}>Animals</Typography>
 								</Grid>
 							</Grid>
+						</Paper>
+					</Grid>
+				</Grid>
+
+				<Hidden smDown>
+					<Grid container justify="flex-end">
+						<Grid item xs={12} sm={12} lg={6} xl={6}>
+							<Typography className={classes.text1}>
+								"Get Closer to Your
+								<br />Favourite Animals
+								<br />Just in One Click"
+							</Typography>
 						</Grid>
 					</Grid>
-				</div>
+				</Hidden>
 			</div>
 		</div>
 	);
