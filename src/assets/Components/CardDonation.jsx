@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -9,8 +11,6 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 
-import { Link } from 'react-router-dom';
-
 const useStyles = makeStyles({
 	root: {
 		// minWidth: 300,
@@ -20,7 +20,7 @@ const useStyles = makeStyles({
 	},
 	media: {
 		height: 140,
-		
+
 	}
 });
 
@@ -32,7 +32,7 @@ export default function CardMapping(props) {
 				<CardActionArea>
 					<CardMedia
 						className={classes.media}
-						image=/* "https://media.13newsnow.com/assets/WVEC/images/cd4e02dc-cc24-449a-85b6-899443dc73b8/cd4e02dc-cc24-449a-85b6-899443dc73b8_1920x1080.jpg" */ {props.zoos.photo}
+						image={props.zoos.photo}
 						title={props.zoos.zooName}
 					/>
 					<CardContent>
@@ -53,9 +53,9 @@ export default function CardMapping(props) {
 				</CardActionArea>
 				<CardActions>
 					<Grid container justify="center">
-						<Link to={`/zoo-partner/${props.zoos._id}`}>
-						<Button size="small" color="inherit" style={{ fontFamily: 'roboto', color: '#6C5434' }}>
-							Zoo's info
+						<Link to={`/zoo-partner/${props.zoos._id}`} style={{textDecoration:'none'}}>
+							<Button size="small" color="inherit" style={{ fontFamily: 'roboto', color: '#6C5434'}}>
+								Zoo's info
 						</Button>
 						</Link>
 					</Grid>
