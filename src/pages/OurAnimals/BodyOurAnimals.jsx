@@ -4,13 +4,13 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import { Typography } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
-import Link from '@material-ui/core/Link';
 
 import CardMapping from '../../assets/Components/CardMapping';
 import SearchBar from '../../assets/Components/SearchBar';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { getAnimals } from '../../assets/redux/actions/animalsAction';
+import { Link } from 'react-router-dom';
 
 const useStyle = makeStyles((theme) => ({
 	root: {
@@ -67,15 +67,15 @@ export default function BodyOurAnimals() {
 			<Grid container justify="center">
 				<Typography className={classes.ourAnimals}>Our Animals</Typography>
 
-				<Grid container justify="center" maxWidth="sm">
+				{/* <Grid container justify="center" maxWidth="sm">
 					<SearchBar />
-				</Grid>
+				</Grid> */}
 
 				<Grid container justify="center">
 					<Typography className={classes.toHelp}>
 						To help the animals and the zoos,
 						<br />
-						<Link style={{ fontSize: '18px' }} color="inherit">
+						<Link to="/donation" className={classes.toHelp} style={{ textDecoration: 'none' }}>
 							<b>click here!</b>
 						</Link>
 					</Typography>

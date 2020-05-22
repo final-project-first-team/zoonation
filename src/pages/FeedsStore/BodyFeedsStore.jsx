@@ -36,7 +36,8 @@ import {
 	priceMultiplierUp,
 	priceMultiplierDown,
 	resetAmountCart,
-	resetPriceCart
+	resetPriceCart,
+	resetItem
 } from '../../assets/redux/actions/feedsCartAction';
 import SideNav from '../../assets/Components/SideNav';
 import RegularMeat from './RegularMeat';
@@ -197,6 +198,7 @@ export default function BodyProfileInfo() {
 	};
 
 	useEffect(() => {
+		dispatch(resetItem());
 		if (price.length === 0) {
 			dispatch(getPrice());
 		}

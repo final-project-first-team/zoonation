@@ -21,10 +21,14 @@ export default function AnimalsData(props) {
 	return (
 		<Fragment>
 			{/* ANIMAL NAME */}
-			<Typography style={{ fontFamily: 'Fredoka One', fontSize:'22px', color: '#6C5434'}}>{currentAnimal !== undefined ? currentAnimal.name : null}</Typography>
-			
+			<Typography style={{ fontFamily: 'Fredoka One', fontSize: '22px', color: '#6C5434' }}>
+				{currentAnimal !== undefined ? currentAnimal.name : null}
+			</Typography>
+
 			{/* SCIENTIFIC NAME */}
-			<Typography style={{ fontFamily: 'Raleway', fontSize:'16px', color: '#6C5434'}}>{currentAnimal !== undefined ? currentAnimal.scientificName : null}</Typography>
+			<Typography style={{ fontFamily: 'Raleway', fontSize: '16px', color: '#6C5434' }}>
+				{currentAnimal !== undefined ? currentAnimal.scientificName : null}
+			</Typography>
 			<List style={{ textAlign: 'left', fontFamily: 'Fredoka One' }}>
 				<ListItem style={{ textAlign: 'center' }}>
 					<ListItemText primary="Type : " />
@@ -32,7 +36,9 @@ export default function AnimalsData(props) {
 				</ListItem>
 			</List>
 
-			<Typography style={{ textAlign: 'left', padding: '8px', fontFamily: 'Fredoka One', color: '#6C5434' }}>Feeds/Day :</Typography>
+			<Typography style={{ textAlign: 'left', padding: '8px', fontFamily: 'Fredoka One', color: '#6C5434' }}>
+				Feeds/Day :
+			</Typography>
 			<List>
 				<ListItem style={{ paddingLeft: '16px', textAlign: 'justify' }}>
 					<ListItemText primary={currentAnimal !== undefined ? currentAnimal.feeds.feeds1 : null} />
@@ -44,7 +50,9 @@ export default function AnimalsData(props) {
 					<ListItemText secondary={currentAnimal !== undefined ? currentAnimal.feeds.perDay2 : null} />
 				</ListItem>
 			</List>
-			<Typography style={{ textAlign: 'left', padding: '8px', fontFamily: 'Fredoka One', color: '#6C5434' }}>Feeds source :</Typography>
+			<Typography style={{ textAlign: 'left', padding: '8px', fontFamily: 'Fredoka One', color: '#6C5434' }}>
+				Feeds source :
+			</Typography>
 			<List>
 				<ListItem style={{ paddingLeft: '16px', textAlign: 'justify' }}>
 					<ListItemText primary={currentAnimal !== undefined ? currentAnimal.feeds.feeds1 : null} />

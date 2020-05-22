@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 
 import Typography from '@material-ui/core/Typography';
@@ -30,7 +30,8 @@ import {
 	priceMultiplierUp,
 	priceMultiplierDown,
 	resetAmountCart,
-	resetPriceCart
+	resetPriceCart,
+	resetItem
 } from '../../assets/redux/actions/feedsCartAction';
 import { newFeedTransaction } from '../../assets/redux/actions/feedTransactionAction';
 import { getStorage, updateStorage } from '../../assets/redux/actions/storageAction';
@@ -82,6 +83,10 @@ export default function YourTray(props) {
 									: item === 'RegularBean'
 										? userStorage.regularBean
 										: item === 'PremiumBean' ? userStorage.premiumBean : null;
+
+	useEffect(() => {
+		dispatch(resetItem());
+	}, []);
 
 	const increment = () => {
 		if (amount + 1 <= currentStorageAmount) {
@@ -167,7 +172,7 @@ export default function YourTray(props) {
 
 	return (
 		<Fragment>
-			<Typography>Your Tray</Typography>
+			<Typography style={{ fontFamily: 'Fredoka One', color: '#6C5434', paddingTop: '1%' }}>Your Tray</Typography>
 			<List>
 				{item === '' ? (
 					<Button variant="text" size="small" style={{ width: '100%', justifyContent: 'left' }}>

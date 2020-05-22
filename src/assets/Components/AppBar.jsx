@@ -19,6 +19,7 @@ import Paw from './paw.png';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { currentUser, logout } from '../../assets/redux/actions/loginAction';
+import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -52,6 +53,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ButtonAppBar(props) {
 	const classes = useStyles();
+	const history = useHistory();
 	const isLoggedIn = useSelector((state) => state.isLoggedIn);
 	const currUser = useSelector((state) => state.currentUser);
 	const dispatch = useDispatch();
@@ -80,7 +82,7 @@ export default function ButtonAppBar(props) {
 		await localStorage.removeItem('token');
 		await localStorage.removeItem('refToken');
 		await localStorage.removeItem('isLoggedIn');
-		await window.location.reload();
+		await history.push('/sign-in');
 	};
 
 	return (

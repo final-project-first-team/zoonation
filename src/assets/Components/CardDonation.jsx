@@ -17,10 +17,10 @@ const useStyles = makeStyles({
 		borderRadius: '5px',
 		// width: 350,
 		// margin: '1%'
+		height: 300
 	},
 	media: {
-		height: 140,
-
+		height: 140
 	}
 });
 
@@ -30,11 +30,7 @@ export default function CardMapping(props) {
 		<Grid item lg={3} md={4} sm={6} xs={12}>
 			<Card className={classes.root}>
 				<CardActionArea>
-					<CardMedia
-						className={classes.media}
-						image={props.zoos.photo}
-						title={props.zoos.zooName}
-					/>
+					<CardMedia className={classes.media} image={props.zoos.photo} title={props.zoos.zooName} />
 					<CardContent>
 						<Typography
 							gutterBottom
@@ -53,10 +49,10 @@ export default function CardMapping(props) {
 				</CardActionArea>
 				<CardActions>
 					<Grid container justify="center">
-						<Link to={`/zoo-partner/${props.zoos._id}`} style={{textDecoration:'none'}}>
-							<Button size="small" color="inherit" style={{ fontFamily: 'roboto', color: '#6C5434'}}>
+						<Link to={`/zoo-partner/${props.zoos._id}`} style={{ textDecoration: 'none' }}>
+							<Button size="small" color="inherit" style={{ fontFamily: 'roboto', color: '#6C5434' }}>
 								Zoo's info
-						</Button>
+							</Button>
 						</Link>
 					</Grid>
 				</CardActions>

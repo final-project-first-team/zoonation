@@ -54,38 +54,42 @@ export default function CardMapping(props) {
 				<CardActions>
 					<Grid container justify="space-around">
 						<Grid item>
-							<Button
-								variant="text"
-								size="small"
-								// onClick={() => handleClick()}
-								style={{ width: '100%', justifyContent: 'left' }}
-							>
-								<Typography style={{ fontFamily: 'Lemonada' }}>Feed me</Typography>
-								{/* <Avatar
+							<Link to={`/animal-feeder/${props.animals._id}`} style={{ textDecoration: 'none' }}>
+								<Button
+									variant="text"
+									size="small"
+									// onClick={() => handleClick()}
+									style={{ width: '100%', justifyContent: 'left' }}
+								>
+									<Typography style={{ fontFamily: 'Lemonada' }}>Feed me</Typography>
+									{/* <Avatar
 									title="Feed me"
 									alt="Feed me"
 									src="https://i.ibb.co/FBRSzPP/Pik-Png-com-fertilizer-png-4695532.png"
 									style={{ marginRight: '5%' }}
 									className={classes.images}
 								/> */}
-							</Button>
+								</Button>
+							</Link>
 						</Grid>
 						<Grid item>
-							<Button
-								variant="text"
-								size="small"
-								// onClick={() => handleClick()}
-								style={{ width: '100%', justifyContent: 'left' }}
-							>
-								<Typography style={{ fontFamily: 'Lemonada' }}>Adopt me</Typography>
-								{/* <Avatar
+							<Link to={`/animal-adopt-2/${props.animals._id}`} style={{ textDecoration: 'none' }}>
+								<Button
+									variant="text"
+									size="small"
+									// onClick={() => handleClick()}
+									style={{ width: '100%', justifyContent: 'left' }}
+								>
+									<Typography style={{ fontFamily: 'Lemonada' }}>Adopt me</Typography>
+									{/* <Avatar
 									title="Adopt me"
 									alt="Adopt me"
 									src="https://i.ibb.co/DMGt4Lc/kisspng-beagle-pet-sitting-pet-adoption-cat-pets-sign-5adccafe0d2a20-5333867415244193260539.png"
 									style={{ marginRight: '5%' }}
 									className={classes.images}
 								/> */}
-							</Button>
+								</Button>
+							</Link>
 						</Grid>
 
 						{/* <Button size="small" color="inherit" style={{ fontFamily: 'roboto', color: '#6C5434' }}>

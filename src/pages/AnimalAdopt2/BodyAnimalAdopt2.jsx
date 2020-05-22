@@ -83,7 +83,7 @@ export default function AnimalAdopt2() {
 		<div className={classes.root} style={{ background: '#ECE4BA' }}>
 			<Grid container justify="center">
 				<Typography className={classes.ourAnimals}>
-					ADOPT A {currentAnimal.data !== undefined ? currentAnimal.data.name : null}
+					Adopt a {currentAnimal.data !== undefined ? currentAnimal.data.name : null}
 				</Typography>
 			</Grid>
 

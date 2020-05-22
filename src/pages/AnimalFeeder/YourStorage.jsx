@@ -58,7 +58,7 @@ export default function YourStorage(props) {
 
 	return (
 		<Fragment>
-			<Typography>Your Storage</Typography>
+			<Typography style={{ fontFamily: 'Fredoka One', color: '#6C5434' }}>Your Storage</Typography>
 			<List>
 				{currentStorage1 === '' ? (
 					<Button variant="text" size="small" style={{ width: '100%', justifyContent: 'left' }}>

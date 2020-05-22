@@ -52,7 +52,7 @@ const useStyle = makeStyles((theme) => ({
 	leftContainerInside: {
 		backgroundColor: '#f6f4e4',
 		margin: theme.spacing(2),
-		padding: '50px'
+		padding: theme.spacing(2)
 	},
 	storage: {
 		height: 'auto'

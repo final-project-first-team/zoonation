@@ -2,6 +2,8 @@ export const itemsCartReducer = (state = '', action) => {
 	switch (action.type) {
 		case 'GET_CART_DATA':
 			return action.payload.data;
+		case 'RESET_ITEMS':
+			return (state = '');
 		default:
 			return state;
 	}

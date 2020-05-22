@@ -254,7 +254,7 @@ export default function FormAdopt(props) {
 			</Formik>
 			<Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
 				<Alert onClose={handleClose} severity="success">
-					Thanks for feeding me!
+					Thanks for your donation!
 				</Alert>
 			</Snackbar>
 		</Fragment>

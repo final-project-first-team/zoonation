@@ -23,13 +23,14 @@ const useStyles = makeStyles({
 
 export default function CardMapping(props) {
 	const classes = useStyles();
+	const animals = props.animals;
 	return (
 		<Grid item lg={3} md={4} sm={6} xs={12}>
 			<Card className={classes.root}>
 				<CardActionArea>
 					<CardMedia
 						className={classes.media}
-						image="https://wallpaperaccess.com/full/2136603.jpg"
+						image={`${animals.image1}`}
 						title={props.animals.scientificName}
 					/>
 					<CardContent>
@@ -51,9 +52,9 @@ export default function CardMapping(props) {
 				<CardActions>
 					<Grid container justify="center">
 						<Link to={`/animal-adopt-2/${props.animals._id}`} style={{ textDecoration: 'none' }}>
-						<Button size="small" color="inherit" style={{ fontFamily: 'Raleway', color: '#6C5434' }}>
-							Adopt This Animal &hearts;
-						</Button>
+							<Button size="small" color="inherit" style={{ fontFamily: 'Raleway', color: '#6C5434' }}>
+								Adopt This Animal &hearts;
+							</Button>
 						</Link>
 					</Grid>
 				</CardActions>

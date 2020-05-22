@@ -108,15 +108,15 @@ export default function BodyMetDon() {
 					>
 						Choose The Amount
 					</Grid>
-					<Grid item md={12} style={{ background: '#F6F4E4', paddingBottom: '52px' }}>
+					<Grid item md={12} style={{ background: '#F6F4E4', paddingBottom: '30px' }}>
 						<FormControl component="fieldset" style={{ margin: '10px' }}>
 							<FormLabel component="legend" style={{ fontFamily: 'Raleway' }}>
 								Your help means a lot
 							</FormLabel>
 							<RadioGroup aria-label="payment" name="gender1" value={value} onChange={handleChange}>
-								<FormControlLabel value="10000" control={<Radio />} label="IDR 10,000" />
-								<FormControlLabel value="15000" control={<Radio />} label="IDR 15,000" />
-								<FormControlLabel value="20000" control={<Radio />} label="IDR 20,000" />
+								<FormControlLabel value="100000" control={<Radio />} label="IDR 100,000" />
+								<FormControlLabel value="150000" control={<Radio />} label="IDR 150,000" />
+								<FormControlLabel value="200000" control={<Radio />} label="IDR 200,000" />
 							</RadioGroup>
 						</FormControl>
 					</Grid>

@@ -87,7 +87,7 @@ export default function ZooPartner() {
 		<div className={classes.root} style={{ background: '#ECE4BA' }}>
 			<Grid container justify="center">
 				<Typography className={classes.ourAnimals}>
-					DONATE TO {currentZoo.length !== 0 ? currentZoo.data.zooName : null}
+					Donate to {currentZoo.length !== 0 ? currentZoo.data.zooName : null}
 				</Typography>
 			</Grid>
 

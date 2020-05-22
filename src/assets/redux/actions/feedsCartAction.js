@@ -7,6 +7,12 @@ export const getCartData = (data) => {
 	};
 };
 
+export const resetItem = () => {
+	return {
+		type: 'RESET_ITEMS'
+	};
+};
+
 export const amountIncrement = () => {
 	return {
 		type: 'INCREMENT'

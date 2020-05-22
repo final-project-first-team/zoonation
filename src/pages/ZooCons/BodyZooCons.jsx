@@ -57,13 +57,13 @@ export default function BodyZooCons() {
 	return (
 		<div className={classes.root} style={{ background: '#ECE4BA' }}>
 			<Grid container justify="center" spacing={1}>
-				<Typography className={classes.ourAnimals}>Zoos And Conservations</Typography>
+				<Typography className={classes.ourAnimals}>Zoos and Conservations</Typography>
 
 				<Grid container justify="center" spacing={1}>
 					<Typography className={classes.toHelp}>
 						To help the animals and the zoos,
 						<br />
-						<Link to='/donation' className={classes.toHelp} style={{ textDecoration: 'none' }}>
+						<Link to="/donation" className={classes.toHelp} style={{ textDecoration: 'none' }}>
 							<b>click here!</b>
 						</Link>
 					</Typography>
