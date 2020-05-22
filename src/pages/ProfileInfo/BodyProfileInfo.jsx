@@ -26,6 +26,7 @@ import PremiumBean from '../FeedsStore/PremiumBean';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { getStorage } from '../../assets/redux/actions/storageAction';
+import { getAdoptData } from '../../assets/redux/actions/adoptDataAction';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -71,6 +72,7 @@ export default function BodyProfileInfo() {
 	const dispatch = useDispatch();
 	const currUser = useSelector((state) => state.currentUser);
 	const userStorage = useSelector((state) => state.feedsStorage);
+	const currentAdopt = useSelector((state) => state.currentAdopt);
 	const [ editMode, setEditMode ] = React.useState(false);
 	const [ newPass, setNewPass ] = React.useState(false);
 
@@ -78,7 +80,11 @@ export default function BodyProfileInfo() {
 		if (userStorage.length === 0) {
 			dispatch(getStorage(currUser._id));
 		}
+		if (currentAdopt === '') {
+			dispatch(getAdoptData(currUser._id));
+		}
 	}
+	console.log(currentAdopt);
 
 	const changeData = () => {
 		setEditMode(true);
@@ -109,11 +115,11 @@ export default function BodyProfileInfo() {
 											<Button style={{ width: '100%' }}>Profile Info</Button>
 										</Link>
 									</Grid>
-									<Grid item md={12} sm={12} xs={12}>
+									{/* <Grid item md={12} sm={12} xs={12}>
 										<Link to="/transaction-history" style={{ textDecoration: 'none' }}>
 											<Button style={{ width: '100%' }}>Transaction History</Button>
 										</Link>
-									</Grid>
+									</Grid> */}
 									<Grid item md={12} sm={12} xs={12}>
 										<Link to="/feeds-store" style={{ textDecoration: 'none' }}>
 											<Button style={{ width: '100%' }}>Feeds Store</Button>

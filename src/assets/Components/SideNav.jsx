@@ -56,7 +56,7 @@ export default function SideNav(props) {
 					Welcome back, {currUser !== undefined ? currUser.fullname : ''}
 				</Typography>
 			</Grid>
-			<Grid item className={classes.sideNav}>
+			{/* <Grid item className={classes.sideNav}>
 				<Link href="#" color="inherit">
 					<Button
 						variant="contained"
@@ -68,7 +68,7 @@ export default function SideNav(props) {
 						<Typography style={{ fontFamily: 'Fredoka One, cursive' }}>Change Avatar</Typography>
 					</Button>
 				</Link>
-			</Grid>
+			</Grid> */}
 			<Grid item className={classes.sideNav}>
 				<Link to="/profile" style={{ textDecoration: 'none' }}>
 					<Button
@@ -82,7 +82,7 @@ export default function SideNav(props) {
 					</Button>
 				</Link>
 			</Grid>
-			<Grid item className={classes.sideNav}>
+			{/* <Grid item className={classes.sideNav}>
 				<Link to="/transaction-history" style={{ textDecoration: 'none' }}>
 					<Button
 						variant="contained"
@@ -94,7 +94,7 @@ export default function SideNav(props) {
 						<Typography style={{ fontFamily: 'Fredoka One, cursive' }}>Transaction History</Typography>
 					</Button>
 				</Link>
-			</Grid>
+			</Grid> */}
 			<Grid item className={classes.sideNav}>
 				<Link to="/feeds-store" style={{ textDecoration: 'none' }}>
 					<Button

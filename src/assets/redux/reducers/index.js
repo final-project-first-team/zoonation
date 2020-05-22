@@ -11,6 +11,7 @@ import { itemsCartReducer, amountCartReducer, priceCartReducer } from './feedsCa
 import { trayReducer } from './trayReducers';
 import { saveAmountReducer } from './adoptRateReducer';
 import zooPartnerReducer from './zooPartnerReducer';
+import { adoptDataReducer } from './adoptDataReducer';
 
 const allReducers = combineReducers({
 	currentUser: loginReducer,
@@ -26,7 +27,8 @@ const allReducers = combineReducers({
 	priceHolder: priceCartReducer,
 	trayHolder: trayReducer,
 	amountHolderSave: saveAmountReducer,
-	currentZoo: zooPartnerReducer
+	currentZoo: zooPartnerReducer,
+	currentAdopt: adoptDataReducer
 });
 
 export default allReducers;

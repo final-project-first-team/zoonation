@@ -64,7 +64,8 @@ const useStyles = makeStyles((theme) => ({
 	},
 	leftCont: {
 		backgroundColor: 'rgba(255, 255, 255, 0.39)',
-		paddingBottom: theme.spacing(11)
+		paddingBottom: theme.spacing(11),
+		height: 550
 	},
 	rightCont: {
 		backgroundColor: 'rgba(255, 255, 255, 0.39)'
@@ -294,8 +295,8 @@ export default function BodyProfileInfo() {
 					</Grid>
 				</Hidden>
 				<Hidden lgUp>
-					<Grid>
-						<ExpansionPanel>
+					<Grid container>
+						<ExpansionPanel style={{ width: '100%' }}>
 							<ExpansionPanelSummary
 								expandIcon={<ExpandMoreIcon />}
 								aria-controls="panel1a-content"
@@ -310,11 +311,11 @@ export default function BodyProfileInfo() {
 											<Button style={{ width: '100%' }}>Profile Info</Button>
 										</Link>
 									</Grid>
-									<Grid item md={12} sm={12} xs={12}>
+									{/* <Grid item md={12} sm={12} xs={12}>
 										<Link to="/transaction-history" style={{ textDecoration: 'none' }}>
 											<Button style={{ width: '100%' }}>Transaction History</Button>
 										</Link>
-									</Grid>
+									</Grid> */}
 									<Grid item md={12} sm={12} xs={12}>
 										<Link to="/feeds-store" style={{ textDecoration: 'none' }}>
 											<Button style={{ width: '100%' }}>Feeds Store</Button>
