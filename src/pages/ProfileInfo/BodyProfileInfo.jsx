@@ -63,7 +63,7 @@ const useStyles = makeStyles((theme) => ({
 	},
 	heading: {
 		fontSize: theme.typography.pxToRem(15),
-		fontWeight: theme.typography.fontWeightRegular
+		fontWeight: theme.typography.fontWeightRegular,
 	}
 }));
 
@@ -140,7 +140,7 @@ export default function BodyProfileInfo() {
 					alignItems="center"
 				>
 					<Grid item className={classes.title}>
-						<Typography variant="h4" style={{ fontFamily: 'Fredoka One, cursive' }}>
+						<Typography variant="h4" style={{ fontFamily: 'Fredoka One, cursive', color: '#6C5434' }}>
 							Profile Info
 						</Typography>
 					</Grid>
@@ -233,7 +233,7 @@ export default function BodyProfileInfo() {
 					<Grid container item className={classes.subTitle}>
 						<Grid container item lg={8} xs={12} justify="center" alignItems="center">
 							<Grid item lg={12} xs={12} style={{ paddingBottom: '3%' }}>
-								<Typography variant="h6" style={{ fontFamily: 'Fredoka One, cursive' }}>
+								<Typography variant="h6" style={{ fontFamily: 'Fredoka One, cursive', color: '#6C5434' }}>
 									Feeds Storage
 								</Typography>
 							</Grid>
@@ -241,59 +241,59 @@ export default function BodyProfileInfo() {
 								<Grid item lg={4} xs={4}>
 									<RegularMeat />
 								</Grid>
-								<Grid item lg={1} xs={2}>
+								<Grid item lg={1} xs={2} style={{ fontFamily: 'Fredoka One', color: '#6C5434' }}>
 									X {userStorage !== undefined ? userStorage.regularMeat : 0}
 								</Grid>
 								<Grid item lg={4} xs={4}>
 									<RegularFruit />
 								</Grid>
-								<Grid item lg={1} xs={2}>
+								<Grid item lg={1} xs={2} style={{ fontFamily: 'Fredoka One', color: '#6C5434' }}>
 									X {userStorage !== undefined ? userStorage.regularFruit : 0}
 								</Grid>
 								<Grid item lg={4} xs={4}>
 									<PremiumMeat />
 								</Grid>
-								<Grid item lg={1} xs={2}>
+								<Grid item lg={1} xs={2} style={{ fontFamily: 'Fredoka One', color: '#6C5434' }}>
 									X {userStorage !== undefined ? userStorage.premiumMeat : 0}
 								</Grid>
 								<Grid item lg={4} xs={4}>
 									<PremiumFruit />
 								</Grid>
-								<Grid item lg={1} xs={2}>
+								<Grid item lg={1} xs={2} style={{ fontFamily: 'Fredoka One', color: '#6C5434' }}>
 									X {userStorage !== undefined ? userStorage.premiumFruit : 0}
 								</Grid>
 								<Grid item lg={4} xs={4}>
 									<RegularFodder />
 								</Grid>
-								<Grid item lg={1} xs={2}>
+								<Grid item lg={1} xs={2} style={{ fontFamily: 'Fredoka One', color: '#6C5434' }}>
 									X {userStorage !== undefined ? userStorage.regularFodder : 0}
 								</Grid>
 								<Grid item lg={4} xs={4}>
 									<RegularBean />
 								</Grid>
-								<Grid item lg={1} xs={2}>
+								<Grid item lg={1} xs={2} style={{ fontFamily: 'Fredoka One', color: '#6C5434' }}>
 									X {userStorage !== undefined ? userStorage.regularBean : 0}
 								</Grid>
 								<Grid item lg={4} xs={4}>
 									<PremiumFodder />
 								</Grid>
-								<Grid item lg={1} xs={2}>
+								<Grid item lg={1} xs={2} style={{ fontFamily: 'Fredoka One', color: '#6C5434' }}>
 									X {userStorage !== undefined ? userStorage.premiumFodder : 0}
 								</Grid>
 								<Grid item lg={4} xs={4}>
 									<PremiumBean />
 								</Grid>
-								<Grid item lg={1} xs={2}>
+								<Grid item lg={1} xs={2} style={{ fontFamily: 'Fredoka One', color: '#6C5434' }}>
 									X {userStorage !== undefined ? userStorage.premiumBean : 0}
 								</Grid>
 							</Grid>
 							<Grid item lg={12} style={{ paddingTop: '5%', paddingBottom: '5%' }}>
-								<Typography>Buy more feeds on our feeds store</Typography>
+								<Typography style={{ fontFamily: 'Raleway' }}>Buy more feeds on our feeds store</Typography>
 							</Grid>
 						</Grid>
 						<Grid container item lg={4} xs={12} justify="center">
 							<Grid item lg={12} xs={12} style={{ paddingBottom: '3%' }}>
-								<Typography variant="h6" style={{ fontFamily: 'Fredoka One, cursive' }}>
+								<Typography variant="h6" style={{ fontFamily: 'Fredoka One, cursive', color: '#6C5434' }}>
 									Current Animal Adopted
 								</Typography>
 							</Grid>
@@ -312,28 +312,28 @@ export default function BodyProfileInfo() {
 										/>
 									</Grid>
 									<Grid item lg={12} xs={12}>
-										<Typography>
+										<Typography style={{ fontFamily: 'Fredoka One' }}>
 											{currentAdopt.data !== undefined ? currentAdopt.data.animalId.name : null}
 										</Typography>
 									</Grid>
 									<Grid item lg={12} xs={12}>
-										<Typography>
+										<Typography style={{ fontFamily: 'Raleway' }}>
 											{currentAdopt.data !== undefined ? currentAdopt.data.animalId.zoo : null}
 										</Typography>
 									</Grid>
 									<Grid item lg={12} xs={12}>
-										<Typography>
+										<Typography style={{ fontFamily: 'Raleway' }}>
 											You adopted this animal for{' '}
 											{currentAdopt.data !== undefined ? currentAdopt.data.long : null} months
 										</Typography>
 									</Grid>
 									<Grid item lg={12} xs={12}>
-										<Typography>The animal you adopted is in good condition</Typography>
+										<Typography style={{ fontFamily: 'Raleway' }}>The animal you adopted is in good condition</Typography>
 									</Grid>
 								</Fragment>
 							) : (
 								<Grid item lg={12} xs={12}>
-									<Typography>You haven't adopt animal yet</Typography>
+									<Typography style={{ fontFamily: 'Raleway' }}>You haven't adopt animal yet</Typography>
 								</Grid>
 							)}
 						</Grid>

@@ -54,7 +54,8 @@ const useStyle = makeStyles((theme) => ({
 		textAlign: 'center',
 		fontSize: '44px',
 		fontFamily: 'Fredoka One',
-		color: '#6C5434'
+		color: '#6C5434',
+		background: '#60B6D1'
 	}
 }));
 
@@ -177,7 +178,7 @@ export default function YourTray(props) {
 				{item === '' ? (
 					<Button variant="text" size="small" style={{ width: '100%', justifyContent: 'left' }}>
 						<Avatar alt="" src="" style={{ marginRight: '5%' }} className={classes.image} />
-						<Typography variant="caption" style={{ textAlign: 'left' }}>
+						<Typography variant="caption" style={{ textAlign: 'left', fontFamily: 'Fredoka One' }}>
 							Select your items
 						</Typography>
 					</Button>
@@ -200,7 +201,7 @@ export default function YourTray(props) {
 				) : null}
 
 				<ListItem style={{ paddingTop: 0, paddingBottom: 0, textAlign: 'center' }}>
-					<Typography>
+					<Typography style={{ fontFamily: 'Raleway' }}>
 						Own :{' '}
 						{item === '' ? (
 							0
@@ -225,7 +226,7 @@ export default function YourTray(props) {
 				</ListItem>
 				<Grid container justify="space-around" alignItems="center" style={{ paddingTop: '2%' }}>
 					<Grid container item lg={12} justify="center" alignItems="center">
-						<Typography>Feed amount : </Typography>
+						<Typography style= {{ fontFamily: 'Raleway' }}>Feed amount : </Typography>
 						<IconButton disabled={item === ''} onClick={() => decrement()}>
 							<RemoveCircleOutlineIcon />
 						</IconButton>
@@ -243,7 +244,7 @@ export default function YourTray(props) {
 				variant="contained"
 				onClick={() => submitData(userStorage.userId)}
 			>
-				<Typography>Feed Now</Typography>
+				<Typography style={{ fontFamily: 'Fredoka One' }}>Feed Now</Typography>
 			</Button>
 			<Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
 				<Alert onClose={handleClose} severity="success">

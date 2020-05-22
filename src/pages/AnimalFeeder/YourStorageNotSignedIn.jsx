@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import { Link } from 'react-router-dom';
 
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
@@ -26,9 +27,11 @@ export default function YourStorageNotSignedIn() {
 			<Grid item xs={12}>
 			<Typography style={{ fontFamily: 'Raleway', margin: '5px'}}>
 				<i>Become a member and start feeding the animals!</i></Typography>
-			<Button className={classes.button} type="submit" fullWidth variant="contained">
-				<Typography style={{ fontFamily: 'Fredoka One', color: '' }}>Sign Up</Typography>
-			</Button>
+			<Link to="/sign-up" style={{ textDecoration: 'none' }}>
+				<Button className={classes.button} type="submit" fullWidth variant="contained">
+					<Typography style={{ fontFamily: 'Fredoka One', color: '' }}>Sign Up</Typography>
+				</Button>
+			</Link>
 			</Grid>
 		</Fragment>
 	);

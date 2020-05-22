@@ -66,7 +66,7 @@ export default function BodySignIn() {
 										variant="h5"
 										style={{ fontFamily: 'Raleway, sans-serif' }}
 									>
-										The Animals are excited for you to visit them again!
+										The animals are excited for your visit!
 									</Typography>
 									<br />
 								</Grid>
@@ -84,7 +84,6 @@ export default function BodySignIn() {
 										style={{
 											fontFamily: 'Lemonada, cursive',
 											paddingBottom: '10px',
-											color: '#6C5434'
 										}}
 									>
 										Welcome Back!
@@ -96,7 +95,7 @@ export default function BodySignIn() {
 										variant="h5"
 										style={{ fontFamily: 'Raleway, sans-serif', paddingBottom: '10px' }}
 									>
-										The Animals are excited for you to visit them again!
+										The animals are excited for your visit!
 									</Typography>
 								</Hidden>
 								<br />

@@ -338,16 +338,16 @@ export default function BodyProfileInfo() {
 					alignItems="center"
 				>
 					<Grid item className={classes.title}>
-						<Typography variant="h4" style={{ fontFamily: 'Fredoka One, cursive' }}>
+						<Typography variant="h4" style={{ fontFamily: 'Fredoka One, cursive', color: '#6C5434' }}>
 							Feeds Store
 						</Typography>
 					</Grid>
 					<Grid container item justify="space-around" direction="column" alignItems="center">
 						<Grid item className={classes.instruction}>
-							<Typography variant="h6">Welcome to the feeds store</Typography>
+							<Typography variant="h6" style={{ fontFamily: 'Fredoka One', color: '#6C5434' }}>Welcome to the feeds store</Typography>
 							<Grid container item>
 								<Grid item style={{ paddingTop: '1%', paddingBottom: '1%' }}>
-									<Typography>
+									<Typography style={{ fontFamily: 'Raleway' }}>
 										Here, you can buy various feeds for your beloved animals. To make it simple,
 										animals has been categorized by their feeds. There are meat eater, fodder eater,
 										fruit eater, bean eater. Check out your favorite animals type in their
@@ -358,7 +358,7 @@ export default function BodyProfileInfo() {
 						</Grid>
 						<Grid container item style={{ paddingTop: '3%' }} justify="space-around">
 							<Grid item lg={5} xs={11} className={classes.storage}>
-								<Typography variant="h6">Available Items</Typography>
+								<Typography variant="h6" style={{ fontFamily: 'Fredoka One', color: '#6C5434' }}>Available Items</Typography>
 								<Grid container direction="row" justify="space-around">
 									<Grid container item lg={6} xs={6} direction="column">
 										<RegularMeat />
@@ -375,7 +375,7 @@ export default function BodyProfileInfo() {
 								</Grid>
 							</Grid>
 							<Grid item lg={5} xs={11} className={classes.cart}>
-								<Typography variant="h6">Your Cart</Typography>
+								<Typography variant="h6" style={{ fontFamily: 'Fredoka One', color: '#6C5434' }}>Your Cart</Typography>
 								<Grid container justify="space-around" alignItems="center">
 									<Grid item lg={6} xs={6}>
 										{item === '' ? (
@@ -390,7 +390,7 @@ export default function BodyProfileInfo() {
 													style={{ marginRight: '5%' }}
 													className={classes.image}
 												/>
-												<Typography variant="caption" style={{ textAlign: 'left' }}>
+												<Typography variant="caption" style={{ textAlign: 'left', fontFamily: 'Fredoka One', color: '#6C5434' }}>
 													Select your items
 												</Typography>
 											</Button>
@@ -413,7 +413,7 @@ export default function BodyProfileInfo() {
 										) : null}
 									</Grid>
 									<Grid item lg={4} xs={4}>
-										<Typography>
+										<Typography style={{ fontFamily: 'Fredoka One', color: '#6C5434' }}>
 											Own :{' '}
 											{item === '' ? (
 												0
@@ -439,10 +439,10 @@ export default function BodyProfileInfo() {
 								</Grid>
 								<Grid container justify="space-around" style={{ paddingTop: '2%' }}>
 									<Grid item>
-										<Typography>Price</Typography>
+										<Typography style={{fontFamily: 'Fredoka One', color: '#6C5434'}}>Price</Typography>
 									</Grid>
 									<Grid item>
-										<Typography>
+										<Typography style={{fontFamily: 'Fredoka One', color: '#6C5434'}}>
 											{' '}
 											@ IDR{' '}
 											{item === '' ? (
@@ -478,7 +478,7 @@ export default function BodyProfileInfo() {
 										</IconButton>
 									</Grid>
 									<Grid item lg={6} xs={6}>
-										<Typography>Total price: IDR {priceCart}</Typography>
+										<Typography style={{fontFamily: 'Fredoka One', color: '#6C5434'}}>Total price: IDR {priceCart}</Typography>
 									</Grid>
 								</Grid>
 								<Grid container>
@@ -486,7 +486,7 @@ export default function BodyProfileInfo() {
 										<Button
 											disabled={item === '' || amount === 0}
 											onClick={handleClickOpen}
-											style={{ backgroundColor: '#b8b086' }}
+											style={{ backgroundColor: '#b8b086', fontFamily: 'Raleway', color: '#6C5434' }}
 										>
 											Buy Now
 										</Button>
@@ -496,9 +496,9 @@ export default function BodyProfileInfo() {
 											aria-labelledby="form-dialog-title"
 											fullWidth="true"
 										>
-											<DialogTitle id="form-dialog-title">Confirm your items</DialogTitle>
+											<DialogTitle id="form-dialog-title" style={{ fontFamily: 'Raleway' }}>Confirm your items</DialogTitle>
 											<DialogContent>
-												<DialogContentText>
+												<DialogContentText style={{ fontFamily: 'Fredoka One' }}>
 													{item === 'RegularMeat' ? (
 														'Regular Meat'
 													) : item === 'PremiumMeat' ? (
@@ -519,7 +519,7 @@ export default function BodyProfileInfo() {
 													X {amount} for {priceCart}
 												</DialogContentText>
 												<FormControl component="fieldset" style={{ margin: '10px' }}>
-													<FormLabel component="legend">
+													<FormLabel component="legend" style={{ fontFamily: 'Raleway' }}>
 														Select your payment method. Your payment is secured
 													</FormLabel>
 													<RadioGroup

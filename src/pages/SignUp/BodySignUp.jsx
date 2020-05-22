@@ -62,7 +62,6 @@ export default function BodySignUp() {
 										style={{
 											fontFamily: 'Lemonada, cursive',
 											paddingBottom: '10px',
-											color: '#6C5434'
 										}}
 									>
 										Join Us Now!
@@ -204,13 +203,10 @@ export default function BodySignUp() {
 									>
 										Get various benefits as a member :
 									</Typography>
-									<Typography style={{ fontSize: '14px', textAlign: 'left' }}>
+									<Typography style={{ fontSize: '14px', textAlign: 'left', fontStyle: 'Roboto' }}>
 										<ul>
-											<li>
-												Earn points when feeding the animals and redeem the points with
-												beautiful merchandise
-											</li>
-											<li>Get a chance to adopt and take care various animals</li>
+											<li>Get a chance to adopt and take care various animals!</li>
+											<li>Become an adopter and get your gifts from Zoonations!</li>
 										</ul>
 									</Typography>
 									<Typography component="h3" variant="subtitle2" style={{ paddingTop: '8px' }}>
