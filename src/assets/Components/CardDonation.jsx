@@ -32,7 +32,7 @@ export default function CardMapping(props) {
 				<CardActionArea>
 					<CardMedia
 						className={classes.media}
-						image="https://media.13newsnow.com/assets/WVEC/images/cd4e02dc-cc24-449a-85b6-899443dc73b8/cd4e02dc-cc24-449a-85b6-899443dc73b8_1920x1080.jpg"
+						image=/* "https://media.13newsnow.com/assets/WVEC/images/cd4e02dc-cc24-449a-85b6-899443dc73b8/cd4e02dc-cc24-449a-85b6-899443dc73b8_1920x1080.jpg" */ {props.zoos.photo}
 						title={props.zoos.zooName}
 					/>
 					<CardContent>

@@ -31,9 +31,9 @@ export default function SliderSlick(props) {
         image: {
             margin: 'auto',
             display: 'block',
-            maxWidth: '150%',
-            maxHeight: '150%',
-            height: '100%'
+            maxWidth: '70%',
+            // maxHeight: '',
+            height: '400px'
         },
         toHelp: {
             fontFamily: 'Lemonada',
@@ -78,7 +78,7 @@ export default function SliderSlick(props) {
                                 </CardActions>
                             </Card> */}
                             <img className={classes.image}
-                                src='https://www.indianapoliszoo.com/wp-content/uploads/2020/02/Sophi-and-Zahara-Carla-Knapp.jpg' /* {zoo.photo} */ />
+                                src=/* 'https://www.indianapoliszoo.com/wp-content/uploads/2020/02/Sophi-and-Zahara-Carla-Knapp.jpg' */ {zoo.photo} />
                             <Typography className={classes.toHelp}>
                                 <Link to={`/zoo-partner/${zoo._id}`}>
                                 {zoo.zooName}

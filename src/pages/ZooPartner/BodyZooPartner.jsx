@@ -96,7 +96,7 @@ console.log(currentZoo);
 							<img
 								className={classes.image}
 								alt="zoo"
-								src="https://dolanyok.com/wp-content/uploads/Kebun-Binatang-Ragunan-dEPAN.jpg"
+								src={currentZoo.length !== 0 ? currentZoo.data.photo : null}
 							/>
 						</Paper>
 					</Grid>
@@ -106,7 +106,7 @@ console.log(currentZoo);
 							<img
 								className={classes.image}
 								alt="zoo"
-								src="https://dolanyok.com/wp-content/uploads/Kebun-Binatang-Ragunan-dEPAN.jpg"
+								src={currentZoo.length !== 0 ? currentZoo.data.photo2 : null}
 							/>
 						</Paper>
 					</Grid>
@@ -118,7 +118,7 @@ console.log(currentZoo);
 							<img
 								className={classes.imageHidden}
 								alt="zoo"
-								src="https://dolanyok.com/wp-content/uploads/Kebun-Binatang-Ragunan-dEPAN.jpg"
+								src={currentZoo.length !== 0 ? currentZoo.data.photo : null}
 							/>
 						</Paper>
 					</Grid>
