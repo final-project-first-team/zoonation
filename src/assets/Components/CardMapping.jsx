@@ -52,7 +52,7 @@ export default function CardMapping(props) {
 					</CardContent>
 				</CardActionArea>
 				<CardActions>
-					<Grid container justify="center">
+					<Grid container justify="space-around">
 						<Grid item>
 							<Button
 								variant="text"
@@ -60,13 +60,14 @@ export default function CardMapping(props) {
 								// onClick={() => handleClick()}
 								style={{ width: '100%', justifyContent: 'left' }}
 							>
-								<Avatar
+								<Typography style={{ fontFamily: 'Lemonada' }}>Feed me</Typography>
+								{/* <Avatar
 									title="Feed me"
 									alt="Feed me"
 									src="https://i.ibb.co/FBRSzPP/Pik-Png-com-fertilizer-png-4695532.png"
 									style={{ marginRight: '5%' }}
 									className={classes.images}
-								/>
+								/> */}
 							</Button>
 						</Grid>
 						<Grid item>
@@ -76,13 +77,14 @@ export default function CardMapping(props) {
 								// onClick={() => handleClick()}
 								style={{ width: '100%', justifyContent: 'left' }}
 							>
-								<Avatar
+								<Typography style={{ fontFamily: 'Lemonada' }}>Adopt me</Typography>
+								{/* <Avatar
 									title="Adopt me"
 									alt="Adopt me"
 									src="https://i.ibb.co/DMGt4Lc/kisspng-beagle-pet-sitting-pet-adoption-cat-pets-sign-5adccafe0d2a20-5333867415244193260539.png"
 									style={{ marginRight: '5%' }}
 									className={classes.images}
-								/>
+								/> */}
 							</Button>
 						</Grid>
 

@@ -50,7 +50,7 @@ const useStyle = makeStyles((theme) => ({
 		fontFamily: 'Lemonada',
 		color: '#6C5434',
 		cursor: 'pointer',
-		fontSize: '18px',
+		fontSize: '18px'
 	}
 }));
 
@@ -75,7 +75,7 @@ export default function BodyOurAnimals() {
 					<Typography className={classes.toHelp}>
 						To help the animals and the zoos,
 						<br />
-						<Link style={{ fontSize: "18px" }} color="inherit">
+						<Link style={{ fontSize: '18px' }} color="inherit">
 							<b>click here!</b>
 						</Link>
 					</Typography>
