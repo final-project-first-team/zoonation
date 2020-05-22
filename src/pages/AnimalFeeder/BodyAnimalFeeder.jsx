@@ -35,7 +35,7 @@ const useStyle = makeStyles((theme) => ({
 		fontSize: '44px',
 		fontFamily: 'Fredoka One',
 		color: '#6C5434',
-		marginTop: theme.spacing(10),
+		marginTop: theme.spacing(10)
 	},
 	titleSm: {
 		display: 'flex',
@@ -43,48 +43,47 @@ const useStyle = makeStyles((theme) => ({
 		fontSize: '34px',
 		fontFamily: 'Fredoka One',
 		color: '#6C5434',
-		marginTop: theme.spacing(10),
+		marginTop: theme.spacing(10)
 	},
 	leftContainer: {
 		backgroundColor: '#6c5434',
-		minHeight: '100%',
+		minHeight: '100%'
 	},
 	leftContainerInside: {
 		backgroundColor: '#f6f4e4',
 		margin: theme.spacing(2),
-		padding: '50px',
-
+		padding: '50px'
 	},
 	storage: {
 		height: 'auto'
 	},
 	tray: {
-		minHeight: '200px',
+		minHeight: '200px'
 	},
 	centerContainer: {
-		minHeight: '100%',
+		minHeight: '100%'
 	},
 	image: {
 		margin: 'auto',
 		width: '100%',
 		height: '260px',
-		alignItems: 'center',
+		alignItems: 'center'
 	},
 	rightContainer: {
 		backgroundColor: '#6c5434',
-		minHeight: '100%',
+		minHeight: '100%'
 	},
 	rightContainerInside: {
 		margin: theme.spacing(2),
 		backgroundColor: '#f6f4e4'
 	},
 	test: {
-		backgroundColor: 'transparent',
+		backgroundColor: 'transparent'
 	},
 	test2: {
 		marginTop: theme.spacing(3),
-		marginBottom: theme.spacing(3),
-	},
+		marginBottom: theme.spacing(3)
+	}
 }));
 
 export default function BodyAnimalFeeder() {
@@ -123,8 +122,21 @@ export default function BodyAnimalFeeder() {
 			</Grid>
 
 			<Grid container justify="space-evenly">
+				<Grid container item className={classes.rightContainer} lg={3} direction="column" justify="center">
+					<Grid item className={classes.rightContainerInside} lg={12}>
+						<AnimalsData currAnimal={currentAnimal} />
+					</Grid>
+				</Grid>
+				<Grid container item className={classes.centerContainer} lg={4}>
+					<Grid item xs={12} style={{ padding: '10px' }}>
+						{currentAnimal.length !== 0 ? (
+							<img className={classes.image} alt="animals" src={`${currentAnimal.data.image1}`} />
+						) : null}
+					</Grid>
+				</Grid>
+
 				<Grid container item className={classes.leftContainer} lg={3} justify="center">
-					<Grid item className={classes.leftContainerInside} lg={12}>
+					<Grid item className={classes.leftContainerInside} lg={12} xs={12}>
 						<Grid container justify="center" direction="column" className={classes.storage}>
 							<Grid item>
 								{status.length === 0 ? (
@@ -142,20 +154,6 @@ export default function BodyAnimalFeeder() {
 						</Grid>
 					</Grid>
 				</Grid>
-				<Grid container item className={classes.centerContainer} lg={4}>
-					<Grid item xs={12} style={{ padding: '10px'}}>
-						<img
-							className={classes.image}
-							alt="animals"
-							src="https://wallpaperaccess.com/full/2136603.jpg"
-						/>
-					</Grid>
-				</Grid>
-				<Grid container item className={classes.rightContainer} lg={3} direction="column" justify="center">
-					<Grid item className={classes.rightContainerInside} lg={12}>
-						<AnimalsData currAnimal={currentAnimal} />
-					</Grid>
-				</Grid>
 			</Grid>
 
 			<Grid container justify="flex-end" className={classes.test2}>
@@ -163,7 +161,9 @@ export default function BodyAnimalFeeder() {
 					<Grid item lg={4}>
 						<Button>
 							<Link type="submit" fullWidth variant="contained" style={{ textDecoration: 'none' }}>
-								<Typography style={{ fontFamily: 'Fredoka One', color: '#6c5434' }}>Feed another animal?</Typography>
+								<Typography style={{ fontFamily: 'Fredoka One', color: '#6c5434' }}>
+									Feed another animal?
+								</Typography>
 							</Link>
 						</Button>
 					</Grid>
@@ -173,7 +173,9 @@ export default function BodyAnimalFeeder() {
 					<Grid item lg={4}>
 						<Button>
 							<Link type="submit" fullWidth variant="contained" style={{ textDecoration: 'none' }}>
-								<Typography style={{ fontFamily: 'Fredoka One', color: '#6c5434' }}>Feed another animal?</Typography>
+								<Typography style={{ fontFamily: 'Fredoka One', color: '#6c5434' }}>
+									Feed another animal?
+								</Typography>
 							</Link>
 						</Button>
 					</Grid>
