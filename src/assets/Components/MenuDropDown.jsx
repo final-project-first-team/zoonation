@@ -164,11 +164,11 @@ export default function SimpleMenu() {
 					</MenuItem>
 				</Link>
 
-				<Link to="/about-us" style={{ textDecoration: 'none' }}>
+				{/* <Link to="/about-us" style={{ textDecoration: 'none' }}>
 					<MenuItem className={classes.title} onClick={handleClose}>
 						About Us
 					</MenuItem>
-				</Link>
+				</Link> */}
 			</Menu>
 		</div>
 	);

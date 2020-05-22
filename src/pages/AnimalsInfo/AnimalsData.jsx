@@ -2,6 +2,7 @@ import React from 'react';
 
 import { makeStyles, Typography } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
+import Avatar from '@material-ui/core/Avatar';
 
 const useStyle = makeStyles((theme) => ({
 	image: {
@@ -69,12 +70,18 @@ export default function AnimalsImage(props) {
 			<Grid container item lg={12} style={{ paddingTop: '4%' }}>
 				<Grid container item lg={6} justify="center">
 					<Grid item lg={3}>
-						<img
+						<Avatar
+							className={classes.image}
+							alt={currentAnimal !== undefined ? currentAnimal.status : null}
+							src="/broken-image.jpg"
+							className={classes.orange}
+						/>
+						{/* <img
 							className={classes.image}
 							src="https://i.ibb.co/0srgTXz/icons8-height-100.png"
 							alt="icons8-height-100"
 							border="0"
-						/>
+						/> */}
 					</Grid>
 					<Grid container item lg={8}>
 						<Grid item lg={12} style={{ textAlign: 'left' }}>

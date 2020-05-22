@@ -9,7 +9,7 @@ const useStyle = makeStyles((theme) => ({
 		display: 'block',
 		maxWidth: '100%',
 		maxHeight: '50vh',
-		borderRadius: '5px',
+		borderRadius: '5px'
 	},
 	imageSmall: {
 		margin: 'auto',
@@ -19,13 +19,14 @@ const useStyle = makeStyles((theme) => ({
 	}
 }));
 
-export default function AnimalsImage() {
+export default function AnimalsImage(props) {
 	const classes = useStyle();
+	const animal = props.currAnimal;
 
 	return (
 		<Grid container justify="center" height="100%" direction="row">
 			<Grid item lg={12}>
-				<img className={classes.image} alt="animals" src="https://wallpaperaccess.com/full/2136603.jpg" />
+				<img className={classes.image} alt="animals" src={animal.length !== 0 ? animal.data.image1 : ''} />
 			</Grid>
 		</Grid>
 	);
