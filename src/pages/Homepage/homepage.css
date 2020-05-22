@@ -1,16 +1,16 @@
 /* BODY */
 .background-image {
-	background: url(../../assets/media/homepage.jpg);
-	background-size: cover;
+	background: url(./safari.png);
+	background-size: auto;
 	background-position: center;
 	background-repeat: no-repeat;
 	opacity: 0.8;
 	min-height: 100%;
-	height: 100%;
+	width: auto;
+	background-color: #EA9D2A;
 }
 
 .text-1 {
-	font-family: Fredoka One;
 	font-style: normal;
 	font-weight: normal;
 	font-size: 28px;
