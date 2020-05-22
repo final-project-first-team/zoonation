@@ -66,7 +66,7 @@ export default function BodyAnimalsInfo() {
 			<Grid container justify="space-around">
 				<Grid item lg={5}>
 					<Paper elevation={0} className={classes.imageViewer}>
-						<AnimalsImage />
+						{currentAnimal !== undefined ? <AnimalsImage currAnimal={currentAnimal} /> : null}
 					</Paper>
 				</Grid>
 				<Grid item lg={5}>
@@ -78,7 +78,7 @@ export default function BodyAnimalsInfo() {
 			<Grid container justify="space-around">
 				<Grid item lg={11}>
 					<Paper className={classes.bottomData}>
-						<AnimalsBottomData currAnimal={currentAnimal} />
+						{currentAnimal !== undefined ? <AnimalsBottomData currAnimal={currentAnimal} /> : null}
 					</Paper>
 				</Grid>
 			</Grid>

@@ -127,13 +127,13 @@ export default function ButtonAppBar(props) {
 												</Typography>
 											</Link>
 										</Grid>
-										<Grid item>
+										{/* <Grid item>
 											<Link to="/about-us" style={{ textDecoration: 'none' }}>
 												<Typography variant="h6" className={classes.title}>
 													About Us
 												</Typography>
 											</Link>
-										</Grid>
+										</Grid> */}
 									</Grid>
 									<Grid container item lg={4} justify="flex-end" alignItems="center">
 										<Grid item>
