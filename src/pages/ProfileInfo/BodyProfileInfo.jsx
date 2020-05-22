@@ -300,7 +300,16 @@ export default function BodyProfileInfo() {
 							{currentAdopt.data !== null ? (
 								<Fragment>
 									<Grid item>
-										<Avatar alt="" src="" style={{ marginRight: '5%' }} className={classes.image} />
+										<Avatar
+											alt=""
+											src={
+												currentAdopt.data !== undefined ? (
+													currentAdopt.data.animalId.image1
+												) : null
+											}
+											style={{ marginRight: '5%' }}
+											className={classes.image}
+										/>
 									</Grid>
 									<Grid item lg={12} xs={12}>
 										<Typography>
