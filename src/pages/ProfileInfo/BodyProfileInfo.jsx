@@ -100,7 +100,7 @@ export default function BodyProfileInfo() {
 				</Hidden>
 				<Hidden lgUp>
 					<Grid>
-						<ExpansionPanel>
+						<ExpansionPanel style={{ width: '100%' }}>
 							<ExpansionPanelSummary
 								expandIcon={<ExpandMoreIcon />}
 								aria-controls="panel1a-content"
@@ -297,21 +297,36 @@ export default function BodyProfileInfo() {
 									Current Animal Adopted
 								</Typography>
 							</Grid>
-							<Grid item>
-								<Avatar alt="" src="" style={{ marginRight: '5%' }} className={classes.image} />
-							</Grid>
-							<Grid item lg={12} xs={12}>
-								<Typography>Capybara</Typography>
-							</Grid>
-							<Grid item lg={12} xs={12}>
-								<Typography>Taman Safari Indonesia</Typography>
-							</Grid>
-							<Grid item lg={12} xs={12}>
-								<Typography>You adopted this animal for 3 months</Typography>
-							</Grid>
-							<Grid item lg={12} xs={12}>
-								<Typography>The animal you adopted is in good condition</Typography>
-							</Grid>
+							{currentAdopt.data !== null ? (
+								<Fragment>
+									<Grid item>
+										<Avatar alt="" src="" style={{ marginRight: '5%' }} className={classes.image} />
+									</Grid>
+									<Grid item lg={12} xs={12}>
+										<Typography>
+											{currentAdopt.data !== undefined ? currentAdopt.data.animalId.name : null}
+										</Typography>
+									</Grid>
+									<Grid item lg={12} xs={12}>
+										<Typography>
+											{currentAdopt.data !== undefined ? currentAdopt.data.animalId.zoo : null}
+										</Typography>
+									</Grid>
+									<Grid item lg={12} xs={12}>
+										<Typography>
+											You adopted this animal for{' '}
+											{currentAdopt.data !== undefined ? currentAdopt.data.long : null} months
+										</Typography>
+									</Grid>
+									<Grid item lg={12} xs={12}>
+										<Typography>The animal you adopted is in good condition</Typography>
+									</Grid>
+								</Fragment>
+							) : (
+								<Grid item lg={12} xs={12}>
+									<Typography>You haven't adopt animal yet</Typography>
+								</Grid>
+							)}
 						</Grid>
 					</Grid>
 				</Grid>
